@@ -1,3 +1,4 @@
-# ikpokeeditor-EM
+# porypoke
+Based on inmortalkaktus's [inmortalkaktus](https://github.com/inmortalkaktus/)'s [ikpokeeditor](https://github.com/inmortalkaktus/ikpokeeditor-esp) for [pokeruby](https://github.com/pret/pokeruby), this tool's objective is to let people easily edit Pokémon data from the [pokeemerald](https://github.com/pret/pokeemerald) project.
 
-Trying to port inmortalkaktus's ikpokeeditor to pokeemerald.
+***Currently in early development.***
