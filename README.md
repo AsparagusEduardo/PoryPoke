@@ -3,11 +3,3 @@ Based on [inmortalkaktus](https://github.com/inmortalkaktus/)'s [ikpokeeditor](h
 
 ***Currently in early development.***
 
-## Current new features compared to ikpokeeditor
- - Support for editing multiple Pokémon at a time without having to save when switching between them.
- - Option to individually saving a single Pokémon or saving everything.
- 
-## Planned new features
- - Support for [DizzyEgg](https://github.com/DizzyEggg/)'s Pokémon Expansion.
- - Multiple formatting options for saving files.
- - Multilanguage support.
