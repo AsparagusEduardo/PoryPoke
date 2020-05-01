@@ -79,38 +79,7 @@ namespace IKPokeEditor
             var rValue = true;
             var pathToSearch = "";
 
-            string[] filePaths = {
-                //(directory.ToString() + "\\data\\graphics\\pokemon\\back_pic_table.inc"),
-                //(directory.ToString() + "\\data\\graphics\\pokemon\\front_pic_table.inc"),
-                //(directory.ToString() + "\\data\\graphics\\pokemon\\back_pic_coords.inc"),
-                //(directory.ToString() + "\\data\\graphics\\pokemon\\front_pic_coords.inc"),
-                //(directory.ToString() + "\\data\\graphics\\pokemon\\graphics.inc"),
-                //(directory.ToString() + "\\data\\graphics\\pokemon\\palette_table.inc"),
-                //(directory.ToString() + "\\data\\graphics\\pokemon\\shiny_palette_table.inc"),
-                (directory.ToString() + "\\include\\constants\\species.h"),
-                //(directory.ToString() + "\\include\\global.h"),
-                //(directory.ToString() + "\\include\\graphics.h"),
-                //(directory.ToString() + "\\include\\pokedex.h"),
-                //(directory.ToString() + "\\sound\\direct_sound_data.inc"),
-                //(directory.ToString() + "\\sound\\voice_groups.inc"),
-                //(directory.ToString() + "\\src\\battle\\battle_1.c"),
-                //(directory.ToString() + "\\src\\data\\pokemon\\base_stats.h"),
-                //(directory.ToString() + "\\src\\data\\pokemon\\cry_ids.h"),
-                //(directory.ToString() + "\\src\\data\\pokemon\\level_up_learnset_pointers.h"),
-                //(directory.ToString() + "\\src\\data\\pokemon\\level_up_learnsets.h"),
-                //(directory.ToString() + "\\src\\data\\pokemon\\tmhm_learnsets.h"),
-                //(directory.ToString() + "\\src\\data\\text\\species_names_en.h"),
-                //(directory.ToString() + "\\src\\data\\pokedex_entries_en.h"),
-                //(directory.ToString() + "\\src\\data\\pokedex_orders.h"),
-                //(directory.ToString() + "\\src\\pokedex.c"),
-                //(directory.ToString() + "\\src\\pokemon_1.c"),
-                //(directory.ToString() + "\\src\\pokemon_icon.c"),
-                //(directory.ToString() + "\\src\\data\\text\\move_names_en.h"),
-                //(directory.ToString() + "\\src\\data\\items .h"),
-                (directory.ToString() + "\\include\\constants\\pokemon.h"),
-                //(directory.ToString() + "\\include\\constants\\abilities.h"),
-                //(directory.ToString() + "\\src\\data\\pokemon\\evolution.h"),
-            };
+            string[] filePaths = Constants.filePaths;
 
             List<string> folderPathsList = new List<string>();
             /*string[] folderPaths =
@@ -133,18 +102,19 @@ namespace IKPokeEditor
 
             for (int i = 0; i < filePaths.Length; i++)
             {
-                if (File.Exists(filePaths[i]) == false)
+                string path = directory.ToString() + filePaths[i];
+                if (File.Exists(path) == false)
                 {
                     rValue = false;
-                    pathErr = filePaths[i].Substring(0, filePaths[i].LastIndexOfAny(new char[] { '\\', '/' }));
-                    fileErr = filePaths[i].Substring(filePaths[i].LastIndexOfAny(new char[] { '\\', '/' }) + 1);
+                    pathErr = path.Substring(0, path.LastIndexOfAny(new char[] { '\\', '/' }));
+                    fileErr = path.Substring(path.LastIndexOfAny(new char[] { '\\', '/' }) + 1);
                 }
-                pathToSearch = filePaths[i];
+                pathToSearch = path;
 
                 pathToSearch = pathToSearch.Substring(pathToSearch.LastIndexOfAny(new char[] { '\\', '/' }) + 1);
                 pathToSearch = pathToSearch.Substring(0, pathToSearch.LastIndexOfAny(new char[] { '.' })) + "_" + pathToSearch.Substring(pathToSearch.LastIndexOfAny(new char[] { '.' }) + 1);
 
-                dictionary["pFile_" + pathToSearch.ToString()] = filePaths[i];
+                dictionary["pFile_" + pathToSearch.ToString()] = path;
                 data["pFile_" + pathToSearch.ToString()] = null;
 
                 //MessageBox.Show("pFile_" + pathToSearch + " directory: " + dictionary["pFile_" + pathToSearch.ToString()].ToString());

@@ -61,6 +61,7 @@
     <Compile Include="Datos.Designer.cs">
       <DependentUpon>Datos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Constants.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
