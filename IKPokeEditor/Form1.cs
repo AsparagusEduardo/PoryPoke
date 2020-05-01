@@ -1469,38 +1469,7 @@ namespace IKPokeEditor
         {
             string str = null;
 
-            string[] filePaths = {
-                //("pFile_back_pic_table_inc"),
-                //("pFile_front_pic_table_inc"),
-                //("pFile_back_pic_coords_inc"),
-                //("pFile_front_pic_coords_inc"),
-                //("pFile_graphics_inc"),
-                //("pFile_palette_table_inc"),
-                //("pFile_shiny_palette_table_inc"),
-                ("pFile_species_h"),
-                //("pFile_global_h"),
-                //("pFile_graphics_h"),
-                //("pFile_pokedex_h"),
-                //("pFile_direct_sound_data_inc"),
-                //("pFile_voice_groups_inc"),
-                //("pFile_battle_1_c"),
-                //("pFile_base_stats_h"),
-                //("pFile_cry_ids_h"),
-                //("pFile_level_up_learnset_pointers_h"),
-                //("pFile_level_up_learnsets_h"),
-                //("pFile_tmhm_learnsets_h"),
-                //("pFile_species_names_en_h"),
-                //("pFile_pokedex_entries_en_h"),
-                //("pFile_pokedex_orders_h"),
-                //("pFile_pokedex_c"),
-                //("pFile_pokemon_1_c"),
-                //("pFile_pokemon_icon_c"),
-                //("pFile_move_names_en_h"),
-                //("pFile_items_en_h"),
-                ("pFile_pokemon_h"),
-                //("pFile_abilities_h"),
-                //("pFile_evolution_h")
-            };
+            string[] filePaths = Constants.filePathNames;
 
             for (int i = 0; i < filePaths.Length; i++)
             {
