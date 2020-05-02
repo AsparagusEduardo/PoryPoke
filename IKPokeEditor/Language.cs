@@ -11,6 +11,8 @@ namespace IKPokeEditor
         public static Dictionary<string, string> English = new Dictionary<string, string>
         {
             { "menuFile",       "File"},
+            { "menuFolder",     "Select folder..."},
+            { "menuSave",       "Save"},
             { "menuOptions",    "Options"},
             { "menuLanguage",   "Language"},
             { "menuEnglish",    "English"},
@@ -23,6 +25,8 @@ namespace IKPokeEditor
         public static Dictionary<string, string> Spanish = new Dictionary<string, string>
         {
             { "menuFile",       "Archivo"},
+            { "menuFolder",     "Seleccionar carpeta..."},
+            { "menuSave",       "Guardar"},
             { "menuOptions",    "Opciones"},
             { "menuLanguage",   "Idioma"},
             { "menuEnglish",    "Inglés"},

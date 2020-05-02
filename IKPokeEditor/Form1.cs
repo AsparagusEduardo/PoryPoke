@@ -62,7 +62,7 @@ namespace IKPokeEditor
                     setPokemonDataDictionary();
                     setInfoDataDictionary();
                     loadData();
-                    guardarToolStripMenuItem.Enabled = true;
+                    menuSaveToolStripMenuItem.Enabled = true;
 
                     cmbInforma_Species.SelectedIndex = 1;
                     cmbPokedex_Species.SelectedIndex = 1;
@@ -3718,6 +3718,9 @@ namespace IKPokeEditor
             }
             if(text != null)
             {
+                menuFileToolStripMenuItem.Text = text["menuFile"];
+                menuFolderToolStripMenuItem.Text = text["menuFolder"];
+                menuSaveToolStripMenuItem.Text = text["menuSave"];
                 menuOptionsToolStripMenuItem.Text = text["menuOptions"];
                 menuLanguageToolStripMenuItem.Text = text["menuLanguage"];
                 menuEnglishToolStripMenuItem.Text = text["menuEnglish"];

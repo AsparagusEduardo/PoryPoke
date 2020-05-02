@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.seleccionarCarpetaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.guardarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuSaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.generoCheck = new System.Windows.Forms.CheckBox();
@@ -191,7 +191,7 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.archivoToolStripMenuItem,
+            this.menuFileToolStripMenuItem,
             this.menuOptionsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -199,31 +199,31 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // archivoToolStripMenuItem
+            // menuFileToolStripMenuItem
             // 
-            this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.seleccionarCarpetaToolStripMenuItem,
-            this.guardarToolStripMenuItem});
-            this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(73, 24);
-            this.archivoToolStripMenuItem.Text = "Archivo";
+            this.menuFileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuFolderToolStripMenuItem,
+            this.menuSaveToolStripMenuItem});
+            this.menuFileToolStripMenuItem.Name = "menuFileToolStripMenuItem";
+            this.menuFileToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
+            this.menuFileToolStripMenuItem.Text = "menuFile";
             // 
-            // seleccionarCarpetaToolStripMenuItem
+            // menuFolderToolStripMenuItem
             // 
-            this.seleccionarCarpetaToolStripMenuItem.Name = "seleccionarCarpetaToolStripMenuItem";
-            this.seleccionarCarpetaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.seleccionarCarpetaToolStripMenuItem.Size = new System.Drawing.Size(284, 26);
-            this.seleccionarCarpetaToolStripMenuItem.Text = "Seleccionar carpeta...";
-            this.seleccionarCarpetaToolStripMenuItem.Click += new System.EventHandler(this.seleccionarCarpetaToolStripMenuItem_Click);
+            this.menuFolderToolStripMenuItem.Name = "menuFolderToolStripMenuItem";
+            this.menuFolderToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.menuFolderToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.menuFolderToolStripMenuItem.Text = "menuFolder";
+            this.menuFolderToolStripMenuItem.Click += new System.EventHandler(this.seleccionarCarpetaToolStripMenuItem_Click);
             // 
-            // guardarToolStripMenuItem
+            // menuSaveToolStripMenuItem
             // 
-            this.guardarToolStripMenuItem.Enabled = false;
-            this.guardarToolStripMenuItem.Name = "guardarToolStripMenuItem";
-            this.guardarToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.guardarToolStripMenuItem.Size = new System.Drawing.Size(284, 26);
-            this.guardarToolStripMenuItem.Text = "Guardar";
-            this.guardarToolStripMenuItem.Click += new System.EventHandler(this.guardarToolStripMenuItem_Click);
+            this.menuSaveToolStripMenuItem.Enabled = false;
+            this.menuSaveToolStripMenuItem.Name = "menuSaveToolStripMenuItem";
+            this.menuSaveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.menuSaveToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.menuSaveToolStripMenuItem.Text = "menuSave";
+            this.menuSaveToolStripMenuItem.Click += new System.EventHandler(this.guardarToolStripMenuItem_Click);
             // 
             // tabControl1
             // 
@@ -1612,8 +1612,8 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem seleccionarCarpetaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuFolderToolStripMenuItem;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
@@ -1637,7 +1637,7 @@
         private System.Windows.Forms.TextBox escalaPokemon;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.ToolStripMenuItem guardarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuSaveToolStripMenuItem;
         private System.Windows.Forms.PictureBox fondo;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Label label32;
