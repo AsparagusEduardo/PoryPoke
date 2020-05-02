@@ -53,7 +53,6 @@ namespace IKPokeEditor
                 fileName = FBD.FileName;
                 directory = FBD.FileName;
                 bool checkResult = checkFilesExists();
-                //bool checkResult = true;
 
                 if (checkResult == true)
                 {
@@ -64,9 +63,9 @@ namespace IKPokeEditor
                     loadData();
                     guardarToolStripMenuItem.Enabled = true;
 
-                    //comboBox1.SelectedIndex = 1;
-                    //comboBox2.SelectedIndex = 1;
-                    //comboBox3.SelectedIndex = 1;
+                    comboBox1.SelectedIndex = 1;
+                    comboBox2.SelectedIndex = 1;
+                    comboBox3.SelectedIndex = 1;
                 } else
                 {
                     MessageBox.Show("No se ha encontrado el archivo " + fileErr + " en el directorio " + pathErr);
@@ -146,7 +145,7 @@ namespace IKPokeEditor
         private void loadData()
         {
             //loadPokemonBaseStats();
-            //loadPokemonNames();
+            loadPokemonNames();
             //loadPokemonEvolutions();
             //loadPokemonMovements();
             //loadPokemonMTMO();
@@ -872,14 +871,16 @@ namespace IKPokeEditor
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if ((comboBox1.SelectedIndex == 0) && (comboBox1.Text == "NONE")) {
+            if ((comboBox1.SelectedIndex == 0) && (comboBox1.Text == "NONE"))
+            {
                 MessageBox.Show("No es posible cargar los datos de \"NONE\"");
                 comboBox1.SelectedIndex = 1;
-            } else
+            }
+            else
             {
                 comboBox2.SelectedIndex = comboBox1.SelectedIndex;
                 comboBox3.SelectedIndex = comboBox1.SelectedIndex;
-                refrescarInterfaz();
+                //refrescarInterfaz();
             }
         }
 
