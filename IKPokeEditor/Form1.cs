@@ -1617,40 +1617,9 @@ namespace IKPokeEditor
         private void setEggAndColorData()
         {
             string str = data["pFile_pokemon_h"].ToString();
-            int index = 0;
-            int lastIndex = 0;
 
-            var EggGroup = Regex.Matches(str, "EGG_GROUP_").Cast<Match>().Count() - 1;
-            var BodyColor = Regex.Matches(str, "BODY_COLOR_").Cast<Match>().Count() - 1;
-
-            for (int i = 0; i <= EggGroup; i++)
-            {
-                index = str.IndexOf("EGG_GROUP_", lastIndex + 2);
-                lastIndex = index;
-
-                var eggGroup = str.Substring((index + 10), (str.IndexOf("\n", index) - (index + 10)));
-                eggGroup = eggGroup.Split(' ')[0];
-                eggGroup = eggGroup.Replace(@"_", " ");
-
-                infoData["grupos_huevo"][i.ToString()] = eggGroup;
-                //MessageBox.Show("Grupos huevo: " + infoData["grupos_huevo"][i.ToString()]);
-            }
-
-            index = 0;
-            lastIndex = 0;
-            
-            for (int i = 0; i <= BodyColor; i++)
-            {
-                index = str.IndexOf("BODY_COLOR_", lastIndex + 2);
-                lastIndex = index;
-
-                var bodyColor = str.Substring((index + 11), (str.IndexOf("\n", index) - (index + 11)));
-                bodyColor = bodyColor.Split(' ')[0];
-                bodyColor = bodyColor.Replace(@"_", " ");
-
-                infoData["color_cuerpo"][i.ToString()] = bodyColor;
-                //MessageBox.Show("Color cuerpo: " + infoData["color_cuerpo"][i.ToString()]);
-            }
+            DataLoad.DataLoad.LoadEggGroups(str, ref infoData);
+            DataLoad.DataLoad.LoadBodyColors(str, ref infoData);
 
             addEggGroupToComboBox();
             addBodyColorToComboBox();

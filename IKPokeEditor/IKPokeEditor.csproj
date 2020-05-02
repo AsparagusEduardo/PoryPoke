@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataLoad\DataLoad.cs" />
     <Compile Include="Datos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,5 +119,6 @@
   <ItemGroup>
     <Content Include="icon64.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
