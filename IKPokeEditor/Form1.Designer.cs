@@ -38,7 +38,7 @@
             this.menuEnglishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSpanishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabInforma = new System.Windows.Forms.TabPage();
+            this.tabStats = new System.Windows.Forms.TabPage();
             this.generoCheck = new System.Windows.Forms.CheckBox();
             this.crecimiento = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -158,7 +158,7 @@
             this.fondo = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.tabInforma.SuspendLayout();
+            this.tabStats.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -258,7 +258,7 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabInforma);
+            this.tabControl1.Controls.Add(this.tabStats);
             this.tabControl1.Controls.Add(this.tabPokedex);
             this.tabControl1.Controls.Add(this.tabGraphics);
             this.tabControl1.Location = new System.Drawing.Point(0, 33);
@@ -269,41 +269,41 @@
             this.tabControl1.TabIndex = 9;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
-            // tabInforma
+            // tabStats
             // 
-            this.tabInforma.Controls.Add(this.generoCheck);
-            this.tabInforma.Controls.Add(this.crecimiento);
-            this.tabInforma.Controls.Add(this.groupBox4);
-            this.tabInforma.Controls.Add(this.expBase);
-            this.tabInforma.Controls.Add(this.groupBox3);
-            this.tabInforma.Controls.Add(this.COLOR_CUERPO);
-            this.tabInforma.Controls.Add(this.amistadBase);
-            this.tabInforma.Controls.Add(this.ciclosHuevo);
-            this.tabInforma.Controls.Add(this.genero);
-            this.tabInforma.Controls.Add(this.huidaSafari);
-            this.tabInforma.Controls.Add(this.ratioCaptura);
-            this.tabInforma.Controls.Add(this.label21);
-            this.tabInforma.Controls.Add(this.label20);
-            this.tabInforma.Controls.Add(this.label19);
-            this.tabInforma.Controls.Add(this.label17);
-            this.tabInforma.Controls.Add(this.label16);
-            this.tabInforma.Controls.Add(this.label15);
-            this.tabInforma.Controls.Add(this.label14);
-            this.tabInforma.Controls.Add(this.groupBox1);
-            this.tabInforma.Controls.Add(this.groupBox2);
-            this.tabInforma.Controls.Add(this.button1);
-            this.tabInforma.Controls.Add(this.label1);
-            this.tabInforma.Controls.Add(this.cmbInforma_Species);
-            this.tabInforma.Controls.Add(this.POKEMON_NAME);
-            this.tabInforma.Controls.Add(this.button2);
-            this.tabInforma.Location = new System.Drawing.Point(4, 25);
-            this.tabInforma.Margin = new System.Windows.Forms.Padding(4);
-            this.tabInforma.Name = "tabInforma";
-            this.tabInforma.Padding = new System.Windows.Forms.Padding(4);
-            this.tabInforma.Size = new System.Drawing.Size(1343, 696);
-            this.tabInforma.TabIndex = 0;
-            this.tabInforma.Text = "tabInforma";
-            this.tabInforma.UseVisualStyleBackColor = true;
+            this.tabStats.Controls.Add(this.generoCheck);
+            this.tabStats.Controls.Add(this.crecimiento);
+            this.tabStats.Controls.Add(this.groupBox4);
+            this.tabStats.Controls.Add(this.expBase);
+            this.tabStats.Controls.Add(this.groupBox3);
+            this.tabStats.Controls.Add(this.COLOR_CUERPO);
+            this.tabStats.Controls.Add(this.amistadBase);
+            this.tabStats.Controls.Add(this.ciclosHuevo);
+            this.tabStats.Controls.Add(this.genero);
+            this.tabStats.Controls.Add(this.huidaSafari);
+            this.tabStats.Controls.Add(this.ratioCaptura);
+            this.tabStats.Controls.Add(this.label21);
+            this.tabStats.Controls.Add(this.label20);
+            this.tabStats.Controls.Add(this.label19);
+            this.tabStats.Controls.Add(this.label17);
+            this.tabStats.Controls.Add(this.label16);
+            this.tabStats.Controls.Add(this.label15);
+            this.tabStats.Controls.Add(this.label14);
+            this.tabStats.Controls.Add(this.groupBox1);
+            this.tabStats.Controls.Add(this.groupBox2);
+            this.tabStats.Controls.Add(this.button1);
+            this.tabStats.Controls.Add(this.label1);
+            this.tabStats.Controls.Add(this.cmbInforma_Species);
+            this.tabStats.Controls.Add(this.POKEMON_NAME);
+            this.tabStats.Controls.Add(this.button2);
+            this.tabStats.Location = new System.Drawing.Point(4, 25);
+            this.tabStats.Margin = new System.Windows.Forms.Padding(4);
+            this.tabStats.Name = "tabStats";
+            this.tabStats.Padding = new System.Windows.Forms.Padding(4);
+            this.tabStats.Size = new System.Drawing.Size(1343, 696);
+            this.tabStats.TabIndex = 0;
+            this.tabStats.Text = "tabStats";
+            this.tabStats.UseVisualStyleBackColor = true;
             // 
             // generoCheck
             // 
@@ -1570,8 +1570,8 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
-            this.tabInforma.ResumeLayout(false);
-            this.tabInforma.PerformLayout();
+            this.tabStats.ResumeLayout(false);
+            this.tabStats.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
@@ -1658,7 +1658,7 @@
         private System.Windows.Forms.PictureBox icon;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.TabPage tabInforma;
+        private System.Windows.Forms.TabPage tabStats;
         private System.Windows.Forms.CheckBox generoCheck;
         private System.Windows.Forms.ComboBox crecimiento;
         private System.Windows.Forms.GroupBox groupBox4;

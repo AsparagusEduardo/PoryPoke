@@ -17,7 +17,7 @@ namespace IKPokeEditor
             { "menuLanguage",   "Language"},
             { "menuEnglish",    "English"},
             { "menuSpanish",    "Spanish"},
-            { "tabInforma",     "Information"},
+            { "tabStats",       "Stats"},
             { "tabPokedex",     "Pokédex"},
             { "tabGraphics",    "Graphics"},
         };
@@ -31,7 +31,7 @@ namespace IKPokeEditor
             { "menuLanguage",   "Idioma"},
             { "menuEnglish",    "Inglés"},
             { "menuSpanish",    "Español"},
-            { "tabInforma",     "Información"},
+            { "tabStats",       "Estadísticas"},
             { "tabPokedex",     "Pokédex"},
             { "tabGraphics",    "Gráficos"},
         };

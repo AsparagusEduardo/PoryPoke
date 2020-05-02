@@ -3726,7 +3726,7 @@ namespace IKPokeEditor
                 menuEnglishToolStripMenuItem.Text = text["menuEnglish"];
                 menuSpanishToolStripMenuItem.Text = text["menuSpanish"];
 
-                tabInforma.Text = text["tabInforma"];
+                tabStats.Text = text["tabStats"];
                 tabPokedex.Text = text["tabPokedex"];
                 tabGraphics.Text = text["tabGraphics"];
             }
