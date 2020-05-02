@@ -191,16 +191,6 @@ namespace IKPokeEditor
 
             DataLoad.pokeemerald.LoadMonBaseStats(str, speciesNames, ref PokemonDictionary);
 
-            var pokeAmount = 0;
-            var index = 0;
-            var pastValue = 0;
-            var indexName = 0;
-            var pastValueName = 0;
-            string ataqueBase = null;
-            string defensaBase = null;
-            string velocidadBase = null;
-            string ataqueEspecialBase = null;
-            string defensaEspecialBase = null;
             string type1 = null;
             string type2 = null;
             string ratioCaptura = null;
@@ -225,28 +215,12 @@ namespace IKPokeEditor
             string colorCuerpo = null;
             string pokemonName = null;
 
-            pokeAmount = Regex.Matches(str, "SPECIES_").Cast<Match>().Count() - 1;
-
-            pastValue = str.IndexOf("SPECIES_", 0);
-            pastValueName = speciesNames.IndexOf("SPECIES_", 0);
-            //MessageBox.Show(pastValue.ToString());
 
             Class.Pokemon poke;
 
-            for (int i = 0; i < pokeAmount; i++)
+            for (int i = 0; i < 13; i++)
             {
                 /*
-                index = (str.IndexOf(",", (str.IndexOf("baseDefense", index)))) + 2;
-                velocidadBase = str.Substring((str.IndexOf("baseSpeed", index) + 16), (str.IndexOf(",", index)) - (str.IndexOf("baseSpeed", index) + 16));
-                pokemonData["velocidadBase"][(i + 1).ToString()] = velocidadBase;
-
-                index = (str.IndexOf(",", index)) + 2;
-                ataqueEspecialBase = str.Substring((str.IndexOf("baseSpAttack", index) + 16), (str.IndexOf(",", index)) - (str.IndexOf("baseSpAttack", index) + 16));
-                pokemonData["ataqueEspecialBase"][(i + 1).ToString()] = ataqueEspecialBase;
-
-                index = (str.IndexOf(",", index)) + 2;
-                defensaEspecialBase = str.Substring((str.IndexOf("baseSpDefense", index) + 16), str.IndexOf(",", index) - (str.IndexOf("baseSpDefense", index) + 16));
-                pokemonData["defensaEspecialBase"][(i + 1).ToString()] = defensaEspecialBase;
 
                 index = (str.IndexOf(",", index)) + 2;
                 type1 = str.Substring((str.IndexOf("type1", index) + 8), str.IndexOf(",", index) - (str.IndexOf("type1", index) + 8));
@@ -1057,10 +1031,10 @@ namespace IKPokeEditor
             PS_Base.Text = PokemonDictionary[cmbInforma_Species.SelectedItem.ToString()].BaseHP.ToString();
             ATQ_Base.Text = PokemonDictionary[cmbInforma_Species.SelectedItem.ToString()].BaseAttack.ToString();
             DEF_Base.Text = PokemonDictionary[cmbInforma_Species.SelectedItem.ToString()].BaseDefense.ToString();
+            VEL_Base.Text = PokemonDictionary[cmbInforma_Species.SelectedItem.ToString()].BaseSpeed.ToString();
+            ATESP_Base.Text = PokemonDictionary[cmbInforma_Species.SelectedItem.ToString()].BaseSpAttack.ToString();
+            DFESP_Base.Text = PokemonDictionary[cmbInforma_Species.SelectedItem.ToString()].BaseSpDefense.ToString();
             /*
-            VEL_Base.Text = pokemonData["velocidadBase"][cmbInforma_Species.SelectedIndex.ToString()];
-            ATESP_Base.Text = pokemonData["ataqueEspecialBase"][cmbInforma_Species.SelectedIndex.ToString()];
-            DFESP_Base.Text = pokemonData["defensaEspecialBase"][cmbInforma_Species.SelectedIndex.ToString()];
             //Recibir tipo 1
             //TIPO1.SelectedIndex = Int32.Parse(infoData["tipos"].FirstOrDefault(x => x.Value.Contains(pokemonData["tipoUno"][comboBox1.SelectedIndex.ToString()].Substring(5))).Key);
             var formatoTipo1 = pokemonData["tipoUno"][cmbInforma_Species.SelectedIndex.ToString()].Substring(5);

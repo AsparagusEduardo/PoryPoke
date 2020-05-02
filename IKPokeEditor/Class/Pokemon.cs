@@ -13,5 +13,8 @@ namespace IKPokeEditor.Class
         public int BaseHP { get; set; }
         public int BaseAttack { get; set; }
         public int BaseDefense { get; set; }
+        public int BaseSpeed { get; set; }
+        public int BaseSpAttack { get; set; }
+        public int BaseSpDefense { get; set; }
     }
 }

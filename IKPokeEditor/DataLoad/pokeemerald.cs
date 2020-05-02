@@ -134,7 +134,7 @@ namespace IKPokeEditor.DataLoad
         public static void LoadMonBaseStats(string str, string speciesNames, ref Dictionary<string, Class.Pokemon> PokemonDictionary)
         {
             int pokeAmount, index, pastIndex, statIndex, indexName, pastValueName;
-            string baseHP, baseAttack, baseDefense;
+            string baseHP, baseAttack, baseDefense, baseSpeed, baseSpAttack, baseSpDefense;
 
             PokemonDictionary.Clear();
 
@@ -158,7 +158,7 @@ namespace IKPokeEditor.DataLoad
                 baseHP = str.Substring(statIndex, str.IndexOf(",", statIndex) - statIndex);
 
                 // BASE ATTACK
-                index = (str.IndexOf(",", index + nextBrac + 35));
+                index = (str.IndexOf(",", statIndex));
                 statIndex = str.IndexOf("baseAttack", index);
                 baseAttack = str.Substring(statIndex + 16, str.IndexOf(",", statIndex) - (statIndex + 16));
 
@@ -167,12 +167,29 @@ namespace IKPokeEditor.DataLoad
                 statIndex = str.IndexOf("baseDefense", index);
                 baseDefense = str.Substring(statIndex + 16, str.IndexOf(",", statIndex) - (statIndex + 16));
 
+                // BASE SPEED
+                index = str.IndexOf(",", statIndex) + 2;
+                statIndex = str.IndexOf("baseSpeed", index);
+                baseSpeed = str.Substring(statIndex + 16, str.IndexOf(",", index) - (statIndex + 16));
+
+                // BASE SP ATTACK
+                index = (str.IndexOf(",", statIndex)) + 2;
+                statIndex = str.IndexOf("baseSpAttack", index);
+                baseSpAttack = str.Substring(statIndex + 16, str.IndexOf(",", index) - (statIndex + 16));
+
+                // BASE SP DEFENSE
+                index = (str.IndexOf(",", statIndex)) + 2;
+                statIndex = str.IndexOf("baseSpDefense", index);
+                baseSpDefense = str.Substring(statIndex + 16, str.IndexOf(",", index) - (statIndex + 16));
 
                 if (!(poke.ID.Substring(0, Math.Min(poke.ID.Length, 9)).Equals("OLD_UNOWN")))
                 {
                     poke.BaseHP = int.Parse(baseHP);
                     poke.BaseAttack = int.Parse(baseAttack);
                     poke.BaseDefense = int.Parse(baseDefense);
+                    poke.BaseSpeed = int.Parse(baseSpeed);
+                    poke.BaseSpAttack = int.Parse(baseSpAttack);
+                    poke.BaseSpDefense = int.Parse(baseSpDefense);
                 }
 
                 PokemonDictionary.Add(poke.ID, poke);
