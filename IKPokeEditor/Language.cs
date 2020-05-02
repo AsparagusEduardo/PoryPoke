@@ -19,7 +19,7 @@ namespace IKPokeEditor
             { "menuSpanish",    "Spanish"},
             { "tabInforma",     "Information"},
             { "tabPokedex",     "Pokédex"},
-            { "tabGraphic",     "Graphics"},
+            { "tabGraphics",    "Graphics"},
         };
 
         public static Dictionary<string, string> Spanish = new Dictionary<string, string>
@@ -33,7 +33,7 @@ namespace IKPokeEditor
             { "menuSpanish",    "Español"},
             { "tabInforma",     "Información"},
             { "tabPokedex",     "Pokédex"},
-            { "tabGraphic",     "Gráficos"},
+            { "tabGraphics",    "Gráficos"},
         };
     }
 }

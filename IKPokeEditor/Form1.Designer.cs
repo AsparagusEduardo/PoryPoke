@@ -33,8 +33,12 @@
             this.menuFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuOptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuLanguageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuEnglishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuSpanishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabInforma = new System.Windows.Forms.TabPage();
             this.generoCheck = new System.Windows.Forms.CheckBox();
             this.crecimiento = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -110,7 +114,7 @@
             this.cmbInforma_Species = new System.Windows.Forms.ComboBox();
             this.POKEMON_NAME = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPokedex = new System.Windows.Forms.TabPage();
             this.cmbGraphic_Species = new System.Windows.Forms.ComboBox();
             this.button7 = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -133,7 +137,7 @@
             this.altura = new System.Windows.Forms.TextBox();
             this.categoriaPokemon = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabGraphics = new System.Windows.Forms.TabPage();
             this.footprint = new System.Windows.Forms.PictureBox();
             this.icon = new System.Windows.Forms.PictureBox();
             this.label34 = new System.Windows.Forms.Label();
@@ -152,13 +156,9 @@
             this.label31 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.fondo = new System.Windows.Forms.PictureBox();
-            this.menuOptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuLanguageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuEnglishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuSpanishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tabInforma.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -172,10 +172,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tabPokedex.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            this.tabPage3.SuspendLayout();
+            this.tabGraphics.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.footprint)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon)).BeginInit();
             this.groupBox7.SuspendLayout();
@@ -225,60 +225,91 @@
             this.menuSaveToolStripMenuItem.Text = "menuSave";
             this.menuSaveToolStripMenuItem.Click += new System.EventHandler(this.guardarToolStripMenuItem_Click);
             // 
+            // menuOptionsToolStripMenuItem
+            // 
+            this.menuOptionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuLanguageToolStripMenuItem});
+            this.menuOptionsToolStripMenuItem.Name = "menuOptionsToolStripMenuItem";
+            this.menuOptionsToolStripMenuItem.Size = new System.Drawing.Size(112, 24);
+            this.menuOptionsToolStripMenuItem.Text = "menuOptions";
+            // 
+            // menuLanguageToolStripMenuItem
+            // 
+            this.menuLanguageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuEnglishToolStripMenuItem,
+            this.menuSpanishToolStripMenuItem});
+            this.menuLanguageToolStripMenuItem.Name = "menuLanguageToolStripMenuItem";
+            this.menuLanguageToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
+            this.menuLanguageToolStripMenuItem.Text = "menuLanguage";
+            // 
+            // menuEnglishToolStripMenuItem
+            // 
+            this.menuEnglishToolStripMenuItem.Name = "menuEnglishToolStripMenuItem";
+            this.menuEnglishToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.menuEnglishToolStripMenuItem.Text = "menuEnglish";
+            this.menuEnglishToolStripMenuItem.Click += new System.EventHandler(this.menuEnglishToolStripMenuItem_Click);
+            // 
+            // menuSpanishToolStripMenuItem
+            // 
+            this.menuSpanishToolStripMenuItem.Name = "menuSpanishToolStripMenuItem";
+            this.menuSpanishToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.menuSpanishToolStripMenuItem.Text = "menuSpanish";
+            this.menuSpanishToolStripMenuItem.Click += new System.EventHandler(this.menuSpanishToolStripMenuItem_Click);
+            // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabInforma);
+            this.tabControl1.Controls.Add(this.tabPokedex);
+            this.tabControl1.Controls.Add(this.tabGraphics);
             this.tabControl1.Location = new System.Drawing.Point(0, 33);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1351, 725);
             this.tabControl1.TabIndex = 9;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
-            // tabPage1
+            // tabInforma
             // 
-            this.tabPage1.Controls.Add(this.generoCheck);
-            this.tabPage1.Controls.Add(this.crecimiento);
-            this.tabPage1.Controls.Add(this.groupBox4);
-            this.tabPage1.Controls.Add(this.expBase);
-            this.tabPage1.Controls.Add(this.groupBox3);
-            this.tabPage1.Controls.Add(this.COLOR_CUERPO);
-            this.tabPage1.Controls.Add(this.amistadBase);
-            this.tabPage1.Controls.Add(this.ciclosHuevo);
-            this.tabPage1.Controls.Add(this.genero);
-            this.tabPage1.Controls.Add(this.huidaSafari);
-            this.tabPage1.Controls.Add(this.ratioCaptura);
-            this.tabPage1.Controls.Add(this.label21);
-            this.tabPage1.Controls.Add(this.label20);
-            this.tabPage1.Controls.Add(this.label19);
-            this.tabPage1.Controls.Add(this.label17);
-            this.tabPage1.Controls.Add(this.label16);
-            this.tabPage1.Controls.Add(this.label15);
-            this.tabPage1.Controls.Add(this.label14);
-            this.tabPage1.Controls.Add(this.groupBox1);
-            this.tabPage1.Controls.Add(this.groupBox2);
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.cmbInforma_Species);
-            this.tabPage1.Controls.Add(this.POKEMON_NAME);
-            this.tabPage1.Controls.Add(this.button2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage1.Size = new System.Drawing.Size(1343, 696);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Información";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabInforma.Controls.Add(this.generoCheck);
+            this.tabInforma.Controls.Add(this.crecimiento);
+            this.tabInforma.Controls.Add(this.groupBox4);
+            this.tabInforma.Controls.Add(this.expBase);
+            this.tabInforma.Controls.Add(this.groupBox3);
+            this.tabInforma.Controls.Add(this.COLOR_CUERPO);
+            this.tabInforma.Controls.Add(this.amistadBase);
+            this.tabInforma.Controls.Add(this.ciclosHuevo);
+            this.tabInforma.Controls.Add(this.genero);
+            this.tabInforma.Controls.Add(this.huidaSafari);
+            this.tabInforma.Controls.Add(this.ratioCaptura);
+            this.tabInforma.Controls.Add(this.label21);
+            this.tabInforma.Controls.Add(this.label20);
+            this.tabInforma.Controls.Add(this.label19);
+            this.tabInforma.Controls.Add(this.label17);
+            this.tabInforma.Controls.Add(this.label16);
+            this.tabInforma.Controls.Add(this.label15);
+            this.tabInforma.Controls.Add(this.label14);
+            this.tabInforma.Controls.Add(this.groupBox1);
+            this.tabInforma.Controls.Add(this.groupBox2);
+            this.tabInforma.Controls.Add(this.button1);
+            this.tabInforma.Controls.Add(this.label1);
+            this.tabInforma.Controls.Add(this.cmbInforma_Species);
+            this.tabInforma.Controls.Add(this.POKEMON_NAME);
+            this.tabInforma.Controls.Add(this.button2);
+            this.tabInforma.Location = new System.Drawing.Point(4, 25);
+            this.tabInforma.Margin = new System.Windows.Forms.Padding(4);
+            this.tabInforma.Name = "tabInforma";
+            this.tabInforma.Padding = new System.Windows.Forms.Padding(4);
+            this.tabInforma.Size = new System.Drawing.Size(1343, 696);
+            this.tabInforma.TabIndex = 0;
+            this.tabInforma.Text = "tabInforma";
+            this.tabInforma.UseVisualStyleBackColor = true;
             // 
             // generoCheck
             // 
             this.generoCheck.AutoSize = true;
             this.generoCheck.Location = new System.Drawing.Point(28, 553);
-            this.generoCheck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.generoCheck.Margin = new System.Windows.Forms.Padding(4);
             this.generoCheck.Name = "generoCheck";
             this.generoCheck.Size = new System.Drawing.Size(144, 21);
             this.generoCheck.TabIndex = 29;
@@ -292,7 +323,7 @@
             this.crecimiento.DropDownWidth = 100;
             this.crecimiento.FormattingEnabled = true;
             this.crecimiento.Location = new System.Drawing.Point(180, 482);
-            this.crecimiento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.crecimiento.Margin = new System.Windows.Forms.Padding(4);
             this.crecimiento.Name = "crecimiento";
             this.crecimiento.Size = new System.Drawing.Size(104, 24);
             this.crecimiento.TabIndex = 28;
@@ -301,9 +332,9 @@
             // 
             this.groupBox4.Controls.Add(this.tabControl2);
             this.groupBox4.Location = new System.Drawing.Point(765, 31);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox4.Size = new System.Drawing.Size(561, 607);
             this.groupBox4.TabIndex = 27;
             this.groupBox4.TabStop = false;
@@ -314,7 +345,7 @@
             this.tabControl2.Controls.Add(this.tabPage4);
             this.tabControl2.Controls.Add(this.tabPage5);
             this.tabControl2.Location = new System.Drawing.Point(8, 23);
-            this.tabControl2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl2.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
             this.tabControl2.Size = new System.Drawing.Size(545, 576);
@@ -326,9 +357,9 @@
             this.tabPage4.Controls.Add(this.button4);
             this.tabPage4.Controls.Add(this.dataGridView1);
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage4.Size = new System.Drawing.Size(537, 547);
             this.tabPage4.TabIndex = 0;
             this.tabPage4.Text = "Nivel";
@@ -337,7 +368,7 @@
             // MovimientoAEliminar
             // 
             this.MovimientoAEliminar.Location = new System.Drawing.Point(163, 513);
-            this.MovimientoAEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MovimientoAEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.MovimientoAEliminar.Name = "MovimientoAEliminar";
             this.MovimientoAEliminar.ReadOnly = true;
             this.MovimientoAEliminar.Size = new System.Drawing.Size(107, 22);
@@ -346,7 +377,7 @@
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(8, 512);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(147, 28);
             this.button4.TabIndex = 1;
@@ -363,7 +394,7 @@
             this.Ataque,
             this.Nivel});
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
@@ -394,9 +425,9 @@
             this.tabPage5.Controls.Add(this.button5);
             this.tabPage5.Controls.Add(this.dataGridView3);
             this.tabPage5.Location = new System.Drawing.Point(4, 25);
-            this.tabPage5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage5.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage5.Size = new System.Drawing.Size(537, 547);
             this.tabPage5.TabIndex = 1;
             this.tabPage5.Text = "MT/MO";
@@ -405,7 +436,7 @@
             // MTMOAEliminar
             // 
             this.MTMOAEliminar.Location = new System.Drawing.Point(163, 512);
-            this.MTMOAEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MTMOAEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.MTMOAEliminar.Maximum = new decimal(new int[] {
             0,
             0,
@@ -419,7 +450,7 @@
             // button5
             // 
             this.button5.Location = new System.Drawing.Point(8, 511);
-            this.button5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button5.Margin = new System.Windows.Forms.Padding(4);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(147, 28);
             this.button5.TabIndex = 1;
@@ -434,7 +465,7 @@
             this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MTName});
             this.dataGridView3.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView3.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowHeadersVisible = false;
             this.dataGridView3.RowHeadersWidth = 51;
@@ -451,7 +482,7 @@
             // expBase
             // 
             this.expBase.Location = new System.Drawing.Point(180, 450);
-            this.expBase.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.expBase.Margin = new System.Windows.Forms.Padding(4);
             this.expBase.Name = "expBase";
             this.expBase.Size = new System.Drawing.Size(104, 22);
             this.expBase.TabIndex = 20;
@@ -462,9 +493,9 @@
             this.groupBox3.Controls.Add(this.EvolucionAEliminar);
             this.groupBox3.Controls.Add(this.dataGridView2);
             this.groupBox3.Location = new System.Drawing.Point(295, 260);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(463, 378);
             this.groupBox3.TabIndex = 26;
             this.groupBox3.TabStop = false;
@@ -473,7 +504,7 @@
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(8, 343);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(147, 28);
             this.button3.TabIndex = 3;
@@ -484,7 +515,7 @@
             // EvolucionAEliminar
             // 
             this.EvolucionAEliminar.Location = new System.Drawing.Point(163, 345);
-            this.EvolucionAEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.EvolucionAEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.EvolucionAEliminar.Maximum = new decimal(new int[] {
             0,
             0,
@@ -504,7 +535,7 @@
             this.Argumento,
             this.Evolucion});
             this.dataGridView2.Location = new System.Drawing.Point(8, 23);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.RowHeadersWidth = 51;
@@ -537,7 +568,7 @@
             this.COLOR_CUERPO.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.COLOR_CUERPO.FormattingEnabled = true;
             this.COLOR_CUERPO.Location = new System.Drawing.Point(180, 516);
-            this.COLOR_CUERPO.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.COLOR_CUERPO.Margin = new System.Windows.Forms.Padding(4);
             this.COLOR_CUERPO.Name = "COLOR_CUERPO";
             this.COLOR_CUERPO.Size = new System.Drawing.Size(104, 24);
             this.COLOR_CUERPO.TabIndex = 25;
@@ -545,7 +576,7 @@
             // amistadBase
             // 
             this.amistadBase.Location = new System.Drawing.Point(180, 613);
-            this.amistadBase.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.amistadBase.Margin = new System.Windows.Forms.Padding(4);
             this.amistadBase.Name = "amistadBase";
             this.amistadBase.Size = new System.Drawing.Size(104, 22);
             this.amistadBase.TabIndex = 24;
@@ -553,7 +584,7 @@
             // ciclosHuevo
             // 
             this.ciclosHuevo.Location = new System.Drawing.Point(180, 581);
-            this.ciclosHuevo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ciclosHuevo.Margin = new System.Windows.Forms.Padding(4);
             this.ciclosHuevo.Name = "ciclosHuevo";
             this.ciclosHuevo.Size = new System.Drawing.Size(104, 22);
             this.ciclosHuevo.TabIndex = 23;
@@ -562,7 +593,7 @@
             // 
             this.genero.Enabled = false;
             this.genero.Location = new System.Drawing.Point(180, 549);
-            this.genero.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.genero.Margin = new System.Windows.Forms.Padding(4);
             this.genero.Name = "genero";
             this.genero.Size = new System.Drawing.Size(104, 22);
             this.genero.TabIndex = 22;
@@ -571,7 +602,7 @@
             // huidaSafari
             // 
             this.huidaSafari.Location = new System.Drawing.Point(180, 416);
-            this.huidaSafari.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.huidaSafari.Margin = new System.Windows.Forms.Padding(4);
             this.huidaSafari.Name = "huidaSafari";
             this.huidaSafari.Size = new System.Drawing.Size(104, 22);
             this.huidaSafari.TabIndex = 18;
@@ -579,7 +610,7 @@
             // ratioCaptura
             // 
             this.ratioCaptura.Location = new System.Drawing.Point(180, 384);
-            this.ratioCaptura.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ratioCaptura.Margin = new System.Windows.Forms.Padding(4);
             this.ratioCaptura.Name = "ratioCaptura";
             this.ratioCaptura.Size = new System.Drawing.Size(104, 22);
             this.ratioCaptura.TabIndex = 17;
@@ -677,9 +708,9 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(23, 96);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(263, 268);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
@@ -688,7 +719,7 @@
             // VEL_Effort
             // 
             this.VEL_Effort.Location = new System.Drawing.Point(169, 206);
-            this.VEL_Effort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.VEL_Effort.Margin = new System.Windows.Forms.Padding(4);
             this.VEL_Effort.Name = "VEL_Effort";
             this.VEL_Effort.Size = new System.Drawing.Size(71, 22);
             this.VEL_Effort.TabIndex = 27;
@@ -697,7 +728,7 @@
             // DFESP_Effort
             // 
             this.DFESP_Effort.Location = new System.Drawing.Point(169, 176);
-            this.DFESP_Effort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DFESP_Effort.Margin = new System.Windows.Forms.Padding(4);
             this.DFESP_Effort.Name = "DFESP_Effort";
             this.DFESP_Effort.Size = new System.Drawing.Size(71, 22);
             this.DFESP_Effort.TabIndex = 26;
@@ -706,7 +737,7 @@
             // ATESP_Effort
             // 
             this.ATESP_Effort.Location = new System.Drawing.Point(169, 146);
-            this.ATESP_Effort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ATESP_Effort.Margin = new System.Windows.Forms.Padding(4);
             this.ATESP_Effort.Name = "ATESP_Effort";
             this.ATESP_Effort.Size = new System.Drawing.Size(71, 22);
             this.ATESP_Effort.TabIndex = 25;
@@ -715,7 +746,7 @@
             // DEF_Effort
             // 
             this.DEF_Effort.Location = new System.Drawing.Point(169, 117);
-            this.DEF_Effort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DEF_Effort.Margin = new System.Windows.Forms.Padding(4);
             this.DEF_Effort.Name = "DEF_Effort";
             this.DEF_Effort.Size = new System.Drawing.Size(71, 22);
             this.DEF_Effort.TabIndex = 24;
@@ -724,7 +755,7 @@
             // ATQ_Effort
             // 
             this.ATQ_Effort.Location = new System.Drawing.Point(169, 87);
-            this.ATQ_Effort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ATQ_Effort.Margin = new System.Windows.Forms.Padding(4);
             this.ATQ_Effort.Name = "ATQ_Effort";
             this.ATQ_Effort.Size = new System.Drawing.Size(71, 22);
             this.ATQ_Effort.TabIndex = 23;
@@ -733,7 +764,7 @@
             // PS_Effort
             // 
             this.PS_Effort.Location = new System.Drawing.Point(169, 58);
-            this.PS_Effort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PS_Effort.Margin = new System.Windows.Forms.Padding(4);
             this.PS_Effort.Name = "PS_Effort";
             this.PS_Effort.Size = new System.Drawing.Size(71, 22);
             this.PS_Effort.TabIndex = 22;
@@ -742,7 +773,7 @@
             // VEL_Base
             // 
             this.VEL_Base.Location = new System.Drawing.Point(80, 206);
-            this.VEL_Base.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.VEL_Base.Margin = new System.Windows.Forms.Padding(4);
             this.VEL_Base.Name = "VEL_Base";
             this.VEL_Base.Size = new System.Drawing.Size(71, 22);
             this.VEL_Base.TabIndex = 21;
@@ -751,7 +782,7 @@
             // DFESP_Base
             // 
             this.DFESP_Base.Location = new System.Drawing.Point(80, 176);
-            this.DFESP_Base.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DFESP_Base.Margin = new System.Windows.Forms.Padding(4);
             this.DFESP_Base.Name = "DFESP_Base";
             this.DFESP_Base.Size = new System.Drawing.Size(71, 22);
             this.DFESP_Base.TabIndex = 20;
@@ -760,7 +791,7 @@
             // ATESP_Base
             // 
             this.ATESP_Base.Location = new System.Drawing.Point(80, 146);
-            this.ATESP_Base.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ATESP_Base.Margin = new System.Windows.Forms.Padding(4);
             this.ATESP_Base.Name = "ATESP_Base";
             this.ATESP_Base.Size = new System.Drawing.Size(71, 22);
             this.ATESP_Base.TabIndex = 19;
@@ -769,7 +800,7 @@
             // DEF_Base
             // 
             this.DEF_Base.Location = new System.Drawing.Point(80, 117);
-            this.DEF_Base.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DEF_Base.Margin = new System.Windows.Forms.Padding(4);
             this.DEF_Base.Name = "DEF_Base";
             this.DEF_Base.Size = new System.Drawing.Size(71, 22);
             this.DEF_Base.TabIndex = 18;
@@ -778,7 +809,7 @@
             // ATQ_Base
             // 
             this.ATQ_Base.Location = new System.Drawing.Point(80, 87);
-            this.ATQ_Base.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ATQ_Base.Margin = new System.Windows.Forms.Padding(4);
             this.ATQ_Base.Name = "ATQ_Base";
             this.ATQ_Base.Size = new System.Drawing.Size(71, 22);
             this.ATQ_Base.TabIndex = 17;
@@ -787,7 +818,7 @@
             // PS_Base
             // 
             this.PS_Base.Location = new System.Drawing.Point(80, 58);
-            this.PS_Base.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PS_Base.Margin = new System.Windows.Forms.Padding(4);
             this.PS_Base.Name = "PS_Base";
             this.PS_Base.Size = new System.Drawing.Size(71, 22);
             this.PS_Base.TabIndex = 16;
@@ -888,9 +919,9 @@
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Location = new System.Drawing.Point(293, 96);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(464, 155);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
@@ -901,7 +932,7 @@
             this.OBJETO2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.OBJETO2.FormattingEnabled = true;
             this.OBJETO2.Location = new System.Drawing.Point(285, 114);
-            this.OBJETO2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.OBJETO2.Margin = new System.Windows.Forms.Padding(4);
             this.OBJETO2.Name = "OBJETO2";
             this.OBJETO2.Size = new System.Drawing.Size(159, 24);
             this.OBJETO2.TabIndex = 11;
@@ -911,7 +942,7 @@
             this.OBJETO1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.OBJETO1.FormattingEnabled = true;
             this.OBJETO1.Location = new System.Drawing.Point(117, 116);
-            this.OBJETO1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.OBJETO1.Margin = new System.Windows.Forms.Padding(4);
             this.OBJETO1.Name = "OBJETO1";
             this.OBJETO1.Size = new System.Drawing.Size(159, 24);
             this.OBJETO1.TabIndex = 10;
@@ -921,7 +952,7 @@
             this.HABILIDAD2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.HABILIDAD2.FormattingEnabled = true;
             this.HABILIDAD2.Location = new System.Drawing.Point(285, 82);
-            this.HABILIDAD2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.HABILIDAD2.Margin = new System.Windows.Forms.Padding(4);
             this.HABILIDAD2.Name = "HABILIDAD2";
             this.HABILIDAD2.Size = new System.Drawing.Size(159, 24);
             this.HABILIDAD2.TabIndex = 9;
@@ -931,7 +962,7 @@
             this.HABILIDAD1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.HABILIDAD1.FormattingEnabled = true;
             this.HABILIDAD1.Location = new System.Drawing.Point(117, 85);
-            this.HABILIDAD1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.HABILIDAD1.Margin = new System.Windows.Forms.Padding(4);
             this.HABILIDAD1.Name = "HABILIDAD1";
             this.HABILIDAD1.Size = new System.Drawing.Size(160, 24);
             this.HABILIDAD1.TabIndex = 8;
@@ -941,7 +972,7 @@
             this.HUEVO2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.HUEVO2.FormattingEnabled = true;
             this.HUEVO2.Location = new System.Drawing.Point(285, 53);
-            this.HUEVO2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.HUEVO2.Margin = new System.Windows.Forms.Padding(4);
             this.HUEVO2.Name = "HUEVO2";
             this.HUEVO2.Size = new System.Drawing.Size(159, 24);
             this.HUEVO2.TabIndex = 7;
@@ -951,7 +982,7 @@
             this.HUEVO1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.HUEVO1.FormattingEnabled = true;
             this.HUEVO1.Location = new System.Drawing.Point(117, 55);
-            this.HUEVO1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.HUEVO1.Margin = new System.Windows.Forms.Padding(4);
             this.HUEVO1.Name = "HUEVO1";
             this.HUEVO1.Size = new System.Drawing.Size(159, 24);
             this.HUEVO1.TabIndex = 6;
@@ -961,7 +992,7 @@
             this.TIPO2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.TIPO2.FormattingEnabled = true;
             this.TIPO2.Location = new System.Drawing.Point(285, 22);
-            this.TIPO2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TIPO2.Margin = new System.Windows.Forms.Padding(4);
             this.TIPO2.Name = "TIPO2";
             this.TIPO2.Size = new System.Drawing.Size(159, 24);
             this.TIPO2.TabIndex = 5;
@@ -971,7 +1002,7 @@
             this.TIPO1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.TIPO1.FormattingEnabled = true;
             this.TIPO1.Location = new System.Drawing.Point(117, 22);
-            this.TIPO1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TIPO1.Margin = new System.Windows.Forms.Padding(4);
             this.TIPO1.Name = "TIPO1";
             this.TIPO1.Size = new System.Drawing.Size(159, 24);
             this.TIPO1.TabIndex = 4;
@@ -1019,7 +1050,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(293, 52);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(97, 28);
             this.button1.TabIndex = 2;
@@ -1042,7 +1073,7 @@
             this.cmbInforma_Species.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cmbInforma_Species.FormattingEnabled = true;
             this.cmbInforma_Species.Location = new System.Drawing.Point(23, 53);
-            this.cmbInforma_Species.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbInforma_Species.Margin = new System.Windows.Forms.Padding(4);
             this.cmbInforma_Species.Name = "cmbInforma_Species";
             this.cmbInforma_Species.Size = new System.Drawing.Size(135, 24);
             this.cmbInforma_Species.TabIndex = 6;
@@ -1051,7 +1082,7 @@
             // POKEMON_NAME
             // 
             this.POKEMON_NAME.Location = new System.Drawing.Point(167, 53);
-            this.POKEMON_NAME.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.POKEMON_NAME.Margin = new System.Windows.Forms.Padding(4);
             this.POKEMON_NAME.MaxLength = 12;
             this.POKEMON_NAME.Name = "POKEMON_NAME";
             this.POKEMON_NAME.ReadOnly = true;
@@ -1061,7 +1092,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(399, 52);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 28);
             this.button2.TabIndex = 5;
@@ -1069,27 +1100,27 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // tabPage2
+            // tabPokedex
             // 
-            this.tabPage2.Controls.Add(this.cmbGraphic_Species);
-            this.tabPage2.Controls.Add(this.button7);
-            this.tabPage2.Controls.Add(this.groupBox6);
-            this.tabPage2.Controls.Add(this.groupBox5);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage2.Size = new System.Drawing.Size(1343, 696);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Pokédex";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPokedex.Controls.Add(this.cmbGraphic_Species);
+            this.tabPokedex.Controls.Add(this.button7);
+            this.tabPokedex.Controls.Add(this.groupBox6);
+            this.tabPokedex.Controls.Add(this.groupBox5);
+            this.tabPokedex.Location = new System.Drawing.Point(4, 25);
+            this.tabPokedex.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPokedex.Name = "tabPokedex";
+            this.tabPokedex.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPokedex.Size = new System.Drawing.Size(1343, 696);
+            this.tabPokedex.TabIndex = 1;
+            this.tabPokedex.Text = "tabPokedex";
+            this.tabPokedex.UseVisualStyleBackColor = true;
             // 
             // cmbGraphic_Species
             // 
             this.cmbGraphic_Species.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cmbGraphic_Species.FormattingEnabled = true;
             this.cmbGraphic_Species.Location = new System.Drawing.Point(23, 22);
-            this.cmbGraphic_Species.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbGraphic_Species.Margin = new System.Windows.Forms.Padding(4);
             this.cmbGraphic_Species.Name = "cmbGraphic_Species";
             this.cmbGraphic_Species.Size = new System.Drawing.Size(160, 24);
             this.cmbGraphic_Species.TabIndex = 3;
@@ -1098,7 +1129,7 @@
             // button7
             // 
             this.button7.Location = new System.Drawing.Point(192, 21);
-            this.button7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button7.Margin = new System.Windows.Forms.Padding(4);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(100, 28);
             this.button7.TabIndex = 2;
@@ -1113,9 +1144,9 @@
             this.groupBox6.Controls.Add(this.descripcionUno);
             this.groupBox6.Controls.Add(this.label18);
             this.groupBox6.Location = new System.Drawing.Point(23, 58);
-            this.groupBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox6.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox6.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox6.Size = new System.Drawing.Size(465, 224);
             this.groupBox6.TabIndex = 1;
             this.groupBox6.TabStop = false;
@@ -1135,7 +1166,7 @@
             // 
             this.descripcionDos.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.descripcionDos.Location = new System.Drawing.Point(13, 144);
-            this.descripcionDos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.descripcionDos.Margin = new System.Windows.Forms.Padding(4);
             this.descripcionDos.Name = "descripcionDos";
             this.descripcionDos.Size = new System.Drawing.Size(429, 63);
             this.descripcionDos.TabIndex = 2;
@@ -1145,7 +1176,7 @@
             // 
             this.descripcionUno.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.descripcionUno.Location = new System.Drawing.Point(13, 44);
-            this.descripcionUno.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.descripcionUno.Margin = new System.Windows.Forms.Padding(4);
             this.descripcionUno.Name = "descripcionUno";
             this.descripcionUno.Size = new System.Drawing.Size(429, 63);
             this.descripcionUno.TabIndex = 1;
@@ -1178,9 +1209,9 @@
             this.groupBox5.Controls.Add(this.categoriaPokemon);
             this.groupBox5.Controls.Add(this.label23);
             this.groupBox5.Location = new System.Drawing.Point(23, 289);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox5.Size = new System.Drawing.Size(465, 224);
             this.groupBox5.TabIndex = 0;
             this.groupBox5.TabStop = false;
@@ -1229,7 +1260,7 @@
             // offsetEntrenador
             // 
             this.offsetEntrenador.Location = new System.Drawing.Point(165, 169);
-            this.offsetEntrenador.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.offsetEntrenador.Margin = new System.Windows.Forms.Padding(4);
             this.offsetEntrenador.Name = "offsetEntrenador";
             this.offsetEntrenador.Size = new System.Drawing.Size(132, 22);
             this.offsetEntrenador.TabIndex = 9;
@@ -1237,7 +1268,7 @@
             // escalaEntrenador
             // 
             this.escalaEntrenador.Location = new System.Drawing.Point(12, 169);
-            this.escalaEntrenador.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.escalaEntrenador.Margin = new System.Windows.Forms.Padding(4);
             this.escalaEntrenador.Name = "escalaEntrenador";
             this.escalaEntrenador.Size = new System.Drawing.Size(132, 22);
             this.escalaEntrenador.TabIndex = 8;
@@ -1245,7 +1276,7 @@
             // offsetPokemon
             // 
             this.offsetPokemon.Location = new System.Drawing.Point(165, 108);
-            this.offsetPokemon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.offsetPokemon.Margin = new System.Windows.Forms.Padding(4);
             this.offsetPokemon.Name = "offsetPokemon";
             this.offsetPokemon.Size = new System.Drawing.Size(132, 22);
             this.offsetPokemon.TabIndex = 7;
@@ -1253,7 +1284,7 @@
             // escalaPokemon
             // 
             this.escalaPokemon.Location = new System.Drawing.Point(12, 108);
-            this.escalaPokemon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.escalaPokemon.Margin = new System.Windows.Forms.Padding(4);
             this.escalaPokemon.Name = "escalaPokemon";
             this.escalaPokemon.Size = new System.Drawing.Size(132, 22);
             this.escalaPokemon.TabIndex = 6;
@@ -1281,7 +1312,7 @@
             // peso
             // 
             this.peso.Location = new System.Drawing.Point(319, 46);
-            this.peso.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.peso.Margin = new System.Windows.Forms.Padding(4);
             this.peso.Name = "peso";
             this.peso.Size = new System.Drawing.Size(132, 22);
             this.peso.TabIndex = 3;
@@ -1289,7 +1320,7 @@
             // altura
             // 
             this.altura.Location = new System.Drawing.Point(165, 46);
-            this.altura.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.altura.Margin = new System.Windows.Forms.Padding(4);
             this.altura.Name = "altura";
             this.altura.Size = new System.Drawing.Size(132, 22);
             this.altura.TabIndex = 2;
@@ -1297,7 +1328,7 @@
             // categoriaPokemon
             // 
             this.categoriaPokemon.Location = new System.Drawing.Point(12, 46);
-            this.categoriaPokemon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.categoriaPokemon.Margin = new System.Windows.Forms.Padding(4);
             this.categoriaPokemon.Name = "categoriaPokemon";
             this.categoriaPokemon.Size = new System.Drawing.Size(132, 22);
             this.categoriaPokemon.TabIndex = 1;
@@ -1312,27 +1343,27 @@
             this.label23.TabIndex = 0;
             this.label23.Text = "Categoría:";
             // 
-            // tabPage3
+            // tabGraphics
             // 
-            this.tabPage3.Controls.Add(this.footprint);
-            this.tabPage3.Controls.Add(this.icon);
-            this.tabPage3.Controls.Add(this.label34);
-            this.tabPage3.Controls.Add(this.button6);
-            this.tabPage3.Controls.Add(this.label35);
-            this.tabPage3.Controls.Add(this.cmbPokedex_Species);
-            this.tabPage3.Controls.Add(this.groupBox7);
-            this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1343, 696);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Gráficos";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabGraphics.Controls.Add(this.footprint);
+            this.tabGraphics.Controls.Add(this.icon);
+            this.tabGraphics.Controls.Add(this.label34);
+            this.tabGraphics.Controls.Add(this.button6);
+            this.tabGraphics.Controls.Add(this.label35);
+            this.tabGraphics.Controls.Add(this.cmbPokedex_Species);
+            this.tabGraphics.Controls.Add(this.groupBox7);
+            this.tabGraphics.Location = new System.Drawing.Point(4, 25);
+            this.tabGraphics.Margin = new System.Windows.Forms.Padding(4);
+            this.tabGraphics.Name = "tabGraphics";
+            this.tabGraphics.Size = new System.Drawing.Size(1343, 696);
+            this.tabGraphics.TabIndex = 2;
+            this.tabGraphics.Text = "tabGraphics";
+            this.tabGraphics.UseVisualStyleBackColor = true;
             // 
             // footprint
             // 
             this.footprint.Location = new System.Drawing.Point(599, 138);
-            this.footprint.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.footprint.Margin = new System.Windows.Forms.Padding(4);
             this.footprint.Name = "footprint";
             this.footprint.Size = new System.Drawing.Size(21, 20);
             this.footprint.TabIndex = 16;
@@ -1341,7 +1372,7 @@
             // icon
             // 
             this.icon.Location = new System.Drawing.Point(588, 190);
-            this.icon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.icon.Margin = new System.Windows.Forms.Padding(4);
             this.icon.Name = "icon";
             this.icon.Size = new System.Drawing.Size(43, 79);
             this.icon.TabIndex = 17;
@@ -1360,7 +1391,7 @@
             // button6
             // 
             this.button6.Location = new System.Drawing.Point(192, 21);
-            this.button6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button6.Margin = new System.Windows.Forms.Padding(4);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(100, 28);
             this.button6.TabIndex = 3;
@@ -1383,7 +1414,7 @@
             this.cmbPokedex_Species.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cmbPokedex_Species.FormattingEnabled = true;
             this.cmbPokedex_Species.Location = new System.Drawing.Point(23, 22);
-            this.cmbPokedex_Species.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbPokedex_Species.Margin = new System.Windows.Forms.Padding(4);
             this.cmbPokedex_Species.Name = "cmbPokedex_Species";
             this.cmbPokedex_Species.Size = new System.Drawing.Size(160, 24);
             this.cmbPokedex_Species.TabIndex = 2;
@@ -1403,9 +1434,9 @@
             this.groupBox7.Controls.Add(this.label30);
             this.groupBox7.Controls.Add(this.fondo);
             this.groupBox7.Location = new System.Drawing.Point(23, 58);
-            this.groupBox7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox7.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox7.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox7.Size = new System.Drawing.Size(543, 252);
             this.groupBox7.TabIndex = 1;
             this.groupBox7.TabStop = false;
@@ -1416,7 +1447,7 @@
             this.iconPalette.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.iconPalette.FormattingEnabled = true;
             this.iconPalette.Location = new System.Drawing.Point(365, 207);
-            this.iconPalette.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconPalette.Margin = new System.Windows.Forms.Padding(4);
             this.iconPalette.Name = "iconPalette";
             this.iconPalette.Size = new System.Drawing.Size(159, 24);
             this.iconPalette.TabIndex = 13;
@@ -1434,7 +1465,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Location = new System.Drawing.Point(192, 20);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(85, 79);
             this.pictureBox3.TabIndex = 11;
@@ -1443,7 +1474,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Location = new System.Drawing.Point(53, 69);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(85, 79);
             this.pictureBox2.TabIndex = 10;
@@ -1452,7 +1483,7 @@
             // Levitation
             // 
             this.Levitation.Location = new System.Drawing.Point(365, 153);
-            this.Levitation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Levitation.Margin = new System.Windows.Forms.Padding(4);
             this.Levitation.Name = "Levitation";
             this.Levitation.ReadOnly = true;
             this.Levitation.Size = new System.Drawing.Size(160, 22);
@@ -1462,7 +1493,7 @@
             // backY
             // 
             this.backY.Location = new System.Drawing.Point(365, 97);
-            this.backY.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.backY.Margin = new System.Windows.Forms.Padding(4);
             this.backY.Name = "backY";
             this.backY.ReadOnly = true;
             this.backY.Size = new System.Drawing.Size(160, 22);
@@ -1472,7 +1503,7 @@
             // frontY
             // 
             this.frontY.Location = new System.Drawing.Point(365, 41);
-            this.frontY.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.frontY.Margin = new System.Windows.Forms.Padding(4);
             this.frontY.Name = "frontY";
             this.frontY.ReadOnly = true;
             this.frontY.Size = new System.Drawing.Size(160, 22);
@@ -1513,43 +1544,12 @@
             // 
             this.fondo.Image = global::IKPokeEditor.Properties.Resources.bg1;
             this.fondo.Location = new System.Drawing.Point(8, 33);
-            this.fondo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fondo.Margin = new System.Windows.Forms.Padding(4);
             this.fondo.Name = "fondo";
             this.fondo.Size = new System.Drawing.Size(240, 160);
             this.fondo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.fondo.TabIndex = 0;
             this.fondo.TabStop = false;
-            // 
-            // menuOptionsToolStripMenuItem
-            // 
-            this.menuOptionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuLanguageToolStripMenuItem});
-            this.menuOptionsToolStripMenuItem.Name = "menuOptionsToolStripMenuItem";
-            this.menuOptionsToolStripMenuItem.Size = new System.Drawing.Size(112, 24);
-            this.menuOptionsToolStripMenuItem.Text = "menuOptions";
-            // 
-            // menuLanguageToolStripMenuItem
-            // 
-            this.menuLanguageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuEnglishToolStripMenuItem,
-            this.menuSpanishToolStripMenuItem});
-            this.menuLanguageToolStripMenuItem.Name = "menuLanguageToolStripMenuItem";
-            this.menuLanguageToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.menuLanguageToolStripMenuItem.Text = "menuLanguage";
-            // 
-            // menuEnglishToolStripMenuItem
-            // 
-            this.menuEnglishToolStripMenuItem.Name = "menuEnglishToolStripMenuItem";
-            this.menuEnglishToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.menuEnglishToolStripMenuItem.Text = "menuEnglish";
-            this.menuEnglishToolStripMenuItem.Click += new System.EventHandler(this.menuEnglishToolStripMenuItem_Click);
-            // 
-            // menuSpanishToolStripMenuItem
-            // 
-            this.menuSpanishToolStripMenuItem.Name = "menuSpanishToolStripMenuItem";
-            this.menuSpanishToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.menuSpanishToolStripMenuItem.Text = "menuSpanish";
-            this.menuSpanishToolStripMenuItem.Click += new System.EventHandler(this.menuSpanishToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -1561,7 +1561,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1570,8 +1570,8 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.tabInforma.ResumeLayout(false);
+            this.tabInforma.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
@@ -1587,13 +1587,13 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
+            this.tabPokedex.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
+            this.tabGraphics.ResumeLayout(false);
+            this.tabGraphics.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.footprint)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon)).EndInit();
             this.groupBox7.ResumeLayout(false);
@@ -1615,8 +1615,8 @@
         private System.Windows.Forms.ToolStripMenuItem menuFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuFolderToolStripMenuItem;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPokedex;
+        private System.Windows.Forms.TabPage tabGraphics;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.RichTextBox descripcionUno;
         private System.Windows.Forms.Label label18;
@@ -1658,7 +1658,7 @@
         private System.Windows.Forms.PictureBox icon;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabInforma;
         private System.Windows.Forms.CheckBox generoCheck;
         private System.Windows.Forms.ComboBox crecimiento;
         private System.Windows.Forms.GroupBox groupBox4;
