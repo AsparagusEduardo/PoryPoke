@@ -79,7 +79,7 @@ namespace IKPokeEditor
             var rValue = true;
             var pathToSearch = "";
 
-            string[] filePaths = Constants.filePaths;
+            Dictionary<string, string> filePaths = Constants.FilePaths;
 
             List<string> folderPathsList = new List<string>();
             /*string[] folderPaths =
@@ -100,9 +100,14 @@ namespace IKPokeEditor
             }
             */
 
-            for (int i = 0; i < filePaths.Length; i++)
+            foreach (KeyValuePair<string, string> entry in filePaths)
             {
-                string path = directory.ToString() + filePaths[i];
+                //StreamReader sr = new StreamReader(dictionary[entry.Key].ToString());
+                //str = sr.ReadToEnd();
+                //data[entry.Key] = str;
+                //sr.Close();
+
+                string path = directory.ToString() + entry.Value;
                 if (File.Exists(path) == false)
                 {
                     rValue = false;
@@ -1468,14 +1473,12 @@ namespace IKPokeEditor
         private void setDataDictionary()
         {
             string str = null;
-
-            string[] filePaths = Constants.filePathNames;
-
-            for (int i = 0; i < filePaths.Length; i++)
+            Dictionary<string, string> filePaths = Constants.FilePaths;
+            foreach (KeyValuePair<string, string> entry in filePaths)
             {
-                StreamReader sr = new StreamReader(dictionary[filePaths[i].ToString()].ToString());
+                StreamReader sr = new StreamReader(dictionary[entry.Key].ToString());
                 str = sr.ReadToEnd();
-                data[filePaths[i].ToString()] = str;
+                data[entry.Key] = str;
                 sr.Close();
             }
 
