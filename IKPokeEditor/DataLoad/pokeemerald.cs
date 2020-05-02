@@ -130,5 +130,43 @@ namespace IKPokeEditor.DataLoad
                 //MessageBox.Show("Crecimiento: " + infoData["crecimiento"][i.ToString()]);
             }
         }
+
+        public static void LoadMonBaseStats(string str, string speciesNames, ref Dictionary<string, Class.Pokemon> PokemonDictionary)
+        {
+            var pokeAmount = 0;
+            var index = 0;
+            var pastValue = 0;
+            var indexName = 0;
+            var pastValueName = 0;
+            string stat = null;
+
+            PokemonDictionary.Clear();
+
+            pokeAmount = Regex.Matches(str, "SPECIES_").Cast<Match>().Count() - 1;
+
+            pastValue = str.IndexOf("SPECIES_", 0);
+            pastValueName = speciesNames.IndexOf("SPECIES_", 0);
+
+            Class.Pokemon poke;
+
+            for (int i = 0; i < pokeAmount; i++)
+            {
+                poke = new Class.Pokemon();
+
+                index = str.IndexOf("SPECIES_", pastValue + 2);
+                pastValue = index;
+
+                var nextBrac = str.IndexOf("]", index + 1) - index;
+                poke.ID = str.Substring(index + 8, nextBrac - 8);
+                stat = str.Substring(index + nextBrac + 35, (str.IndexOf(",", index + nextBrac + 35)) - (index + nextBrac + 35));
+
+                if (!(poke.ID.Substring(0, Math.Min(poke.ID.Length, 9)).Equals("OLD_UNOWN")))
+                {
+                    poke.BaseHP = int.Parse(stat);
+                }
+
+                PokemonDictionary.Add(poke.ID, poke);
+            }
+        }
     }
 }

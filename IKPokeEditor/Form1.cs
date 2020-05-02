@@ -177,9 +177,6 @@ namespace IKPokeEditor
                 int index = str.IndexOf("#define SPECIES_", pastValue + 1);
                 pastValue = index;
                 pokeName = str.Substring(index + 16, str.IndexOf(" ", index + 9) - index - 16);
-                if (pokeName.ToLower().Contains('_')) {
-                    pokeName = pokeName.Replace(@"_", " ");
-                }
                 cmbInforma_Species.Items.Insert(i, pokeName);
                 cmbPokedex_Species.Items.Insert(i, pokeName);
                 cmbGraphic_Species.Items.Insert(i, pokeName);
@@ -191,12 +188,14 @@ namespace IKPokeEditor
         {
             var str = data["pFile_base_stats_h"];
             var speciesNames = data["pFile_species_names_h"];
+
+            DataLoad.pokeemerald.LoadMonBaseStats(str, speciesNames, ref PokemonDictionary);
+
             var pokeAmount = 0;
             var index = 0;
             var pastValue = 0;
             var indexName = 0;
             var pastValueName = 0;
-            string psBase = null;
             string ataqueBase = null;
             string defensaBase = null;
             string velocidadBase = null;
@@ -236,25 +235,8 @@ namespace IKPokeEditor
 
             for (int i = 0; i < pokeAmount; i++)
             {
-                poke = new Class.Pokemon();
-
-                index = str.IndexOf("SPECIES_", pastValue + 2);
-                pastValue = index;
-
-                var siguienteCorchete = str.IndexOf("]", index + 1) - index;
-                psBase = str.Substring(index + siguienteCorchete + 35, (str.IndexOf(",", index + siguienteCorchete + 35)) - (index + siguienteCorchete + 35));
-                poke.ID = str.Substring(index + 8, siguienteCorchete - 8);
-
-                if (!(poke.ID.Substring(0, Math.Min(poke.ID.Length, 9)).Equals("OLD_UNOWN")))
-                {
-                    poke.BaseHP = int.Parse(psBase);
-                }
-
-                PokemonDictionary.Add(poke.ID, poke);
-                //pokemonData["psBase"][(i + 1).ToString()] = psBase;
-
                 /*
-                index = (str.IndexOf(",", index + siguienteCorchete + 35));
+                index = (str.IndexOf(",", index + nextBrac + 35));
                 ataqueBase = str.Substring((str.IndexOf("baseAttack", index)) + 16, (str.IndexOf(",", (str.IndexOf("baseAttack", index)))) - ((str.IndexOf("baseAttack", index)) + 16));
                 pokemonData["ataqueBase"][(i + 1).ToString()] = ataqueBase;
 
