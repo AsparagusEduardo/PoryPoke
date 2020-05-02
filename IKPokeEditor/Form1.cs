@@ -1496,9 +1496,9 @@ namespace IKPokeEditor
             setTypesData();
             /*setMovementsData();*/
             setItemsData();
-            /*setMTMOData();
+            /*setMTMOData();*/
             setEggAndColorData();
-            setAbilitiesData();
+            /*setAbilitiesData();
             setGrowthData();
             setEvolutiveMethodData();*/
         }
@@ -1628,12 +1628,8 @@ namespace IKPokeEditor
                 index = str.IndexOf("EGG_GROUP_", lastIndex + 2);
                 lastIndex = index;
 
-                var eggGroup = str.Substring((index + 10), (str.IndexOf(",", index) - (index + 10)));
-                if (eggGroup.Length > 12)
-                {
-                    eggGroup = eggGroup.Substring(0, (eggGroup.IndexOf("}", 0) - 1));
-                }
-
+                var eggGroup = str.Substring((index + 10), (str.IndexOf("\n", index) - (index + 10)));
+                eggGroup = eggGroup.Split(' ')[0];
                 eggGroup = eggGroup.Replace(@"_", " ");
 
                 infoData["grupos_huevo"][i.ToString()] = eggGroup;
@@ -1642,18 +1638,14 @@ namespace IKPokeEditor
 
             index = 0;
             lastIndex = 0;
-
+            
             for (int i = 0; i <= BodyColor; i++)
             {
                 index = str.IndexOf("BODY_COLOR_", lastIndex + 2);
                 lastIndex = index;
 
-                var bodyColor = str.Substring((index + 11), (str.IndexOf(",", index) - (index + 11)));
-                if (bodyColor.Length > 12)
-                {
-                    bodyColor = bodyColor.Substring(0, (bodyColor.IndexOf("}", 0) - 1));
-                }
-
+                var bodyColor = str.Substring((index + 11), (str.IndexOf("\n", index) - (index + 11)));
+                bodyColor = bodyColor.Split(' ')[0];
                 bodyColor = bodyColor.Replace(@"_", " ");
 
                 infoData["color_cuerpo"][i.ToString()] = bodyColor;
