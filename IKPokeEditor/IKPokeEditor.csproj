@@ -55,7 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataLoad\DataLoad.cs" />
+    <Compile Include="DataLoad\pokeemerald.cs" />
     <Compile Include="Datos.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -1506,24 +1506,7 @@ namespace IKPokeEditor
         private void setTypesData()
         {
             string str = data["pFile_pokemon_h"].ToString();
-            //string str = directory.ToString() + FilePaths.Constants.Pokemon;
-
-            int index = 0;
-            int lastIndex = 0;
-
-            var totalTypes = Regex.Matches(str, "TYPE_").Cast<Match>().Count() - 1;
-
-            for (int i = 0; i <= totalTypes; i++)
-            {
-                index = str.IndexOf("TYPE_", lastIndex + 2);
-                lastIndex = index;
-
-                var typeName = str.Substring((index + 5), ((str.IndexOf(" ", index)) - (index + 5)));
-
-                infoData["tipos"][i.ToString()] = typeName;
-                //MessageBox.Show("Tipo: " + infoData["tipos"][i.ToString()]);
-            }
-
+            DataLoad.pokeemerald.LoadTypes(str, ref infoData);
             addTypesToComboBox();
         }
 
@@ -1550,28 +1533,7 @@ namespace IKPokeEditor
         private void setItemsData()
         {
             string str = data["pFile_items_h"].ToString();
-            int index = 0;
-            int lastIndex = 0;
-
-            var totalItems = Regex.Matches(str, ".name =").Cast<Match>().Count() - 1;
-            var countMT = Regex.Matches(str, "ITEM_TM").Cast<Match>().Count();
-            var countMO = Regex.Matches(str, "ITEM_HM").Cast<Match>().Count();
-
-            totalItems = totalItems - (countMT + countMO);
-
-            for (int i = 0; i <= totalItems; i++)
-            {
-                index = str.IndexOf(".itemId", lastIndex + 2);
-                lastIndex = index;
-
-                var item = str.Substring((index + 15), ((str.IndexOf(",", index)) - (index + 15)));
-
-                item = item.Replace(@"_", " ");
-
-                infoData["objetos"][i.ToString()] = item;
-                //MessageBox.Show("Item: " + infoData["objetos"][i.ToString()]);
-            }
-
+            DataLoad.pokeemerald.LoadItems(str, ref infoData);
             addItemsToComboBox();
         }
 
@@ -1618,8 +1580,8 @@ namespace IKPokeEditor
         {
             string str = data["pFile_pokemon_h"].ToString();
 
-            DataLoad.DataLoad.LoadEggGroups(str, ref infoData);
-            DataLoad.DataLoad.LoadBodyColors(str, ref infoData);
+            DataLoad.pokeemerald.LoadEggGroups(str, ref infoData);
+            DataLoad.pokeemerald.LoadBodyColors(str, ref infoData);
 
             addEggGroupToComboBox();
             addBodyColorToComboBox();

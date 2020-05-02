@@ -7,8 +7,50 @@ using System.Threading.Tasks;
 
 namespace IKPokeEditor.DataLoad
 {
-    public class DataLoad
+    public class pokeemerald
     {
+        public static void LoadTypes(string str, ref Dictionary<string, Dictionary<string, string>> infoData)
+        {
+            int index = 0;
+            int lastIndex = 0;
+
+            var totalTypes = Regex.Matches(str, "TYPE_").Cast<Match>().Count() - 1;
+
+            for (int i = 0; i <= totalTypes; i++)
+            {
+                index = str.IndexOf("TYPE_", lastIndex + 2);
+                lastIndex = index;
+
+                var typeName = str.Substring((index + 5), ((str.IndexOf(" ", index)) - (index + 5)));
+
+                infoData["tipos"][i.ToString()] = typeName;
+                //MessageBox.Show("Tipo: " + infoData["tipos"][i.ToString()]);
+            }
+        }
+        public static void LoadItems(string str, ref Dictionary<string, Dictionary<string, string>> infoData)
+        {
+            int index = 0;
+            int lastIndex = 0;
+
+            var totalItems = Regex.Matches(str, ".name =").Cast<Match>().Count() - 1;
+            var countMT = Regex.Matches(str, "ITEM_TM").Cast<Match>().Count();
+            var countMO = Regex.Matches(str, "ITEM_HM").Cast<Match>().Count();
+
+            totalItems = totalItems - (countMT + countMO);
+
+            for (int i = 0; i <= totalItems; i++)
+            {
+                index = str.IndexOf(".itemId", lastIndex + 2);
+                lastIndex = index;
+
+                var item = str.Substring((index + 15), ((str.IndexOf(",", index)) - (index + 15)));
+
+                item = item.Replace(@"_", " ");
+
+                infoData["objetos"][i.ToString()] = item;
+                //MessageBox.Show("Item: " + infoData["objetos"][i.ToString()]);
+            }
+        }
         public static void LoadEggGroups(string str, ref Dictionary<string, Dictionary<string, string>> infoData)
         {
             int index = 0;
