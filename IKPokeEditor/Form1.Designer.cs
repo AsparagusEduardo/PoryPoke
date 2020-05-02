@@ -104,11 +104,11 @@
             this.label10 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbInforma_Species = new System.Windows.Forms.ComboBox();
             this.POKEMON_NAME = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cmbGraphic_Species = new System.Windows.Forms.ComboBox();
             this.button7 = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.label22 = new System.Windows.Forms.Label();
@@ -136,7 +136,7 @@
             this.label34 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
             this.label35 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cmbPokedex_Species = new System.Windows.Forms.ComboBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.iconPalette = new System.Windows.Forms.ComboBox();
             this.label33 = new System.Windows.Forms.Label();
@@ -255,7 +255,7 @@
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.comboBox1);
+            this.tabPage1.Controls.Add(this.cmbInforma_Species);
             this.tabPage1.Controls.Add(this.POKEMON_NAME);
             this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -935,13 +935,13 @@
             // 
             // comboBox1
             // 
-            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(17, 43);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(102, 21);
-            this.comboBox1.TabIndex = 6;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cmbInforma_Species.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbInforma_Species.FormattingEnabled = true;
+            this.cmbInforma_Species.Location = new System.Drawing.Point(17, 43);
+            this.cmbInforma_Species.Name = "comboBox1";
+            this.cmbInforma_Species.Size = new System.Drawing.Size(102, 21);
+            this.cmbInforma_Species.TabIndex = 6;
+            this.cmbInforma_Species.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // POKEMON_NAME
             // 
@@ -964,7 +964,7 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.comboBox3);
+            this.tabPage2.Controls.Add(this.cmbGraphic_Species);
             this.tabPage2.Controls.Add(this.button7);
             this.tabPage2.Controls.Add(this.groupBox6);
             this.tabPage2.Controls.Add(this.groupBox5);
@@ -978,13 +978,13 @@
             // 
             // comboBox3
             // 
-            this.comboBox3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(17, 18);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
-            this.comboBox3.TabIndex = 3;
-            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            this.cmbGraphic_Species.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbGraphic_Species.FormattingEnabled = true;
+            this.cmbGraphic_Species.Location = new System.Drawing.Point(17, 18);
+            this.cmbGraphic_Species.Name = "comboBox3";
+            this.cmbGraphic_Species.Size = new System.Drawing.Size(121, 21);
+            this.cmbGraphic_Species.TabIndex = 3;
+            this.cmbGraphic_Species.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // button7
             // 
@@ -1187,7 +1187,7 @@
             this.tabPage3.Controls.Add(this.label34);
             this.tabPage3.Controls.Add(this.button6);
             this.tabPage3.Controls.Add(this.label35);
-            this.tabPage3.Controls.Add(this.comboBox2);
+            this.tabPage3.Controls.Add(this.cmbPokedex_Species);
             this.tabPage3.Controls.Add(this.groupBox7);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
@@ -1242,13 +1242,13 @@
             // 
             // comboBox2
             // 
-            this.comboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(17, 18);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 2;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.cmbPokedex_Species.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbPokedex_Species.FormattingEnabled = true;
+            this.cmbPokedex_Species.Location = new System.Drawing.Point(17, 18);
+            this.cmbPokedex_Species.Name = "comboBox2";
+            this.cmbPokedex_Species.Size = new System.Drawing.Size(121, 21);
+            this.cmbPokedex_Species.TabIndex = 2;
+            this.cmbPokedex_Species.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // groupBox7
             // 
@@ -1482,8 +1482,8 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cmbPokedex_Species;
+        private System.Windows.Forms.ComboBox cmbGraphic_Species;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.ComboBox iconPalette;
@@ -1561,7 +1561,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbInforma_Species;
         private System.Windows.Forms.TextBox POKEMON_NAME;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridViewComboBoxColumn Metodo;

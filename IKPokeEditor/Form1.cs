@@ -63,9 +63,9 @@ namespace IKPokeEditor
                     loadData();
                     guardarToolStripMenuItem.Enabled = true;
 
-                    comboBox1.SelectedIndex = 1;
-                    comboBox2.SelectedIndex = 1;
-                    comboBox3.SelectedIndex = 1;
+                    cmbInforma_Species.SelectedIndex = 1;
+                    cmbPokedex_Species.SelectedIndex = 1;
+                    cmbGraphic_Species.SelectedIndex = 1;
                 } else
                 {
                     MessageBox.Show("No se ha encontrado el archivo " + fileErr + " en el directorio " + pathErr);
@@ -165,9 +165,9 @@ namespace IKPokeEditor
 
             pokeAmount = Regex.Matches(str, "#define SPECIES_").Cast<Match>().Count() - 29;
 
-            comboBox1.Items.Clear();
-            comboBox2.Items.Clear();
-            comboBox3.Items.Clear();
+            cmbInforma_Species.Items.Clear();
+            cmbPokedex_Species.Items.Clear();
+            cmbGraphic_Species.Items.Clear();
             Evolucion.Items.Clear();
 
             for (int i = 0; i <= pokeAmount; i++)
@@ -178,9 +178,9 @@ namespace IKPokeEditor
                 if (pokeName.ToLower().Contains('_')) {
                     pokeName = pokeName.Replace(@"_", " ");
                 }
-                comboBox1.Items.Insert(i, pokeName);
-                comboBox2.Items.Insert(i, pokeName);
-                comboBox3.Items.Insert(i, pokeName);
+                cmbInforma_Species.Items.Insert(i, pokeName);
+                cmbPokedex_Species.Items.Insert(i, pokeName);
+                cmbGraphic_Species.Items.Insert(i, pokeName);
                 Evolucion.Items.Insert(i, pokeName);
             }
         }
@@ -562,9 +562,9 @@ namespace IKPokeEditor
                 descrpitionTwo = descrpitionTwo.Replace("\"", "");
                 descrpitionTwo = descrpitionTwo.Replace("  ", "");
 
-                if (comboBox1.Items.Contains(pokemonSpecie))
+                if (cmbInforma_Species.Items.Contains(pokemonSpecie))
                 {
-                    pokemonIndex = comboBox1.Items.IndexOf(pokemonSpecie);
+                    pokemonIndex = cmbInforma_Species.Items.IndexOf(pokemonSpecie);
                 }
 
                 pokemonData["pokedexPageOne"][pokemonIndex.ToString()] = descriptionOne;
@@ -604,9 +604,9 @@ namespace IKPokeEditor
                 if (pokemonName == "Mrmime") { pokemonName = "Mr Mime"; }
                 pokemonName = pokemonName.ToUpper();
 
-                if (comboBox1.Items.Contains(pokemonName))
+                if (cmbInforma_Species.Items.Contains(pokemonName))
                 {
-                    pokemonIndex = comboBox1.Items.IndexOf(pokemonName);
+                    pokemonIndex = cmbInforma_Species.Items.IndexOf(pokemonName);
                 }
 
                 categoria = workString.Substring((workString.IndexOf("categoryName", stringIndex) + 18), workString.IndexOf("\"),", stringIndex) - (workString.IndexOf("categoryName", stringIndex) + 18));
@@ -871,15 +871,15 @@ namespace IKPokeEditor
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if ((comboBox1.SelectedIndex == 0) && (comboBox1.Text == "NONE"))
+            if ((cmbInforma_Species.SelectedIndex == 0) && (cmbInforma_Species.Text == "NONE"))
             {
                 MessageBox.Show("No es posible cargar los datos de \"NONE\"");
-                comboBox1.SelectedIndex = 1;
+                cmbInforma_Species.SelectedIndex = 1;
             }
             else
             {
-                comboBox2.SelectedIndex = comboBox1.SelectedIndex;
-                comboBox3.SelectedIndex = comboBox1.SelectedIndex;
+                cmbPokedex_Species.SelectedIndex = cmbInforma_Species.SelectedIndex;
+                cmbGraphic_Species.SelectedIndex = cmbInforma_Species.SelectedIndex;
                 //refrescarInterfaz();
             }
         }
@@ -889,7 +889,7 @@ namespace IKPokeEditor
             if ((dataGridView2.Rows.Count - 1) > 0) {
                 dataGridView2.Rows.RemoveAt(Int32.Parse(EvolucionAEliminar.Value.ToString()));
             }
-            if ((Int32.Parse(EvolucionAEliminar.Value.ToString())) == (Int32.Parse(evolutionData[comboBox1.SelectedIndex.ToString() + "_0"].Item1) - 1))
+            if ((Int32.Parse(EvolucionAEliminar.Value.ToString())) == (Int32.Parse(evolutionData[cmbInforma_Species.SelectedIndex.ToString() + "_0"].Item1) - 1))
             {
                 if ((dataGridView2.Rows.Count - 1) > 0 && (EvolucionAEliminar.Value > 0)) {
                     EvolucionAEliminar.Value--;
@@ -909,7 +909,7 @@ namespace IKPokeEditor
             {
                 dataGridView1.Rows.RemoveAt(Int32.Parse(MovimientoAEliminar.Value.ToString()));
             }
-            if ((Int32.Parse(MovimientoAEliminar.Value.ToString())) == (Int32.Parse(moveData[comboBox1.SelectedIndex.ToString() + "_0"].Item1) - 1))
+            if ((Int32.Parse(MovimientoAEliminar.Value.ToString())) == (Int32.Parse(moveData[cmbInforma_Species.SelectedIndex.ToString() + "_0"].Item1) - 1))
             {
                 MovimientoAEliminar.Value--;
             }
@@ -922,7 +922,7 @@ namespace IKPokeEditor
             {
                 dataGridView3.Rows.RemoveAt(Int32.Parse(MTMOAEliminar.Value.ToString()));
             }
-            if ((Int32.Parse(MTMOAEliminar.Value.ToString())) == (Int32.Parse(moveData[comboBox1.SelectedIndex.ToString() + "_0"].Item1) - 1))
+            if ((Int32.Parse(MTMOAEliminar.Value.ToString())) == (Int32.Parse(moveData[cmbInforma_Species.SelectedIndex.ToString() + "_0"].Item1) - 1))
             {
                 MTMOAEliminar.Value--;
             }
@@ -949,30 +949,30 @@ namespace IKPokeEditor
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if ((comboBox2.SelectedIndex == 0) && (comboBox1.Text == "NONE"))
+            if ((cmbPokedex_Species.SelectedIndex == 0) && (cmbInforma_Species.Text == "NONE"))
             {
                 MessageBox.Show("No es posible cargar los datos de \"NONE\"");
-                comboBox1.SelectedIndex = 1;
+                cmbInforma_Species.SelectedIndex = 1;
             }
             else
             {
-                comboBox3.SelectedIndex = comboBox2.SelectedIndex;
-                comboBox1.SelectedIndex = comboBox2.SelectedIndex;
+                cmbGraphic_Species.SelectedIndex = cmbPokedex_Species.SelectedIndex;
+                cmbInforma_Species.SelectedIndex = cmbPokedex_Species.SelectedIndex;
             }
 
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if ((comboBox2.SelectedIndex == 0) && (comboBox1.Text == "NONE"))
+            if ((cmbPokedex_Species.SelectedIndex == 0) && (cmbInforma_Species.Text == "NONE"))
             {
                 MessageBox.Show("No es posible cargar los datos de \"NONE\"");
-                comboBox1.SelectedIndex = 1;
+                cmbInforma_Species.SelectedIndex = 1;
             }
             else
             {
-                comboBox2.SelectedIndex = comboBox3.SelectedIndex;
-                comboBox1.SelectedIndex = comboBox3.SelectedIndex;
+                cmbPokedex_Species.SelectedIndex = cmbGraphic_Species.SelectedIndex;
+                cmbInforma_Species.SelectedIndex = cmbGraphic_Species.SelectedIndex;
             }
         }
 
@@ -1065,52 +1065,52 @@ namespace IKPokeEditor
 
         private void refrescarInterfaz()
         {
-            PS_Base.Text = pokemonData["psBase"][comboBox1.SelectedIndex.ToString()];
-            ATQ_Base.Text = pokemonData["ataqueBase"][comboBox1.SelectedIndex.ToString()];
-            DEF_Base.Text = pokemonData["defensaBase"][comboBox1.SelectedIndex.ToString()];
-            VEL_Base.Text = pokemonData["velocidadBase"][comboBox1.SelectedIndex.ToString()];
-            ATESP_Base.Text = pokemonData["ataqueEspecialBase"][comboBox1.SelectedIndex.ToString()];
-            DFESP_Base.Text = pokemonData["defensaEspecialBase"][comboBox1.SelectedIndex.ToString()];
+            PS_Base.Text = pokemonData["psBase"][cmbInforma_Species.SelectedIndex.ToString()];
+            ATQ_Base.Text = pokemonData["ataqueBase"][cmbInforma_Species.SelectedIndex.ToString()];
+            DEF_Base.Text = pokemonData["defensaBase"][cmbInforma_Species.SelectedIndex.ToString()];
+            VEL_Base.Text = pokemonData["velocidadBase"][cmbInforma_Species.SelectedIndex.ToString()];
+            ATESP_Base.Text = pokemonData["ataqueEspecialBase"][cmbInforma_Species.SelectedIndex.ToString()];
+            DFESP_Base.Text = pokemonData["defensaEspecialBase"][cmbInforma_Species.SelectedIndex.ToString()];
             //Recibir tipo 1
             //TIPO1.SelectedIndex = Int32.Parse(infoData["tipos"].FirstOrDefault(x => x.Value.Contains(pokemonData["tipoUno"][comboBox1.SelectedIndex.ToString()].Substring(5))).Key);
-            var formatoTipo1 = pokemonData["tipoUno"][comboBox1.SelectedIndex.ToString()].Substring(5);
+            var formatoTipo1 = pokemonData["tipoUno"][cmbInforma_Species.SelectedIndex.ToString()].Substring(5);
             formatoTipo1 = formatoTipo1.Replace(@"_", " ");
             TIPO1.SelectedIndex = Int32.Parse(infoData["tipos"].FirstOrDefault(x => x.Value.Contains(formatoTipo1)).Key);
             //Recibir tipo 2
             //TIPO2.SelectedIndex = Int32.Parse(infoData["tipos"].FirstOrDefault(x => x.Value.Contains(pokemonData["tipoDos"][comboBox1.SelectedIndex.ToString()].Substring(5))).Key);
-            var formatoTipo2 = pokemonData["tipoDos"][comboBox1.SelectedIndex.ToString()].Substring(5);
+            var formatoTipo2 = pokemonData["tipoDos"][cmbInforma_Species.SelectedIndex.ToString()].Substring(5);
             formatoTipo2 = formatoTipo2.Replace(@"_", " ");
             TIPO2.SelectedIndex = Int32.Parse(infoData["tipos"].FirstOrDefault(x => x.Value.Contains(formatoTipo2)).Key);
 
-            ratioCaptura.Text = pokemonData["ratioDeCaptura"][comboBox1.SelectedIndex.ToString()];
-            expBase.Text = pokemonData["expBase"][comboBox1.SelectedIndex.ToString()];
-            PS_Effort.Text = pokemonData["evsPS"][comboBox1.SelectedIndex.ToString()];
-            ATQ_Effort.Text = pokemonData["evsAtaque"][comboBox1.SelectedIndex.ToString()];
-            DEF_Effort.Text = pokemonData["evsDefensa"][comboBox1.SelectedIndex.ToString()];
-            VEL_Effort.Text = pokemonData["evsVelocidad"][comboBox1.SelectedIndex.ToString()];
-            ATESP_Effort.Text = pokemonData["evsAtaqueEspecial"][comboBox1.SelectedIndex.ToString()];
-            DFESP_Effort.Text = pokemonData["evsDefensaEspecial"][comboBox1.SelectedIndex.ToString()];
+            ratioCaptura.Text = pokemonData["ratioDeCaptura"][cmbInforma_Species.SelectedIndex.ToString()];
+            expBase.Text = pokemonData["expBase"][cmbInforma_Species.SelectedIndex.ToString()];
+            PS_Effort.Text = pokemonData["evsPS"][cmbInforma_Species.SelectedIndex.ToString()];
+            ATQ_Effort.Text = pokemonData["evsAtaque"][cmbInforma_Species.SelectedIndex.ToString()];
+            DEF_Effort.Text = pokemonData["evsDefensa"][cmbInforma_Species.SelectedIndex.ToString()];
+            VEL_Effort.Text = pokemonData["evsVelocidad"][cmbInforma_Species.SelectedIndex.ToString()];
+            ATESP_Effort.Text = pokemonData["evsAtaqueEspecial"][cmbInforma_Species.SelectedIndex.ToString()];
+            DFESP_Effort.Text = pokemonData["evsDefensaEspecial"][cmbInforma_Species.SelectedIndex.ToString()];
             //Recibir objeto 1
-            var formatoObjeto1 = pokemonData["objetoUno"][comboBox1.SelectedIndex.ToString()].Substring(5);
+            var formatoObjeto1 = pokemonData["objetoUno"][cmbInforma_Species.SelectedIndex.ToString()].Substring(5);
             formatoObjeto1 = formatoObjeto1.Replace(@"_", " ");
             OBJETO1.SelectedIndex = Int32.Parse(infoData["objetos"].FirstOrDefault(x => x.Value.Contains(formatoObjeto1)).Key);
             //Recibir objeto 2
-            var formatoObjeto2 = pokemonData["objetoDos"][comboBox1.SelectedIndex.ToString()].Substring(5);
+            var formatoObjeto2 = pokemonData["objetoDos"][cmbInforma_Species.SelectedIndex.ToString()].Substring(5);
             formatoObjeto2 = formatoObjeto2.Replace(@"_", " ");
             OBJETO2.SelectedIndex = Int32.Parse(infoData["objetos"].FirstOrDefault(x => x.Value.Contains(formatoObjeto2)).Key);
 
-            genero.Text = pokemonData["ratioGenero"][comboBox1.SelectedIndex.ToString()];
-            if (pokemonData["tieneGenero"][comboBox1.SelectedIndex.ToString()] == "true")
+            genero.Text = pokemonData["ratioGenero"][cmbInforma_Species.SelectedIndex.ToString()];
+            if (pokemonData["tieneGenero"][cmbInforma_Species.SelectedIndex.ToString()] == "true")
             {
                 generoCheck.Checked = true;
-            } else if (pokemonData["tieneGenero"][comboBox1.SelectedIndex.ToString()] == "false")
+            } else if (pokemonData["tieneGenero"][cmbInforma_Species.SelectedIndex.ToString()] == "false")
             {
                 generoCheck.Checked = false;
             }
-            ciclosHuevo.Text = pokemonData["ciclosHuevo"][comboBox1.SelectedIndex.ToString()];
-            amistadBase.Text = pokemonData["amistadBase"][comboBox1.SelectedIndex.ToString()];
+            ciclosHuevo.Text = pokemonData["ciclosHuevo"][cmbInforma_Species.SelectedIndex.ToString()];
+            amistadBase.Text = pokemonData["amistadBase"][cmbInforma_Species.SelectedIndex.ToString()];
             //Recibir crecimiento
-            var formatoCrecimiento = pokemonData["crecimiento"][comboBox1.SelectedIndex.ToString()].Substring(7);
+            var formatoCrecimiento = pokemonData["crecimiento"][cmbInforma_Species.SelectedIndex.ToString()].Substring(7);
             formatoCrecimiento = formatoCrecimiento.Replace(@"_", " ");
             var growthAmount = infoData["crecimiento"].Count;
             for (int i = 0; i < growthAmount; i++)
@@ -1125,38 +1125,38 @@ namespace IKPokeEditor
             //a.Field<string>("Synonym(System name)").Split(',').Any( s => s == b.Field<string>("SystemName"))
 
             //Recibir huevo 1
-            var formatoHuevo1 = pokemonData["grupoHuevoUno"][comboBox1.SelectedIndex.ToString()].Substring(10);
+            var formatoHuevo1 = pokemonData["grupoHuevoUno"][cmbInforma_Species.SelectedIndex.ToString()].Substring(10);
             formatoHuevo1 = formatoHuevo1.Replace(@"_", " ");
             HUEVO1.SelectedIndex = Int32.Parse(infoData["grupos_huevo"].FirstOrDefault(x => x.Value.Contains(formatoHuevo1)).Key);
             //Recibir huevo 2
-            var formatoHuevo2 = pokemonData["grupoHuevoDos"][comboBox1.SelectedIndex.ToString()].Substring(10);
+            var formatoHuevo2 = pokemonData["grupoHuevoDos"][cmbInforma_Species.SelectedIndex.ToString()].Substring(10);
             formatoHuevo2 = formatoHuevo2.Replace(@"_", " ");
             HUEVO2.SelectedIndex = Int32.Parse(infoData["grupos_huevo"].FirstOrDefault(x => x.Value.Contains(formatoHuevo2)).Key);
 
             //Recibir habilidad 1
-            var formatoHabilidad1 = pokemonData["habilidadUno"][comboBox1.SelectedIndex.ToString()].Substring(8);
+            var formatoHabilidad1 = pokemonData["habilidadUno"][cmbInforma_Species.SelectedIndex.ToString()].Substring(8);
             formatoHabilidad1 = formatoHabilidad1.Replace(@"_", " ");
             HABILIDAD1.SelectedIndex = Int32.Parse(infoData["habilidades"].FirstOrDefault(x => x.Value.Contains(formatoHabilidad1)).Key);
             //Recibir habilidad 2
-            var formatoHabilidad2 = pokemonData["habilidadDos"][comboBox1.SelectedIndex.ToString()].Substring(8);
+            var formatoHabilidad2 = pokemonData["habilidadDos"][cmbInforma_Species.SelectedIndex.ToString()].Substring(8);
             formatoHabilidad2 = formatoHabilidad2.Replace(@"_", " ");
             HABILIDAD2.SelectedIndex = Int32.Parse(infoData["habilidades"].FirstOrDefault(x => x.Value.Contains(formatoHabilidad2)).Key);
 
-            huidaSafari.Text = pokemonData["probabilidadHuidaSafari"][comboBox1.SelectedIndex.ToString()];
+            huidaSafari.Text = pokemonData["probabilidadHuidaSafari"][cmbInforma_Species.SelectedIndex.ToString()];
 
             //Recibir color del cuerpo
-            var formatoColorCuerpo = pokemonData["colorCuerpo"][comboBox1.SelectedIndex.ToString()].Substring(11);
+            var formatoColorCuerpo = pokemonData["colorCuerpo"][cmbInforma_Species.SelectedIndex.ToString()].Substring(11);
             formatoColorCuerpo = formatoColorCuerpo.Replace(@"_", " ");
             COLOR_CUERPO.SelectedIndex = Int32.Parse(infoData["color_cuerpo"].FirstOrDefault(x => x.Value.Contains(formatoColorCuerpo)).Key);
 
-            POKEMON_NAME.Text = pokemonData["pokemonName"][comboBox1.SelectedIndex.ToString()];
+            POKEMON_NAME.Text = pokemonData["pokemonName"][cmbInforma_Species.SelectedIndex.ToString()];
 
             //EVOLUTION
             this.dataGridView2.Rows.Clear();
             var evosAmount = 0;
-            if (evolutionData.ContainsKey(comboBox1.SelectedIndex.ToString() + "_0") == true)
+            if (evolutionData.ContainsKey(cmbInforma_Species.SelectedIndex.ToString() + "_0") == true)
             {
-                evosAmount = Int32.Parse((evolutionData[comboBox1.SelectedIndex.ToString() + "_0"].Item1));
+                evosAmount = Int32.Parse((evolutionData[cmbInforma_Species.SelectedIndex.ToString() + "_0"].Item1));
             }
             else
             {
@@ -1171,11 +1171,11 @@ namespace IKPokeEditor
 
             for (int i = 0; i < evosAmount; i++)
             {
-                if (evolutionData.ContainsKey(comboBox1.SelectedIndex.ToString() + "_0") == true)
+                if (evolutionData.ContainsKey(cmbInforma_Species.SelectedIndex.ToString() + "_0") == true)
                 {
-                    var method = ((evolutionData[comboBox1.SelectedIndex.ToString() + "_" + i.ToString()].Item2).Replace(@"_", " ")).Substring(4);
-                    var argument = (evolutionData[comboBox1.SelectedIndex.ToString() + "_" + i.ToString()].Item3).Replace(@" ", "");
-                    var evolution = ((evolutionData[comboBox1.SelectedIndex.ToString() + "_" + i.ToString()].Item4).Replace(@"_", " ")).Substring(8);
+                    var method = ((evolutionData[cmbInforma_Species.SelectedIndex.ToString() + "_" + i.ToString()].Item2).Replace(@"_", " ")).Substring(4);
+                    var argument = (evolutionData[cmbInforma_Species.SelectedIndex.ToString() + "_" + i.ToString()].Item3).Replace(@" ", "");
+                    var evolution = ((evolutionData[cmbInforma_Species.SelectedIndex.ToString() + "_" + i.ToString()].Item4).Replace(@"_", " ")).Substring(8);
                     this.dataGridView2.Rows.Add(method, argument, evolution);
                 }
             }
@@ -1184,11 +1184,11 @@ namespace IKPokeEditor
 
             this.dataGridView1.Rows.Clear();
 
-            var moveAmount = moveData[comboBox1.SelectedIndex.ToString() + "_0"].Item1;
+            var moveAmount = moveData[cmbInforma_Species.SelectedIndex.ToString() + "_0"].Item1;
             for (int i = 0; i < Int32.Parse(moveAmount); i++)
             {
-                var level = moveData[comboBox1.SelectedIndex.ToString() + "_" + i.ToString()].Item2;
-                var movement = (moveData[comboBox1.SelectedIndex.ToString() + "_" + i.ToString()].Item3).Substring(5).Replace(@"_", " ");
+                var level = moveData[cmbInforma_Species.SelectedIndex.ToString() + "_" + i.ToString()].Item2;
+                var movement = (moveData[cmbInforma_Species.SelectedIndex.ToString() + "_" + i.ToString()].Item3).Substring(5).Replace(@"_", " ");
                 this.dataGridView1.Rows.Add(movement, level);
             }
             MovimientoAEliminar.Maximum = Int32.Parse(moveAmount) - 1;
@@ -1197,8 +1197,8 @@ namespace IKPokeEditor
             this.dataGridView3.Rows.Clear();
             var mtmoAmount = 0;
 
-            if (mtmoData.ContainsKey(comboBox1.SelectedIndex.ToString() + "_0") == true) {
-                mtmoAmount = Int32.Parse(mtmoData[comboBox1.SelectedIndex.ToString() + "_0"].Item1);
+            if (mtmoData.ContainsKey(cmbInforma_Species.SelectedIndex.ToString() + "_0") == true) {
+                mtmoAmount = Int32.Parse(mtmoData[cmbInforma_Species.SelectedIndex.ToString() + "_0"].Item1);
             } else
             {
                 mtmoAmount = 0;
@@ -1215,85 +1215,85 @@ namespace IKPokeEditor
 
             for (int i = 0; i < mtmoAmount; i++)
             {
-                var mtmo = mtmoData[comboBox1.SelectedIndex.ToString() + "_" + i.ToString()].Item2.Replace(@"_", " ");
+                var mtmo = mtmoData[cmbInforma_Species.SelectedIndex.ToString() + "_" + i.ToString()].Item2.Replace(@"_", " ");
                 this.dataGridView3.Rows.Add(mtmo);
             }
 
 
 
             //POKEDEX INFORMATION
-            if (pokemonData["pokedexPageOne"].ContainsKey(comboBox1.SelectedIndex.ToString()))
+            if (pokemonData["pokedexPageOne"].ContainsKey(cmbInforma_Species.SelectedIndex.ToString()))
             {
-                descripcionUno.Text = pokemonData["pokedexPageOne"][comboBox1.SelectedIndex.ToString()];
+                descripcionUno.Text = pokemonData["pokedexPageOne"][cmbInforma_Species.SelectedIndex.ToString()];
             } else
             {
                 descripcionUno.Text = "";
             }
-            if (pokemonData["pokedexPageTwo"].ContainsKey(comboBox1.SelectedIndex.ToString()))
+            if (pokemonData["pokedexPageTwo"].ContainsKey(cmbInforma_Species.SelectedIndex.ToString()))
             {
-                descripcionDos.Text = pokemonData["pokedexPageTwo"][comboBox1.SelectedIndex.ToString()];
+                descripcionDos.Text = pokemonData["pokedexPageTwo"][cmbInforma_Species.SelectedIndex.ToString()];
             } else
             {
                 descripcionDos.Text = "";
             }
 
-            if (pokemonData["categoriaPokemon"].ContainsKey(comboBox1.SelectedIndex.ToString()))
+            if (pokemonData["categoriaPokemon"].ContainsKey(cmbInforma_Species.SelectedIndex.ToString()))
             {
-                categoriaPokemon.Text = pokemonData["categoriaPokemon"][comboBox1.SelectedIndex.ToString()];
+                categoriaPokemon.Text = pokemonData["categoriaPokemon"][cmbInforma_Species.SelectedIndex.ToString()];
             }
             else
             {
                 categoriaPokemon.Text = "";
             }
 
-            if (pokemonData["altura"].ContainsKey(comboBox1.SelectedIndex.ToString()))
+            if (pokemonData["altura"].ContainsKey(cmbInforma_Species.SelectedIndex.ToString()))
             {
-                altura.Text = pokemonData["altura"][comboBox1.SelectedIndex.ToString()];
+                altura.Text = pokemonData["altura"][cmbInforma_Species.SelectedIndex.ToString()];
             }
             else
             {
                 altura.Text = "";
             }
 
-            if (pokemonData["peso"].ContainsKey(comboBox1.SelectedIndex.ToString()))
+            if (pokemonData["peso"].ContainsKey(cmbInforma_Species.SelectedIndex.ToString()))
             {
-                peso.Text = pokemonData["peso"][comboBox1.SelectedIndex.ToString()];
+                peso.Text = pokemonData["peso"][cmbInforma_Species.SelectedIndex.ToString()];
             }
             else
             {
                 peso.Text = "";
             }
 
-            if (pokemonData["escalaPokemon"].ContainsKey(comboBox1.SelectedIndex.ToString()))
+            if (pokemonData["escalaPokemon"].ContainsKey(cmbInforma_Species.SelectedIndex.ToString()))
             {
-                escalaPokemon.Text = pokemonData["escalaPokemon"][comboBox1.SelectedIndex.ToString()];
+                escalaPokemon.Text = pokemonData["escalaPokemon"][cmbInforma_Species.SelectedIndex.ToString()];
             }
             else
             {
                 escalaPokemon.Text = "";
             }
 
-            if (pokemonData["offsetPokemon"].ContainsKey(comboBox1.SelectedIndex.ToString()))
+            if (pokemonData["offsetPokemon"].ContainsKey(cmbInforma_Species.SelectedIndex.ToString()))
             {
-                offsetPokemon.Text = pokemonData["offsetPokemon"][comboBox1.SelectedIndex.ToString()];
+                offsetPokemon.Text = pokemonData["offsetPokemon"][cmbInforma_Species.SelectedIndex.ToString()];
             }
             else
             {
                 offsetPokemon.Text = "";
             }
 
-            if (pokemonData["escalaEntrenador"].ContainsKey(comboBox1.SelectedIndex.ToString()))
+            if (pokemonData["escalaEntrenador"].ContainsKey(cmbInforma_Species.SelectedIndex.ToString()))
             {
-                escalaEntrenador.Text = pokemonData["escalaEntrenador"][comboBox1.SelectedIndex.ToString()];
+                escalaEntrenador.Text = pokemonData["escalaEntrenador"][cmbInforma_Species.SelectedIndex.ToString()];
             }
             else
             {
                 escalaEntrenador.Text = "";
             }
 
-            if (pokemonData["offsetEntrenador"].ContainsKey(comboBox1.SelectedIndex.ToString()))
+            if (pokemonData["offsetEntrenador"].ContainsKey(cmbInforma_Species.SelectedIndex.ToString()))
             {
-                offsetEntrenador.Text = pokemonData["offsetEntrenador"][comboBox1.SelectedIndex.ToString()];
+                offsetEntrenador.Text = pokemonData["offsetEntrenador"][cmbInforma_Species.SelectedIndex.ToString()];
             }
             else
             {
@@ -1301,11 +1301,11 @@ namespace IKPokeEditor
             }
 
             //SPRITES
-            frontY.Value = Int32.Parse(pokemonData["frontCord"][comboBox1.SelectedIndex.ToString()]);
-            backY.Value = Int32.Parse(pokemonData["backCord"][comboBox1.SelectedIndex.ToString()]);
-            Levitation.Value = Int32.Parse(pokemonData["elevate"][comboBox1.SelectedIndex.ToString()]);
-            iconPalette.SelectedIndex = Int32.Parse(pokemonData["palUsed"][comboBox1.SelectedIndex.ToString()]);
-            var formatPokemonName = (comboBox1.Text).ToString().ToLower().Replace(" ", "_");
+            frontY.Value = Int32.Parse(pokemonData["frontCord"][cmbInforma_Species.SelectedIndex.ToString()]);
+            backY.Value = Int32.Parse(pokemonData["backCord"][cmbInforma_Species.SelectedIndex.ToString()]);
+            Levitation.Value = Int32.Parse(pokemonData["elevate"][cmbInforma_Species.SelectedIndex.ToString()]);
+            iconPalette.SelectedIndex = Int32.Parse(pokemonData["palUsed"][cmbInforma_Species.SelectedIndex.ToString()]);
+            var formatPokemonName = (cmbInforma_Species.Text).ToString().ToLower().Replace(" ", "_");
 
             bool backExist = File.Exists(dictionary["pFolder_pokemon"] + "\\" + formatPokemonName + "\\back.png");
             bool frontExist = File.Exists(dictionary["pFolder_pokemon"] + "\\" + formatPokemonName + "\\front.png");
@@ -1447,9 +1447,9 @@ namespace IKPokeEditor
             pathErr = null;
             fileErr = null;
 
-            comboBox1.Items.Clear();
-            comboBox2.Items.Clear();
-            comboBox3.Items.Clear();
+            cmbInforma_Species.Items.Clear();
+            cmbPokedex_Species.Items.Clear();
+            cmbGraphic_Species.Items.Clear();
             TIPO1.Items.Clear();
             TIPO2.Items.Clear();
             HUEVO1.Items.Clear();
@@ -1808,7 +1808,7 @@ namespace IKPokeEditor
 
         private void setBaseStats()
         {
-            var pokemonSpecie = comboBox1.Text;
+            var pokemonSpecie = cmbInforma_Species.Text;
             var baseHP = PS_Base.Text;
             var baseAttack = ATQ_Base.Text;
             var baseDefense = DEF_Base.Text;
@@ -1919,7 +1919,7 @@ namespace IKPokeEditor
         {
             //var evolutions = dataGridView2.Rows[0].Cells[2].Value.ToString();
             var totalEvolutions = dataGridView2.Rows.Count - 1;
-            var pokemonSpecie = comboBox1.Text;
+            var pokemonSpecie = cmbInforma_Species.Text;
 
             string[] metodo = new string[totalEvolutions];
             string[] argumento = new string[totalEvolutions];
@@ -2019,7 +2019,7 @@ namespace IKPokeEditor
         private void setMovements()
         {
             var totalMovements = dataGridView1.Rows.Count - 1;
-            var pokemonSpecie = comboBox1.Text;
+            var pokemonSpecie = cmbInforma_Species.Text;
             var formatPokemonName = (System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(pokemonSpecie.ToLower())).Replace(" ", "");
             if (formatPokemonName == "MrMime")
             {
@@ -2080,7 +2080,7 @@ namespace IKPokeEditor
         private void setMTMO()
         {
             var totalMTMO = dataGridView3.Rows.Count - 1;
-            var pokemonSpecie = (comboBox1.Text).Replace(" ", "_");
+            var pokemonSpecie = (cmbInforma_Species.Text).Replace(" ", "_");
 
             string[] MTMO = new string[totalMTMO];
             string finalString = null;
@@ -2224,7 +2224,7 @@ namespace IKPokeEditor
 
                 if (rowCounter <= 2)
                 {
-                    pokemonName = comboBox1.Text;
+                    pokemonName = cmbInforma_Species.Text;
                     pokemonName = (System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(pokemonName.ToLower())).Replace(" ", "");
                     if (pokemonName == "MrMime") { pokemonName = "Mrmime"; }
 
@@ -2278,7 +2278,7 @@ namespace IKPokeEditor
             var pokemonOffset = offsetPokemon.Text;
             var trainerScale = escalaEntrenador.Text;
             var trainerOffset = offsetEntrenador.Text;
-            var pokemonSpecie = comboBox1.Text;
+            var pokemonSpecie = cmbInforma_Species.Text;
             var formatPokemonName = (System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(pokemonSpecie.ToLower())).Replace(" ", "");
             if (formatPokemonName == "MrMime")
             {
@@ -2323,19 +2323,19 @@ namespace IKPokeEditor
 
         private void setSpriteData()
         {
-            if (pokemonData["backCord"].ContainsKey(comboBox1.SelectedIndex.ToString()))
+            if (pokemonData["backCord"].ContainsKey(cmbInforma_Species.SelectedIndex.ToString()))
             {
                 setBackCord();
             }
-            if (pokemonData["frontCord"].ContainsKey(comboBox1.SelectedIndex.ToString()))
+            if (pokemonData["frontCord"].ContainsKey(cmbInforma_Species.SelectedIndex.ToString()))
             {
                 setFrontCord();
             }
-            if (pokemonData["elevate"].ContainsKey(comboBox1.SelectedIndex.ToString()))
+            if (pokemonData["elevate"].ContainsKey(cmbInforma_Species.SelectedIndex.ToString()))
             {
                 setElevation();
             }
-            if (pokemonData["palUsed"].ContainsKey(comboBox1.SelectedIndex.ToString()))
+            if (pokemonData["palUsed"].ContainsKey(cmbInforma_Species.SelectedIndex.ToString()))
             {
                 setPalUsed();
             }
@@ -2366,7 +2366,7 @@ namespace IKPokeEditor
             str = sr.ReadToEnd();
             sr.Close();
             var index = 0;
-            var pokemonIndex = comboBox1.SelectedIndex;
+            var pokemonIndex = cmbInforma_Species.SelectedIndex;
 
             for (int i = 0; i <= pokemonIndex; i++)
             {
@@ -2418,7 +2418,7 @@ namespace IKPokeEditor
             str = sr.ReadToEnd();
             sr.Close();
             var index = 0;
-            var pokemonIndex = comboBox1.SelectedIndex;
+            var pokemonIndex = cmbInforma_Species.SelectedIndex;
 
             for (int i = 0; i <= pokemonIndex; i++)
             {
@@ -2446,7 +2446,7 @@ namespace IKPokeEditor
 
         private void setElevation()
         {
-            string pokemonName = comboBox1.Text.ToUpper().Replace(" ", "_");
+            string pokemonName = cmbInforma_Species.Text.ToUpper().Replace(" ", "_");
 
             string str = null;
 
@@ -2494,11 +2494,11 @@ namespace IKPokeEditor
             var index = str.IndexOf("const u8 gMonIconPaletteIndices[]", 0);
             var pokemonAmount = Regex.Matches(str, "gMonIcon").Cast<Match>().Count() - 1;
             index = str.IndexOf("{", index);
-            for (int i = 0; i <= comboBox1.SelectedIndex; i++)
+            for (int i = 0; i <= cmbInforma_Species.SelectedIndex; i++)
             {
                 index = str.IndexOf("\n", index) + 1;
             }
-            var pokemonFormat = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(comboBox1.Text.ToLower()).Replace(" ", "");
+            var pokemonFormat = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(cmbInforma_Species.Text.ToLower()).Replace(" ", "");
             var newString = "    " + palUsed + ", // " + pokemonFormat + "\n";
             var preStr = str.Substring(0, index);
             var postStr = str.Substring(str.IndexOf("\n", index) + 1);
@@ -2517,50 +2517,50 @@ namespace IKPokeEditor
 
         private void reloadAllSavedData()
         {
-            pokemonData["psBase"][comboBox1.SelectedIndex.ToString()] = PS_Base.Text;
-            pokemonData["ataqueBase"][comboBox1.SelectedIndex.ToString()] = ATQ_Base.Text;
-            pokemonData["defensaBase"][comboBox1.SelectedIndex.ToString()] = DEF_Base.Text;
-            pokemonData["velocidadBase"][comboBox1.SelectedIndex.ToString()] = VEL_Base.Text;
-            pokemonData["ataqueEspecialBase"][comboBox1.SelectedIndex.ToString()] = ATESP_Base.Text;
-            pokemonData["defensaEspecialBase"][comboBox1.SelectedIndex.ToString()] = DFESP_Base.Text;
+            pokemonData["psBase"][cmbInforma_Species.SelectedIndex.ToString()] = PS_Base.Text;
+            pokemonData["ataqueBase"][cmbInforma_Species.SelectedIndex.ToString()] = ATQ_Base.Text;
+            pokemonData["defensaBase"][cmbInforma_Species.SelectedIndex.ToString()] = DEF_Base.Text;
+            pokemonData["velocidadBase"][cmbInforma_Species.SelectedIndex.ToString()] = VEL_Base.Text;
+            pokemonData["ataqueEspecialBase"][cmbInforma_Species.SelectedIndex.ToString()] = ATESP_Base.Text;
+            pokemonData["defensaEspecialBase"][cmbInforma_Species.SelectedIndex.ToString()] = DFESP_Base.Text;
             //Guardar tipo 1
             var formatoTipo1 = "TYPE_" + TIPO1.Text;
             formatoTipo1 = formatoTipo1.Replace(" ", "_");
-            pokemonData["tipoUno"][comboBox1.SelectedIndex.ToString()] = formatoTipo1;
+            pokemonData["tipoUno"][cmbInforma_Species.SelectedIndex.ToString()] = formatoTipo1;
             //Recibir tipo 2
             var formatoTipo2 = "TYPE_" + TIPO2.Text;
             formatoTipo2 = formatoTipo2.Replace(" ", "_");
-            pokemonData["tipoDos"][comboBox1.SelectedIndex.ToString()] = formatoTipo2;
+            pokemonData["tipoDos"][cmbInforma_Species.SelectedIndex.ToString()] = formatoTipo2;
 
-            pokemonData["ratioDeCaptura"][comboBox1.SelectedIndex.ToString()] = ratioCaptura.Text;
-            pokemonData["expBase"][comboBox1.SelectedIndex.ToString()] = expBase.Text;
-            pokemonData["evsPS"][comboBox1.SelectedIndex.ToString()] = PS_Effort.Text;
-            pokemonData["evsAtaque"][comboBox1.SelectedIndex.ToString()] = ATQ_Effort.Text;
-            pokemonData["evsDefensa"][comboBox1.SelectedIndex.ToString()] = DEF_Effort.Text;
-            pokemonData["evsVelocidad"][comboBox1.SelectedIndex.ToString()] = VEL_Effort.Text;
-            pokemonData["evsAtaqueEspecial"][comboBox1.SelectedIndex.ToString()] = ATESP_Effort.Text;
-            pokemonData["evsDefensaEspecial"][comboBox1.SelectedIndex.ToString()] = DFESP_Effort.Text;
+            pokemonData["ratioDeCaptura"][cmbInforma_Species.SelectedIndex.ToString()] = ratioCaptura.Text;
+            pokemonData["expBase"][cmbInforma_Species.SelectedIndex.ToString()] = expBase.Text;
+            pokemonData["evsPS"][cmbInforma_Species.SelectedIndex.ToString()] = PS_Effort.Text;
+            pokemonData["evsAtaque"][cmbInforma_Species.SelectedIndex.ToString()] = ATQ_Effort.Text;
+            pokemonData["evsDefensa"][cmbInforma_Species.SelectedIndex.ToString()] = DEF_Effort.Text;
+            pokemonData["evsVelocidad"][cmbInforma_Species.SelectedIndex.ToString()] = VEL_Effort.Text;
+            pokemonData["evsAtaqueEspecial"][cmbInforma_Species.SelectedIndex.ToString()] = ATESP_Effort.Text;
+            pokemonData["evsDefensaEspecial"][cmbInforma_Species.SelectedIndex.ToString()] = DFESP_Effort.Text;
             //Recibir objeto 1
             var formatoObjeto1 = "ITEM_" + OBJETO1.Text;
             formatoObjeto1 = formatoObjeto1.Replace(@" ", "_");
-            pokemonData["objetoUno"][comboBox1.SelectedIndex.ToString()] = formatoObjeto1;
+            pokemonData["objetoUno"][cmbInforma_Species.SelectedIndex.ToString()] = formatoObjeto1;
             //Recibir objeto 2
             var formatoObjeto2 = "ITEM_" + OBJETO2.Text;
             formatoObjeto2 = formatoObjeto2.Replace(@" ", "_");
-            pokemonData["objetoDos"][comboBox1.SelectedIndex.ToString()] = formatoObjeto2;
+            pokemonData["objetoDos"][cmbInforma_Species.SelectedIndex.ToString()] = formatoObjeto2;
 
-            pokemonData["ratioGenero"][comboBox1.SelectedIndex.ToString()] = genero.Text;
-            pokemonData["tieneGenero"][comboBox1.SelectedIndex.ToString()] = generoCheck.Checked.ToString();
-            pokemonData["ciclosHuevo"][comboBox1.SelectedIndex.ToString()] = ciclosHuevo.Text;
-            pokemonData["amistadBase"][comboBox1.SelectedIndex.ToString()] = amistadBase.Text;
-            pokemonData["crecimiento"][comboBox1.SelectedIndex.ToString()] = "GROWTH_" + (crecimiento.Text).Replace(" ", "_");
-            pokemonData["grupoHuevoUno"][comboBox1.SelectedIndex.ToString()] = "EGG_GROUP_" + (HUEVO1.Text).Replace(" ", "_");
-            pokemonData["grupoHuevoDos"][comboBox1.SelectedIndex.ToString()] = "EGG_GROUP_" + (HUEVO2.Text).Replace(" ", "_");
-            pokemonData["habilidadUno"][comboBox1.SelectedIndex.ToString()] = "ABILITY_" + (HABILIDAD1.Text).Replace(" ", "_");
-            pokemonData["habilidadDos"][comboBox1.SelectedIndex.ToString()] = "ABILITY_" + (HABILIDAD2.Text).Replace(" ", "_");
-            pokemonData["probabilidadHuidaSafari"][comboBox1.SelectedIndex.ToString()] = huidaSafari.Text;
-            pokemonData["colorCuerpo"][comboBox1.SelectedIndex.ToString()] = "BODY_COLOR_" + (COLOR_CUERPO.Text).Replace(" ", "_");
-            pokemonData["pokemonName"][comboBox1.SelectedIndex.ToString()] = POKEMON_NAME.Text.Replace(" ", "_");
+            pokemonData["ratioGenero"][cmbInforma_Species.SelectedIndex.ToString()] = genero.Text;
+            pokemonData["tieneGenero"][cmbInforma_Species.SelectedIndex.ToString()] = generoCheck.Checked.ToString();
+            pokemonData["ciclosHuevo"][cmbInforma_Species.SelectedIndex.ToString()] = ciclosHuevo.Text;
+            pokemonData["amistadBase"][cmbInforma_Species.SelectedIndex.ToString()] = amistadBase.Text;
+            pokemonData["crecimiento"][cmbInforma_Species.SelectedIndex.ToString()] = "GROWTH_" + (crecimiento.Text).Replace(" ", "_");
+            pokemonData["grupoHuevoUno"][cmbInforma_Species.SelectedIndex.ToString()] = "EGG_GROUP_" + (HUEVO1.Text).Replace(" ", "_");
+            pokemonData["grupoHuevoDos"][cmbInforma_Species.SelectedIndex.ToString()] = "EGG_GROUP_" + (HUEVO2.Text).Replace(" ", "_");
+            pokemonData["habilidadUno"][cmbInforma_Species.SelectedIndex.ToString()] = "ABILITY_" + (HABILIDAD1.Text).Replace(" ", "_");
+            pokemonData["habilidadDos"][cmbInforma_Species.SelectedIndex.ToString()] = "ABILITY_" + (HABILIDAD2.Text).Replace(" ", "_");
+            pokemonData["probabilidadHuidaSafari"][cmbInforma_Species.SelectedIndex.ToString()] = huidaSafari.Text;
+            pokemonData["colorCuerpo"][cmbInforma_Species.SelectedIndex.ToString()] = "BODY_COLOR_" + (COLOR_CUERPO.Text).Replace(" ", "_");
+            pokemonData["pokemonName"][cmbInforma_Species.SelectedIndex.ToString()] = POKEMON_NAME.Text.Replace(" ", "_");
             //EVOLUTION
             var evosAmount = this.dataGridView2.Rows.Count - 1;
             string method;
@@ -2573,7 +2573,7 @@ namespace IKPokeEditor
                 argument = (this.dataGridView2.Rows[i].Cells[1].Value).ToString();
                 evolution = "SPECIES_" + (this.dataGridView2.Rows[i].Cells[2].Value).ToString().Replace(" ", "_");
                 //MessageBox.Show(method + "\n" + argument + "\n" + evolution);
-                evolutionData[comboBox1.SelectedIndex.ToString() + "_" + i.ToString()] = Tuple.Create(evosAmount.ToString(), method, argument, evolution);
+                evolutionData[cmbInforma_Species.SelectedIndex.ToString() + "_" + i.ToString()] = Tuple.Create(evosAmount.ToString(), method, argument, evolution);
             }
             //MOVEMENTS
             var moveAmount = this.dataGridView1.Rows.Count - 1;
@@ -2584,7 +2584,7 @@ namespace IKPokeEditor
             {
                 level = this.dataGridView1.Rows[i].Cells[1].Value.ToString();
                 movement = "MOVE_" + this.dataGridView1.Rows[i].Cells[0].Value.ToString().Replace(" ", "_");
-                moveData[comboBox1.SelectedIndex.ToString() + "_" + i.ToString()] = Tuple.Create(moveAmount.ToString(), level, movement);
+                moveData[cmbInforma_Species.SelectedIndex.ToString() + "_" + i.ToString()] = Tuple.Create(moveAmount.ToString(), level, movement);
             }
             //MT/MO
             var mtmoAmount = this.dataGridView3.Rows.Count - 1;
@@ -2593,32 +2593,32 @@ namespace IKPokeEditor
             for (int i = 0; i < mtmoAmount; i++)
             {
                 mtmo = this.dataGridView3.Rows[i].Cells[0].Value.ToString().Replace(" ", "_");
-                mtmoData[comboBox1.SelectedIndex.ToString() + "_" + i.ToString()] = Tuple.Create(mtmoAmount.ToString(), mtmo);
+                mtmoData[cmbInforma_Species.SelectedIndex.ToString() + "_" + i.ToString()] = Tuple.Create(mtmoAmount.ToString(), mtmo);
             }
             //POKEDEX INFORMATION
-            pokemonData["pokedexPageOne"][comboBox1.SelectedIndex.ToString()] = descripcionUno.Text;
-            pokemonData["pokedexPageTwo"][comboBox1.SelectedIndex.ToString()] = descripcionDos.Text;
-            pokemonData["categoriaPokemon"][comboBox1.SelectedIndex.ToString()] = categoriaPokemon.Text;
-            pokemonData["altura"][comboBox1.SelectedIndex.ToString()] = altura.Text;
-            pokemonData["peso"][comboBox1.SelectedIndex.ToString()] = peso.Text;
-            pokemonData["escalaPokemon"][comboBox1.SelectedIndex.ToString()] = escalaPokemon.Text;
-            pokemonData["offsetPokemon"][comboBox1.SelectedIndex.ToString()] = offsetPokemon.Text;
-            pokemonData["escalaEntrenador"][comboBox1.SelectedIndex.ToString()] = escalaEntrenador.Text;
-            pokemonData["offsetEntrenador"][comboBox1.SelectedIndex.ToString()] = offsetEntrenador.Text;
-            pokemonData["palUsed"][comboBox1.SelectedIndex.ToString()] = iconPalette.Text;
+            pokemonData["pokedexPageOne"][cmbInforma_Species.SelectedIndex.ToString()] = descripcionUno.Text;
+            pokemonData["pokedexPageTwo"][cmbInforma_Species.SelectedIndex.ToString()] = descripcionDos.Text;
+            pokemonData["categoriaPokemon"][cmbInforma_Species.SelectedIndex.ToString()] = categoriaPokemon.Text;
+            pokemonData["altura"][cmbInforma_Species.SelectedIndex.ToString()] = altura.Text;
+            pokemonData["peso"][cmbInforma_Species.SelectedIndex.ToString()] = peso.Text;
+            pokemonData["escalaPokemon"][cmbInforma_Species.SelectedIndex.ToString()] = escalaPokemon.Text;
+            pokemonData["offsetPokemon"][cmbInforma_Species.SelectedIndex.ToString()] = offsetPokemon.Text;
+            pokemonData["escalaEntrenador"][cmbInforma_Species.SelectedIndex.ToString()] = escalaEntrenador.Text;
+            pokemonData["offsetEntrenador"][cmbInforma_Species.SelectedIndex.ToString()] = offsetEntrenador.Text;
+            pokemonData["palUsed"][cmbInforma_Species.SelectedIndex.ToString()] = iconPalette.Text;
 
             //SPRITES
-            if (pokemonData["frontCord"].ContainsKey(comboBox1.SelectedIndex.ToString()))
+            if (pokemonData["frontCord"].ContainsKey(cmbInforma_Species.SelectedIndex.ToString()))
             {
-                pokemonData["frontCord"][comboBox1.SelectedIndex.ToString()] = frontY.Value.ToString();
+                pokemonData["frontCord"][cmbInforma_Species.SelectedIndex.ToString()] = frontY.Value.ToString();
             }
-            if (pokemonData["backCord"].ContainsKey(comboBox1.SelectedIndex.ToString()))
+            if (pokemonData["backCord"].ContainsKey(cmbInforma_Species.SelectedIndex.ToString()))
             {
-                pokemonData["backCord"][comboBox1.SelectedIndex.ToString()] = backY.Value.ToString();
+                pokemonData["backCord"][cmbInforma_Species.SelectedIndex.ToString()] = backY.Value.ToString();
             }
-            if (pokemonData["elevate"].ContainsKey(comboBox1.SelectedIndex.ToString()))
+            if (pokemonData["elevate"].ContainsKey(cmbInforma_Species.SelectedIndex.ToString()))
             {
-                pokemonData["elevate"][comboBox1.SelectedIndex.ToString()] = Levitation.Value.ToString();
+                pokemonData["elevate"][cmbInforma_Species.SelectedIndex.ToString()] = Levitation.Value.ToString();
             }
         }
 
@@ -2649,11 +2649,11 @@ namespace IKPokeEditor
             {
                 case DialogResult.Yes:
                     insercionMasiva();
-                    comboBox1.SelectedIndex = comboBox1.Items.Count - 1;
+                    cmbInforma_Species.SelectedIndex = cmbInforma_Species.Items.Count - 1;
                     break;
                 case DialogResult.No:
                     insercionIndividual();
-                    comboBox1.SelectedIndex = comboBox1.Items.Count - 1;
+                    cmbInforma_Species.SelectedIndex = cmbInforma_Species.Items.Count - 1;
                     break;
             }
         }
@@ -3585,7 +3585,7 @@ namespace IKPokeEditor
 
         private void data_reset()
         {
-            var newIndex = comboBox1.Items.Count;
+            var newIndex = cmbInforma_Species.Items.Count;
 
             pokemonData["psBase"][newIndex.ToString()] = "0";
             pokemonData["ataqueBase"][newIndex.ToString()] = "0";
@@ -3631,9 +3631,9 @@ namespace IKPokeEditor
             pokemonData["backCord"][newIndex.ToString()] = "0";
             pokemonData["elevate"][newIndex.ToString()] = "0";
             pokemonData["palUsed"][newIndex.ToString()] = "0";
-            comboBox1.Items.Add(mayusPokemonName);
-            comboBox2.Items.Add(mayusPokemonName);
-            comboBox3.Items.Add(mayusPokemonName);
+            cmbInforma_Species.Items.Add(mayusPokemonName);
+            cmbPokedex_Species.Items.Add(mayusPokemonName);
+            cmbGraphic_Species.Items.Add(mayusPokemonName);
         }
 
         private string resetAfterValues(int actualValue)
