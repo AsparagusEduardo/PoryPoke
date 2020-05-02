@@ -11,5 +11,6 @@ namespace IKPokeEditor.Class
         public string ID { get; set; }
         public string Name { get; set; }
         public int BaseHP { get; set; }
+        public int BaseAttack { get; set; }
     }
 }

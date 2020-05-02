@@ -138,7 +138,7 @@ namespace IKPokeEditor.DataLoad
             var pastValue = 0;
             var indexName = 0;
             var pastValueName = 0;
-            string stat = null;
+            string baseHP, baseAttack;
 
             PokemonDictionary.Clear();
 
@@ -153,16 +153,22 @@ namespace IKPokeEditor.DataLoad
             {
                 poke = new Class.Pokemon();
 
+                // BASE HP
                 index = str.IndexOf("SPECIES_", pastValue + 2);
                 pastValue = index;
-
                 var nextBrac = str.IndexOf("]", index + 1) - index;
                 poke.ID = str.Substring(index + 8, nextBrac - 8);
-                stat = str.Substring(index + nextBrac + 35, (str.IndexOf(",", index + nextBrac + 35)) - (index + nextBrac + 35));
+                baseHP = str.Substring(index + nextBrac + 35, (str.IndexOf(",", index + nextBrac + 35)) - (index + nextBrac + 35));
+
+                // BASE ATTACK
+                index = (str.IndexOf(",", index + nextBrac + 35));
+                baseAttack = str.Substring((str.IndexOf("baseAttack", index)) + 16, (str.IndexOf(",", (str.IndexOf("baseAttack", index)))) - ((str.IndexOf("baseAttack", index)) + 16));
+
 
                 if (!(poke.ID.Substring(0, Math.Min(poke.ID.Length, 9)).Equals("OLD_UNOWN")))
                 {
-                    poke.BaseHP = int.Parse(stat);
+                    poke.BaseHP = int.Parse(baseHP);
+                    poke.BaseAttack = int.Parse(baseAttack);
                 }
 
                 PokemonDictionary.Add(poke.ID, poke);

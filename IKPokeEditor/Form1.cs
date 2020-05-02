@@ -236,9 +236,7 @@ namespace IKPokeEditor
             for (int i = 0; i < pokeAmount; i++)
             {
                 /*
-                index = (str.IndexOf(",", index + nextBrac + 35));
-                ataqueBase = str.Substring((str.IndexOf("baseAttack", index)) + 16, (str.IndexOf(",", (str.IndexOf("baseAttack", index)))) - ((str.IndexOf("baseAttack", index)) + 16));
-                pokemonData["ataqueBase"][(i + 1).ToString()] = ataqueBase;
+                
 
                 index = (str.IndexOf(",", (str.IndexOf("baseAttack", index)))) + 2;
                 defensaBase = str.Substring(((str.IndexOf("baseDefense", index)) + 16), ((str.IndexOf(",", (str.IndexOf("baseDefense", index))))) - ((str.IndexOf("baseDefense", index)) + 16));
@@ -1063,6 +1061,7 @@ namespace IKPokeEditor
         private void refrescarInterfaz()
         {
             PS_Base.Text = PokemonDictionary[cmbInforma_Species.SelectedItem.ToString()].BaseHP.ToString();
+            ATQ_Base.Text = PokemonDictionary[cmbInforma_Species.SelectedItem.ToString()].BaseAttack.ToString();
             /*
             ATQ_Base.Text = pokemonData["ataqueBase"][cmbInforma_Species.SelectedIndex.ToString()];
             DEF_Base.Text = pokemonData["defensaBase"][cmbInforma_Species.SelectedIndex.ToString()];
