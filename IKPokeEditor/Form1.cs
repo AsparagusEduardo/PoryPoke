@@ -102,11 +102,6 @@ namespace IKPokeEditor
 
             foreach (KeyValuePair<string, string> entry in filePaths)
             {
-                //StreamReader sr = new StreamReader(dictionary[entry.Key].ToString());
-                //str = sr.ReadToEnd();
-                //data[entry.Key] = str;
-                //sr.Close();
-
                 string path = directory.ToString() + entry.Value;
                 if (File.Exists(path) == false)
                 {
@@ -1499,9 +1494,9 @@ namespace IKPokeEditor
             infoData.Add("metodoEvolutivo", new Dictionary<string, string>());
 
             setTypesData();
-            /*setMovementsData();
+            /*setMovementsData();*/
             setItemsData();
-            setMTMOData();
+            /*setMTMOData();
             setEggAndColorData();
             setAbilitiesData();
             setGrowthData();
@@ -1554,7 +1549,7 @@ namespace IKPokeEditor
 
         private void setItemsData()
         {
-            string str = data["pFile_items_en_h"].ToString();
+            string str = data["pFile_items_h"].ToString();
             int index = 0;
             int lastIndex = 0;
 

@@ -36,7 +36,7 @@ namespace IKPokeEditor
             //{ "pFile_pokemon_1_c",                  "\\src\\pokemon_1.c"},
             //{ "pFile_pokemon_icon_c",               "\\src\\pokemon_icon.c"},
             //{ "pFile_move_names_en_h",              "\\src\\data\\text\\move_names_en.h"},
-            //{ "pFile_items_en_h",                   "\\src\\data\\items.h"},
+            { "pFile_items_h",                      "\\src\\data\\items.h"},
             { "pFile_pokemon_h",                    "\\include\\constants\\pokemon.h"},
             //{ "pFile_abilities_h",                  "\\include\\constants\\abilities.h"},
             //{ "pFile_evolution_h",                  "\\src\\data\\pokemon\\evolution.h"},
