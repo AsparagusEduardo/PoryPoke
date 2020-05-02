@@ -29,7 +29,7 @@ namespace IKPokeEditor
             //{ "pFile_level_up_learnset_pointers_h", "\\src\\data\\pokemon\\level_up_learnset_pointers.h"},
             //{ "pFile_level_up_learnsets_h",         "\\src\\data\\pokemon\\level_up_learnsets.h"},
             //{ "pFile_tmhm_learnsets_h",             "\\src\\data\\pokemon\\tmhm_learnsets.h"},
-            //{ "pFile_species_names_en_h",           "\\src\\data\\text\\species_names_en.h"},
+            { "pFile_species_names_h",              "\\src\\data\\text\\species_names.h"},
             //{ "pFile_pokedex_entries_en_h",         "\\src\\data\\pokedex_entries_en.h"},
             //{ "pFile_pokedex_orders_h",             "\\src\\data\\pokedex_orders.h"},
             //{ "pFile_pokedex_c",                    "\\src\\pokedex.c"},

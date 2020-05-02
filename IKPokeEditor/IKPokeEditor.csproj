@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\Pokemon.cs" />
     <Compile Include="DataLoad\pokeemerald.cs" />
     <Compile Include="Datos.cs">
       <SubType>Form</SubType>

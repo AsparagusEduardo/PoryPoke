@@ -30,6 +30,7 @@ namespace IKPokeEditor
         Dictionary<string, string> dictionary = new Dictionary<string, string>();
         Dictionary<string, string> data = new Dictionary<string, string>();
         Dictionary<string, Dictionary<string, string>> pokemonData = new Dictionary<string, Dictionary<string, string>>();
+        Dictionary<string, Class.Pokemon> PokemonDictionary = new Dictionary<string, Class.Pokemon>();
         Dictionary<string, Dictionary<string, string>> infoData = new Dictionary<string, Dictionary<string, string>>();
         Dictionary<string, Tuple<string, string, string, string>> evolutionData = new Dictionary<string, Tuple<string, string, string, string>>();
         Dictionary<string, Tuple<string, string, string>> moveData = new Dictionary<string, Tuple<string, string, string>>();
@@ -145,7 +146,7 @@ namespace IKPokeEditor
 
         private void loadData()
         {
-            //loadPokemonBaseStats();
+            loadPokemonBaseStats();
             loadPokemonNames();
             //loadPokemonEvolutions();
             //loadPokemonMovements();
@@ -189,7 +190,7 @@ namespace IKPokeEditor
         private void loadPokemonBaseStats()
         {
             var str = data["pFile_base_stats_h"];
-            var speciesNames = data["pFile_species_names_en_h"];
+            var speciesNames = data["pFile_species_names_h"];
             var pokeAmount = 0;
             var index = 0;
             var pastValue = 0;
@@ -231,15 +232,28 @@ namespace IKPokeEditor
             pastValueName = speciesNames.IndexOf("SPECIES_", 0);
             //MessageBox.Show(pastValue.ToString());
 
+            Class.Pokemon poke;
+
             for (int i = 0; i < pokeAmount; i++)
             {
+                poke = new Class.Pokemon();
+
                 index = str.IndexOf("SPECIES_", pastValue + 2);
                 pastValue = index;
 
                 var siguienteCorchete = str.IndexOf("]", index + 1) - index;
                 psBase = str.Substring(index + siguienteCorchete + 35, (str.IndexOf(",", index + siguienteCorchete + 35)) - (index + siguienteCorchete + 35));
-                pokemonData["psBase"][(i + 1).ToString()] = psBase;
+                poke.ID = str.Substring(index + 8, siguienteCorchete - 8);
 
+                if (!(poke.ID.Substring(0, Math.Min(poke.ID.Length, 9)).Equals("OLD_UNOWN")))
+                {
+                    poke.BaseHP = int.Parse(psBase);
+                }
+
+                PokemonDictionary.Add(poke.ID, poke);
+                //pokemonData["psBase"][(i + 1).ToString()] = psBase;
+
+                /*
                 index = (str.IndexOf(",", index + siguienteCorchete + 35));
                 ataqueBase = str.Substring((str.IndexOf("baseAttack", index)) + 16, (str.IndexOf(",", (str.IndexOf("baseAttack", index)))) - ((str.IndexOf("baseAttack", index)) + 16));
                 pokemonData["ataqueBase"][(i + 1).ToString()] = ataqueBase;
@@ -371,8 +385,8 @@ namespace IKPokeEditor
                 pastValueName = indexName;
                 pokemonName = speciesNames.Substring((speciesNames.IndexOf("_(", indexName)) + 3, (speciesNames.IndexOf(",", indexName)) - ((speciesNames.IndexOf("_(", indexName)) + 3) - 2);
                 pokemonData["pokemonName"][(i + 1).ToString()] = pokemonName;
+                //*/
             }
-
         }
 
         private void loadPokemonEvolutions()
@@ -881,7 +895,7 @@ namespace IKPokeEditor
             {
                 cmbPokedex_Species.SelectedIndex = cmbInforma_Species.SelectedIndex;
                 cmbGraphic_Species.SelectedIndex = cmbInforma_Species.SelectedIndex;
-                //refrescarInterfaz();
+                refrescarInterfaz();
             }
         }
 
@@ -1066,7 +1080,8 @@ namespace IKPokeEditor
 
         private void refrescarInterfaz()
         {
-            PS_Base.Text = pokemonData["psBase"][cmbInforma_Species.SelectedIndex.ToString()];
+            PS_Base.Text = PokemonDictionary[cmbInforma_Species.SelectedItem.ToString()].BaseHP.ToString();
+            /*
             ATQ_Base.Text = pokemonData["ataqueBase"][cmbInforma_Species.SelectedIndex.ToString()];
             DEF_Base.Text = pokemonData["defensaBase"][cmbInforma_Species.SelectedIndex.ToString()];
             VEL_Base.Text = pokemonData["velocidadBase"][cmbInforma_Species.SelectedIndex.ToString()];
@@ -1346,7 +1361,7 @@ namespace IKPokeEditor
             {
                 setSpritePosition();
             }
-
+            */
 
 
             /*pokemonData.Add("categoriaPokemon", new Dictionary<string, string>());
@@ -3108,7 +3123,7 @@ namespace IKPokeEditor
         private void species_names_set()
         {
             string str = null;
-            StreamReader sr = new StreamReader(dictionary["pFile_species_names_en_h"].ToString());
+            StreamReader sr = new StreamReader(dictionary["pFile_species_names_h"].ToString());
             str = sr.ReadToEnd();
             sr.Close();
 
@@ -3121,12 +3136,12 @@ namespace IKPokeEditor
             string finalString = preStr + newString + postStr;
             //richTextBox1.Text = finalString;
 
-            data["pFile_species_names_en_h"] = finalString;
+            data["pFile_species_names_h"] = finalString;
 
             //richTextBox1.Text = str;
 
-            StreamWriter sw = new StreamWriter(dictionary["pFile_species_names_en_h"].ToString(), false);
-            sw.WriteLine(data["pFile_species_names_en_h"]);
+            StreamWriter sw = new StreamWriter(dictionary["pFile_species_names_h"].ToString(), false);
+            sw.WriteLine(data["pFile_species_names_h"]);
             sw.Close();
         }
 
