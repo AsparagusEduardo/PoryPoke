@@ -1498,9 +1498,9 @@ namespace IKPokeEditor
             setItemsData();
             /*setMTMOData();*/
             setEggAndColorData();
-            /*setAbilitiesData();
+            setAbilitiesData();
             setGrowthData();
-            setEvolutiveMethodData();*/
+            /*setEvolutiveMethodData();*/
         }
 
         private void setTypesData()
@@ -1579,10 +1579,8 @@ namespace IKPokeEditor
         private void setEggAndColorData()
         {
             string str = data["pFile_pokemon_h"].ToString();
-
             DataLoad.pokeemerald.LoadEggGroups(str, ref infoData);
             DataLoad.pokeemerald.LoadBodyColors(str, ref infoData);
-
             addEggGroupToComboBox();
             addBodyColorToComboBox();
         }
@@ -1590,52 +1588,14 @@ namespace IKPokeEditor
         private void setAbilitiesData()
         {
             string str = data["pFile_abilities_h"].ToString();
-            int index = 0;
-            int lastIndex = 0;
-
-            var totalAbilities = Regex.Matches(str, "ABILITY_").Cast<Match>().Count() - 1;
-
-            for (int i = 0; i <= totalAbilities; i++)
-            {
-                index = str.IndexOf("ABILITY_", lastIndex + 2);
-                lastIndex = index;
-
-                var typeName = str.Substring((index + 8), (str.IndexOf(" ", index)) - (index + 8));
-
-                typeName = typeName.Replace(@"_", " ");
-
-                infoData["habilidades"][i.ToString()] = typeName;
-                //MessageBox.Show("Habilidades: " + infoData["habilidades"][i.ToString()]);
-            }
-
+            DataLoad.pokeemerald.LoadAbilities(str, ref infoData);
             addAbilitiesToComboBox();
         }
 
         private void setGrowthData()
         {
             string str = data["pFile_pokemon_h"].ToString();
-            int index = 0;
-            int lastIndex = 0;
-
-            var totalGrowthModes = Regex.Matches(str, "GROWTH_").Cast<Match>().Count() - 1;
-
-            for (int i = 0; i <= totalGrowthModes; i++)
-            {
-                index = str.IndexOf("GROWTH_", lastIndex + 2);
-                lastIndex = index;
-
-                var growthName = str.Substring((index + 7), (str.IndexOf(",", index) - (index + 7)));
-                if (growthName.Length > 12)
-                {
-                    growthName = growthName.Substring(0, (growthName.IndexOf("}", 0) - 1));
-                }
-
-                growthName = growthName.Replace(@"_", " ");
-
-                infoData["crecimiento"][i.ToString()] = growthName;
-                //MessageBox.Show("Crecimiento: " + infoData["crecimiento"][i.ToString()]);
-            }
-
+            DataLoad.pokeemerald.LoadGrowthRate(str, ref infoData);
             addGrowthToComboBox();
         }
 

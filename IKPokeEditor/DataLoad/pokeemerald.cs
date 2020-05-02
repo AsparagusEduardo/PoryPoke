@@ -90,5 +90,45 @@ namespace IKPokeEditor.DataLoad
                 //MessageBox.Show("Color cuerpo: " + infoData["color_cuerpo"][i.ToString()]);
             }
         }
+        public static void LoadAbilities(string str, ref Dictionary<string, Dictionary<string, string>> infoData)
+        {
+            int index = 0;
+            int lastIndex = 0;
+
+            var totalAbilities = Regex.Matches(str, "ABILITY_").Cast<Match>().Count() - 1;
+
+            for (int i = 0; i <= totalAbilities; i++)
+            {
+                index = str.IndexOf("ABILITY_", lastIndex + 2);
+                lastIndex = index;
+
+                var typeName = str.Substring((index + 8), (str.IndexOf(" ", index)) - (index + 8));
+
+                typeName = typeName.Replace(@"_", " ");
+
+                infoData["habilidades"][i.ToString()] = typeName;
+                //MessageBox.Show("Habilidades: " + infoData["habilidades"][i.ToString()]);
+            }
+        }
+        public static void LoadGrowthRate(string str, ref Dictionary<string, Dictionary<string, string>> infoData)
+        {
+            int index = 0;
+            int lastIndex = 0;
+
+            var totalGrowthModes = Regex.Matches(str, "GROWTH_").Cast<Match>().Count() - 1;
+
+            for (int i = 0; i <= totalGrowthModes; i++)
+            {
+                index = str.IndexOf("GROWTH_", lastIndex + 2);
+                lastIndex = index;
+
+                var growthName = str.Substring((index + 7), (str.IndexOf("\n", index) - (index + 7)));
+                growthName = growthName.Split(' ')[0];
+                growthName = growthName.Replace(@"_", " ");
+
+                infoData["crecimiento"][i.ToString()] = growthName;
+                //MessageBox.Show("Crecimiento: " + infoData["crecimiento"][i.ToString()]);
+            }
+        }
     }
 }
