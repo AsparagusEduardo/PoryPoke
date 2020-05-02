@@ -133,18 +133,14 @@ namespace IKPokeEditor.DataLoad
 
         public static void LoadMonBaseStats(string str, string speciesNames, ref Dictionary<string, Class.Pokemon> PokemonDictionary)
         {
-            var pokeAmount = 0;
-            var index = 0;
-            var pastValue = 0;
-            var indexName = 0;
-            var pastValueName = 0;
-            string baseHP, baseAttack;
+            int pokeAmount, index, pastIndex, statIndex, indexName, pastValueName;
+            string baseHP, baseAttack, baseDefense;
 
             PokemonDictionary.Clear();
 
             pokeAmount = Regex.Matches(str, "SPECIES_").Cast<Match>().Count() - 1;
 
-            pastValue = str.IndexOf("SPECIES_", 0);
+            pastIndex = str.IndexOf("SPECIES_", 0);
             pastValueName = speciesNames.IndexOf("SPECIES_", 0);
 
             Class.Pokemon poke;
@@ -154,21 +150,29 @@ namespace IKPokeEditor.DataLoad
                 poke = new Class.Pokemon();
 
                 // BASE HP
-                index = str.IndexOf("SPECIES_", pastValue + 2);
-                pastValue = index;
+                index = str.IndexOf("SPECIES_", pastIndex + 2);
+                pastIndex = index;
                 var nextBrac = str.IndexOf("]", index + 1) - index;
                 poke.ID = str.Substring(index + 8, nextBrac - 8);
-                baseHP = str.Substring(index + nextBrac + 35, (str.IndexOf(",", index + nextBrac + 35)) - (index + nextBrac + 35));
+                statIndex = index + nextBrac + 35;
+                baseHP = str.Substring(statIndex, str.IndexOf(",", statIndex) - statIndex);
 
                 // BASE ATTACK
                 index = (str.IndexOf(",", index + nextBrac + 35));
-                baseAttack = str.Substring((str.IndexOf("baseAttack", index)) + 16, (str.IndexOf(",", (str.IndexOf("baseAttack", index)))) - ((str.IndexOf("baseAttack", index)) + 16));
+                statIndex = str.IndexOf("baseAttack", index);
+                baseAttack = str.Substring(statIndex + 16, str.IndexOf(",", statIndex) - (statIndex + 16));
+
+                // BASE DEFENSE
+                index = str.IndexOf(",", statIndex) + 2;
+                statIndex = str.IndexOf("baseDefense", index);
+                baseDefense = str.Substring(statIndex + 16, str.IndexOf(",", statIndex) - (statIndex + 16));
 
 
                 if (!(poke.ID.Substring(0, Math.Min(poke.ID.Length, 9)).Equals("OLD_UNOWN")))
                 {
                     poke.BaseHP = int.Parse(baseHP);
                     poke.BaseAttack = int.Parse(baseAttack);
+                    poke.BaseDefense = int.Parse(baseDefense);
                 }
 
                 PokemonDictionary.Add(poke.ID, poke);

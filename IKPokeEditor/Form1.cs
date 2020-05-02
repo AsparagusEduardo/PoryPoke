@@ -236,12 +236,6 @@ namespace IKPokeEditor
             for (int i = 0; i < pokeAmount; i++)
             {
                 /*
-                
-
-                index = (str.IndexOf(",", (str.IndexOf("baseAttack", index)))) + 2;
-                defensaBase = str.Substring(((str.IndexOf("baseDefense", index)) + 16), ((str.IndexOf(",", (str.IndexOf("baseDefense", index))))) - ((str.IndexOf("baseDefense", index)) + 16));
-                pokemonData["defensaBase"][(i + 1).ToString()] = defensaBase;
-
                 index = (str.IndexOf(",", (str.IndexOf("baseDefense", index)))) + 2;
                 velocidadBase = str.Substring((str.IndexOf("baseSpeed", index) + 16), (str.IndexOf(",", index)) - (str.IndexOf("baseSpeed", index) + 16));
                 pokemonData["velocidadBase"][(i + 1).ToString()] = velocidadBase;
@@ -1062,9 +1056,8 @@ namespace IKPokeEditor
         {
             PS_Base.Text = PokemonDictionary[cmbInforma_Species.SelectedItem.ToString()].BaseHP.ToString();
             ATQ_Base.Text = PokemonDictionary[cmbInforma_Species.SelectedItem.ToString()].BaseAttack.ToString();
+            DEF_Base.Text = PokemonDictionary[cmbInforma_Species.SelectedItem.ToString()].BaseDefense.ToString();
             /*
-            ATQ_Base.Text = pokemonData["ataqueBase"][cmbInforma_Species.SelectedIndex.ToString()];
-            DEF_Base.Text = pokemonData["defensaBase"][cmbInforma_Species.SelectedIndex.ToString()];
             VEL_Base.Text = pokemonData["velocidadBase"][cmbInforma_Species.SelectedIndex.ToString()];
             ATESP_Base.Text = pokemonData["ataqueEspecialBase"][cmbInforma_Species.SelectedIndex.ToString()];
             DFESP_Base.Text = pokemonData["defensaEspecialBase"][cmbInforma_Species.SelectedIndex.ToString()];
