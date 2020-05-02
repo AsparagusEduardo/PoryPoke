@@ -38,6 +38,7 @@ namespace IKPokeEditor
         public Form1()
         {
             InitializeComponent();
+            LoadLanguage(Languages.LANGUAGE_ENGLISH);
         }
 
         private void seleccionarCarpetaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -3695,6 +3696,43 @@ namespace IKPokeEditor
             counter++;
             newValues += "\n#define SPECIES_UNOWN_QMARK " + counter + "\n";
             return newValues;
+        }
+
+        enum Languages
+        {
+            LANGUAGE_ENGLISH,
+            LANGUAGE_SPANISH
+        };
+
+        private void LoadLanguage(Languages language)
+        {
+            Dictionary<string, string> text = null;
+            switch (language)
+            {
+                case Languages.LANGUAGE_ENGLISH:
+                    text = Language.English;
+                    break;
+                case Languages.LANGUAGE_SPANISH:
+                    text = Language.Spanish;
+                    break;
+            }
+            if(text != null)
+            {
+                menuOptionsToolStripMenuItem.Text = text["menuOptions"];
+                menuLanguageToolStripMenuItem.Text = text["menuLanguage"];
+                menuEnglishToolStripMenuItem.Text = text["menuEnglish"];
+                menuSpanishToolStripMenuItem.Text = text["menuSpanish"];
+            }
+        }
+
+        private void menuEnglishToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadLanguage(Languages.LANGUAGE_ENGLISH);
+        }
+
+        private void menuSpanishToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadLanguage(Languages.LANGUAGE_SPANISH);
         }
     }
 }
