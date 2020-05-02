@@ -39,7 +39,8 @@ namespace IKPokeEditor
         public Form1()
         {
             InitializeComponent();
-            LoadLanguage(Languages.LANGUAGE_ENGLISH);
+            Language.LoadLanguageFiles();
+            LoadLanguage("English");
         }
 
         private void seleccionarCarpetaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -3667,27 +3668,27 @@ namespace IKPokeEditor
             LANGUAGE_SPANISH
         };
 
-        private void LoadLanguage(Languages language)
+        private void LoadLanguage(string lang)
         {
-            Dictionary<string, string> text = null;
-            switch (language)
+            menuLanguageToolStripMenuItem.DropDownItems.Clear();
+            foreach (KeyValuePair<string, Dictionary<string, string>> entry in Language.LanguageFiles)
             {
-                case Languages.LANGUAGE_ENGLISH:
-                    text = Language.English;
-                    break;
-                case Languages.LANGUAGE_SPANISH:
-                    text = Language.Spanish;
-                    break;
+                ToolStripMenuItem langItem = new ToolStripMenuItem(entry.Key);
+                langItem.Click += new EventHandler(menuLanguageToolStripMenuItem_Click);
+                menuLanguageToolStripMenuItem.DropDownItems.Add(langItem);
+                //menuLanguageToolStripMenuItem.DropDownItems.Add(entry.Key);
             }
-            if(text != null)
+
+            Dictionary<string, string> text = Language.LanguageFiles[lang];
+            if (text != null)
             {
                 menuFileToolStripMenuItem.Text = text["menuFile"];
                 menuFolderToolStripMenuItem.Text = text["menuFolder"];
                 menuSaveToolStripMenuItem.Text = text["menuSave"];
                 menuOptionsToolStripMenuItem.Text = text["menuOptions"];
                 menuLanguageToolStripMenuItem.Text = text["menuLanguage"];
-                menuEnglishToolStripMenuItem.Text = text["menuEnglish"];
-                menuSpanishToolStripMenuItem.Text = text["menuSpanish"];
+                //menuEnglishToolStripMenuItem.Text = text["menuEnglish"];
+                //menuSpanishToolStripMenuItem.Text = text["menuSpanish"];
 
                 tabStats.Text = text["tabStats"];
                 tabPokedex.Text = text["tabPokedex"];
@@ -3695,14 +3696,9 @@ namespace IKPokeEditor
             }
         }
 
-        private void menuEnglishToolStripMenuItem_Click(object sender, EventArgs e)
+        private void menuLanguageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LoadLanguage(Languages.LANGUAGE_ENGLISH);
-        }
-
-        private void menuSpanishToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LoadLanguage(Languages.LANGUAGE_SPANISH);
+            LoadLanguage((sender as ToolStripMenuItem).Text);
         }
     }
 }

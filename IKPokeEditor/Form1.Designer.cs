@@ -35,8 +35,6 @@
             this.menuSaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuOptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuLanguageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuEnglishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuSpanishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabStats = new System.Windows.Forms.TabPage();
             this.generoCheck = new System.Windows.Forms.CheckBox();
@@ -235,26 +233,9 @@
             // 
             // menuLanguageToolStripMenuItem
             // 
-            this.menuLanguageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuEnglishToolStripMenuItem,
-            this.menuSpanishToolStripMenuItem});
             this.menuLanguageToolStripMenuItem.Name = "menuLanguageToolStripMenuItem";
-            this.menuLanguageToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
+            this.menuLanguageToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.menuLanguageToolStripMenuItem.Text = "menuLanguage";
-            // 
-            // menuEnglishToolStripMenuItem
-            // 
-            this.menuEnglishToolStripMenuItem.Name = "menuEnglishToolStripMenuItem";
-            this.menuEnglishToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
-            this.menuEnglishToolStripMenuItem.Text = "menuEnglish";
-            this.menuEnglishToolStripMenuItem.Click += new System.EventHandler(this.menuEnglishToolStripMenuItem_Click);
-            // 
-            // menuSpanishToolStripMenuItem
-            // 
-            this.menuSpanishToolStripMenuItem.Name = "menuSpanishToolStripMenuItem";
-            this.menuSpanishToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
-            this.menuSpanishToolStripMenuItem.Text = "menuSpanish";
-            this.menuSpanishToolStripMenuItem.Click += new System.EventHandler(this.menuSpanishToolStripMenuItem_Click);
             // 
             // tabControl1
             // 
@@ -1736,8 +1717,6 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn Evolucion;
         private System.Windows.Forms.ToolStripMenuItem menuOptionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuLanguageToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem menuEnglishToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem menuSpanishToolStripMenuItem;
     }
 }
 

@@ -1,0 +1,8 @@
+menuFile=File
+menuFolder=Select folder...
+menuSave=Save
+menuOptions=Options
+menuLanguage=Language
+tabStats=Stats
+tabPokedex=Pokédex
+tabGraphics=Graphics
