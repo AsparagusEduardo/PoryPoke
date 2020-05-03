@@ -1021,20 +1021,15 @@ namespace IKPokeEditor
         private void refrescarInterfaz()
         {
             Class.Pokemon poke = PokemonDictionary[cmbInforma_Species.SelectedItem.ToString()];
+
             PS_Base.Text = poke.BaseHP.ToString();
             ATQ_Base.Text = poke.BaseAttack.ToString();
             DEF_Base.Text = poke.BaseDefense.ToString();
             VEL_Base.Text = poke.BaseSpeed.ToString();
             ATESP_Base.Text = poke.BaseSpAttack.ToString();
             DFESP_Base.Text = poke.BaseSpDefense.ToString();
-
-            // TYPE 1
-            var typeFormat1 = poke.Type1.Substring(5).Replace(@"_", " ");
-            TIPO1.SelectedIndex = Int32.Parse(infoData["tipos"].FirstOrDefault(x => x.Value.Contains(typeFormat1)).Key);
-
-            // TYPE 2
-            var typeFormat2 = poke.Type2.Substring(5).Replace(@"_", " ");
-            TIPO2.SelectedIndex = Int32.Parse(infoData["tipos"].FirstOrDefault(x => x.Value.Contains(typeFormat2)).Key);
+            TIPO1.SelectedIndex = int.Parse(infoData["tipos"].FirstOrDefault(x => x.Value.Contains(poke.Type1.Substring(5))).Key);
+            TIPO2.SelectedIndex = int.Parse(infoData["tipos"].FirstOrDefault(x => x.Value.Contains(poke.Type2.Substring(5))).Key);
 
             /*
             //Recibir tipo 2
