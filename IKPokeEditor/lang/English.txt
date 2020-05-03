@@ -8,5 +8,15 @@ tabStats=Stats
 tabPokedex=Pokédex
 tabGraphics=Graphics
 
+grpStatsStats=Estadísticas
+lblStats_BaseStats=Base Stats
+lblStats_EffordYield=Eff. Yield
 lblStatsName=Name
+lblStatsHP=HP
+lblStatsAtk=ATK
+lblStatsDef=DEF
+lblStatsSpAtk=SP.ATK;
+lblStatsSpDef=SP.DEF;
+lblStatsSpd=SPEED;
+
 lblStatsCatchRate=Catch Rate:

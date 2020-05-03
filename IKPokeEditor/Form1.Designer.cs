@@ -72,7 +72,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.grpStatsStats = new System.Windows.Forms.GroupBox();
             this.VEL_Effort = new System.Windows.Forms.TextBox();
             this.DFESP_Effort = new System.Windows.Forms.TextBox();
             this.ATESP_Effort = new System.Windows.Forms.TextBox();
@@ -85,14 +85,14 @@
             this.DEF_Base = new System.Windows.Forms.TextBox();
             this.ATQ_Base = new System.Windows.Forms.TextBox();
             this.PS_Base = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblStatsSpd = new System.Windows.Forms.Label();
+            this.lblStatsSpDef = new System.Windows.Forms.Label();
+            this.lblStatsSpAtk = new System.Windows.Forms.Label();
+            this.lblStatsDef = new System.Windows.Forms.Label();
+            this.lblStatsAtk = new System.Windows.Forms.Label();
+            this.lblStatsHP = new System.Windows.Forms.Label();
+            this.lblStats_EffordYield = new System.Windows.Forms.Label();
+            this.lblStats_BaseStats = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.OBJETO2 = new System.Windows.Forms.ComboBox();
             this.OBJETO1 = new System.Windows.Forms.ComboBox();
@@ -168,7 +168,7 @@
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EvolucionAEliminar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.grpStatsStats.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabPokedex.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -270,7 +270,7 @@
             this.tabStats.Controls.Add(this.label17);
             this.tabStats.Controls.Add(this.label16);
             this.tabStats.Controls.Add(this.label15);
-            this.tabStats.Controls.Add(this.groupBox1);
+            this.tabStats.Controls.Add(this.grpStatsStats);
             this.tabStats.Controls.Add(this.groupBox2);
             this.tabStats.Controls.Add(this.button1);
             this.tabStats.Controls.Add(this.lblStatsName);
@@ -656,36 +656,36 @@
             this.label15.TabIndex = 10;
             this.label15.Text = "Ratio de huida (Safari):";
             // 
-            // groupBox1
+            // grpStatsStats
             // 
-            this.groupBox1.Controls.Add(this.VEL_Effort);
-            this.groupBox1.Controls.Add(this.DFESP_Effort);
-            this.groupBox1.Controls.Add(this.ATESP_Effort);
-            this.groupBox1.Controls.Add(this.DEF_Effort);
-            this.groupBox1.Controls.Add(this.ATQ_Effort);
-            this.groupBox1.Controls.Add(this.PS_Effort);
-            this.groupBox1.Controls.Add(this.VEL_Base);
-            this.groupBox1.Controls.Add(this.DFESP_Base);
-            this.groupBox1.Controls.Add(this.ATESP_Base);
-            this.groupBox1.Controls.Add(this.DEF_Base);
-            this.groupBox1.Controls.Add(this.ATQ_Base);
-            this.groupBox1.Controls.Add(this.PS_Base);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(23, 96);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(263, 268);
-            this.groupBox1.TabIndex = 7;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Estadísticas";
+            this.grpStatsStats.Controls.Add(this.VEL_Effort);
+            this.grpStatsStats.Controls.Add(this.DFESP_Effort);
+            this.grpStatsStats.Controls.Add(this.ATESP_Effort);
+            this.grpStatsStats.Controls.Add(this.DEF_Effort);
+            this.grpStatsStats.Controls.Add(this.ATQ_Effort);
+            this.grpStatsStats.Controls.Add(this.PS_Effort);
+            this.grpStatsStats.Controls.Add(this.VEL_Base);
+            this.grpStatsStats.Controls.Add(this.DFESP_Base);
+            this.grpStatsStats.Controls.Add(this.ATESP_Base);
+            this.grpStatsStats.Controls.Add(this.DEF_Base);
+            this.grpStatsStats.Controls.Add(this.ATQ_Base);
+            this.grpStatsStats.Controls.Add(this.PS_Base);
+            this.grpStatsStats.Controls.Add(this.lblStatsSpd);
+            this.grpStatsStats.Controls.Add(this.lblStatsSpDef);
+            this.grpStatsStats.Controls.Add(this.lblStatsSpAtk);
+            this.grpStatsStats.Controls.Add(this.lblStatsDef);
+            this.grpStatsStats.Controls.Add(this.lblStatsAtk);
+            this.grpStatsStats.Controls.Add(this.lblStatsHP);
+            this.grpStatsStats.Controls.Add(this.lblStats_EffordYield);
+            this.grpStatsStats.Controls.Add(this.lblStats_BaseStats);
+            this.grpStatsStats.Location = new System.Drawing.Point(23, 96);
+            this.grpStatsStats.Margin = new System.Windows.Forms.Padding(4);
+            this.grpStatsStats.Name = "grpStatsStats";
+            this.grpStatsStats.Padding = new System.Windows.Forms.Padding(4);
+            this.grpStatsStats.Size = new System.Drawing.Size(263, 268);
+            this.grpStatsStats.TabIndex = 7;
+            this.grpStatsStats.TabStop = false;
+            this.grpStatsStats.Text = "grpStatsStats";
             // 
             // VEL_Effort
             // 
@@ -795,85 +795,85 @@
             this.PS_Base.TabIndex = 16;
             this.PS_Base.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumber);
             // 
-            // label9
+            // lblStatsSpd
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(36, 208);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(38, 17);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "VEL:";
+            this.lblStatsSpd.Location = new System.Drawing.Point(9, 208);
+            this.lblStatsSpd.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStatsSpd.Name = "lblStatsSpd";
+            this.lblStatsSpd.Size = new System.Drawing.Size(66, 19);
+            this.lblStatsSpd.TabIndex = 15;
+            this.lblStatsSpd.Text = "VEL:";
+            this.lblStatsSpd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label8
+            // lblStatsSpDef
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 178);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(61, 17);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "DF.ESP:";
+            this.lblStatsSpDef.Location = new System.Drawing.Point(9, 178);
+            this.lblStatsSpDef.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStatsSpDef.Name = "lblStatsSpDef";
+            this.lblStatsSpDef.Size = new System.Drawing.Size(66, 19);
+            this.lblStatsSpDef.TabIndex = 14;
+            this.lblStatsSpDef.Text = "DF.ESP:";
+            this.lblStatsSpDef.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label7
+            // lblStatsSpAtk
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 149);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(61, 17);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "AT.ESP:";
+            this.lblStatsSpAtk.Location = new System.Drawing.Point(9, 149);
+            this.lblStatsSpAtk.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStatsSpAtk.Name = "lblStatsSpAtk";
+            this.lblStatsSpAtk.Size = new System.Drawing.Size(66, 19);
+            this.lblStatsSpAtk.TabIndex = 13;
+            this.lblStatsSpAtk.Text = "AT.ESP:";
+            this.lblStatsSpAtk.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label6
+            // lblStatsDef
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(35, 119);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(39, 17);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "DEF:";
+            this.lblStatsDef.Location = new System.Drawing.Point(9, 119);
+            this.lblStatsDef.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStatsDef.Name = "lblStatsDef";
+            this.lblStatsDef.Size = new System.Drawing.Size(66, 19);
+            this.lblStatsDef.TabIndex = 12;
+            this.lblStatsDef.Text = "DEF:";
+            this.lblStatsDef.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label5
+            // lblStatsAtk
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(33, 90);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 17);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "ATQ:";
+            this.lblStatsAtk.Location = new System.Drawing.Point(9, 90);
+            this.lblStatsAtk.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStatsAtk.Name = "lblStatsAtk";
+            this.lblStatsAtk.Size = new System.Drawing.Size(66, 19);
+            this.lblStatsAtk.TabIndex = 11;
+            this.lblStatsAtk.Text = "ATQ:";
+            this.lblStatsAtk.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label4
+            // lblStatsHP
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(44, 60);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(30, 17);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "PS:";
+            this.lblStatsHP.Location = new System.Drawing.Point(9, 58);
+            this.lblStatsHP.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStatsHP.Name = "lblStatsHP";
+            this.lblStatsHP.Size = new System.Drawing.Size(66, 19);
+            this.lblStatsHP.TabIndex = 10;
+            this.lblStatsHP.Text = "PS:";
+            this.lblStatsHP.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label3
+            // lblStats_EffordYield
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(160, 34);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 17);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Ptos. Esfuerzo";
+            this.lblStats_EffordYield.AutoSize = true;
+            this.lblStats_EffordYield.Location = new System.Drawing.Point(160, 34);
+            this.lblStats_EffordYield.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStats_EffordYield.Name = "lblStats_EffordYield";
+            this.lblStats_EffordYield.Size = new System.Drawing.Size(100, 17);
+            this.lblStats_EffordYield.TabIndex = 9;
+            this.lblStats_EffordYield.Text = "Ptos. Esfuerzo";
             // 
-            // label2
+            // lblStats_BaseStats
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(76, 34);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 17);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Stats base";
+            this.lblStats_BaseStats.AutoSize = true;
+            this.lblStats_BaseStats.Location = new System.Drawing.Point(76, 34);
+            this.lblStats_BaseStats.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStats_BaseStats.Name = "lblStats_BaseStats";
+            this.lblStats_BaseStats.Size = new System.Drawing.Size(75, 17);
+            this.lblStats_BaseStats.TabIndex = 8;
+            this.lblStats_BaseStats.Text = "Stats base";
             // 
             // groupBox2
             // 
@@ -1564,8 +1564,8 @@
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.EvolucionAEliminar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.grpStatsStats.ResumeLayout(false);
+            this.grpStatsStats.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.tabPokedex.ResumeLayout(false);
@@ -1672,7 +1672,7 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox grpStatsStats;
         private System.Windows.Forms.TextBox VEL_Effort;
         private System.Windows.Forms.TextBox DFESP_Effort;
         private System.Windows.Forms.TextBox ATESP_Effort;
@@ -1685,14 +1685,14 @@
         private System.Windows.Forms.TextBox DEF_Base;
         private System.Windows.Forms.TextBox ATQ_Base;
         private System.Windows.Forms.TextBox PS_Base;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblStatsSpd;
+        private System.Windows.Forms.Label lblStatsSpDef;
+        private System.Windows.Forms.Label lblStatsSpAtk;
+        private System.Windows.Forms.Label lblStatsDef;
+        private System.Windows.Forms.Label lblStatsAtk;
+        private System.Windows.Forms.Label lblStatsHP;
+        private System.Windows.Forms.Label lblStats_EffordYield;
+        private System.Windows.Forms.Label lblStats_BaseStats;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox OBJETO2;
         private System.Windows.Forms.ComboBox OBJETO1;

@@ -8,5 +8,15 @@ tabStats=Estadísticas
 tabPokedex=Pokédex
 tabGraphics=Gráficos
 
+grpStatsStats=Estadísticas
+lblStats_BaseStats=Stats Base
+lblStats_EffordYield=Ptos. Esfuerzo
 lblStatsName=Nombre
+lblStatsHP=PS
+lblStatsAtk=ATQ
+lblStatsDef=DEF
+lblStatsSpAtk=AT.ESP;
+lblStatsSpDef=DF.ESP;
+lblStatsSpd=VEL;
+
 lblStatsCatchRate=Ratio de captura:

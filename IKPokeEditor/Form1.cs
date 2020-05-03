@@ -3689,7 +3689,17 @@ namespace IKPokeEditor
             tabPokedex.Text = LoadLanguageText(lang, "tabPokedex");
             tabGraphics.Text = LoadLanguageText(lang, "tabGraphics");
 
+            grpStatsStats.Text = LoadLanguageText(lang, "grpStatsStats");
+            lblStats_BaseStats.Text = LoadLanguageText(lang, "lblStats_BaseStats");
+            lblStats_EffordYield.Text = LoadLanguageText(lang, "lblStats_EffordYield");
             lblStatsName.Text = LoadLanguageText(lang, "lblStatsName");
+            lblStatsHP.Text = LoadLanguageText(lang, "lblStatsHP") + ":";
+            lblStatsAtk.Text = LoadLanguageText(lang, "lblStatsAtk") + ":";
+            lblStatsDef.Text = LoadLanguageText(lang, "lblStatsDef") + ":";
+            lblStatsSpAtk.Text = LoadLanguageText(lang, "lblStatsSpAtk") + ":";
+            lblStatsSpDef.Text = LoadLanguageText(lang, "lblStatsSpDef") + ":";
+            lblStatsSpd.Text = LoadLanguageText(lang, "lblStatsSpd") + ":";
+
             lblStatsCatchRat.Text = LoadLanguageText(lang, "lblStatsCatchRate");
         }
         private string LoadLanguageText(string lang, string textId)
