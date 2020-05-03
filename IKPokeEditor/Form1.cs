@@ -3679,21 +3679,33 @@ namespace IKPokeEditor
                 //menuLanguageToolStripMenuItem.DropDownItems.Add(entry.Key);
             }
 
-            Dictionary<string, string> text = Language.LanguageFiles[lang];
-            if (text != null)
-            {
-                menuFileToolStripMenuItem.Text = text["menuFile"];
-                menuFolderToolStripMenuItem.Text = text["menuFolder"];
-                menuSaveToolStripMenuItem.Text = text["menuSave"];
-                menuOptionsToolStripMenuItem.Text = text["menuOptions"];
-                menuLanguageToolStripMenuItem.Text = text["menuLanguage"];
-                //menuEnglishToolStripMenuItem.Text = text["menuEnglish"];
-                //menuSpanishToolStripMenuItem.Text = text["menuSpanish"];
+            menuFileToolStripMenuItem.Text = LoadLanguageText(lang, "menuFile");
+            menuFolderToolStripMenuItem.Text = LoadLanguageText(lang, "menuFolder");
+            menuSaveToolStripMenuItem.Text = LoadLanguageText(lang, "menuSave");
+            menuOptionsToolStripMenuItem.Text = LoadLanguageText(lang, "menuOptions");
+            menuLanguageToolStripMenuItem.Text = LoadLanguageText(lang, "menuLanguage");
 
-                tabStats.Text = text["tabStats"];
-                tabPokedex.Text = text["tabPokedex"];
-                tabGraphics.Text = text["tabGraphics"];
+            tabStats.Text = LoadLanguageText(lang, "tabStats");
+            tabPokedex.Text = LoadLanguageText(lang, "tabPokedex");
+            tabGraphics.Text = LoadLanguageText(lang, "tabGraphics");
+
+            lblStatsName.Text = LoadLanguageText(lang, "lblStatsName");
+            lblStatsCatchRat.Text = LoadLanguageText(lang, "lblStatsCatchRate");
+        }
+        private string LoadLanguageText(string lang, string textId)
+        {
+            Dictionary<string, string> text = Language.LanguageFiles[lang];
+            string str = textId;
+            try
+            {
+                if (text != null)
+                    str = text[textId];
             }
+            catch
+            {
+                MessageBox.Show("There was a problem loading the selected translation for the element \"" + textId + "\".");
+            }
+            return str;
         }
 
         private void menuLanguageToolStripMenuItem_Click(object sender, EventArgs e)

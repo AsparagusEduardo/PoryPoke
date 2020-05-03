@@ -72,7 +72,6 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.VEL_Effort = new System.Windows.Forms.TextBox();
             this.DFESP_Effort = new System.Windows.Forms.TextBox();
@@ -108,7 +107,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblStatsName = new System.Windows.Forms.Label();
             this.cmbInforma_Species = new System.Windows.Forms.ComboBox();
             this.POKEMON_NAME = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -154,6 +153,7 @@
             this.label31 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.fondo = new System.Windows.Forms.PictureBox();
+            this.lblStatsCatchRat = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabStats.SuspendLayout();
@@ -193,7 +193,7 @@
             this.menuOptionsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1348, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1348, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -203,7 +203,7 @@
             this.menuFolderToolStripMenuItem,
             this.menuSaveToolStripMenuItem});
             this.menuFileToolStripMenuItem.Name = "menuFileToolStripMenuItem";
-            this.menuFileToolStripMenuItem.Size = new System.Drawing.Size(83, 24);
+            this.menuFileToolStripMenuItem.Size = new System.Drawing.Size(83, 26);
             this.menuFileToolStripMenuItem.Text = "menuFile";
             // 
             // menuFolderToolStripMenuItem
@@ -228,13 +228,13 @@
             this.menuOptionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuLanguageToolStripMenuItem});
             this.menuOptionsToolStripMenuItem.Name = "menuOptionsToolStripMenuItem";
-            this.menuOptionsToolStripMenuItem.Size = new System.Drawing.Size(112, 24);
+            this.menuOptionsToolStripMenuItem.Size = new System.Drawing.Size(112, 26);
             this.menuOptionsToolStripMenuItem.Text = "menuOptions";
             // 
             // menuLanguageToolStripMenuItem
             // 
             this.menuLanguageToolStripMenuItem.Name = "menuLanguageToolStripMenuItem";
-            this.menuLanguageToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.menuLanguageToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
             this.menuLanguageToolStripMenuItem.Text = "menuLanguage";
             // 
             // tabControl1
@@ -252,6 +252,7 @@
             // 
             // tabStats
             // 
+            this.tabStats.Controls.Add(this.lblStatsCatchRat);
             this.tabStats.Controls.Add(this.generoCheck);
             this.tabStats.Controls.Add(this.crecimiento);
             this.tabStats.Controls.Add(this.groupBox4);
@@ -269,11 +270,10 @@
             this.tabStats.Controls.Add(this.label17);
             this.tabStats.Controls.Add(this.label16);
             this.tabStats.Controls.Add(this.label15);
-            this.tabStats.Controls.Add(this.label14);
             this.tabStats.Controls.Add(this.groupBox1);
             this.tabStats.Controls.Add(this.groupBox2);
             this.tabStats.Controls.Add(this.button1);
-            this.tabStats.Controls.Add(this.label1);
+            this.tabStats.Controls.Add(this.lblStatsName);
             this.tabStats.Controls.Add(this.cmbInforma_Species);
             this.tabStats.Controls.Add(this.POKEMON_NAME);
             this.tabStats.Controls.Add(this.button2);
@@ -656,16 +656,6 @@
             this.label15.TabIndex = 10;
             this.label15.Text = "Ratio de huida (Safari):";
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(53, 389);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(117, 17);
-            this.label14.TabIndex = 9;
-            this.label14.Text = "Ratio de captura:";
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.VEL_Effort);
@@ -1039,15 +1029,15 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label1
+            // lblStatsName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 31);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 17);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Nombre:";
+            this.lblStatsName.AutoSize = true;
+            this.lblStatsName.Location = new System.Drawing.Point(19, 31);
+            this.lblStatsName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStatsName.Name = "lblStatsName";
+            this.lblStatsName.Size = new System.Drawing.Size(91, 17);
+            this.lblStatsName.TabIndex = 3;
+            this.lblStatsName.Text = "lblStatsName";
             // 
             // cmbInforma_Species
             // 
@@ -1532,6 +1522,16 @@
             this.fondo.TabIndex = 0;
             this.fondo.TabStop = false;
             // 
+            // lblStatsCatchRat
+            // 
+            this.lblStatsCatchRat.Location = new System.Drawing.Point(20, 387);
+            this.lblStatsCatchRat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStatsCatchRat.Name = "lblStatsCatchRat";
+            this.lblStatsCatchRat.Size = new System.Drawing.Size(155, 17);
+            this.lblStatsCatchRat.TabIndex = 30;
+            this.lblStatsCatchRat.Text = "lblStatsCatchRat";
+            this.lblStatsCatchRat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1672,7 +1672,6 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox VEL_Effort;
         private System.Windows.Forms.TextBox DFESP_Effort;
@@ -1708,7 +1707,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblStatsName;
         private System.Windows.Forms.ComboBox cmbInforma_Species;
         private System.Windows.Forms.TextBox POKEMON_NAME;
         private System.Windows.Forms.Button button2;
@@ -1717,6 +1716,7 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn Evolucion;
         private System.Windows.Forms.ToolStripMenuItem menuOptionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuLanguageToolStripMenuItem;
+        private System.Windows.Forms.Label lblStatsCatchRat;
     }
 }
 

@@ -29,7 +29,8 @@ namespace IKPokeEditor
                     sr.Close();
                     foreach(string row in content)
                     {
-                        LanguageDic.Add(row.Split('=')[0], row.Replace("\r", "").Split('=')[1]);
+                        if(!row.Trim().Equals(""))
+                            LanguageDic.Add(row.Split('=')[0], row.Replace("\r", "").Split('=')[1]);
                     }
                     string langName = fil.Split('\\')[fil.Split('\\').Length - 1].Split('.')[0];
 

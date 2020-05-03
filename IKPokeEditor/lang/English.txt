@@ -3,6 +3,10 @@ menuFolder=Select folder...
 menuSave=Save
 menuOptions=Options
 menuLanguage=Language
+
 tabStats=Stats
 tabPokedex=Pokédex
 tabGraphics=Graphics
+
+lblStatsName=Name
+lblStatsCatchRate=Catch Rate:
