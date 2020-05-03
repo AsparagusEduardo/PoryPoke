@@ -1029,12 +1029,13 @@ namespace IKPokeEditor
 
         private void refrescarInterfaz()
         {
-            PS_Base.Text = PokemonDictionary[cmbInforma_Species.SelectedItem.ToString()].BaseHP.ToString();
-            ATQ_Base.Text = PokemonDictionary[cmbInforma_Species.SelectedItem.ToString()].BaseAttack.ToString();
-            DEF_Base.Text = PokemonDictionary[cmbInforma_Species.SelectedItem.ToString()].BaseDefense.ToString();
-            VEL_Base.Text = PokemonDictionary[cmbInforma_Species.SelectedItem.ToString()].BaseSpeed.ToString();
-            ATESP_Base.Text = PokemonDictionary[cmbInforma_Species.SelectedItem.ToString()].BaseSpAttack.ToString();
-            DFESP_Base.Text = PokemonDictionary[cmbInforma_Species.SelectedItem.ToString()].BaseSpDefense.ToString();
+            Class.Pokemon poke = PokemonDictionary[cmbInforma_Species.SelectedItem.ToString()];
+            PS_Base.Text = poke.BaseHP.ToString();
+            ATQ_Base.Text = poke.BaseAttack.ToString();
+            DEF_Base.Text = poke.BaseDefense.ToString();
+            VEL_Base.Text = poke.BaseSpeed.ToString();
+            ATESP_Base.Text = poke.BaseSpAttack.ToString();
+            DFESP_Base.Text = poke.BaseSpDefense.ToString();
             /*
             //Recibir tipo 1
             //TIPO1.SelectedIndex = Int32.Parse(infoData["tipos"].FirstOrDefault(x => x.Value.Contains(pokemonData["tipoUno"][comboBox1.SelectedIndex.ToString()].Substring(5))).Key);
