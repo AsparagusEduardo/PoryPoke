@@ -134,7 +134,7 @@ namespace IKPokeEditor.DataLoad
         public static void LoadMonBaseStats(string str, string speciesNames, ref Dictionary<string, Class.Pokemon> PokemonDictionary)
         {
             int pokeAmount, index, pastIndex, statIndex, indexName, pastValueName;
-            string baseHP, baseAttack, baseDefense, baseSpeed, baseSpAttack, baseSpDefense;
+            string baseHP, baseAttack, baseDefense, baseSpeed, baseSpAttack, baseSpDefense, type1, type2;
 
             PokemonDictionary.Clear();
 
@@ -182,6 +182,16 @@ namespace IKPokeEditor.DataLoad
                 statIndex = str.IndexOf("baseSpDefense", index);
                 baseSpDefense = str.Substring(statIndex + 16, str.IndexOf(",", index) - (statIndex + 16));
 
+                // TYPE 1
+                index = (str.IndexOf(",", statIndex)) + 2;
+                statIndex = str.IndexOf("type1", index);
+                type1 = str.Substring(statIndex + 8, str.IndexOf(",", index) - (statIndex + 8));
+
+                // TYPE 2
+                index = (str.IndexOf(",", statIndex)) + 2;
+                statIndex = str.IndexOf("type2", index);
+                type2 = str.Substring(statIndex + 8, str.IndexOf(",", index) - (statIndex + 8));
+
                 if (!(poke.ID.Substring(0, Math.Min(poke.ID.Length, 9)).Equals("OLD_UNOWN")))
                 {
                     poke.BaseHP = int.Parse(baseHP);
@@ -190,6 +200,8 @@ namespace IKPokeEditor.DataLoad
                     poke.BaseSpeed = int.Parse(baseSpeed);
                     poke.BaseSpAttack = int.Parse(baseSpAttack);
                     poke.BaseSpDefense = int.Parse(baseSpDefense);
+                    poke.Type1 = type1;
+                    poke.Type2 = type2;
                 }
 
                 PokemonDictionary.Add(poke.ID, poke);

@@ -222,15 +222,6 @@ namespace IKPokeEditor
             for (int i = 0; i < 13; i++)
             {
                 /*
-
-                index = (str.IndexOf(",", index)) + 2;
-                type1 = str.Substring((str.IndexOf("type1", index) + 8), str.IndexOf(",", index) - (str.IndexOf("type1", index) + 8));
-                pokemonData["tipoUno"][(i + 1).ToString()] = type1;
-
-                index = (str.IndexOf(",", index)) + 2;
-                type2 = str.Substring((str.IndexOf("type2", index) + 8), str.IndexOf(",", index) - (str.IndexOf("type2", index) + 8));
-                pokemonData["tipoDos"][(i + 1).ToString()] = type2;
-
                 index = (str.IndexOf(",", index)) + 2;
                 ratioCaptura = str.Substring((str.IndexOf("catchRate", index) + 12), str.IndexOf(",", index) - (str.IndexOf("catchRate", index) + 12));
                 pokemonData["ratioDeCaptura"][(i + 1).ToString()] = ratioCaptura;
@@ -1036,12 +1027,16 @@ namespace IKPokeEditor
             VEL_Base.Text = poke.BaseSpeed.ToString();
             ATESP_Base.Text = poke.BaseSpAttack.ToString();
             DFESP_Base.Text = poke.BaseSpDefense.ToString();
+
+            // TYPE 1
+            var typeFormat1 = poke.Type1.Substring(5).Replace(@"_", " ");
+            TIPO1.SelectedIndex = Int32.Parse(infoData["tipos"].FirstOrDefault(x => x.Value.Contains(typeFormat1)).Key);
+
+            // TYPE 2
+            var typeFormat2 = poke.Type2.Substring(5).Replace(@"_", " ");
+            TIPO2.SelectedIndex = Int32.Parse(infoData["tipos"].FirstOrDefault(x => x.Value.Contains(typeFormat2)).Key);
+
             /*
-            //Recibir tipo 1
-            //TIPO1.SelectedIndex = Int32.Parse(infoData["tipos"].FirstOrDefault(x => x.Value.Contains(pokemonData["tipoUno"][comboBox1.SelectedIndex.ToString()].Substring(5))).Key);
-            var formatoTipo1 = pokemonData["tipoUno"][cmbInforma_Species.SelectedIndex.ToString()].Substring(5);
-            formatoTipo1 = formatoTipo1.Replace(@"_", " ");
-            TIPO1.SelectedIndex = Int32.Parse(infoData["tipos"].FirstOrDefault(x => x.Value.Contains(formatoTipo1)).Key);
             //Recibir tipo 2
             //TIPO2.SelectedIndex = Int32.Parse(infoData["tipos"].FirstOrDefault(x => x.Value.Contains(pokemonData["tipoDos"][comboBox1.SelectedIndex.ToString()].Substring(5))).Key);
             var formatoTipo2 = pokemonData["tipoDos"][cmbInforma_Species.SelectedIndex.ToString()].Substring(5);
