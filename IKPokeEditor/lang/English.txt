@@ -8,7 +8,7 @@ tabStats=Stats
 tabPokedex=Pokédex
 tabGraphics=Graphics
 
-grpStatsStats=Estadísticas
+grpStatsStats=Stats
 lblStats_BaseStats=Base Stats
 lblStats_EffordYield=Eff. Yield
 lblStatsName=Name
