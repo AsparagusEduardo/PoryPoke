@@ -133,8 +133,8 @@ namespace IKPokeEditor.DataLoad
 
         public static void LoadMonBaseStats(string str, string speciesNames, ref Dictionary<string, Class.Pokemon> PokemonDictionary)
         {
-            int pokeAmount, index, pastIndex, statIndex, indexName, pastValueName;
-            string baseHP, baseAttack, baseDefense, baseSpeed, baseSpAttack, baseSpDefense, type1, type2;
+            int pokeAmount, index, pastIndex, statIndex, pastValueName;
+            string currentStat;
 
             PokemonDictionary.Clear();
 
@@ -158,51 +158,51 @@ namespace IKPokeEditor.DataLoad
                 if (!(poke.ID.Substring(0, Math.Min(poke.ID.Length, 9)).Equals("OLD_UNOWN")))
                 {
                     statIndex = index + nextBrac + 35;
-                    baseHP = str.Substring(statIndex, str.IndexOf(",", statIndex) - statIndex);
+                    currentStat = str.Substring(statIndex, str.IndexOf(",", statIndex) - statIndex);
+                    poke.BaseHP = int.Parse(currentStat);
 
                     // BASE ATTACK
                     index = (str.IndexOf(",", statIndex));
                     statIndex = str.IndexOf("baseAttack", index);
-                    baseAttack = str.Substring(statIndex + 16, str.IndexOf(",", statIndex) - (statIndex + 16));
+                    currentStat = str.Substring(statIndex + 16, str.IndexOf(",", statIndex) - (statIndex + 16));
+                    poke.BaseAttack = int.Parse(currentStat);
 
                     // BASE DEFENSE
                     index = str.IndexOf(",", statIndex) + 2;
                     statIndex = str.IndexOf("baseDefense", index);
-                    baseDefense = str.Substring(statIndex + 16, str.IndexOf(",", statIndex) - (statIndex + 16));
+                    currentStat = str.Substring(statIndex + 16, str.IndexOf(",", statIndex) - (statIndex + 16));
+                    poke.BaseDefense = int.Parse(currentStat);
 
                     // BASE SPEED
                     index = str.IndexOf(",", statIndex) + 2;
                     statIndex = str.IndexOf("baseSpeed", index);
-                    baseSpeed = str.Substring(statIndex + 16, str.IndexOf(",", index) - (statIndex + 16));
+                    currentStat = str.Substring(statIndex + 16, str.IndexOf(",", index) - (statIndex + 16));
+                    poke.BaseSpeed = int.Parse(currentStat);
 
                     // BASE SP ATTACK
                     index = (str.IndexOf(",", statIndex)) + 2;
                     statIndex = str.IndexOf("baseSpAttack", index);
-                    baseSpAttack = str.Substring(statIndex + 16, str.IndexOf(",", index) - (statIndex + 16));
+                    currentStat = str.Substring(statIndex + 16, str.IndexOf(",", index) - (statIndex + 16));
+                    poke.BaseSpAttack = int.Parse(currentStat);
 
                     // BASE SP DEFENSE
                     index = (str.IndexOf(",", statIndex)) + 2;
                     statIndex = str.IndexOf("baseSpDefense", index);
-                    baseSpDefense = str.Substring(statIndex + 16, str.IndexOf(",", index) - (statIndex + 16));
+                    currentStat = str.Substring(statIndex + 16, str.IndexOf(",", index) - (statIndex + 16));
+                    poke.BaseSpDefense = int.Parse(currentStat);
 
                     // TYPE 1
                     index = (str.IndexOf(",", statIndex)) + 2;
                     statIndex = str.IndexOf("type1", index);
-                    type1 = str.Substring(statIndex + 8, str.IndexOf(",", index) - (statIndex + 8));
+                    currentStat = str.Substring(statIndex + 8, str.IndexOf(",", index) - (statIndex + 8));
+                    poke.Type1 = currentStat;
 
                     // TYPE 2
                     index = (str.IndexOf(",", statIndex)) + 2;
                     statIndex = str.IndexOf("type2", index);
-                    type2 = str.Substring(statIndex + 8, str.IndexOf(",", index) - (statIndex + 8));
+                    currentStat = str.Substring(statIndex + 8, str.IndexOf(",", index) - (statIndex + 8));
+                    poke.Type2 = currentStat;
 
-                    poke.BaseHP = int.Parse(baseHP);
-                    poke.BaseAttack = int.Parse(baseAttack);
-                    poke.BaseDefense = int.Parse(baseDefense);
-                    poke.BaseSpeed = int.Parse(baseSpeed);
-                    poke.BaseSpAttack = int.Parse(baseSpAttack);
-                    poke.BaseSpDefense = int.Parse(baseSpDefense);
-                    poke.Type1 = type1;
-                    poke.Type2 = type2;
                 }
                 else
                 {
