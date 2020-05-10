@@ -154,46 +154,47 @@ namespace IKPokeEditor.DataLoad
                 pastIndex = index;
                 var nextBrac = str.IndexOf("]", index + 1) - index;
                 poke.ID = str.Substring(index + 8, nextBrac - 8);
-                statIndex = index + nextBrac + 35;
-                baseHP = str.Substring(statIndex, str.IndexOf(",", statIndex) - statIndex);
-
-                // BASE ATTACK
-                index = (str.IndexOf(",", statIndex));
-                statIndex = str.IndexOf("baseAttack", index);
-                baseAttack = str.Substring(statIndex + 16, str.IndexOf(",", statIndex) - (statIndex + 16));
-
-                // BASE DEFENSE
-                index = str.IndexOf(",", statIndex) + 2;
-                statIndex = str.IndexOf("baseDefense", index);
-                baseDefense = str.Substring(statIndex + 16, str.IndexOf(",", statIndex) - (statIndex + 16));
-
-                // BASE SPEED
-                index = str.IndexOf(",", statIndex) + 2;
-                statIndex = str.IndexOf("baseSpeed", index);
-                baseSpeed = str.Substring(statIndex + 16, str.IndexOf(",", index) - (statIndex + 16));
-
-                // BASE SP ATTACK
-                index = (str.IndexOf(",", statIndex)) + 2;
-                statIndex = str.IndexOf("baseSpAttack", index);
-                baseSpAttack = str.Substring(statIndex + 16, str.IndexOf(",", index) - (statIndex + 16));
-
-                // BASE SP DEFENSE
-                index = (str.IndexOf(",", statIndex)) + 2;
-                statIndex = str.IndexOf("baseSpDefense", index);
-                baseSpDefense = str.Substring(statIndex + 16, str.IndexOf(",", index) - (statIndex + 16));
-
-                // TYPE 1
-                index = (str.IndexOf(",", statIndex)) + 2;
-                statIndex = str.IndexOf("type1", index);
-                type1 = str.Substring(statIndex + 8, str.IndexOf(",", index) - (statIndex + 8));
-
-                // TYPE 2
-                index = (str.IndexOf(",", statIndex)) + 2;
-                statIndex = str.IndexOf("type2", index);
-                type2 = str.Substring(statIndex + 8, str.IndexOf(",", index) - (statIndex + 8));
 
                 if (!(poke.ID.Substring(0, Math.Min(poke.ID.Length, 9)).Equals("OLD_UNOWN")))
                 {
+                    statIndex = index + nextBrac + 35;
+                    baseHP = str.Substring(statIndex, str.IndexOf(",", statIndex) - statIndex);
+
+                    // BASE ATTACK
+                    index = (str.IndexOf(",", statIndex));
+                    statIndex = str.IndexOf("baseAttack", index);
+                    baseAttack = str.Substring(statIndex + 16, str.IndexOf(",", statIndex) - (statIndex + 16));
+
+                    // BASE DEFENSE
+                    index = str.IndexOf(",", statIndex) + 2;
+                    statIndex = str.IndexOf("baseDefense", index);
+                    baseDefense = str.Substring(statIndex + 16, str.IndexOf(",", statIndex) - (statIndex + 16));
+
+                    // BASE SPEED
+                    index = str.IndexOf(",", statIndex) + 2;
+                    statIndex = str.IndexOf("baseSpeed", index);
+                    baseSpeed = str.Substring(statIndex + 16, str.IndexOf(",", index) - (statIndex + 16));
+
+                    // BASE SP ATTACK
+                    index = (str.IndexOf(",", statIndex)) + 2;
+                    statIndex = str.IndexOf("baseSpAttack", index);
+                    baseSpAttack = str.Substring(statIndex + 16, str.IndexOf(",", index) - (statIndex + 16));
+
+                    // BASE SP DEFENSE
+                    index = (str.IndexOf(",", statIndex)) + 2;
+                    statIndex = str.IndexOf("baseSpDefense", index);
+                    baseSpDefense = str.Substring(statIndex + 16, str.IndexOf(",", index) - (statIndex + 16));
+
+                    // TYPE 1
+                    index = (str.IndexOf(",", statIndex)) + 2;
+                    statIndex = str.IndexOf("type1", index);
+                    type1 = str.Substring(statIndex + 8, str.IndexOf(",", index) - (statIndex + 8));
+
+                    // TYPE 2
+                    index = (str.IndexOf(",", statIndex)) + 2;
+                    statIndex = str.IndexOf("type2", index);
+                    type2 = str.Substring(statIndex + 8, str.IndexOf(",", index) - (statIndex + 8));
+
                     poke.BaseHP = int.Parse(baseHP);
                     poke.BaseAttack = int.Parse(baseAttack);
                     poke.BaseDefense = int.Parse(baseDefense);
