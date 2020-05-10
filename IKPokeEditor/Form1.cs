@@ -1031,14 +1031,8 @@ namespace IKPokeEditor
             TIPO1.SelectedIndex = int.Parse(infoData["tipos"].FirstOrDefault(x => x.Value.Contains(poke.Type1.Substring(5))).Key);
             TIPO2.SelectedIndex = int.Parse(infoData["tipos"].FirstOrDefault(x => x.Value.Contains(poke.Type2.Substring(5))).Key);
 
+            ratioCaptura.Text = poke.CatchRate.ToString();
             /*
-            //Recibir tipo 2
-            //TIPO2.SelectedIndex = Int32.Parse(infoData["tipos"].FirstOrDefault(x => x.Value.Contains(pokemonData["tipoDos"][comboBox1.SelectedIndex.ToString()].Substring(5))).Key);
-            var formatoTipo2 = pokemonData["tipoDos"][cmbInforma_Species.SelectedIndex.ToString()].Substring(5);
-            formatoTipo2 = formatoTipo2.Replace(@"_", " ");
-            TIPO2.SelectedIndex = Int32.Parse(infoData["tipos"].FirstOrDefault(x => x.Value.Contains(formatoTipo2)).Key);
-
-            ratioCaptura.Text = pokemonData["ratioDeCaptura"][cmbInforma_Species.SelectedIndex.ToString()];
             expBase.Text = pokemonData["expBase"][cmbInforma_Species.SelectedIndex.ToString()];
             PS_Effort.Text = pokemonData["evsPS"][cmbInforma_Species.SelectedIndex.ToString()];
             ATQ_Effort.Text = pokemonData["evsAtaque"][cmbInforma_Species.SelectedIndex.ToString()];

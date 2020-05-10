@@ -203,6 +203,12 @@ namespace IKPokeEditor.DataLoad
                     currentStat = str.Substring(statIndex + 8, str.IndexOf(",", index) - (statIndex + 8));
                     poke.Type2 = currentStat;
 
+                    // CATCH RATE
+                    index = (str.IndexOf(",", statIndex)) + 2;
+                    statIndex = str.IndexOf("catchRate", index);
+                    currentStat = str.Substring(statIndex + 12, str.IndexOf(",", index) - (statIndex + 12));
+                    poke.CatchRate = int.Parse(currentStat);
+
                 }
                 else
                 {

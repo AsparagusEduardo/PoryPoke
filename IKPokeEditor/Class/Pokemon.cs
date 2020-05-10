@@ -18,5 +18,6 @@ namespace IKPokeEditor.Class
         public int BaseSpDefense { get; set; }
         public string Type1 { get; set; }
         public string Type2 { get; set; }
+        public int CatchRate { get; set; }
     }
 }
