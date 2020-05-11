@@ -19,5 +19,12 @@ namespace IKPokeEditor.Class
         public string Type1 { get; set; }
         public string Type2 { get; set; }
         public int CatchRate { get; set; }
+        public int ExpYield { get; set; }
+        public int EvHP { get; set; }
+        public int EvAttack { get; set; }
+        public int EvDefense { get; set; }
+        public int EvSpeed { get; set; }
+        public int EvSpAttack { get; set; }
+        public int EvSpDefense { get; set; }
     }
 }

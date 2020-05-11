@@ -209,6 +209,48 @@ namespace IKPokeEditor.DataLoad
                     currentStat = str.Substring(statIndex + 12, str.IndexOf(",", index) - (statIndex + 12));
                     poke.CatchRate = int.Parse(currentStat);
 
+                    // EXP YIELD
+                    index = (str.IndexOf(",", statIndex)) + 2;
+                    statIndex = str.IndexOf("expYield", index);
+                    currentStat = str.Substring(statIndex + 11, str.IndexOf(",", index) - (statIndex + 11));
+                    poke.ExpYield = int.Parse(currentStat);
+
+                    // EV YIELD HP
+                    index = (str.IndexOf(",", statIndex));
+                    statIndex = str.IndexOf("evYield_HP", index);
+                    currentStat = str.Substring(statIndex + 20, str.IndexOf(",", statIndex) - (statIndex + 20));
+                    poke.EvHP = int.Parse(currentStat);
+
+                    // EV YIELD ATTACK
+                    index = (str.IndexOf(",", statIndex));
+                    statIndex = str.IndexOf("evYield_Attack", index);
+                    currentStat = str.Substring(statIndex + 20, str.IndexOf(",", statIndex) - (statIndex + 20));
+                    poke.EvAttack = int.Parse(currentStat);
+
+                    // EV YIELD DEFENSE
+                    index = (str.IndexOf(",", statIndex));
+                    statIndex = str.IndexOf("evYield_Defense", index);
+                    currentStat = str.Substring(statIndex + 20, str.IndexOf(",", statIndex) - (statIndex + 20));
+                    poke.EvDefense = int.Parse(currentStat);
+
+                    // EV YIELD SPEED
+                    index = (str.IndexOf(",", statIndex));
+                    statIndex = str.IndexOf("evYield_Speed", index);
+                    currentStat = str.Substring(statIndex + 20, str.IndexOf(",", statIndex) - (statIndex + 20));
+                    poke.EvSpeed = int.Parse(currentStat);
+
+                    // EV YIELD SP. ATTACK
+                    index = (str.IndexOf(",", statIndex));
+                    statIndex = str.IndexOf("evYield_SpAttack", index);
+                    currentStat = str.Substring(statIndex + 20, str.IndexOf(",", statIndex) - (statIndex + 20));
+                    poke.EvSpAttack = int.Parse(currentStat);
+
+                    // EV YIELD SP. DEF
+                    index = (str.IndexOf(",", statIndex));
+                    statIndex = str.IndexOf("evYield_SpDefense", index);
+                    currentStat = str.Substring(statIndex + 20, str.IndexOf(",", statIndex) - (statIndex + 20));
+                    poke.EvSpDefense = int.Parse(currentStat);
+
                 }
                 else
                 {

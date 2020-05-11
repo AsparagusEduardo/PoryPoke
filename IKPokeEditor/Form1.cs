@@ -192,16 +192,6 @@ namespace IKPokeEditor
 
             DataLoad.pokeemerald.LoadMonBaseStats(str, speciesNames, ref PokemonDictionary);
 
-            string type1 = null;
-            string type2 = null;
-            string ratioCaptura = null;
-            string expBase = null;
-            string evsPS = null;
-            string evsAtaque = null;
-            string evsDefensa = null;
-            string evsVelocidad = null;
-            string evsAtaqueEspecial = null;
-            string evsDefensaEspecial = null;
             string objetoUno = null;
             string objetoDos = null;
             string genero = null;
@@ -1032,14 +1022,15 @@ namespace IKPokeEditor
             TIPO2.SelectedIndex = int.Parse(infoData["tipos"].FirstOrDefault(x => x.Value.Contains(poke.Type2.Substring(5))).Key);
 
             ratioCaptura.Text = poke.CatchRate.ToString();
+            expBase.Text = poke.ExpYield.ToString();
+            PS_Effort.Text = poke.EvHP.ToString();
+            ATQ_Effort.Text = poke.EvAttack.ToString();
+            DEF_Effort.Text = poke.EvDefense.ToString();
+            VEL_Effort.Text = poke.EvSpeed.ToString();
+            ATESP_Effort.Text = poke.EvSpAttack.ToString();
+            DFESP_Effort.Text = poke.EvSpDefense.ToString();
+
             /*
-            expBase.Text = pokemonData["expBase"][cmbInforma_Species.SelectedIndex.ToString()];
-            PS_Effort.Text = pokemonData["evsPS"][cmbInforma_Species.SelectedIndex.ToString()];
-            ATQ_Effort.Text = pokemonData["evsAtaque"][cmbInforma_Species.SelectedIndex.ToString()];
-            DEF_Effort.Text = pokemonData["evsDefensa"][cmbInforma_Species.SelectedIndex.ToString()];
-            VEL_Effort.Text = pokemonData["evsVelocidad"][cmbInforma_Species.SelectedIndex.ToString()];
-            ATESP_Effort.Text = pokemonData["evsAtaqueEspecial"][cmbInforma_Species.SelectedIndex.ToString()];
-            DFESP_Effort.Text = pokemonData["evsDefensaEspecial"][cmbInforma_Species.SelectedIndex.ToString()];
             //Recibir objeto 1
             var formatoObjeto1 = pokemonData["objetoUno"][cmbInforma_Species.SelectedIndex.ToString()].Substring(5);
             formatoObjeto1 = formatoObjeto1.Replace(@"_", " ");
@@ -3647,12 +3638,6 @@ namespace IKPokeEditor
             return newValues;
         }
 
-        enum Languages
-        {
-            LANGUAGE_ENGLISH,
-            LANGUAGE_SPANISH
-        };
-
         private void LoadLanguage(string lang)
         {
             menuLanguageToolStripMenuItem.DropDownItems.Clear();
@@ -3661,7 +3646,6 @@ namespace IKPokeEditor
                 ToolStripMenuItem langItem = new ToolStripMenuItem(entry.Key);
                 langItem.Click += new EventHandler(menuLanguageToolStripMenuItem_Click);
                 menuLanguageToolStripMenuItem.DropDownItems.Add(langItem);
-                //menuLanguageToolStripMenuItem.DropDownItems.Add(entry.Key);
             }
 
             menuFileToolStripMenuItem.Text = LoadLanguageText(lang, "menuFile");
