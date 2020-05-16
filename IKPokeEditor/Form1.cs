@@ -977,6 +977,9 @@ namespace IKPokeEditor
             txtStats_friendship.Text = poke.Friendship.ToString();
             ddlStats_growthRate.SelectedIndex = int.Parse(infoData["crecimiento"].FirstOrDefault(x => x.Value.Contains(poke.GrowthRate.Substring(7).Replace("_", " "))).Key);
 
+            ddlStats_eggGroup1.SelectedIndex = int.Parse(infoData["grupos_huevo"].FirstOrDefault(x => x.Value.Contains(poke.EggGroup1.Substring(10).Replace("_", " "))).Key);
+            ddlStats_eggGroup2.SelectedIndex = int.Parse(infoData["grupos_huevo"].FirstOrDefault(x => x.Value.Contains(poke.EggGroup2.Substring(10).Replace("_", " "))).Key);
+
             /*
             //Recibir huevo 1
             var formatoHuevo1 = pokemonData["grupoHuevoUno"][cmbInforma_Species.SelectedIndex.ToString()].Substring(10);
@@ -1306,8 +1309,8 @@ namespace IKPokeEditor
             cmbGraphic_Species.Items.Clear();
             ddlStats_type1.Items.Clear();
             ddlStats_type2.Items.Clear();
-            HUEVO1.Items.Clear();
-            HUEVO2.Items.Clear();
+            ddlStats_eggGroup1.Items.Clear();
+            ddlStats_eggGroup2.Items.Clear();
             HABILIDAD1.Items.Clear();
             HABILIDAD2.Items.Clear();
             ddlStats_item1.Items.Clear();
@@ -1530,15 +1533,15 @@ namespace IKPokeEditor
         {
             int eggGroupAmount = infoData["grupos_huevo"].Count;
 
-            HUEVO1.Items.Clear();
-            HUEVO2.Items.Clear();
+            ddlStats_eggGroup1.Items.Clear();
+            ddlStats_eggGroup2.Items.Clear();
 
             for (int i = 0; i < eggGroupAmount; i++)
             {
                 string insertEggGroupName = infoData["grupos_huevo"][i.ToString()];
                 //MessageBox.Show(insertEggGroupName);
-                HUEVO1.Items.Insert(i, insertEggGroupName);
-                HUEVO2.Items.Insert(i, insertEggGroupName);
+                ddlStats_eggGroup1.Items.Insert(i, insertEggGroupName);
+                ddlStats_eggGroup2.Items.Insert(i, insertEggGroupName);
             }
         }
 
@@ -1702,8 +1705,8 @@ namespace IKPokeEditor
             var eggCycles = txtStats_eggCycles.Text;
             var friendship = txtStats_friendship.Text;
             var growthRate = (ddlStats_growthRate.Text).Replace(" ", "_");
-            var eggGroup1 = (HUEVO1.Text).Replace(" ", "_");
-            var eggGroup2 = (HUEVO2.Text).Replace(" ", "_");
+            var eggGroup1 = (ddlStats_eggGroup1.Text).Replace(" ", "_");
+            var eggGroup2 = (ddlStats_eggGroup2.Text).Replace(" ", "_");
             var ability1 = (HABILIDAD1.Text).Replace(" ", "_");
             var ability2 = (HABILIDAD2.Text).Replace(" ", "_");
             var safariZoneFleeRate = huidaSafari.Text;
@@ -2408,8 +2411,8 @@ namespace IKPokeEditor
             pokemonData["ciclosHuevo"][cmbInforma_Species.SelectedIndex.ToString()] = txtStats_eggCycles.Text;
             pokemonData["amistadBase"][cmbInforma_Species.SelectedIndex.ToString()] = txtStats_friendship.Text;
             pokemonData["crecimiento"][cmbInforma_Species.SelectedIndex.ToString()] = "GROWTH_" + (ddlStats_growthRate.Text).Replace(" ", "_");
-            pokemonData["grupoHuevoUno"][cmbInforma_Species.SelectedIndex.ToString()] = "EGG_GROUP_" + (HUEVO1.Text).Replace(" ", "_");
-            pokemonData["grupoHuevoDos"][cmbInforma_Species.SelectedIndex.ToString()] = "EGG_GROUP_" + (HUEVO2.Text).Replace(" ", "_");
+            pokemonData["grupoHuevoUno"][cmbInforma_Species.SelectedIndex.ToString()] = "EGG_GROUP_" + (ddlStats_eggGroup1.Text).Replace(" ", "_");
+            pokemonData["grupoHuevoDos"][cmbInforma_Species.SelectedIndex.ToString()] = "EGG_GROUP_" + (ddlStats_eggGroup2.Text).Replace(" ", "_");
             pokemonData["habilidadUno"][cmbInforma_Species.SelectedIndex.ToString()] = "ABILITY_" + (HABILIDAD1.Text).Replace(" ", "_");
             pokemonData["habilidadDos"][cmbInforma_Species.SelectedIndex.ToString()] = "ABILITY_" + (HABILIDAD2.Text).Replace(" ", "_");
             pokemonData["probabilidadHuidaSafari"][cmbInforma_Species.SelectedIndex.ToString()] = huidaSafari.Text;

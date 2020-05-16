@@ -196,6 +196,8 @@ namespace IKPokeEditor.DataLoad
                     poke.EggCycles = int.Parse(LoadStat(ref str, ref poke, ref index, "eggCycles", 12));
                     poke.Friendship = int.Parse(LoadStat(ref str, ref poke, ref index, "friendship", 13));
                     poke.GrowthRate = LoadStat(ref str, ref poke, ref index, "growthRate", 13);
+                    poke.EggGroup1 = LoadStat(ref str, ref poke, ref index, "eggGroup1", 12);
+                    poke.EggGroup2 = LoadStat(ref str, ref poke, ref index, "eggGroup2", 12);
                 }
                 else
                 {
@@ -254,6 +256,18 @@ namespace IKPokeEditor.DataLoad
             // ITEM 2
             index = str.IndexOf("item2", str.IndexOf(",", index)) + 8;
             poke.Item2 = str.Substring(index, str.IndexOf(",", index) - index);
+
+            // GROWTH RATE
+            index = str.IndexOf("growthRate", str.IndexOf(",", index)) + 13;
+            poke.GrowthRate = str.Substring(index, str.IndexOf(",", index) - index);
+
+            // EGG GROUP 1
+            index = str.IndexOf("eggGroup1", str.IndexOf(",", index)) + 12;
+            poke.EggGroup1 = str.Substring(index, str.IndexOf(",", index) - index);
+
+            // EGG GROUP 2
+            index = str.IndexOf("eggGroup2", str.IndexOf(",", index)) + 12;
+            poke.EggGroup2 = str.Substring(index, str.IndexOf(",", index) - index);
         }
     }
 }

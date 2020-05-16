@@ -98,8 +98,8 @@
             this.ddlStats_item1 = new System.Windows.Forms.ComboBox();
             this.HABILIDAD2 = new System.Windows.Forms.ComboBox();
             this.HABILIDAD1 = new System.Windows.Forms.ComboBox();
-            this.HUEVO2 = new System.Windows.Forms.ComboBox();
-            this.HUEVO1 = new System.Windows.Forms.ComboBox();
+            this.ddlStats_eggGroup2 = new System.Windows.Forms.ComboBox();
+            this.ddlStats_eggGroup1 = new System.Windows.Forms.ComboBox();
             this.ddlStats_type2 = new System.Windows.Forms.ComboBox();
             this.ddlStats_type1 = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -881,8 +881,8 @@
             this.groupBox2.Controls.Add(this.ddlStats_item1);
             this.groupBox2.Controls.Add(this.HABILIDAD2);
             this.groupBox2.Controls.Add(this.HABILIDAD1);
-            this.groupBox2.Controls.Add(this.HUEVO2);
-            this.groupBox2.Controls.Add(this.HUEVO1);
+            this.groupBox2.Controls.Add(this.ddlStats_eggGroup2);
+            this.groupBox2.Controls.Add(this.ddlStats_eggGroup1);
             this.groupBox2.Controls.Add(this.ddlStats_type2);
             this.groupBox2.Controls.Add(this.ddlStats_type1);
             this.groupBox2.Controls.Add(this.label13);
@@ -940,23 +940,23 @@
             // 
             // HUEVO2
             // 
-            this.HUEVO2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.HUEVO2.FormattingEnabled = true;
-            this.HUEVO2.Location = new System.Drawing.Point(285, 53);
-            this.HUEVO2.Margin = new System.Windows.Forms.Padding(4);
-            this.HUEVO2.Name = "HUEVO2";
-            this.HUEVO2.Size = new System.Drawing.Size(159, 24);
-            this.HUEVO2.TabIndex = 7;
+            this.ddlStats_eggGroup2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.ddlStats_eggGroup2.FormattingEnabled = true;
+            this.ddlStats_eggGroup2.Location = new System.Drawing.Point(285, 53);
+            this.ddlStats_eggGroup2.Margin = new System.Windows.Forms.Padding(4);
+            this.ddlStats_eggGroup2.Name = "HUEVO2";
+            this.ddlStats_eggGroup2.Size = new System.Drawing.Size(159, 24);
+            this.ddlStats_eggGroup2.TabIndex = 7;
             // 
             // HUEVO1
             // 
-            this.HUEVO1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.HUEVO1.FormattingEnabled = true;
-            this.HUEVO1.Location = new System.Drawing.Point(117, 55);
-            this.HUEVO1.Margin = new System.Windows.Forms.Padding(4);
-            this.HUEVO1.Name = "HUEVO1";
-            this.HUEVO1.Size = new System.Drawing.Size(159, 24);
-            this.HUEVO1.TabIndex = 6;
+            this.ddlStats_eggGroup1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.ddlStats_eggGroup1.FormattingEnabled = true;
+            this.ddlStats_eggGroup1.Location = new System.Drawing.Point(117, 55);
+            this.ddlStats_eggGroup1.Margin = new System.Windows.Forms.Padding(4);
+            this.ddlStats_eggGroup1.Name = "HUEVO1";
+            this.ddlStats_eggGroup1.Size = new System.Drawing.Size(159, 24);
+            this.ddlStats_eggGroup1.TabIndex = 6;
             // 
             // TIPO2
             // 
@@ -1698,8 +1698,8 @@
         private System.Windows.Forms.ComboBox ddlStats_item1;
         private System.Windows.Forms.ComboBox HABILIDAD2;
         private System.Windows.Forms.ComboBox HABILIDAD1;
-        private System.Windows.Forms.ComboBox HUEVO2;
-        private System.Windows.Forms.ComboBox HUEVO1;
+        private System.Windows.Forms.ComboBox ddlStats_eggGroup2;
+        private System.Windows.Forms.ComboBox ddlStats_eggGroup1;
         private System.Windows.Forms.ComboBox ddlStats_type2;
         private System.Windows.Forms.ComboBox ddlStats_type1;
         private System.Windows.Forms.Label label13;
