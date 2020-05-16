@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -175,6 +176,23 @@ namespace IKPokeEditor.DataLoad
                     poke.EvSpDefense = int.Parse(LoadStat(ref str, ref poke, ref index, "evYield_SpDefense", 20));
                     poke.Item1 = LoadStat(ref str, ref poke, ref index, "item1", 8);
                     poke.Item2 = LoadStat(ref str, ref poke, ref index, "item2", 8);
+
+                    string gender = LoadStat(ref str, ref poke, ref index, "genderRatio", 14);
+                    if (gender != "MON_GENDERLESS")
+                    {
+                        if (gender == "MON_FEMALE")
+                            poke.GenderRatio = 100;
+                        else if (gender == "MON_MALE")
+                            poke.GenderRatio = 0;
+                        else
+                            poke.GenderRatio = decimal.Parse(gender.Substring(15, gender.IndexOf(")") - 15), NumberStyles.Any, new CultureInfo("en-US"));
+                        poke.HasGender = true;
+                    }
+                    else
+                    {
+                        poke.HasGender = false;
+                        poke.GenderRatio = 0;
+                    }
                 }
                 else
                 {

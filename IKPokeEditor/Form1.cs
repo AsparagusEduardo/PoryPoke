@@ -192,9 +192,6 @@ namespace IKPokeEditor
 
             DataLoad.pokeemerald.LoadMonBaseStats(str, speciesNames, ref PokemonDictionary);
 
-            string objetoUno = null;
-            string objetoDos = null;
-            string genero = null;
             string ciclosHuevo = null;
             string amistadBase = null;
             string crecimiento = null;
@@ -212,68 +209,7 @@ namespace IKPokeEditor
             for (int i = 0; i < 13; i++)
             {
                 /*
-                index = (str.IndexOf(",", index)) + 2;
-                ratioCaptura = str.Substring((str.IndexOf("catchRate", index) + 12), str.IndexOf(",", index) - (str.IndexOf("catchRate", index) + 12));
-                pokemonData["ratioDeCaptura"][(i + 1).ToString()] = ratioCaptura;
 
-                index = (str.IndexOf(",", index)) + 2;
-                expBase = str.Substring((str.IndexOf("expYield", index) + 11), str.IndexOf(",", index) - (str.IndexOf("expYield", index) + 11));
-                pokemonData["expBase"][(i + 1).ToString()] = expBase;
-
-                index = (str.IndexOf(",", index)) + 2;
-                evsPS = str.Substring((str.IndexOf("evYield_HP", index) + 20), (str.IndexOf(",", index)) - (str.IndexOf("evYield_HP", index) + 20));
-                pokemonData["evsPS"][(i + 1).ToString()] = evsPS;
-
-                index = (str.IndexOf(",", index)) + 2;
-                evsAtaque = str.Substring((str.IndexOf("evYield_Attack", index) + 20), (str.IndexOf(",", index)) - (str.IndexOf("evYield_Attack", index) + 20));
-                pokemonData["evsAtaque"][(i + 1).ToString()] = evsAtaque;
-
-                index = (str.IndexOf(",", index)) + 2;
-                evsDefensa = str.Substring((str.IndexOf("evYield_Defense", index) + 20), (str.IndexOf(",", index)) - (str.IndexOf("evYield_Defense", index) + 20));
-                pokemonData["evsDefensa"][(i + 1).ToString()] = evsDefensa;
-
-                index = (str.IndexOf(",", index)) + 2;
-                evsVelocidad = str.Substring((str.IndexOf("evYield_Speed", index) + 20), (str.IndexOf(",", index)) - (str.IndexOf("evYield_Speed", index) + 20));
-                pokemonData["evsVelocidad"][(i + 1).ToString()] = evsVelocidad;
-
-                index = (str.IndexOf(",", index)) + 2;
-                evsAtaqueEspecial = str.Substring((str.IndexOf("evYield_SpAttack", index) + 20), (str.IndexOf(",", index)) - (str.IndexOf("evYield_SpAttack", index) + 20));
-                pokemonData["evsAtaqueEspecial"][(i + 1).ToString()] = evsAtaqueEspecial;
-
-                index = (str.IndexOf(",", index)) + 2;
-                evsDefensaEspecial = str.Substring((str.IndexOf("evYield_SpDefense", index) + 20), (str.IndexOf(",", index)) - (str.IndexOf("evYield_SpDefense", index) + 20));
-                pokemonData["evsDefensaEspecial"][(i + 1).ToString()] = evsDefensaEspecial;
-
-                index = (str.IndexOf(",", index)) + 2;
-                objetoUno = str.Substring((str.IndexOf("item1", index) + 8), (str.IndexOf(",", index)) - (str.IndexOf("item1", index) + 8));
-                pokemonData["objetoUno"][(i + 1).ToString()] = objetoUno;
-
-                index = (str.IndexOf(",", index)) + 2;
-                objetoDos = str.Substring((str.IndexOf("item2", index) + 8), (str.IndexOf(",", index)) - (str.IndexOf("item2", index) + 8));
-                pokemonData["objetoDos"][(i + 1).ToString()] = objetoDos;
-
-                index = (str.IndexOf(",", index)) + 2;
-                genero = str.Substring((str.IndexOf("genderRatio", index) + 14), (str.IndexOf(",", index)) - (str.IndexOf("genderRatio", index) + 14));
-                if (genero != "MON_GENDERLESS")
-                {
-                    if (genero == "MON_FEMALE")
-                    {
-                        genero = "100";
-                    } else if (genero == "MON_MALE")
-                    {
-                        genero = "0";
-                    } else
-                    {
-                        //MessageBox.Show(((str.IndexOf(")", index + 3)) - (index + 15)).ToString());
-                        genero = str.Substring((str.IndexOf("genderRatio", index) + 29), (str.IndexOf(",", index)) - (str.IndexOf("genderRatio", index) + 29) - 1);
-                    }
-                    pokemonData["tieneGenero"][(i + 1).ToString()] = "true";
-                } else
-                {
-                    pokemonData["tieneGenero"][(i + 1).ToString()] = "false";
-                    genero = "0";
-                }
-                pokemonData["ratioGenero"][(i + 1).ToString()] = genero;
 
                 index = (str.IndexOf(",", index)) + 2;
                 ciclosHuevo = str.Substring((str.IndexOf("eggCycles", index) + 12), str.IndexOf(",", index) - (str.IndexOf("eggCycles", index) + 12));
@@ -976,13 +912,13 @@ namespace IKPokeEditor
 
         private void generoCheck_CheckedChanged(object sender, EventArgs e)
         {
-            if (generoCheck.Checked == true)
+            if (chkStats_gender.Checked == true)
             {
-                genero.Enabled = true;
+                txtStats_genderRatio.Enabled = true;
             }
             else
             {
-                genero.Enabled = false;
+                txtStats_genderRatio.Enabled = false;
             }
         }
 
@@ -1034,15 +970,10 @@ namespace IKPokeEditor
             ddlStats_item1.SelectedIndex = int.Parse(infoData["objetos"].FirstOrDefault(x => x.Value.Contains(poke.Item1.Substring(5).Replace("_", " "))).Key);
             ddlStats_item2.SelectedIndex = int.Parse(infoData["objetos"].FirstOrDefault(x => x.Value.Contains(poke.Item2.Substring(5).Replace("_", " "))).Key);
 
+            txtStats_genderRatio.Enabled = chkStats_gender.Checked = poke.HasGender;
+            txtStats_genderRatio.Text = poke.GenderRatio.ToString(new CultureInfo("en-US"));
+
             /*
-            genero.Text = pokemonData["ratioGenero"][cmbInforma_Species.SelectedIndex.ToString()];
-            if (pokemonData["tieneGenero"][cmbInforma_Species.SelectedIndex.ToString()] == "true")
-            {
-                generoCheck.Checked = true;
-            } else if (pokemonData["tieneGenero"][cmbInforma_Species.SelectedIndex.ToString()] == "false")
-            {
-                generoCheck.Checked = false;
-            }
             ciclosHuevo.Text = pokemonData["ciclosHuevo"][cmbInforma_Species.SelectedIndex.ToString()];
             amistadBase.Text = pokemonData["amistadBase"][cmbInforma_Species.SelectedIndex.ToString()];
             //Recibir crecimiento
@@ -1764,17 +1695,17 @@ namespace IKPokeEditor
             var item1 = (ddlStats_item1.Text).Replace(" ", "_");
             var item2 = (ddlStats_item2.Text).Replace(" ", "_");
             var genderRatio = "";
-            if (generoCheck.Checked == true)
+            if (chkStats_gender.Checked == true)
             {
-                if (genero.Text == "0")
+                if (txtStats_genderRatio.Text == "0")
                 {
                     genderRatio = "MON_MALE";
-                } else if (genero.Text == "100")
+                } else if (txtStats_genderRatio.Text == "100")
                 {
                     genderRatio = "MON_FEMALE";
                 } else
                 {
-                    genderRatio = "PERCENT_FEMALE(" + genero.Text + ")";
+                    genderRatio = "PERCENT_FEMALE(" + txtStats_genderRatio.Text + ")";
                 }
 
             } else
@@ -2485,8 +2416,8 @@ namespace IKPokeEditor
             formatoObjeto2 = formatoObjeto2.Replace(@" ", "_");
             pokemonData["objetoDos"][cmbInforma_Species.SelectedIndex.ToString()] = formatoObjeto2;
 
-            pokemonData["ratioGenero"][cmbInforma_Species.SelectedIndex.ToString()] = genero.Text;
-            pokemonData["tieneGenero"][cmbInforma_Species.SelectedIndex.ToString()] = generoCheck.Checked.ToString();
+            pokemonData["ratioGenero"][cmbInforma_Species.SelectedIndex.ToString()] = txtStats_genderRatio.Text;
+            pokemonData["tieneGenero"][cmbInforma_Species.SelectedIndex.ToString()] = chkStats_gender.Checked.ToString();
             pokemonData["ciclosHuevo"][cmbInforma_Species.SelectedIndex.ToString()] = ciclosHuevo.Text;
             pokemonData["amistadBase"][cmbInforma_Species.SelectedIndex.ToString()] = amistadBase.Text;
             pokemonData["crecimiento"][cmbInforma_Species.SelectedIndex.ToString()] = "GROWTH_" + (crecimiento.Text).Replace(" ", "_");

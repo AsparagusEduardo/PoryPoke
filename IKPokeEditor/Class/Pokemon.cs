@@ -28,7 +28,8 @@ namespace IKPokeEditor.Class
         public int EvSpDefense { get; set; }
         public string Item1 { get; set; }
         public string Item2 { get; set; }
-        public string GenderRatio { get; set; }
+        public bool HasGender { get; set; }
+        public decimal GenderRatio { get; set; }
         public int EggCycles { get; set; }
         public int Friendship { get; set; }
         public string GrowthRate { get; set; }

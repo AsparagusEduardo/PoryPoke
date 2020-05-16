@@ -37,7 +37,7 @@
             this.menuLanguageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabStats = new System.Windows.Forms.TabPage();
-            this.generoCheck = new System.Windows.Forms.CheckBox();
+            this.chkStats_gender = new System.Windows.Forms.CheckBox();
             this.crecimiento = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.tabControl2 = new System.Windows.Forms.TabControl();
@@ -63,7 +63,7 @@
             this.COLOR_CUERPO = new System.Windows.Forms.ComboBox();
             this.amistadBase = new System.Windows.Forms.TextBox();
             this.ciclosHuevo = new System.Windows.Forms.TextBox();
-            this.genero = new System.Windows.Forms.TextBox();
+            this.txtStats_genderRatio = new System.Windows.Forms.TextBox();
             this.huidaSafari = new System.Windows.Forms.TextBox();
             this.txtStats_catchRate = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
@@ -253,7 +253,7 @@
             // tabStats
             // 
             this.tabStats.Controls.Add(this.lblStatsCatchRat);
-            this.tabStats.Controls.Add(this.generoCheck);
+            this.tabStats.Controls.Add(this.chkStats_gender);
             this.tabStats.Controls.Add(this.crecimiento);
             this.tabStats.Controls.Add(this.groupBox4);
             this.tabStats.Controls.Add(this.txtStats_expYield);
@@ -261,7 +261,7 @@
             this.tabStats.Controls.Add(this.COLOR_CUERPO);
             this.tabStats.Controls.Add(this.amistadBase);
             this.tabStats.Controls.Add(this.ciclosHuevo);
-            this.tabStats.Controls.Add(this.genero);
+            this.tabStats.Controls.Add(this.txtStats_genderRatio);
             this.tabStats.Controls.Add(this.huidaSafari);
             this.tabStats.Controls.Add(this.txtStats_catchRate);
             this.tabStats.Controls.Add(this.label21);
@@ -288,15 +288,15 @@
             // 
             // generoCheck
             // 
-            this.generoCheck.AutoSize = true;
-            this.generoCheck.Location = new System.Drawing.Point(28, 553);
-            this.generoCheck.Margin = new System.Windows.Forms.Padding(4);
-            this.generoCheck.Name = "generoCheck";
-            this.generoCheck.Size = new System.Drawing.Size(144, 21);
-            this.generoCheck.TabIndex = 29;
-            this.generoCheck.Text = "Género femenino:";
-            this.generoCheck.UseVisualStyleBackColor = true;
-            this.generoCheck.CheckedChanged += new System.EventHandler(this.generoCheck_CheckedChanged);
+            this.chkStats_gender.AutoSize = true;
+            this.chkStats_gender.Location = new System.Drawing.Point(28, 553);
+            this.chkStats_gender.Margin = new System.Windows.Forms.Padding(4);
+            this.chkStats_gender.Name = "generoCheck";
+            this.chkStats_gender.Size = new System.Drawing.Size(144, 21);
+            this.chkStats_gender.TabIndex = 29;
+            this.chkStats_gender.Text = "Género femenino:";
+            this.chkStats_gender.UseVisualStyleBackColor = true;
+            this.chkStats_gender.CheckedChanged += new System.EventHandler(this.generoCheck_CheckedChanged);
             // 
             // crecimiento
             // 
@@ -572,13 +572,13 @@
             // 
             // genero
             // 
-            this.genero.Enabled = false;
-            this.genero.Location = new System.Drawing.Point(180, 549);
-            this.genero.Margin = new System.Windows.Forms.Padding(4);
-            this.genero.Name = "genero";
-            this.genero.Size = new System.Drawing.Size(104, 22);
-            this.genero.TabIndex = 22;
-            this.genero.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumberAndDecimal);
+            this.txtStats_genderRatio.Enabled = false;
+            this.txtStats_genderRatio.Location = new System.Drawing.Point(180, 549);
+            this.txtStats_genderRatio.Margin = new System.Windows.Forms.Padding(4);
+            this.txtStats_genderRatio.Name = "genero";
+            this.txtStats_genderRatio.Size = new System.Drawing.Size(104, 22);
+            this.txtStats_genderRatio.TabIndex = 22;
+            this.txtStats_genderRatio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumberAndDecimal);
             // 
             // huidaSafari
             // 
@@ -1640,7 +1640,7 @@
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.TabPage tabStats;
-        private System.Windows.Forms.CheckBox generoCheck;
+        private System.Windows.Forms.CheckBox chkStats_gender;
         private System.Windows.Forms.ComboBox crecimiento;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TabControl tabControl2;
@@ -1663,7 +1663,7 @@
         private System.Windows.Forms.ComboBox COLOR_CUERPO;
         private System.Windows.Forms.TextBox amistadBase;
         private System.Windows.Forms.TextBox ciclosHuevo;
-        private System.Windows.Forms.TextBox genero;
+        private System.Windows.Forms.TextBox txtStats_genderRatio;
         private System.Windows.Forms.TextBox huidaSafari;
         private System.Windows.Forms.TextBox txtStats_catchRate;
         private System.Windows.Forms.Label label21;
