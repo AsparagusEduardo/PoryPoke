@@ -38,7 +38,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabStats = new System.Windows.Forms.TabPage();
             this.chkStats_gender = new System.Windows.Forms.CheckBox();
-            this.crecimiento = new System.Windows.Forms.ComboBox();
+            this.ddlStats_growthRate = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -61,7 +61,7 @@
             this.Argumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Evolucion = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.COLOR_CUERPO = new System.Windows.Forms.ComboBox();
-            this.amistadBase = new System.Windows.Forms.TextBox();
+            this.txtStats_friendship = new System.Windows.Forms.TextBox();
             this.txtStats_eggCycles = new System.Windows.Forms.TextBox();
             this.txtStats_genderRatio = new System.Windows.Forms.TextBox();
             this.huidaSafari = new System.Windows.Forms.TextBox();
@@ -254,12 +254,12 @@
             // 
             this.tabStats.Controls.Add(this.lblStatsCatchRat);
             this.tabStats.Controls.Add(this.chkStats_gender);
-            this.tabStats.Controls.Add(this.crecimiento);
+            this.tabStats.Controls.Add(this.ddlStats_growthRate);
             this.tabStats.Controls.Add(this.groupBox4);
             this.tabStats.Controls.Add(this.txtStats_expYield);
             this.tabStats.Controls.Add(this.groupBox3);
             this.tabStats.Controls.Add(this.COLOR_CUERPO);
-            this.tabStats.Controls.Add(this.amistadBase);
+            this.tabStats.Controls.Add(this.txtStats_friendship);
             this.tabStats.Controls.Add(this.txtStats_eggCycles);
             this.tabStats.Controls.Add(this.txtStats_genderRatio);
             this.tabStats.Controls.Add(this.huidaSafari);
@@ -300,14 +300,14 @@
             // 
             // crecimiento
             // 
-            this.crecimiento.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.crecimiento.DropDownWidth = 100;
-            this.crecimiento.FormattingEnabled = true;
-            this.crecimiento.Location = new System.Drawing.Point(180, 482);
-            this.crecimiento.Margin = new System.Windows.Forms.Padding(4);
-            this.crecimiento.Name = "crecimiento";
-            this.crecimiento.Size = new System.Drawing.Size(104, 24);
-            this.crecimiento.TabIndex = 28;
+            this.ddlStats_growthRate.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.ddlStats_growthRate.DropDownWidth = 100;
+            this.ddlStats_growthRate.FormattingEnabled = true;
+            this.ddlStats_growthRate.Location = new System.Drawing.Point(180, 482);
+            this.ddlStats_growthRate.Margin = new System.Windows.Forms.Padding(4);
+            this.ddlStats_growthRate.Name = "crecimiento";
+            this.ddlStats_growthRate.Size = new System.Drawing.Size(104, 24);
+            this.ddlStats_growthRate.TabIndex = 28;
             // 
             // groupBox4
             // 
@@ -556,11 +556,11 @@
             // 
             // amistadBase
             // 
-            this.amistadBase.Location = new System.Drawing.Point(180, 613);
-            this.amistadBase.Margin = new System.Windows.Forms.Padding(4);
-            this.amistadBase.Name = "amistadBase";
-            this.amistadBase.Size = new System.Drawing.Size(104, 22);
-            this.amistadBase.TabIndex = 24;
+            this.txtStats_friendship.Location = new System.Drawing.Point(180, 613);
+            this.txtStats_friendship.Margin = new System.Windows.Forms.Padding(4);
+            this.txtStats_friendship.Name = "amistadBase";
+            this.txtStats_friendship.Size = new System.Drawing.Size(104, 22);
+            this.txtStats_friendship.TabIndex = 24;
             // 
             // ciclosHuevo
             // 
@@ -1641,7 +1641,7 @@
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.TabPage tabStats;
         private System.Windows.Forms.CheckBox chkStats_gender;
-        private System.Windows.Forms.ComboBox crecimiento;
+        private System.Windows.Forms.ComboBox ddlStats_growthRate;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage4;
@@ -1661,7 +1661,7 @@
         private System.Windows.Forms.NumericUpDown EvolucionAEliminar;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.ComboBox COLOR_CUERPO;
-        private System.Windows.Forms.TextBox amistadBase;
+        private System.Windows.Forms.TextBox txtStats_friendship;
         private System.Windows.Forms.TextBox txtStats_eggCycles;
         private System.Windows.Forms.TextBox txtStats_genderRatio;
         private System.Windows.Forms.TextBox huidaSafari;

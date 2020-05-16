@@ -974,25 +974,10 @@ namespace IKPokeEditor
             txtStats_genderRatio.Text = poke.GenderRatio.ToString(new CultureInfo("en-US"));
 
             txtStats_eggCycles.Text = poke.EggCycles.ToString();
-            amistadBase.Text = poke.Friendship.ToString();
+            txtStats_friendship.Text = poke.Friendship.ToString();
+            ddlStats_growthRate.SelectedIndex = int.Parse(infoData["crecimiento"].FirstOrDefault(x => x.Value.Contains(poke.GrowthRate.Substring(7).Replace("_", " "))).Key);
 
             /*
-            amistadBase.Text = pokemonData["amistadBase"][cmbInforma_Species.SelectedIndex.ToString()];
-            //Recibir crecimiento
-            var formatoCrecimiento = pokemonData["crecimiento"][cmbInforma_Species.SelectedIndex.ToString()].Substring(7);
-            formatoCrecimiento = formatoCrecimiento.Replace(@"_", " ");
-            var growthAmount = infoData["crecimiento"].Count;
-            for (int i = 0; i < growthAmount; i++)
-            {
-                if (formatoCrecimiento == infoData["crecimiento"][i.ToString()])
-                {
-                    crecimiento.SelectedIndex = i;
-                }
-            }
-            //crecimiento.SelectedIndex = Int32.Parse(infoData["crecimiento"].FirstOrDefault(x => x.Value.Contains(formatoCrecimiento)).Key);
-
-            //a.Field<string>("Synonym(System name)").Split(',').Any( s => s == b.Field<string>("SystemName"))
-
             //Recibir huevo 1
             var formatoHuevo1 = pokemonData["grupoHuevoUno"][cmbInforma_Species.SelectedIndex.ToString()].Substring(10);
             formatoHuevo1 = formatoHuevo1.Replace(@"_", " ");
@@ -1531,13 +1516,13 @@ namespace IKPokeEditor
         {
             int growthAmount = infoData["crecimiento"].Count;
 
-            crecimiento.Items.Clear();
+            ddlStats_growthRate.Items.Clear();
 
             for (int i = 0; i < growthAmount; i++)
             {
                 string insertGrowthName = infoData["crecimiento"][i.ToString()];
                 //MessageBox.Show(insertGrowthName);
-                crecimiento.Items.Insert(i, insertGrowthName);
+                ddlStats_growthRate.Items.Insert(i, insertGrowthName);
             }
         }
 
@@ -1715,8 +1700,8 @@ namespace IKPokeEditor
                 genderRatio = "MON_GENDERLESS";
             }
             var eggCycles = txtStats_eggCycles.Text;
-            var friendship = amistadBase.Text;
-            var growthRate = (crecimiento.Text).Replace(" ", "_");
+            var friendship = txtStats_friendship.Text;
+            var growthRate = (ddlStats_growthRate.Text).Replace(" ", "_");
             var eggGroup1 = (HUEVO1.Text).Replace(" ", "_");
             var eggGroup2 = (HUEVO2.Text).Replace(" ", "_");
             var ability1 = (HABILIDAD1.Text).Replace(" ", "_");
@@ -2421,8 +2406,8 @@ namespace IKPokeEditor
             pokemonData["ratioGenero"][cmbInforma_Species.SelectedIndex.ToString()] = txtStats_genderRatio.Text;
             pokemonData["tieneGenero"][cmbInforma_Species.SelectedIndex.ToString()] = chkStats_gender.Checked.ToString();
             pokemonData["ciclosHuevo"][cmbInforma_Species.SelectedIndex.ToString()] = txtStats_eggCycles.Text;
-            pokemonData["amistadBase"][cmbInforma_Species.SelectedIndex.ToString()] = amistadBase.Text;
-            pokemonData["crecimiento"][cmbInforma_Species.SelectedIndex.ToString()] = "GROWTH_" + (crecimiento.Text).Replace(" ", "_");
+            pokemonData["amistadBase"][cmbInforma_Species.SelectedIndex.ToString()] = txtStats_friendship.Text;
+            pokemonData["crecimiento"][cmbInforma_Species.SelectedIndex.ToString()] = "GROWTH_" + (ddlStats_growthRate.Text).Replace(" ", "_");
             pokemonData["grupoHuevoUno"][cmbInforma_Species.SelectedIndex.ToString()] = "EGG_GROUP_" + (HUEVO1.Text).Replace(" ", "_");
             pokemonData["grupoHuevoDos"][cmbInforma_Species.SelectedIndex.ToString()] = "EGG_GROUP_" + (HUEVO2.Text).Replace(" ", "_");
             pokemonData["habilidadUno"][cmbInforma_Species.SelectedIndex.ToString()] = "ABILITY_" + (HABILIDAD1.Text).Replace(" ", "_");
