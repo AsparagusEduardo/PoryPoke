@@ -193,6 +193,8 @@ namespace IKPokeEditor.DataLoad
                         poke.HasGender = false;
                         poke.GenderRatio = 0;
                     }
+                    poke.EggCycles = int.Parse(LoadStat(ref str, ref poke, ref index, "eggCycles", 12));
+                    poke.Friendship = int.Parse(LoadStat(ref str, ref poke, ref index, "friendship", 13));
                 }
                 else
                 {

@@ -973,8 +973,10 @@ namespace IKPokeEditor
             txtStats_genderRatio.Enabled = chkStats_gender.Checked = poke.HasGender;
             txtStats_genderRatio.Text = poke.GenderRatio.ToString(new CultureInfo("en-US"));
 
+            txtStats_eggCycles.Text = poke.EggCycles.ToString();
+            amistadBase.Text = poke.Friendship.ToString();
+
             /*
-            ciclosHuevo.Text = pokemonData["ciclosHuevo"][cmbInforma_Species.SelectedIndex.ToString()];
             amistadBase.Text = pokemonData["amistadBase"][cmbInforma_Species.SelectedIndex.ToString()];
             //Recibir crecimiento
             var formatoCrecimiento = pokemonData["crecimiento"][cmbInforma_Species.SelectedIndex.ToString()].Substring(7);
@@ -1712,7 +1714,7 @@ namespace IKPokeEditor
             {
                 genderRatio = "MON_GENDERLESS";
             }
-            var eggCycles = ciclosHuevo.Text;
+            var eggCycles = txtStats_eggCycles.Text;
             var friendship = amistadBase.Text;
             var growthRate = (crecimiento.Text).Replace(" ", "_");
             var eggGroup1 = (HUEVO1.Text).Replace(" ", "_");
@@ -2418,7 +2420,7 @@ namespace IKPokeEditor
 
             pokemonData["ratioGenero"][cmbInforma_Species.SelectedIndex.ToString()] = txtStats_genderRatio.Text;
             pokemonData["tieneGenero"][cmbInforma_Species.SelectedIndex.ToString()] = chkStats_gender.Checked.ToString();
-            pokemonData["ciclosHuevo"][cmbInforma_Species.SelectedIndex.ToString()] = ciclosHuevo.Text;
+            pokemonData["ciclosHuevo"][cmbInforma_Species.SelectedIndex.ToString()] = txtStats_eggCycles.Text;
             pokemonData["amistadBase"][cmbInforma_Species.SelectedIndex.ToString()] = amistadBase.Text;
             pokemonData["crecimiento"][cmbInforma_Species.SelectedIndex.ToString()] = "GROWTH_" + (crecimiento.Text).Replace(" ", "_");
             pokemonData["grupoHuevoUno"][cmbInforma_Species.SelectedIndex.ToString()] = "EGG_GROUP_" + (HUEVO1.Text).Replace(" ", "_");

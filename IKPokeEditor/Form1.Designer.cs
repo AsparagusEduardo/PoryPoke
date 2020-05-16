@@ -62,7 +62,7 @@
             this.Evolucion = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.COLOR_CUERPO = new System.Windows.Forms.ComboBox();
             this.amistadBase = new System.Windows.Forms.TextBox();
-            this.ciclosHuevo = new System.Windows.Forms.TextBox();
+            this.txtStats_eggCycles = new System.Windows.Forms.TextBox();
             this.txtStats_genderRatio = new System.Windows.Forms.TextBox();
             this.huidaSafari = new System.Windows.Forms.TextBox();
             this.txtStats_catchRate = new System.Windows.Forms.TextBox();
@@ -260,7 +260,7 @@
             this.tabStats.Controls.Add(this.groupBox3);
             this.tabStats.Controls.Add(this.COLOR_CUERPO);
             this.tabStats.Controls.Add(this.amistadBase);
-            this.tabStats.Controls.Add(this.ciclosHuevo);
+            this.tabStats.Controls.Add(this.txtStats_eggCycles);
             this.tabStats.Controls.Add(this.txtStats_genderRatio);
             this.tabStats.Controls.Add(this.huidaSafari);
             this.tabStats.Controls.Add(this.txtStats_catchRate);
@@ -564,11 +564,11 @@
             // 
             // ciclosHuevo
             // 
-            this.ciclosHuevo.Location = new System.Drawing.Point(180, 581);
-            this.ciclosHuevo.Margin = new System.Windows.Forms.Padding(4);
-            this.ciclosHuevo.Name = "ciclosHuevo";
-            this.ciclosHuevo.Size = new System.Drawing.Size(104, 22);
-            this.ciclosHuevo.TabIndex = 23;
+            this.txtStats_eggCycles.Location = new System.Drawing.Point(180, 581);
+            this.txtStats_eggCycles.Margin = new System.Windows.Forms.Padding(4);
+            this.txtStats_eggCycles.Name = "ciclosHuevo";
+            this.txtStats_eggCycles.Size = new System.Drawing.Size(104, 22);
+            this.txtStats_eggCycles.TabIndex = 23;
             // 
             // genero
             // 
@@ -1662,7 +1662,7 @@
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.ComboBox COLOR_CUERPO;
         private System.Windows.Forms.TextBox amistadBase;
-        private System.Windows.Forms.TextBox ciclosHuevo;
+        private System.Windows.Forms.TextBox txtStats_eggCycles;
         private System.Windows.Forms.TextBox txtStats_genderRatio;
         private System.Windows.Forms.TextBox huidaSafari;
         private System.Windows.Forms.TextBox txtStats_catchRate;
