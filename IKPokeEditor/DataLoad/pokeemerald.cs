@@ -173,6 +173,8 @@ namespace IKPokeEditor.DataLoad
                     poke.EvSpeed = int.Parse(LoadStat(ref str, ref poke, ref index, "evYield_Speed", 20));
                     poke.EvSpAttack = int.Parse(LoadStat(ref str, ref poke, ref index, "evYield_SpAttack", 20));
                     poke.EvSpDefense = int.Parse(LoadStat(ref str, ref poke, ref index, "evYield_SpDefense", 20));
+                    poke.Item1 = LoadStat(ref str, ref poke, ref index, "item1", 8);
+                    poke.Item2 = LoadStat(ref str, ref poke, ref index, "item2", 8);
                 }
                 else
                 {
@@ -223,6 +225,14 @@ namespace IKPokeEditor.DataLoad
             // TYPE 2
             index = str.IndexOf("type2", str.IndexOf(",", index)) + 8;
             poke.Type2 = str.Substring(index, str.IndexOf(",", index) - index);
+
+            // ITEM 1
+            index = str.IndexOf("item1", str.IndexOf(",", index)) + 8;
+            poke.Item1 = str.Substring(index, str.IndexOf(",", index) - index);
+
+            // ITEM 2
+            index = str.IndexOf("item2", str.IndexOf(",", index)) + 8;
+            poke.Item2 = str.Substring(index, str.IndexOf(",", index) - index);
         }
     }
 }

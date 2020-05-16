@@ -94,8 +94,8 @@
             this.lblStats_EffordYield = new System.Windows.Forms.Label();
             this.lblStats_BaseStats = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.OBJETO2 = new System.Windows.Forms.ComboBox();
-            this.OBJETO1 = new System.Windows.Forms.ComboBox();
+            this.ddlStats_item2 = new System.Windows.Forms.ComboBox();
+            this.ddlStats_item1 = new System.Windows.Forms.ComboBox();
             this.HABILIDAD2 = new System.Windows.Forms.ComboBox();
             this.HABILIDAD1 = new System.Windows.Forms.ComboBox();
             this.HUEVO2 = new System.Windows.Forms.ComboBox();
@@ -877,8 +877,8 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.OBJETO2);
-            this.groupBox2.Controls.Add(this.OBJETO1);
+            this.groupBox2.Controls.Add(this.ddlStats_item2);
+            this.groupBox2.Controls.Add(this.ddlStats_item1);
             this.groupBox2.Controls.Add(this.HABILIDAD2);
             this.groupBox2.Controls.Add(this.HABILIDAD1);
             this.groupBox2.Controls.Add(this.HUEVO2);
@@ -900,23 +900,23 @@
             // 
             // OBJETO2
             // 
-            this.OBJETO2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.OBJETO2.FormattingEnabled = true;
-            this.OBJETO2.Location = new System.Drawing.Point(285, 114);
-            this.OBJETO2.Margin = new System.Windows.Forms.Padding(4);
-            this.OBJETO2.Name = "OBJETO2";
-            this.OBJETO2.Size = new System.Drawing.Size(159, 24);
-            this.OBJETO2.TabIndex = 11;
+            this.ddlStats_item2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.ddlStats_item2.FormattingEnabled = true;
+            this.ddlStats_item2.Location = new System.Drawing.Point(285, 114);
+            this.ddlStats_item2.Margin = new System.Windows.Forms.Padding(4);
+            this.ddlStats_item2.Name = "OBJETO2";
+            this.ddlStats_item2.Size = new System.Drawing.Size(159, 24);
+            this.ddlStats_item2.TabIndex = 11;
             // 
             // OBJETO1
             // 
-            this.OBJETO1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.OBJETO1.FormattingEnabled = true;
-            this.OBJETO1.Location = new System.Drawing.Point(117, 116);
-            this.OBJETO1.Margin = new System.Windows.Forms.Padding(4);
-            this.OBJETO1.Name = "OBJETO1";
-            this.OBJETO1.Size = new System.Drawing.Size(159, 24);
-            this.OBJETO1.TabIndex = 10;
+            this.ddlStats_item1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.ddlStats_item1.FormattingEnabled = true;
+            this.ddlStats_item1.Location = new System.Drawing.Point(117, 116);
+            this.ddlStats_item1.Margin = new System.Windows.Forms.Padding(4);
+            this.ddlStats_item1.Name = "OBJETO1";
+            this.ddlStats_item1.Size = new System.Drawing.Size(159, 24);
+            this.ddlStats_item1.TabIndex = 10;
             // 
             // HABILIDAD2
             // 
@@ -1694,8 +1694,8 @@
         private System.Windows.Forms.Label lblStats_EffordYield;
         private System.Windows.Forms.Label lblStats_BaseStats;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox OBJETO2;
-        private System.Windows.Forms.ComboBox OBJETO1;
+        private System.Windows.Forms.ComboBox ddlStats_item2;
+        private System.Windows.Forms.ComboBox ddlStats_item1;
         private System.Windows.Forms.ComboBox HABILIDAD2;
         private System.Windows.Forms.ComboBox HABILIDAD1;
         private System.Windows.Forms.ComboBox HUEVO2;

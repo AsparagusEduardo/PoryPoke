@@ -825,7 +825,7 @@ namespace IKPokeEditor
             {
                 cmbPokedex_Species.SelectedIndex = cmbInforma_Species.SelectedIndex;
                 cmbGraphic_Species.SelectedIndex = cmbInforma_Species.SelectedIndex;
-                refrescarInterfaz();
+                refreshInterface();
             }
         }
 
@@ -1008,7 +1008,7 @@ namespace IKPokeEditor
                 e.Handled = true;
         }
 
-        private void refrescarInterfaz()
+        private void refreshInterface()
         {
             Class.Pokemon poke = PokemonDictionary[cmbInforma_Species.SelectedItem.ToString()];
 
@@ -1031,16 +1031,10 @@ namespace IKPokeEditor
             ddlStats_type1.SelectedIndex = int.Parse(infoData["tipos"].FirstOrDefault(x => x.Value.Contains(poke.Type1.Substring(5))).Key);
             ddlStats_type2.SelectedIndex = int.Parse(infoData["tipos"].FirstOrDefault(x => x.Value.Contains(poke.Type2.Substring(5))).Key);
 
-            /*
-            //Recibir objeto 1
-            var formatoObjeto1 = pokemonData["objetoUno"][cmbInforma_Species.SelectedIndex.ToString()].Substring(5);
-            formatoObjeto1 = formatoObjeto1.Replace(@"_", " ");
-            OBJETO1.SelectedIndex = Int32.Parse(infoData["objetos"].FirstOrDefault(x => x.Value.Contains(formatoObjeto1)).Key);
-            //Recibir objeto 2
-            var formatoObjeto2 = pokemonData["objetoDos"][cmbInforma_Species.SelectedIndex.ToString()].Substring(5);
-            formatoObjeto2 = formatoObjeto2.Replace(@"_", " ");
-            OBJETO2.SelectedIndex = Int32.Parse(infoData["objetos"].FirstOrDefault(x => x.Value.Contains(formatoObjeto2)).Key);
+            ddlStats_item1.SelectedIndex = int.Parse(infoData["objetos"].FirstOrDefault(x => x.Value.Contains(poke.Item1.Substring(5).Replace("_", " "))).Key);
+            ddlStats_item2.SelectedIndex = int.Parse(infoData["objetos"].FirstOrDefault(x => x.Value.Contains(poke.Item2.Substring(5).Replace("_", " "))).Key);
 
+            /*
             genero.Text = pokemonData["ratioGenero"][cmbInforma_Species.SelectedIndex.ToString()];
             if (pokemonData["tieneGenero"][cmbInforma_Species.SelectedIndex.ToString()] == "true")
             {
@@ -1398,8 +1392,8 @@ namespace IKPokeEditor
             HUEVO2.Items.Clear();
             HABILIDAD1.Items.Clear();
             HABILIDAD2.Items.Clear();
-            OBJETO1.Items.Clear();
-            OBJETO2.Items.Clear();
+            ddlStats_item1.Items.Clear();
+            ddlStats_item2.Items.Clear();
             iconPalette.Items.Clear();
 
             dataGridView1.Rows.Clear();
@@ -1588,15 +1582,15 @@ namespace IKPokeEditor
         {
             int objectAmount = infoData["objetos"].Count;
 
-            OBJETO1.Items.Clear();
-            OBJETO2.Items.Clear();
+            ddlStats_item1.Items.Clear();
+            ddlStats_item2.Items.Clear();
 
             for (int i = 0; i < objectAmount; i++)
             {
                 string insertObjectName = infoData["objetos"][i.ToString()];
                 //MessageBox.Show(insertObjectName);
-                OBJETO1.Items.Insert(i, insertObjectName);
-                OBJETO2.Items.Insert(i, insertObjectName);
+                ddlStats_item1.Items.Insert(i, insertObjectName);
+                ddlStats_item2.Items.Insert(i, insertObjectName);
             }
         }
 
@@ -1767,8 +1761,8 @@ namespace IKPokeEditor
             var evYield_Speed = txtStats_evSPEED.Text;
             var evYield_SpAttack = txtStats_evSPATK.Text;
             var evYield_SpDefense = txtStats_evSPDEF.Text;
-            var item1 = (OBJETO1.Text).Replace(" ", "_");
-            var item2 = (OBJETO2.Text).Replace(" ", "_");
+            var item1 = (ddlStats_item1.Text).Replace(" ", "_");
+            var item2 = (ddlStats_item2.Text).Replace(" ", "_");
             var genderRatio = "";
             if (generoCheck.Checked == true)
             {
@@ -2483,11 +2477,11 @@ namespace IKPokeEditor
             pokemonData["evsAtaqueEspecial"][cmbInforma_Species.SelectedIndex.ToString()] = txtStats_evSPATK.Text;
             pokemonData["evsDefensaEspecial"][cmbInforma_Species.SelectedIndex.ToString()] = txtStats_evSPDEF.Text;
             //Recibir objeto 1
-            var formatoObjeto1 = "ITEM_" + OBJETO1.Text;
+            var formatoObjeto1 = "ITEM_" + ddlStats_item1.Text;
             formatoObjeto1 = formatoObjeto1.Replace(@" ", "_");
             pokemonData["objetoUno"][cmbInforma_Species.SelectedIndex.ToString()] = formatoObjeto1;
             //Recibir objeto 2
-            var formatoObjeto2 = "ITEM_" + OBJETO2.Text;
+            var formatoObjeto2 = "ITEM_" + ddlStats_item2.Text;
             formatoObjeto2 = formatoObjeto2.Replace(@" ", "_");
             pokemonData["objetoDos"][cmbInforma_Species.SelectedIndex.ToString()] = formatoObjeto2;
 

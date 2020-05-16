@@ -26,5 +26,18 @@ namespace IKPokeEditor.Class
         public int EvSpeed { get; set; }
         public int EvSpAttack { get; set; }
         public int EvSpDefense { get; set; }
+        public string Item1 { get; set; }
+        public string Item2 { get; set; }
+        public string GenderRatio { get; set; }
+        public int EggCycles { get; set; }
+        public int Friendship { get; set; }
+        public string GrowthRate { get; set; }
+        public string EggGroup1 { get; set; }
+        public string EggGroup2 { get; set; }
+        public string Ability1 { get; set; }
+        public string Ability2 { get; set; }
+        public int SafariFleeRate { get; set; }
+        public string BodyColor { get; set; }
+        public bool NoFlip { get; set; }
     }
 }
