@@ -1012,23 +1012,24 @@ namespace IKPokeEditor
         {
             Class.Pokemon poke = PokemonDictionary[cmbInforma_Species.SelectedItem.ToString()];
 
-            PS_Base.Text = poke.BaseHP.ToString();
-            ATQ_Base.Text = poke.BaseAttack.ToString();
-            DEF_Base.Text = poke.BaseDefense.ToString();
-            VEL_Base.Text = poke.BaseSpeed.ToString();
-            ATESP_Base.Text = poke.BaseSpAttack.ToString();
-            DFESP_Base.Text = poke.BaseSpDefense.ToString();
-            TIPO1.SelectedIndex = int.Parse(infoData["tipos"].FirstOrDefault(x => x.Value.Contains(poke.Type1.Substring(5))).Key);
-            TIPO2.SelectedIndex = int.Parse(infoData["tipos"].FirstOrDefault(x => x.Value.Contains(poke.Type2.Substring(5))).Key);
+            txtStats_baseHP.Text = poke.BaseHP.ToString();
+            txtStats_baseATK.Text = poke.BaseAttack.ToString();
+            txtStats_baseDEF.Text = poke.BaseDefense.ToString();
+            txtStats_baseSPEED.Text = poke.BaseSpeed.ToString();
+            txtStats_baseSPATK.Text = poke.BaseSpAttack.ToString();
+            txtStats_baseSPDEF.Text = poke.BaseSpDefense.ToString();
+            txtStats_evHP.Text = poke.EvHP.ToString();
+            txtStats_evATK.Text = poke.EvAttack.ToString();
+            txtStats_evDEF.Text = poke.EvDefense.ToString();
+            txtStats_evSPEED.Text = poke.EvSpeed.ToString();
+            txtStats_evSPATK.Text = poke.EvSpAttack.ToString();
+            txtStats_evSPDEF.Text = poke.EvSpDefense.ToString();
 
-            ratioCaptura.Text = poke.CatchRate.ToString();
-            expBase.Text = poke.ExpYield.ToString();
-            PS_Effort.Text = poke.EvHP.ToString();
-            ATQ_Effort.Text = poke.EvAttack.ToString();
-            DEF_Effort.Text = poke.EvDefense.ToString();
-            VEL_Effort.Text = poke.EvSpeed.ToString();
-            ATESP_Effort.Text = poke.EvSpAttack.ToString();
-            DFESP_Effort.Text = poke.EvSpDefense.ToString();
+            txtStats_catchRate.Text = poke.CatchRate.ToString();
+            txtStats_expYield.Text = poke.ExpYield.ToString();
+
+            ddlStats_type1.SelectedIndex = int.Parse(infoData["tipos"].FirstOrDefault(x => x.Value.Contains(poke.Type1.Substring(5))).Key);
+            ddlStats_type2.SelectedIndex = int.Parse(infoData["tipos"].FirstOrDefault(x => x.Value.Contains(poke.Type2.Substring(5))).Key);
 
             /*
             //Recibir objeto 1
@@ -1391,8 +1392,8 @@ namespace IKPokeEditor
             cmbInforma_Species.Items.Clear();
             cmbPokedex_Species.Items.Clear();
             cmbGraphic_Species.Items.Clear();
-            TIPO1.Items.Clear();
-            TIPO2.Items.Clear();
+            ddlStats_type1.Items.Clear();
+            ddlStats_type2.Items.Clear();
             HUEVO1.Items.Clear();
             HUEVO2.Items.Clear();
             HABILIDAD1.Items.Clear();
@@ -1571,15 +1572,15 @@ namespace IKPokeEditor
         {
             int typesAmount = infoData["tipos"].Count;
 
-            TIPO1.Items.Clear();
-            TIPO2.Items.Clear();
+            ddlStats_type1.Items.Clear();
+            ddlStats_type2.Items.Clear();
 
             for (int i = 0; i < typesAmount; i++)
             {
                 string insertTypeName = infoData["tipos"][i.ToString()];
                 //MessageBox.Show(insertTypeName);
-                TIPO1.Items.Insert(i, insertTypeName);
-                TIPO2.Items.Insert(i, insertTypeName);
+                ddlStats_type1.Items.Insert(i, insertTypeName);
+                ddlStats_type2.Items.Insert(i, insertTypeName);
             }
         }
 
@@ -1750,22 +1751,22 @@ namespace IKPokeEditor
         private void setBaseStats()
         {
             var pokemonSpecie = cmbInforma_Species.Text;
-            var baseHP = PS_Base.Text;
-            var baseAttack = ATQ_Base.Text;
-            var baseDefense = DEF_Base.Text;
-            var baseSpeed = VEL_Base.Text;
-            var baseSpAttack = ATESP_Base.Text;
-            var baseSpDefense = DFESP_Base.Text;
-            var type1 = (TIPO1.Text).Replace(" ", "_");
-            var type2 = (TIPO2.Text).Replace(" ", "_");
-            var catchRate = ratioCaptura.Text;
-            var expYield = expBase.Text;
-            var evYield_HP = PS_Effort.Text;
-            var evYield_Attack = ATQ_Effort.Text;
-            var evYield_Defense = DEF_Effort.Text;
-            var evYield_Speed = VEL_Effort.Text;
-            var evYield_SpAttack = ATESP_Effort.Text;
-            var evYield_SpDefense = DFESP_Effort.Text;
+            var baseHP = txtStats_baseHP.Text;
+            var baseAttack = txtStats_baseATK.Text;
+            var baseDefense = txtStats_baseDEF.Text;
+            var baseSpeed = txtStats_baseSPEED.Text;
+            var baseSpAttack = txtStats_baseSPATK.Text;
+            var baseSpDefense = txtStats_baseSPDEF.Text;
+            var type1 = (ddlStats_type1.Text).Replace(" ", "_");
+            var type2 = (ddlStats_type2.Text).Replace(" ", "_");
+            var catchRate = txtStats_catchRate.Text;
+            var expYield = txtStats_expYield.Text;
+            var evYield_HP = txtStats_evHP.Text;
+            var evYield_Attack = txtStats_evATK.Text;
+            var evYield_Defense = txtStats_evDEF.Text;
+            var evYield_Speed = txtStats_evSPEED.Text;
+            var evYield_SpAttack = txtStats_evSPATK.Text;
+            var evYield_SpDefense = txtStats_evSPDEF.Text;
             var item1 = (OBJETO1.Text).Replace(" ", "_");
             var item2 = (OBJETO2.Text).Replace(" ", "_");
             var genderRatio = "";
@@ -2458,29 +2459,29 @@ namespace IKPokeEditor
 
         private void reloadAllSavedData()
         {
-            pokemonData["psBase"][cmbInforma_Species.SelectedIndex.ToString()] = PS_Base.Text;
-            pokemonData["ataqueBase"][cmbInforma_Species.SelectedIndex.ToString()] = ATQ_Base.Text;
-            pokemonData["defensaBase"][cmbInforma_Species.SelectedIndex.ToString()] = DEF_Base.Text;
-            pokemonData["velocidadBase"][cmbInforma_Species.SelectedIndex.ToString()] = VEL_Base.Text;
-            pokemonData["ataqueEspecialBase"][cmbInforma_Species.SelectedIndex.ToString()] = ATESP_Base.Text;
-            pokemonData["defensaEspecialBase"][cmbInforma_Species.SelectedIndex.ToString()] = DFESP_Base.Text;
+            pokemonData["psBase"][cmbInforma_Species.SelectedIndex.ToString()] = txtStats_baseHP.Text;
+            pokemonData["ataqueBase"][cmbInforma_Species.SelectedIndex.ToString()] = txtStats_baseATK.Text;
+            pokemonData["defensaBase"][cmbInforma_Species.SelectedIndex.ToString()] = txtStats_baseDEF.Text;
+            pokemonData["velocidadBase"][cmbInforma_Species.SelectedIndex.ToString()] = txtStats_baseSPEED.Text;
+            pokemonData["ataqueEspecialBase"][cmbInforma_Species.SelectedIndex.ToString()] = txtStats_baseSPATK.Text;
+            pokemonData["defensaEspecialBase"][cmbInforma_Species.SelectedIndex.ToString()] = txtStats_baseSPDEF.Text;
             //Guardar tipo 1
-            var formatoTipo1 = "TYPE_" + TIPO1.Text;
+            var formatoTipo1 = "TYPE_" + ddlStats_type1.Text;
             formatoTipo1 = formatoTipo1.Replace(" ", "_");
             pokemonData["tipoUno"][cmbInforma_Species.SelectedIndex.ToString()] = formatoTipo1;
             //Recibir tipo 2
-            var formatoTipo2 = "TYPE_" + TIPO2.Text;
+            var formatoTipo2 = "TYPE_" + ddlStats_type2.Text;
             formatoTipo2 = formatoTipo2.Replace(" ", "_");
             pokemonData["tipoDos"][cmbInforma_Species.SelectedIndex.ToString()] = formatoTipo2;
 
-            pokemonData["ratioDeCaptura"][cmbInforma_Species.SelectedIndex.ToString()] = ratioCaptura.Text;
-            pokemonData["expBase"][cmbInforma_Species.SelectedIndex.ToString()] = expBase.Text;
-            pokemonData["evsPS"][cmbInforma_Species.SelectedIndex.ToString()] = PS_Effort.Text;
-            pokemonData["evsAtaque"][cmbInforma_Species.SelectedIndex.ToString()] = ATQ_Effort.Text;
-            pokemonData["evsDefensa"][cmbInforma_Species.SelectedIndex.ToString()] = DEF_Effort.Text;
-            pokemonData["evsVelocidad"][cmbInforma_Species.SelectedIndex.ToString()] = VEL_Effort.Text;
-            pokemonData["evsAtaqueEspecial"][cmbInforma_Species.SelectedIndex.ToString()] = ATESP_Effort.Text;
-            pokemonData["evsDefensaEspecial"][cmbInforma_Species.SelectedIndex.ToString()] = DFESP_Effort.Text;
+            pokemonData["ratioDeCaptura"][cmbInforma_Species.SelectedIndex.ToString()] = txtStats_catchRate.Text;
+            pokemonData["expBase"][cmbInforma_Species.SelectedIndex.ToString()] = txtStats_expYield.Text;
+            pokemonData["evsPS"][cmbInforma_Species.SelectedIndex.ToString()] = txtStats_evHP.Text;
+            pokemonData["evsAtaque"][cmbInforma_Species.SelectedIndex.ToString()] = txtStats_evATK.Text;
+            pokemonData["evsDefensa"][cmbInforma_Species.SelectedIndex.ToString()] = txtStats_evDEF.Text;
+            pokemonData["evsVelocidad"][cmbInforma_Species.SelectedIndex.ToString()] = txtStats_evSPEED.Text;
+            pokemonData["evsAtaqueEspecial"][cmbInforma_Species.SelectedIndex.ToString()] = txtStats_evSPATK.Text;
+            pokemonData["evsDefensaEspecial"][cmbInforma_Species.SelectedIndex.ToString()] = txtStats_evSPDEF.Text;
             //Recibir objeto 1
             var formatoObjeto1 = "ITEM_" + OBJETO1.Text;
             formatoObjeto1 = formatoObjeto1.Replace(@" ", "_");

@@ -52,7 +52,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.MTName = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.expBase = new System.Windows.Forms.TextBox();
+            this.txtStats_expYield = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.EvolucionAEliminar = new System.Windows.Forms.NumericUpDown();
@@ -65,7 +65,7 @@
             this.ciclosHuevo = new System.Windows.Forms.TextBox();
             this.genero = new System.Windows.Forms.TextBox();
             this.huidaSafari = new System.Windows.Forms.TextBox();
-            this.ratioCaptura = new System.Windows.Forms.TextBox();
+            this.txtStats_catchRate = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -73,18 +73,18 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.grpStatsStats = new System.Windows.Forms.GroupBox();
-            this.VEL_Effort = new System.Windows.Forms.TextBox();
-            this.DFESP_Effort = new System.Windows.Forms.TextBox();
-            this.ATESP_Effort = new System.Windows.Forms.TextBox();
-            this.DEF_Effort = new System.Windows.Forms.TextBox();
-            this.ATQ_Effort = new System.Windows.Forms.TextBox();
-            this.PS_Effort = new System.Windows.Forms.TextBox();
-            this.VEL_Base = new System.Windows.Forms.TextBox();
-            this.DFESP_Base = new System.Windows.Forms.TextBox();
-            this.ATESP_Base = new System.Windows.Forms.TextBox();
-            this.DEF_Base = new System.Windows.Forms.TextBox();
-            this.ATQ_Base = new System.Windows.Forms.TextBox();
-            this.PS_Base = new System.Windows.Forms.TextBox();
+            this.txtStats_evSPEED = new System.Windows.Forms.TextBox();
+            this.txtStats_evSPDEF = new System.Windows.Forms.TextBox();
+            this.txtStats_evSPATK = new System.Windows.Forms.TextBox();
+            this.txtStats_evDEF = new System.Windows.Forms.TextBox();
+            this.txtStats_evATK = new System.Windows.Forms.TextBox();
+            this.txtStats_evHP = new System.Windows.Forms.TextBox();
+            this.txtStats_baseSPEED = new System.Windows.Forms.TextBox();
+            this.txtStats_baseSPDEF = new System.Windows.Forms.TextBox();
+            this.txtStats_baseSPATK = new System.Windows.Forms.TextBox();
+            this.txtStats_baseDEF = new System.Windows.Forms.TextBox();
+            this.txtStats_baseATK = new System.Windows.Forms.TextBox();
+            this.txtStats_baseHP = new System.Windows.Forms.TextBox();
             this.lblStatsSpd = new System.Windows.Forms.Label();
             this.lblStatsSpDef = new System.Windows.Forms.Label();
             this.lblStatsSpAtk = new System.Windows.Forms.Label();
@@ -100,8 +100,8 @@
             this.HABILIDAD1 = new System.Windows.Forms.ComboBox();
             this.HUEVO2 = new System.Windows.Forms.ComboBox();
             this.HUEVO1 = new System.Windows.Forms.ComboBox();
-            this.TIPO2 = new System.Windows.Forms.ComboBox();
-            this.TIPO1 = new System.Windows.Forms.ComboBox();
+            this.ddlStats_type2 = new System.Windows.Forms.ComboBox();
+            this.ddlStats_type1 = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -256,14 +256,14 @@
             this.tabStats.Controls.Add(this.generoCheck);
             this.tabStats.Controls.Add(this.crecimiento);
             this.tabStats.Controls.Add(this.groupBox4);
-            this.tabStats.Controls.Add(this.expBase);
+            this.tabStats.Controls.Add(this.txtStats_expYield);
             this.tabStats.Controls.Add(this.groupBox3);
             this.tabStats.Controls.Add(this.COLOR_CUERPO);
             this.tabStats.Controls.Add(this.amistadBase);
             this.tabStats.Controls.Add(this.ciclosHuevo);
             this.tabStats.Controls.Add(this.genero);
             this.tabStats.Controls.Add(this.huidaSafari);
-            this.tabStats.Controls.Add(this.ratioCaptura);
+            this.tabStats.Controls.Add(this.txtStats_catchRate);
             this.tabStats.Controls.Add(this.label21);
             this.tabStats.Controls.Add(this.label20);
             this.tabStats.Controls.Add(this.label19);
@@ -462,11 +462,11 @@
             // 
             // expBase
             // 
-            this.expBase.Location = new System.Drawing.Point(180, 450);
-            this.expBase.Margin = new System.Windows.Forms.Padding(4);
-            this.expBase.Name = "expBase";
-            this.expBase.Size = new System.Drawing.Size(104, 22);
-            this.expBase.TabIndex = 20;
+            this.txtStats_expYield.Location = new System.Drawing.Point(180, 450);
+            this.txtStats_expYield.Margin = new System.Windows.Forms.Padding(4);
+            this.txtStats_expYield.Name = "expBase";
+            this.txtStats_expYield.Size = new System.Drawing.Size(104, 22);
+            this.txtStats_expYield.TabIndex = 20;
             // 
             // groupBox3
             // 
@@ -590,11 +590,11 @@
             // 
             // ratioCaptura
             // 
-            this.ratioCaptura.Location = new System.Drawing.Point(180, 384);
-            this.ratioCaptura.Margin = new System.Windows.Forms.Padding(4);
-            this.ratioCaptura.Name = "ratioCaptura";
-            this.ratioCaptura.Size = new System.Drawing.Size(104, 22);
-            this.ratioCaptura.TabIndex = 17;
+            this.txtStats_catchRate.Location = new System.Drawing.Point(180, 384);
+            this.txtStats_catchRate.Margin = new System.Windows.Forms.Padding(4);
+            this.txtStats_catchRate.Name = "ratioCaptura";
+            this.txtStats_catchRate.Size = new System.Drawing.Size(104, 22);
+            this.txtStats_catchRate.TabIndex = 17;
             // 
             // label21
             // 
@@ -658,18 +658,18 @@
             // 
             // grpStatsStats
             // 
-            this.grpStatsStats.Controls.Add(this.VEL_Effort);
-            this.grpStatsStats.Controls.Add(this.DFESP_Effort);
-            this.grpStatsStats.Controls.Add(this.ATESP_Effort);
-            this.grpStatsStats.Controls.Add(this.DEF_Effort);
-            this.grpStatsStats.Controls.Add(this.ATQ_Effort);
-            this.grpStatsStats.Controls.Add(this.PS_Effort);
-            this.grpStatsStats.Controls.Add(this.VEL_Base);
-            this.grpStatsStats.Controls.Add(this.DFESP_Base);
-            this.grpStatsStats.Controls.Add(this.ATESP_Base);
-            this.grpStatsStats.Controls.Add(this.DEF_Base);
-            this.grpStatsStats.Controls.Add(this.ATQ_Base);
-            this.grpStatsStats.Controls.Add(this.PS_Base);
+            this.grpStatsStats.Controls.Add(this.txtStats_evSPEED);
+            this.grpStatsStats.Controls.Add(this.txtStats_evSPDEF);
+            this.grpStatsStats.Controls.Add(this.txtStats_evSPATK);
+            this.grpStatsStats.Controls.Add(this.txtStats_evDEF);
+            this.grpStatsStats.Controls.Add(this.txtStats_evATK);
+            this.grpStatsStats.Controls.Add(this.txtStats_evHP);
+            this.grpStatsStats.Controls.Add(this.txtStats_baseSPEED);
+            this.grpStatsStats.Controls.Add(this.txtStats_baseSPDEF);
+            this.grpStatsStats.Controls.Add(this.txtStats_baseSPATK);
+            this.grpStatsStats.Controls.Add(this.txtStats_baseDEF);
+            this.grpStatsStats.Controls.Add(this.txtStats_baseATK);
+            this.grpStatsStats.Controls.Add(this.txtStats_baseHP);
             this.grpStatsStats.Controls.Add(this.lblStatsSpd);
             this.grpStatsStats.Controls.Add(this.lblStatsSpDef);
             this.grpStatsStats.Controls.Add(this.lblStatsSpAtk);
@@ -689,111 +689,111 @@
             // 
             // VEL_Effort
             // 
-            this.VEL_Effort.Location = new System.Drawing.Point(169, 206);
-            this.VEL_Effort.Margin = new System.Windows.Forms.Padding(4);
-            this.VEL_Effort.Name = "VEL_Effort";
-            this.VEL_Effort.Size = new System.Drawing.Size(71, 22);
-            this.VEL_Effort.TabIndex = 27;
-            this.VEL_Effort.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumber);
+            this.txtStats_evSPEED.Location = new System.Drawing.Point(169, 206);
+            this.txtStats_evSPEED.Margin = new System.Windows.Forms.Padding(4);
+            this.txtStats_evSPEED.Name = "VEL_Effort";
+            this.txtStats_evSPEED.Size = new System.Drawing.Size(71, 22);
+            this.txtStats_evSPEED.TabIndex = 27;
+            this.txtStats_evSPEED.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumber);
             // 
             // DFESP_Effort
             // 
-            this.DFESP_Effort.Location = new System.Drawing.Point(169, 176);
-            this.DFESP_Effort.Margin = new System.Windows.Forms.Padding(4);
-            this.DFESP_Effort.Name = "DFESP_Effort";
-            this.DFESP_Effort.Size = new System.Drawing.Size(71, 22);
-            this.DFESP_Effort.TabIndex = 26;
-            this.DFESP_Effort.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumber);
+            this.txtStats_evSPDEF.Location = new System.Drawing.Point(169, 176);
+            this.txtStats_evSPDEF.Margin = new System.Windows.Forms.Padding(4);
+            this.txtStats_evSPDEF.Name = "DFESP_Effort";
+            this.txtStats_evSPDEF.Size = new System.Drawing.Size(71, 22);
+            this.txtStats_evSPDEF.TabIndex = 26;
+            this.txtStats_evSPDEF.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumber);
             // 
             // ATESP_Effort
             // 
-            this.ATESP_Effort.Location = new System.Drawing.Point(169, 146);
-            this.ATESP_Effort.Margin = new System.Windows.Forms.Padding(4);
-            this.ATESP_Effort.Name = "ATESP_Effort";
-            this.ATESP_Effort.Size = new System.Drawing.Size(71, 22);
-            this.ATESP_Effort.TabIndex = 25;
-            this.ATESP_Effort.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumber);
+            this.txtStats_evSPATK.Location = new System.Drawing.Point(169, 146);
+            this.txtStats_evSPATK.Margin = new System.Windows.Forms.Padding(4);
+            this.txtStats_evSPATK.Name = "ATESP_Effort";
+            this.txtStats_evSPATK.Size = new System.Drawing.Size(71, 22);
+            this.txtStats_evSPATK.TabIndex = 25;
+            this.txtStats_evSPATK.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumber);
             // 
             // DEF_Effort
             // 
-            this.DEF_Effort.Location = new System.Drawing.Point(169, 117);
-            this.DEF_Effort.Margin = new System.Windows.Forms.Padding(4);
-            this.DEF_Effort.Name = "DEF_Effort";
-            this.DEF_Effort.Size = new System.Drawing.Size(71, 22);
-            this.DEF_Effort.TabIndex = 24;
-            this.DEF_Effort.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumber);
+            this.txtStats_evDEF.Location = new System.Drawing.Point(169, 117);
+            this.txtStats_evDEF.Margin = new System.Windows.Forms.Padding(4);
+            this.txtStats_evDEF.Name = "DEF_Effort";
+            this.txtStats_evDEF.Size = new System.Drawing.Size(71, 22);
+            this.txtStats_evDEF.TabIndex = 24;
+            this.txtStats_evDEF.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumber);
             // 
             // ATQ_Effort
             // 
-            this.ATQ_Effort.Location = new System.Drawing.Point(169, 87);
-            this.ATQ_Effort.Margin = new System.Windows.Forms.Padding(4);
-            this.ATQ_Effort.Name = "ATQ_Effort";
-            this.ATQ_Effort.Size = new System.Drawing.Size(71, 22);
-            this.ATQ_Effort.TabIndex = 23;
-            this.ATQ_Effort.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumber);
+            this.txtStats_evATK.Location = new System.Drawing.Point(169, 87);
+            this.txtStats_evATK.Margin = new System.Windows.Forms.Padding(4);
+            this.txtStats_evATK.Name = "ATQ_Effort";
+            this.txtStats_evATK.Size = new System.Drawing.Size(71, 22);
+            this.txtStats_evATK.TabIndex = 23;
+            this.txtStats_evATK.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumber);
             // 
             // PS_Effort
             // 
-            this.PS_Effort.Location = new System.Drawing.Point(169, 58);
-            this.PS_Effort.Margin = new System.Windows.Forms.Padding(4);
-            this.PS_Effort.Name = "PS_Effort";
-            this.PS_Effort.Size = new System.Drawing.Size(71, 22);
-            this.PS_Effort.TabIndex = 22;
-            this.PS_Effort.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumber);
+            this.txtStats_evHP.Location = new System.Drawing.Point(169, 58);
+            this.txtStats_evHP.Margin = new System.Windows.Forms.Padding(4);
+            this.txtStats_evHP.Name = "PS_Effort";
+            this.txtStats_evHP.Size = new System.Drawing.Size(71, 22);
+            this.txtStats_evHP.TabIndex = 22;
+            this.txtStats_evHP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumber);
             // 
             // VEL_Base
             // 
-            this.VEL_Base.Location = new System.Drawing.Point(80, 206);
-            this.VEL_Base.Margin = new System.Windows.Forms.Padding(4);
-            this.VEL_Base.Name = "VEL_Base";
-            this.VEL_Base.Size = new System.Drawing.Size(71, 22);
-            this.VEL_Base.TabIndex = 21;
-            this.VEL_Base.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumber);
+            this.txtStats_baseSPEED.Location = new System.Drawing.Point(80, 206);
+            this.txtStats_baseSPEED.Margin = new System.Windows.Forms.Padding(4);
+            this.txtStats_baseSPEED.Name = "VEL_Base";
+            this.txtStats_baseSPEED.Size = new System.Drawing.Size(71, 22);
+            this.txtStats_baseSPEED.TabIndex = 21;
+            this.txtStats_baseSPEED.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumber);
             // 
             // DFESP_Base
             // 
-            this.DFESP_Base.Location = new System.Drawing.Point(80, 176);
-            this.DFESP_Base.Margin = new System.Windows.Forms.Padding(4);
-            this.DFESP_Base.Name = "DFESP_Base";
-            this.DFESP_Base.Size = new System.Drawing.Size(71, 22);
-            this.DFESP_Base.TabIndex = 20;
-            this.DFESP_Base.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumber);
+            this.txtStats_baseSPDEF.Location = new System.Drawing.Point(80, 176);
+            this.txtStats_baseSPDEF.Margin = new System.Windows.Forms.Padding(4);
+            this.txtStats_baseSPDEF.Name = "DFESP_Base";
+            this.txtStats_baseSPDEF.Size = new System.Drawing.Size(71, 22);
+            this.txtStats_baseSPDEF.TabIndex = 20;
+            this.txtStats_baseSPDEF.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumber);
             // 
             // ATESP_Base
             // 
-            this.ATESP_Base.Location = new System.Drawing.Point(80, 146);
-            this.ATESP_Base.Margin = new System.Windows.Forms.Padding(4);
-            this.ATESP_Base.Name = "ATESP_Base";
-            this.ATESP_Base.Size = new System.Drawing.Size(71, 22);
-            this.ATESP_Base.TabIndex = 19;
-            this.ATESP_Base.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumber);
+            this.txtStats_baseSPATK.Location = new System.Drawing.Point(80, 146);
+            this.txtStats_baseSPATK.Margin = new System.Windows.Forms.Padding(4);
+            this.txtStats_baseSPATK.Name = "ATESP_Base";
+            this.txtStats_baseSPATK.Size = new System.Drawing.Size(71, 22);
+            this.txtStats_baseSPATK.TabIndex = 19;
+            this.txtStats_baseSPATK.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumber);
             // 
             // DEF_Base
             // 
-            this.DEF_Base.Location = new System.Drawing.Point(80, 117);
-            this.DEF_Base.Margin = new System.Windows.Forms.Padding(4);
-            this.DEF_Base.Name = "DEF_Base";
-            this.DEF_Base.Size = new System.Drawing.Size(71, 22);
-            this.DEF_Base.TabIndex = 18;
-            this.DEF_Base.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumber);
+            this.txtStats_baseDEF.Location = new System.Drawing.Point(80, 117);
+            this.txtStats_baseDEF.Margin = new System.Windows.Forms.Padding(4);
+            this.txtStats_baseDEF.Name = "DEF_Base";
+            this.txtStats_baseDEF.Size = new System.Drawing.Size(71, 22);
+            this.txtStats_baseDEF.TabIndex = 18;
+            this.txtStats_baseDEF.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumber);
             // 
             // ATQ_Base
             // 
-            this.ATQ_Base.Location = new System.Drawing.Point(80, 87);
-            this.ATQ_Base.Margin = new System.Windows.Forms.Padding(4);
-            this.ATQ_Base.Name = "ATQ_Base";
-            this.ATQ_Base.Size = new System.Drawing.Size(71, 22);
-            this.ATQ_Base.TabIndex = 17;
-            this.ATQ_Base.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumber);
+            this.txtStats_baseATK.Location = new System.Drawing.Point(80, 87);
+            this.txtStats_baseATK.Margin = new System.Windows.Forms.Padding(4);
+            this.txtStats_baseATK.Name = "ATQ_Base";
+            this.txtStats_baseATK.Size = new System.Drawing.Size(71, 22);
+            this.txtStats_baseATK.TabIndex = 17;
+            this.txtStats_baseATK.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumber);
             // 
             // PS_Base
             // 
-            this.PS_Base.Location = new System.Drawing.Point(80, 58);
-            this.PS_Base.Margin = new System.Windows.Forms.Padding(4);
-            this.PS_Base.Name = "PS_Base";
-            this.PS_Base.Size = new System.Drawing.Size(71, 22);
-            this.PS_Base.TabIndex = 16;
-            this.PS_Base.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumber);
+            this.txtStats_baseHP.Location = new System.Drawing.Point(80, 58);
+            this.txtStats_baseHP.Margin = new System.Windows.Forms.Padding(4);
+            this.txtStats_baseHP.Name = "PS_Base";
+            this.txtStats_baseHP.Size = new System.Drawing.Size(71, 22);
+            this.txtStats_baseHP.TabIndex = 16;
+            this.txtStats_baseHP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumber);
             // 
             // lblStatsSpd
             // 
@@ -883,8 +883,8 @@
             this.groupBox2.Controls.Add(this.HABILIDAD1);
             this.groupBox2.Controls.Add(this.HUEVO2);
             this.groupBox2.Controls.Add(this.HUEVO1);
-            this.groupBox2.Controls.Add(this.TIPO2);
-            this.groupBox2.Controls.Add(this.TIPO1);
+            this.groupBox2.Controls.Add(this.ddlStats_type2);
+            this.groupBox2.Controls.Add(this.ddlStats_type1);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.label11);
@@ -960,23 +960,23 @@
             // 
             // TIPO2
             // 
-            this.TIPO2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.TIPO2.FormattingEnabled = true;
-            this.TIPO2.Location = new System.Drawing.Point(285, 22);
-            this.TIPO2.Margin = new System.Windows.Forms.Padding(4);
-            this.TIPO2.Name = "TIPO2";
-            this.TIPO2.Size = new System.Drawing.Size(159, 24);
-            this.TIPO2.TabIndex = 5;
+            this.ddlStats_type2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.ddlStats_type2.FormattingEnabled = true;
+            this.ddlStats_type2.Location = new System.Drawing.Point(285, 22);
+            this.ddlStats_type2.Margin = new System.Windows.Forms.Padding(4);
+            this.ddlStats_type2.Name = "TIPO2";
+            this.ddlStats_type2.Size = new System.Drawing.Size(159, 24);
+            this.ddlStats_type2.TabIndex = 5;
             // 
             // TIPO1
             // 
-            this.TIPO1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.TIPO1.FormattingEnabled = true;
-            this.TIPO1.Location = new System.Drawing.Point(117, 22);
-            this.TIPO1.Margin = new System.Windows.Forms.Padding(4);
-            this.TIPO1.Name = "TIPO1";
-            this.TIPO1.Size = new System.Drawing.Size(159, 24);
-            this.TIPO1.TabIndex = 4;
+            this.ddlStats_type1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.ddlStats_type1.FormattingEnabled = true;
+            this.ddlStats_type1.Location = new System.Drawing.Point(117, 22);
+            this.ddlStats_type1.Margin = new System.Windows.Forms.Padding(4);
+            this.ddlStats_type1.Name = "TIPO1";
+            this.ddlStats_type1.Size = new System.Drawing.Size(159, 24);
+            this.ddlStats_type1.TabIndex = 4;
             // 
             // label13
             // 
@@ -1655,7 +1655,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.DataGridViewComboBoxColumn MTName;
-        private System.Windows.Forms.TextBox expBase;
+        private System.Windows.Forms.TextBox txtStats_expYield;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.NumericUpDown EvolucionAEliminar;
@@ -1665,7 +1665,7 @@
         private System.Windows.Forms.TextBox ciclosHuevo;
         private System.Windows.Forms.TextBox genero;
         private System.Windows.Forms.TextBox huidaSafari;
-        private System.Windows.Forms.TextBox ratioCaptura;
+        private System.Windows.Forms.TextBox txtStats_catchRate;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
@@ -1673,18 +1673,18 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.GroupBox grpStatsStats;
-        private System.Windows.Forms.TextBox VEL_Effort;
-        private System.Windows.Forms.TextBox DFESP_Effort;
-        private System.Windows.Forms.TextBox ATESP_Effort;
-        private System.Windows.Forms.TextBox DEF_Effort;
-        private System.Windows.Forms.TextBox ATQ_Effort;
-        private System.Windows.Forms.TextBox PS_Effort;
-        private System.Windows.Forms.TextBox VEL_Base;
-        private System.Windows.Forms.TextBox DFESP_Base;
-        private System.Windows.Forms.TextBox ATESP_Base;
-        private System.Windows.Forms.TextBox DEF_Base;
-        private System.Windows.Forms.TextBox ATQ_Base;
-        private System.Windows.Forms.TextBox PS_Base;
+        private System.Windows.Forms.TextBox txtStats_evSPEED;
+        private System.Windows.Forms.TextBox txtStats_evSPDEF;
+        private System.Windows.Forms.TextBox txtStats_evSPATK;
+        private System.Windows.Forms.TextBox txtStats_evDEF;
+        private System.Windows.Forms.TextBox txtStats_evATK;
+        private System.Windows.Forms.TextBox txtStats_evHP;
+        private System.Windows.Forms.TextBox txtStats_baseSPEED;
+        private System.Windows.Forms.TextBox txtStats_baseSPDEF;
+        private System.Windows.Forms.TextBox txtStats_baseSPATK;
+        private System.Windows.Forms.TextBox txtStats_baseDEF;
+        private System.Windows.Forms.TextBox txtStats_baseATK;
+        private System.Windows.Forms.TextBox txtStats_baseHP;
         private System.Windows.Forms.Label lblStatsSpd;
         private System.Windows.Forms.Label lblStatsSpDef;
         private System.Windows.Forms.Label lblStatsSpAtk;
@@ -1700,8 +1700,8 @@
         private System.Windows.Forms.ComboBox HABILIDAD1;
         private System.Windows.Forms.ComboBox HUEVO2;
         private System.Windows.Forms.ComboBox HUEVO1;
-        private System.Windows.Forms.ComboBox TIPO2;
-        private System.Windows.Forms.ComboBox TIPO1;
+        private System.Windows.Forms.ComboBox ddlStats_type2;
+        private System.Windows.Forms.ComboBox ddlStats_type1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
