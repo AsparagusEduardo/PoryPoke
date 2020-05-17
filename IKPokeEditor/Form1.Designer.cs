@@ -94,7 +94,7 @@
             this.lblStatsHP = new System.Windows.Forms.Label();
             this.lblStats_EffordYield = new System.Windows.Forms.Label();
             this.lblStats_BaseStats = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.grpStats_Other = new System.Windows.Forms.GroupBox();
             this.ddlStats_item2 = new System.Windows.Forms.ComboBox();
             this.ddlStats_item1 = new System.Windows.Forms.ComboBox();
             this.ddlStats_ability2 = new System.Windows.Forms.ComboBox();
@@ -103,10 +103,10 @@
             this.ddlStats_eggGroup1 = new System.Windows.Forms.ComboBox();
             this.ddlStats_type2 = new System.Windows.Forms.ComboBox();
             this.ddlStats_type1 = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lblStats_Items = new System.Windows.Forms.Label();
+            this.lblStats_Abilities = new System.Windows.Forms.Label();
+            this.lblStats_EggGroup = new System.Windows.Forms.Label();
+            this.lblStats_Type = new System.Windows.Forms.Label();
             this.btnStats_New = new System.Windows.Forms.Button();
             this.lblStatsName = new System.Windows.Forms.Label();
             this.cmbInforma_Species = new System.Windows.Forms.ComboBox();
@@ -169,7 +169,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.EvolucionAEliminar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.grpStatsStats.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.grpStats_Other.SuspendLayout();
             this.tabPokedex.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -271,7 +271,7 @@
             this.tabStats.Controls.Add(this.lblStatsGrowthRate);
             this.tabStats.Controls.Add(this.lblStatsSafariFleeRate);
             this.tabStats.Controls.Add(this.grpStatsStats);
-            this.tabStats.Controls.Add(this.groupBox2);
+            this.tabStats.Controls.Add(this.grpStats_Other);
             this.tabStats.Controls.Add(this.btnStats_New);
             this.tabStats.Controls.Add(this.lblStatsName);
             this.tabStats.Controls.Add(this.cmbInforma_Species);
@@ -279,7 +279,7 @@
             this.tabStats.Controls.Add(this.btnStats_Save);
             this.tabStats.Location = new System.Drawing.Point(4, 22);
             this.tabStats.Name = "tabStats";
-            this.tabStats.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabStats.Padding = new System.Windows.Forms.Padding(3);
             this.tabStats.Size = new System.Drawing.Size(1005, 563);
             this.tabStats.TabIndex = 0;
             this.tabStats.Text = "tabStats";
@@ -342,7 +342,7 @@
             this.tabPage4.Controls.Add(this.dataGridView1);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(401, 442);
             this.tabPage4.TabIndex = 0;
             this.tabPage4.Text = "Nivel";
@@ -406,7 +406,7 @@
             this.tabPage5.Controls.Add(this.dataGridView3);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage5.Size = new System.Drawing.Size(401, 442);
             this.tabPage5.TabIndex = 1;
             this.tabPage5.Text = "MT/MO";
@@ -830,26 +830,26 @@
             this.lblStats_BaseStats.TabIndex = 8;
             this.lblStats_BaseStats.Text = "Stats base";
             // 
-            // groupBox2
+            // grpStats_Other
             // 
-            this.groupBox2.Controls.Add(this.ddlStats_item2);
-            this.groupBox2.Controls.Add(this.ddlStats_item1);
-            this.groupBox2.Controls.Add(this.ddlStats_ability2);
-            this.groupBox2.Controls.Add(this.ddlStats_ability1);
-            this.groupBox2.Controls.Add(this.ddlStats_eggGroup2);
-            this.groupBox2.Controls.Add(this.ddlStats_eggGroup1);
-            this.groupBox2.Controls.Add(this.ddlStats_type2);
-            this.groupBox2.Controls.Add(this.ddlStats_type1);
-            this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Location = new System.Drawing.Point(220, 78);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(348, 126);
-            this.groupBox2.TabIndex = 8;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Otros";
+            this.grpStats_Other.Controls.Add(this.ddlStats_item2);
+            this.grpStats_Other.Controls.Add(this.ddlStats_item1);
+            this.grpStats_Other.Controls.Add(this.ddlStats_ability2);
+            this.grpStats_Other.Controls.Add(this.ddlStats_ability1);
+            this.grpStats_Other.Controls.Add(this.ddlStats_eggGroup2);
+            this.grpStats_Other.Controls.Add(this.ddlStats_eggGroup1);
+            this.grpStats_Other.Controls.Add(this.ddlStats_type2);
+            this.grpStats_Other.Controls.Add(this.ddlStats_type1);
+            this.grpStats_Other.Controls.Add(this.lblStats_Items);
+            this.grpStats_Other.Controls.Add(this.lblStats_Abilities);
+            this.grpStats_Other.Controls.Add(this.lblStats_EggGroup);
+            this.grpStats_Other.Controls.Add(this.lblStats_Type);
+            this.grpStats_Other.Location = new System.Drawing.Point(220, 78);
+            this.grpStats_Other.Name = "grpStats_Other";
+            this.grpStats_Other.Size = new System.Drawing.Size(348, 126);
+            this.grpStats_Other.TabIndex = 8;
+            this.grpStats_Other.TabStop = false;
+            this.grpStats_Other.Text = "Otros";
             // 
             // ddlStats_item2
             // 
@@ -923,41 +923,41 @@
             this.ddlStats_type1.Size = new System.Drawing.Size(120, 21);
             this.ddlStats_type1.TabIndex = 4;
             // 
-            // label13
+            // lblStats_Items
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(35, 97);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(46, 13);
-            this.label13.TabIndex = 3;
-            this.label13.Text = "Objetos:";
+            this.lblStats_Items.Location = new System.Drawing.Point(7, 94);
+            this.lblStats_Items.Name = "lblStats_Items";
+            this.lblStats_Items.Size = new System.Drawing.Size(74, 16);
+            this.lblStats_Items.TabIndex = 3;
+            this.lblStats_Items.Text = "Objetos:";
+            this.lblStats_Items.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label12
+            // lblStats_Abilities
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(16, 72);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(65, 13);
-            this.label12.TabIndex = 2;
-            this.label12.Text = "Habilidades:";
+            this.lblStats_Abilities.Location = new System.Drawing.Point(7, 73);
+            this.lblStats_Abilities.Name = "lblStats_Abilities";
+            this.lblStats_Abilities.Size = new System.Drawing.Size(74, 12);
+            this.lblStats_Abilities.TabIndex = 2;
+            this.lblStats_Abilities.Text = "Habilidades:";
+            this.lblStats_Abilities.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label11
+            // lblStats_EggGroup
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(9, 48);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(72, 13);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "Grupo huevo:";
+            this.lblStats_EggGroup.Location = new System.Drawing.Point(7, 47);
+            this.lblStats_EggGroup.Name = "lblStats_EggGroup";
+            this.lblStats_EggGroup.Size = new System.Drawing.Size(74, 14);
+            this.lblStats_EggGroup.TabIndex = 1;
+            this.lblStats_EggGroup.Text = "Grupo huevo:";
+            this.lblStats_EggGroup.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label10
+            // lblStats_Type
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(50, 23);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(31, 13);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Tipo:";
+            this.lblStats_Type.Location = new System.Drawing.Point(7, 23);
+            this.lblStats_Type.Name = "lblStats_Type";
+            this.lblStats_Type.Size = new System.Drawing.Size(74, 13);
+            this.lblStats_Type.TabIndex = 0;
+            this.lblStats_Type.Text = "Tipo:";
+            this.lblStats_Type.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnStats_New
             // 
@@ -1015,7 +1015,7 @@
             this.tabPokedex.Controls.Add(this.groupBox5);
             this.tabPokedex.Location = new System.Drawing.Point(4, 22);
             this.tabPokedex.Name = "tabPokedex";
-            this.tabPokedex.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPokedex.Padding = new System.Windows.Forms.Padding(3);
             this.tabPokedex.Size = new System.Drawing.Size(1005, 563);
             this.tabPokedex.TabIndex = 1;
             this.tabPokedex.Text = "tabPokedex";
@@ -1446,8 +1446,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.grpStatsStats.ResumeLayout(false);
             this.grpStatsStats.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.grpStats_Other.ResumeLayout(false);
             this.tabPokedex.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
@@ -1573,7 +1572,7 @@
         private System.Windows.Forms.Label lblStatsHP;
         private System.Windows.Forms.Label lblStats_EffordYield;
         private System.Windows.Forms.Label lblStats_BaseStats;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox grpStats_Other;
         private System.Windows.Forms.ComboBox ddlStats_item2;
         private System.Windows.Forms.ComboBox ddlStats_item1;
         private System.Windows.Forms.ComboBox ddlStats_ability2;
@@ -1582,10 +1581,10 @@
         private System.Windows.Forms.ComboBox ddlStats_eggGroup1;
         private System.Windows.Forms.ComboBox ddlStats_type2;
         private System.Windows.Forms.ComboBox ddlStats_type1;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblStats_Items;
+        private System.Windows.Forms.Label lblStats_Abilities;
+        private System.Windows.Forms.Label lblStats_EggGroup;
+        private System.Windows.Forms.Label lblStats_Type;
         private System.Windows.Forms.Button btnStats_New;
         private System.Windows.Forms.Label lblStatsName;
         private System.Windows.Forms.ComboBox cmbInforma_Species;

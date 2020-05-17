@@ -30,3 +30,9 @@ lblStatsFriendship=Amistad base:
 
 btnStats_New=Nuevo
 btnStats_Save=Guardar
+
+grpStats_Other=Otros
+lblStats_Type=Tipos
+lblStats_EggGroup=Grupos Huevo
+lblStats_Abilities=Habilidades
+lblStats_Items=Objetos

@@ -30,3 +30,9 @@ lblStatsFriendship=Base Friendship:
 
 btnStats_New=New
 btnStats_Save=Save
+
+grpStats_Other=Other
+lblStats_Type=Types
+lblStats_EggGroup=Egg Groups
+lblStats_Abilities=Abilities
+lblStats_Items=Items

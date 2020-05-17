@@ -3531,6 +3531,12 @@ namespace IKPokeEditor
 
             btnStats_New.Text = LoadLanguageText(lang, "btnStats_New");
             btnStats_Save.Text = LoadLanguageText(lang, "btnStats_Save");
+
+            grpStats_Other.Text = LoadLanguageText(lang, "grpStats_Other");
+            lblStats_Type.Text = LoadLanguageText(lang, "lblStats_Type");
+            lblStats_EggGroup.Text = LoadLanguageText(lang, "lblStats_EggGroup");
+            lblStats_Abilities.Text = LoadLanguageText(lang, "lblStats_Abilities");
+            lblStats_Items.Text = LoadLanguageText(lang, "lblStats_Items");
         }
         private string LoadLanguageText(string lang, string textId)
         {
