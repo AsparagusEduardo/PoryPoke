@@ -198,6 +198,10 @@ namespace IKPokeEditor.DataLoad
                     poke.GrowthRate = LoadStat(ref str, ref poke, ref index, "growthRate", 13);
                     poke.EggGroup1 = LoadStat(ref str, ref poke, ref index, "eggGroup1", 12);
                     poke.EggGroup2 = LoadStat(ref str, ref poke, ref index, "eggGroup2", 12);
+
+                    string abilities = LoadStat(ref str, ref poke, ref index, "abilities", 12);
+                    poke.Ability1 = abilities.Substring(1, abilities.IndexOf(",") - 1);
+                    poke.Ability2 = abilities.Substring(abilities.IndexOf(",") + 2, abilities.IndexOf("}") - abilities.IndexOf(",") - 2);
                 }
                 else
                 {
@@ -210,7 +214,7 @@ namespace IKPokeEditor.DataLoad
         private static string LoadStat(ref string str, ref Class.Pokemon poke, ref int index, string statName, int offset)
         {
             index = str.IndexOf(statName, str.IndexOf(".", index));
-            return str.Substring(index + offset, str.IndexOf(",", index) - (index + offset));
+            return str.Substring(index + offset, str.IndexOf(",\n", index) - (index + offset));
         }
 
         public static void LoadOldUnownBaseStats(ref Class.Pokemon poke, string str)
@@ -268,6 +272,8 @@ namespace IKPokeEditor.DataLoad
             // EGG GROUP 2
             index = str.IndexOf("eggGroup2", str.IndexOf(",", index)) + 12;
             poke.EggGroup2 = str.Substring(index, str.IndexOf(",", index) - index);
+
+            poke.Ability1 = poke.Ability2 = "ABILITY_NONE";
         }
     }
 }
