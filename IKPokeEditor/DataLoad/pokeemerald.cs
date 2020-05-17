@@ -37,8 +37,6 @@ namespace IKPokeEditor.DataLoad
             var countMT = Regex.Matches(str, "ITEM_TM").Cast<Match>().Count();
             var countMO = Regex.Matches(str, "ITEM_HM").Cast<Match>().Count();
 
-            totalItems = totalItems - (countMT + countMO);
-
             for (int i = 0; i <= totalItems; i++)
             {
                 index = str.IndexOf(".itemId", lastIndex + 2);
@@ -134,55 +132,44 @@ namespace IKPokeEditor.DataLoad
 
         public static void LoadMonBaseStats(string str, string speciesNames, ref Dictionary<string, Class.Pokemon> PokemonDictionary)
         {
-            int pokeAmount, index, pastIndex, pastValueName;
-            string currentStat;
+            string[] mons = str.Split(new string[] { "[SPECIES_NONE]" }, StringSplitOptions.None)[1].Split(new string[] { "[SPECIES_" }, StringSplitOptions.None);
 
             PokemonDictionary.Clear();
-
-            pokeAmount = Regex.Matches(str, "SPECIES_").Cast<Match>().Count() - 1;
-
-            pastIndex = str.IndexOf("SPECIES_", 0);
-            pastValueName = speciesNames.IndexOf("SPECIES_", 0);
-
             Class.Pokemon poke;
-
-            for (int i = 0; i < pokeAmount; i++)
+            for (int i = 1; i < mons.Length; i++)
             {
+                string mon = mons[i];
+                int index = 0;
                 poke = new Class.Pokemon();
-
-                // BASE HP
-                index = str.IndexOf("SPECIES_", pastIndex + 2);
-                pastIndex = index;
-                var nextBrac = str.IndexOf("]", index + 1) - index;
-                poke.ID = str.Substring(index + 8, nextBrac - 8);
+                poke.ID = mon.Substring(0, mon.IndexOf("]"));
 
                 if (!(poke.ID.Substring(0, Math.Min(poke.ID.Length, 9)).Equals("OLD_UNOWN")))
                 {
-                    poke.BaseHP = int.Parse(LoadStat(ref str, ref poke, ref index, "baseHP", 16));
-                    poke.BaseAttack = int.Parse(LoadStat(ref str, ref poke, ref index, "baseAttack", 16));
-                    poke.BaseDefense = int.Parse(LoadStat(ref str, ref poke, ref index, "baseDefense", 16));
-                    poke.BaseSpeed = int.Parse(LoadStat(ref str, ref poke, ref index, "baseSpeed", 16));
-                    poke.BaseSpAttack = int.Parse(LoadStat(ref str, ref poke, ref index, "baseSpAttack", 16));
-                    poke.BaseSpDefense = int.Parse(LoadStat(ref str, ref poke, ref index, "baseSpDefense", 16));
-                    poke.Type1 = LoadStat(ref str, ref poke, ref index, "type1", 8);
-                    poke.Type2 = LoadStat(ref str, ref poke, ref index, "type2", 8);
-                    poke.CatchRate = int.Parse(LoadStat(ref str, ref poke, ref index, "catchRate", 12));
-                    poke.ExpYield = int.Parse(LoadStat(ref str, ref poke, ref index, "expYield", 11));
-                    poke.EvHP = int.Parse(LoadStat(ref str, ref poke, ref index, "evYield_HP", 20));
-                    poke.EvAttack = int.Parse(LoadStat(ref str, ref poke, ref index, "evYield_Attack", 20));
-                    poke.EvDefense = int.Parse(LoadStat(ref str, ref poke, ref index, "evYield_Defense", 20));
-                    poke.EvSpeed = int.Parse(LoadStat(ref str, ref poke, ref index, "evYield_Speed", 20));
-                    poke.EvSpAttack = int.Parse(LoadStat(ref str, ref poke, ref index, "evYield_SpAttack", 20));
-                    poke.EvSpDefense = int.Parse(LoadStat(ref str, ref poke, ref index, "evYield_SpDefense", 20));
-                    poke.Item1 = LoadStat(ref str, ref poke, ref index, "item1", 8);
-                    poke.Item2 = LoadStat(ref str, ref poke, ref index, "item2", 8);
+                    poke.BaseHP = int.Parse(LoadStat(ref mon, ref poke, index, "baseHP"));
+                    poke.BaseAttack = int.Parse(LoadStat(ref mon, ref poke, index, "baseAttack"));
+                    poke.BaseDefense = int.Parse(LoadStat(ref mon, ref poke, index, "baseDefense"));
+                    poke.BaseSpeed = int.Parse(LoadStat(ref mon, ref poke, index, "baseSpeed"));
+                    poke.BaseSpAttack = int.Parse(LoadStat(ref mon, ref poke, index, "baseSpAttack"));
+                    poke.BaseSpDefense = int.Parse(LoadStat(ref mon, ref poke, index, "baseSpDefense"));
+                    poke.Type1 = LoadStat(ref mon, ref poke, index, "type1");
+                    poke.Type2 = LoadStat(ref mon, ref poke, index, "type2");
+                    poke.CatchRate = int.Parse(LoadStat(ref mon, ref poke, index, "catchRate"));
+                    poke.ExpYield = int.Parse(LoadStat(ref mon, ref poke, index, "expYield"));
+                    poke.EvHP = int.Parse(LoadStat(ref mon, ref poke, index, "evYield_HP"));
+                    poke.EvAttack = int.Parse(LoadStat(ref mon, ref poke, index, "evYield_Attack"));
+                    poke.EvDefense = int.Parse(LoadStat(ref mon, ref poke, index, "evYield_Defense"));
+                    poke.EvSpeed = int.Parse(LoadStat(ref mon, ref poke, index, "evYield_Speed"));
+                    poke.EvSpAttack = int.Parse(LoadStat(ref mon, ref poke, index, "evYield_SpAttack"));
+                    poke.EvSpDefense = int.Parse(LoadStat(ref mon, ref poke, index, "evYield_SpDefense"));
+                    poke.Item1 = LoadStat(ref mon, ref poke, index, "item1");
+                    poke.Item2 = LoadStat(ref mon, ref poke, index, "item2");
 
-                    string gender = LoadStat(ref str, ref poke, ref index, "genderRatio", 14);
+                    string gender = LoadStat(ref mon, ref poke, index, "genderRatio");
                     if (gender != "MON_GENDERLESS")
                     {
                         if (gender == "MON_FEMALE")
                             poke.GenderRatio = 100;
-                        else if (gender == "MON_MALE")
+                        else if (gender == "MON_MALE" || gender == "0")
                             poke.GenderRatio = 0;
                         else
                             poke.GenderRatio = decimal.Parse(gender.Substring(15, gender.IndexOf(")") - 15), NumberStyles.Any, new CultureInfo("en-US"));
@@ -193,31 +180,42 @@ namespace IKPokeEditor.DataLoad
                         poke.HasGender = false;
                         poke.GenderRatio = 0;
                     }
-                    poke.EggCycles = int.Parse(LoadStat(ref str, ref poke, ref index, "eggCycles", 12));
-                    poke.Friendship = int.Parse(LoadStat(ref str, ref poke, ref index, "friendship", 13));
-                    poke.GrowthRate = LoadStat(ref str, ref poke, ref index, "growthRate", 13);
-                    poke.EggGroup1 = LoadStat(ref str, ref poke, ref index, "eggGroup1", 12);
-                    poke.EggGroup2 = LoadStat(ref str, ref poke, ref index, "eggGroup2", 12);
+                    poke.EggCycles = int.Parse(LoadStat(ref mon, ref poke, index, "eggCycles"));
+                    poke.Friendship = int.Parse(LoadStat(ref mon, ref poke, index, "friendship"));
+                    poke.GrowthRate = LoadStat(ref mon, ref poke, index, "growthRate");
+                    poke.EggGroup1 = LoadStat(ref mon, ref poke, index, "eggGroup1");
+                    poke.EggGroup2 = LoadStat(ref mon, ref poke, index, "eggGroup2");
 
-                    string abilities = LoadStat(ref str, ref poke, ref index, "abilities", 12);
+                    string abilities = LoadStat(ref mon, ref poke, index, "abilities");
                     poke.Ability1 = abilities.Substring(1, abilities.IndexOf(",") - 1);
                     poke.Ability2 = abilities.Substring(abilities.IndexOf(",") + 2, abilities.IndexOf("}") - abilities.IndexOf(",") - 2);
-                    poke.SafariFleeRate = int.Parse(LoadStat(ref str, ref poke, ref index, "safariZoneFleeRate", 21));
-                    poke.BodyColor = LoadStat(ref str, ref poke, ref index, "bodyColor", 12);
-                    poke.NoFlip = bool.Parse(LoadStat(ref str, ref poke, ref index, "noFlip", 9));
+                    poke.SafariFleeRate = int.Parse(LoadStat(ref mon, ref poke, index, "safariZoneFleeRate"));
+                    poke.BodyColor = LoadStat(ref mon, ref poke, index, "bodyColor");
+                    poke.NoFlip = bool.Parse(LoadStat(ref mon, ref poke, index, "noFlip"));
                 }
                 else
                 {
                     LoadOldUnownBaseStats(ref poke, str);
                 }
-
                 PokemonDictionary.Add(poke.ID, poke);
             }
         }
-        private static string LoadStat(ref string str, ref Class.Pokemon poke, ref int index, string statName, int offset)
+        private static string LoadStat(ref string str, ref Class.Pokemon poke, int index, string statName)
         {
             index = str.IndexOf(statName, str.IndexOf(".", index));
-            return str.Substring(index + offset, str.IndexOf(",\n", index) - (index + offset));
+            if (index == -1)
+            {
+                switch (statName)
+                {
+                    case "item1":
+                    case "item2":
+                        return "ITEM_NONE";
+                    default:
+                        return "0";
+                }
+            }
+            int offset = str.IndexOf("=", index) + 2;
+            return str.Substring(offset, str.IndexOf(",\n", index) - (offset));
         }
 
         public static void LoadOldUnownBaseStats(ref Class.Pokemon poke, string str)

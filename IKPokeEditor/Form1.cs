@@ -178,10 +178,13 @@ namespace IKPokeEditor
                 int index = str.IndexOf("#define SPECIES_", pastValue + 1);
                 pastValue = index;
                 pokeName = str.Substring(index + 16, str.IndexOf(" ", index + 9) - index - 16);
-                cmbInforma_Species.Items.Insert(i, pokeName);
-                cmbPokedex_Species.Items.Insert(i, pokeName);
-                cmbGraphic_Species.Items.Insert(i, pokeName);
-                Evolucion.Items.Insert(i, pokeName);
+                if (!pokeName.Equals("EGG"))
+                {
+                    cmbInforma_Species.Items.Insert(i, pokeName);
+                    cmbPokedex_Species.Items.Insert(i, pokeName);
+                    cmbGraphic_Species.Items.Insert(i, pokeName);
+                    Evolucion.Items.Insert(i, pokeName);
+                }
             }
         }
 
@@ -923,7 +926,8 @@ namespace IKPokeEditor
             txtStats_genderRatio.Text = poke.GenderRatio.ToString(new CultureInfo("en-US"));
             txtStats_eggCycles.Text = poke.EggCycles.ToString();
             txtStats_friendship.Text = poke.Friendship.ToString();
-            ddlStats_growthRate.SelectedIndex = int.Parse(infoData["crecimiento"].FirstOrDefault(x => x.Value.Contains(poke.GrowthRate.Substring(7).Replace("_", " "))).Key);
+
+            ddlStats_growthRate.SelectedIndex = int.Parse(infoData["crecimiento"].FirstOrDefault(x => x.Value.Equals(poke.GrowthRate.Substring(7).Replace("_", " "))).Key);
             ddlStats_eggGroup1.SelectedIndex = int.Parse(infoData["grupos_huevo"].FirstOrDefault(x => x.Value.Contains(poke.EggGroup1.Substring(10).Replace("_", " "))).Key);
             ddlStats_eggGroup2.SelectedIndex = int.Parse(infoData["grupos_huevo"].FirstOrDefault(x => x.Value.Contains(poke.EggGroup2.Substring(10).Replace("_", " "))).Key);
             ddlStats_ability1.SelectedIndex = int.Parse(infoData["habilidades"].FirstOrDefault(x => x.Value.Contains(poke.Ability1.Substring(8).Replace("_", " "))).Key);
@@ -1683,12 +1687,14 @@ namespace IKPokeEditor
             str = preStr + finalString + postStr.Substring(0, postStr.Length - 1);
             index = str.LastIndexOf("[SPECIES");
             index = str.IndexOf("    },", index);
+            /*
             if (index > 0)
             {
                 preStr = str.Substring(0, index);
                 postStr = str.Substring(index + 2);
                 str = preStr + "}\n" + postStr;
             }
+            */
             data["pFile_base_stats_h"] = str;
 
             //richTextBox1.Text = str;
