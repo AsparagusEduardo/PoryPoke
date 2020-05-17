@@ -37,6 +37,7 @@
             this.menuLanguageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabStats = new System.Windows.Forms.TabPage();
+            this.lblStatsCatchRat = new System.Windows.Forms.Label();
             this.chkStats_gender = new System.Windows.Forms.CheckBox();
             this.ddlStats_growthRate = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -66,12 +67,12 @@
             this.txtStats_genderRatio = new System.Windows.Forms.TextBox();
             this.ddlStats_safariFleeRate = new System.Windows.Forms.TextBox();
             this.txtStats_catchRate = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.lblStatsExpYield = new System.Windows.Forms.Label();
+            this.lblStatsFriendship = new System.Windows.Forms.Label();
+            this.lblStatsEggCycle = new System.Windows.Forms.Label();
+            this.lblStatsBodyColor = new System.Windows.Forms.Label();
+            this.lblStatsGrowthRate = new System.Windows.Forms.Label();
+            this.lblStatsSafariFleeRate = new System.Windows.Forms.Label();
             this.grpStatsStats = new System.Windows.Forms.GroupBox();
             this.txtStats_evSPEED = new System.Windows.Forms.TextBox();
             this.txtStats_evSPDEF = new System.Windows.Forms.TextBox();
@@ -106,11 +107,11 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnStats_New = new System.Windows.Forms.Button();
             this.lblStatsName = new System.Windows.Forms.Label();
             this.cmbInforma_Species = new System.Windows.Forms.ComboBox();
             this.POKEMON_NAME = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnStats_Save = new System.Windows.Forms.Button();
             this.tabPokedex = new System.Windows.Forms.TabPage();
             this.cmbGraphic_Species = new System.Windows.Forms.ComboBox();
             this.button7 = new System.Windows.Forms.Button();
@@ -153,7 +154,6 @@
             this.label31 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.fondo = new System.Windows.Forms.PictureBox();
-            this.lblStatsCatchRat = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabStats.SuspendLayout();
@@ -193,7 +193,8 @@
             this.menuOptionsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1348, 30);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1011, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -203,14 +204,14 @@
             this.menuFolderToolStripMenuItem,
             this.menuSaveToolStripMenuItem});
             this.menuFileToolStripMenuItem.Name = "menuFileToolStripMenuItem";
-            this.menuFileToolStripMenuItem.Size = new System.Drawing.Size(83, 26);
+            this.menuFileToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.menuFileToolStripMenuItem.Text = "menuFile";
             // 
             // menuFolderToolStripMenuItem
             // 
             this.menuFolderToolStripMenuItem.Name = "menuFolderToolStripMenuItem";
             this.menuFolderToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.menuFolderToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.menuFolderToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.menuFolderToolStripMenuItem.Text = "menuFolder";
             this.menuFolderToolStripMenuItem.Click += new System.EventHandler(this.seleccionarCarpetaToolStripMenuItem_Click);
             // 
@@ -219,7 +220,7 @@
             this.menuSaveToolStripMenuItem.Enabled = false;
             this.menuSaveToolStripMenuItem.Name = "menuSaveToolStripMenuItem";
             this.menuSaveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.menuSaveToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.menuSaveToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.menuSaveToolStripMenuItem.Text = "menuSave";
             this.menuSaveToolStripMenuItem.Click += new System.EventHandler(this.guardarToolStripMenuItem_Click);
             // 
@@ -228,13 +229,13 @@
             this.menuOptionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuLanguageToolStripMenuItem});
             this.menuOptionsToolStripMenuItem.Name = "menuOptionsToolStripMenuItem";
-            this.menuOptionsToolStripMenuItem.Size = new System.Drawing.Size(112, 26);
+            this.menuOptionsToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
             this.menuOptionsToolStripMenuItem.Text = "menuOptions";
             // 
             // menuLanguageToolStripMenuItem
             // 
             this.menuLanguageToolStripMenuItem.Name = "menuLanguageToolStripMenuItem";
-            this.menuLanguageToolStripMenuItem.Size = new System.Drawing.Size(194, 26);
+            this.menuLanguageToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.menuLanguageToolStripMenuItem.Text = "menuLanguage";
             // 
             // tabControl1
@@ -242,11 +243,10 @@
             this.tabControl1.Controls.Add(this.tabStats);
             this.tabControl1.Controls.Add(this.tabPokedex);
             this.tabControl1.Controls.Add(this.tabGraphics);
-            this.tabControl1.Location = new System.Drawing.Point(0, 33);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabControl1.Location = new System.Drawing.Point(0, 27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1351, 725);
+            this.tabControl1.Size = new System.Drawing.Size(1013, 589);
             this.tabControl1.TabIndex = 9;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -264,59 +264,63 @@
             this.tabStats.Controls.Add(this.txtStats_genderRatio);
             this.tabStats.Controls.Add(this.ddlStats_safariFleeRate);
             this.tabStats.Controls.Add(this.txtStats_catchRate);
-            this.tabStats.Controls.Add(this.label21);
-            this.tabStats.Controls.Add(this.label20);
-            this.tabStats.Controls.Add(this.label19);
-            this.tabStats.Controls.Add(this.label17);
-            this.tabStats.Controls.Add(this.label16);
-            this.tabStats.Controls.Add(this.label15);
+            this.tabStats.Controls.Add(this.lblStatsExpYield);
+            this.tabStats.Controls.Add(this.lblStatsFriendship);
+            this.tabStats.Controls.Add(this.lblStatsEggCycle);
+            this.tabStats.Controls.Add(this.lblStatsBodyColor);
+            this.tabStats.Controls.Add(this.lblStatsGrowthRate);
+            this.tabStats.Controls.Add(this.lblStatsSafariFleeRate);
             this.tabStats.Controls.Add(this.grpStatsStats);
             this.tabStats.Controls.Add(this.groupBox2);
-            this.tabStats.Controls.Add(this.button1);
+            this.tabStats.Controls.Add(this.btnStats_New);
             this.tabStats.Controls.Add(this.lblStatsName);
             this.tabStats.Controls.Add(this.cmbInforma_Species);
             this.tabStats.Controls.Add(this.POKEMON_NAME);
-            this.tabStats.Controls.Add(this.button2);
-            this.tabStats.Location = new System.Drawing.Point(4, 25);
-            this.tabStats.Margin = new System.Windows.Forms.Padding(4);
+            this.tabStats.Controls.Add(this.btnStats_Save);
+            this.tabStats.Location = new System.Drawing.Point(4, 22);
             this.tabStats.Name = "tabStats";
-            this.tabStats.Padding = new System.Windows.Forms.Padding(4);
-            this.tabStats.Size = new System.Drawing.Size(1343, 696);
+            this.tabStats.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabStats.Size = new System.Drawing.Size(1005, 563);
             this.tabStats.TabIndex = 0;
             this.tabStats.Text = "tabStats";
             this.tabStats.UseVisualStyleBackColor = true;
             // 
-            // generoCheck
+            // lblStatsCatchRat
             // 
-            this.chkStats_gender.AutoSize = true;
-            this.chkStats_gender.Location = new System.Drawing.Point(28, 553);
-            this.chkStats_gender.Margin = new System.Windows.Forms.Padding(4);
-            this.chkStats_gender.Name = "generoCheck";
-            this.chkStats_gender.Size = new System.Drawing.Size(144, 21);
+            this.lblStatsCatchRat.Location = new System.Drawing.Point(15, 314);
+            this.lblStatsCatchRat.Name = "lblStatsCatchRat";
+            this.lblStatsCatchRat.Size = new System.Drawing.Size(116, 14);
+            this.lblStatsCatchRat.TabIndex = 30;
+            this.lblStatsCatchRat.Text = "lblStatsCatchRat";
+            this.lblStatsCatchRat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // chkStats_gender
+            // 
+            this.chkStats_gender.Location = new System.Drawing.Point(17, 448);
+            this.chkStats_gender.Name = "chkStats_gender";
+            this.chkStats_gender.Size = new System.Drawing.Size(114, 20);
             this.chkStats_gender.TabIndex = 29;
             this.chkStats_gender.Text = "Género femenino:";
+            this.chkStats_gender.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.chkStats_gender.UseVisualStyleBackColor = true;
             this.chkStats_gender.CheckedChanged += new System.EventHandler(this.generoCheck_CheckedChanged);
             // 
-            // crecimiento
+            // ddlStats_growthRate
             // 
             this.ddlStats_growthRate.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.ddlStats_growthRate.DropDownWidth = 100;
             this.ddlStats_growthRate.FormattingEnabled = true;
-            this.ddlStats_growthRate.Location = new System.Drawing.Point(180, 482);
-            this.ddlStats_growthRate.Margin = new System.Windows.Forms.Padding(4);
-            this.ddlStats_growthRate.Name = "crecimiento";
-            this.ddlStats_growthRate.Size = new System.Drawing.Size(104, 24);
+            this.ddlStats_growthRate.Location = new System.Drawing.Point(135, 392);
+            this.ddlStats_growthRate.Name = "ddlStats_growthRate";
+            this.ddlStats_growthRate.Size = new System.Drawing.Size(79, 21);
             this.ddlStats_growthRate.TabIndex = 28;
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.tabControl2);
-            this.groupBox4.Location = new System.Drawing.Point(765, 31);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox4.Location = new System.Drawing.Point(574, 25);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox4.Size = new System.Drawing.Size(561, 607);
+            this.groupBox4.Size = new System.Drawing.Size(421, 493);
             this.groupBox4.TabIndex = 27;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Movimientos";
@@ -325,11 +329,10 @@
             // 
             this.tabControl2.Controls.Add(this.tabPage4);
             this.tabControl2.Controls.Add(this.tabPage5);
-            this.tabControl2.Location = new System.Drawing.Point(8, 23);
-            this.tabControl2.Margin = new System.Windows.Forms.Padding(4);
+            this.tabControl2.Location = new System.Drawing.Point(6, 19);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(545, 576);
+            this.tabControl2.Size = new System.Drawing.Size(409, 468);
             this.tabControl2.TabIndex = 0;
             // 
             // tabPage4
@@ -337,30 +340,27 @@
             this.tabPage4.Controls.Add(this.MovimientoAEliminar);
             this.tabPage4.Controls.Add(this.button4);
             this.tabPage4.Controls.Add(this.dataGridView1);
-            this.tabPage4.Location = new System.Drawing.Point(4, 25);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage4.Size = new System.Drawing.Size(537, 547);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage4.Size = new System.Drawing.Size(401, 442);
             this.tabPage4.TabIndex = 0;
             this.tabPage4.Text = "Nivel";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // MovimientoAEliminar
             // 
-            this.MovimientoAEliminar.Location = new System.Drawing.Point(163, 513);
-            this.MovimientoAEliminar.Margin = new System.Windows.Forms.Padding(4);
+            this.MovimientoAEliminar.Location = new System.Drawing.Point(122, 417);
             this.MovimientoAEliminar.Name = "MovimientoAEliminar";
             this.MovimientoAEliminar.ReadOnly = true;
-            this.MovimientoAEliminar.Size = new System.Drawing.Size(107, 22);
+            this.MovimientoAEliminar.Size = new System.Drawing.Size(80, 20);
             this.MovimientoAEliminar.TabIndex = 2;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(8, 512);
-            this.button4.Margin = new System.Windows.Forms.Padding(4);
+            this.button4.Location = new System.Drawing.Point(6, 416);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(147, 28);
+            this.button4.Size = new System.Drawing.Size(110, 23);
             this.button4.TabIndex = 1;
             this.button4.Text = "Eliminar";
             this.button4.UseVisualStyleBackColor = true;
@@ -375,12 +375,11 @@
             this.Ataque,
             this.Nivel});
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(535, 508);
+            this.dataGridView1.Size = new System.Drawing.Size(401, 413);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
             // 
@@ -405,19 +404,17 @@
             this.tabPage5.Controls.Add(this.MTMOAEliminar);
             this.tabPage5.Controls.Add(this.button5);
             this.tabPage5.Controls.Add(this.dataGridView3);
-            this.tabPage5.Location = new System.Drawing.Point(4, 25);
-            this.tabPage5.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage5.Size = new System.Drawing.Size(537, 547);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage5.Size = new System.Drawing.Size(401, 442);
             this.tabPage5.TabIndex = 1;
             this.tabPage5.Text = "MT/MO";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // MTMOAEliminar
             // 
-            this.MTMOAEliminar.Location = new System.Drawing.Point(163, 512);
-            this.MTMOAEliminar.Margin = new System.Windows.Forms.Padding(4);
+            this.MTMOAEliminar.Location = new System.Drawing.Point(122, 416);
             this.MTMOAEliminar.Maximum = new decimal(new int[] {
             0,
             0,
@@ -425,15 +422,14 @@
             0});
             this.MTMOAEliminar.Name = "MTMOAEliminar";
             this.MTMOAEliminar.ReadOnly = true;
-            this.MTMOAEliminar.Size = new System.Drawing.Size(107, 22);
+            this.MTMOAEliminar.Size = new System.Drawing.Size(80, 20);
             this.MTMOAEliminar.TabIndex = 2;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(8, 511);
-            this.button5.Margin = new System.Windows.Forms.Padding(4);
+            this.button5.Location = new System.Drawing.Point(6, 415);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(147, 28);
+            this.button5.Size = new System.Drawing.Size(110, 23);
             this.button5.TabIndex = 1;
             this.button5.Text = "Eliminar";
             this.button5.UseVisualStyleBackColor = true;
@@ -446,11 +442,10 @@
             this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MTName});
             this.dataGridView3.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView3.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowHeadersVisible = false;
             this.dataGridView3.RowHeadersWidth = 51;
-            this.dataGridView3.Size = new System.Drawing.Size(535, 507);
+            this.dataGridView3.Size = new System.Drawing.Size(401, 412);
             this.dataGridView3.TabIndex = 0;
             this.dataGridView3.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellValueChanged);
             // 
@@ -460,12 +455,11 @@
             this.MTName.MinimumWidth = 6;
             this.MTName.Name = "MTName";
             // 
-            // expBase
+            // txtStats_expYield
             // 
-            this.txtStats_expYield.Location = new System.Drawing.Point(180, 450);
-            this.txtStats_expYield.Margin = new System.Windows.Forms.Padding(4);
-            this.txtStats_expYield.Name = "expBase";
-            this.txtStats_expYield.Size = new System.Drawing.Size(104, 22);
+            this.txtStats_expYield.Location = new System.Drawing.Point(135, 366);
+            this.txtStats_expYield.Name = "txtStats_expYield";
+            this.txtStats_expYield.Size = new System.Drawing.Size(79, 20);
             this.txtStats_expYield.TabIndex = 20;
             // 
             // groupBox3
@@ -473,21 +467,18 @@
             this.groupBox3.Controls.Add(this.button3);
             this.groupBox3.Controls.Add(this.EvolucionAEliminar);
             this.groupBox3.Controls.Add(this.dataGridView2);
-            this.groupBox3.Location = new System.Drawing.Point(295, 260);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Location = new System.Drawing.Point(221, 211);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox3.Size = new System.Drawing.Size(463, 378);
+            this.groupBox3.Size = new System.Drawing.Size(347, 307);
             this.groupBox3.TabIndex = 26;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Evoluciones";
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(8, 343);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
+            this.button3.Location = new System.Drawing.Point(6, 279);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(147, 28);
+            this.button3.Size = new System.Drawing.Size(110, 23);
             this.button3.TabIndex = 3;
             this.button3.Text = "Eliminar";
             this.button3.UseVisualStyleBackColor = true;
@@ -495,8 +486,7 @@
             // 
             // EvolucionAEliminar
             // 
-            this.EvolucionAEliminar.Location = new System.Drawing.Point(163, 345);
-            this.EvolucionAEliminar.Margin = new System.Windows.Forms.Padding(4);
+            this.EvolucionAEliminar.Location = new System.Drawing.Point(122, 280);
             this.EvolucionAEliminar.Maximum = new decimal(new int[] {
             0,
             0,
@@ -504,7 +494,7 @@
             0});
             this.EvolucionAEliminar.Name = "EvolucionAEliminar";
             this.EvolucionAEliminar.ReadOnly = true;
-            this.EvolucionAEliminar.Size = new System.Drawing.Size(107, 22);
+            this.EvolucionAEliminar.Size = new System.Drawing.Size(80, 20);
             this.EvolucionAEliminar.TabIndex = 2;
             // 
             // dataGridView2
@@ -515,12 +505,11 @@
             this.Metodo,
             this.Argumento,
             this.Evolucion});
-            this.dataGridView2.Location = new System.Drawing.Point(8, 23);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView2.Location = new System.Drawing.Point(6, 19);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.Size = new System.Drawing.Size(447, 318);
+            this.dataGridView2.Size = new System.Drawing.Size(335, 258);
             this.dataGridView2.TabIndex = 0;
             this.dataGridView2.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellValueChanged);
             // 
@@ -544,117 +533,105 @@
             this.Evolucion.MinimumWidth = 6;
             this.Evolucion.Name = "Evolucion";
             // 
-            // COLOR_CUERPO
+            // ddlStats_bodyColor
             // 
             this.ddlStats_bodyColor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.ddlStats_bodyColor.FormattingEnabled = true;
-            this.ddlStats_bodyColor.Location = new System.Drawing.Point(180, 516);
-            this.ddlStats_bodyColor.Margin = new System.Windows.Forms.Padding(4);
-            this.ddlStats_bodyColor.Name = "COLOR_CUERPO";
-            this.ddlStats_bodyColor.Size = new System.Drawing.Size(104, 24);
+            this.ddlStats_bodyColor.Location = new System.Drawing.Point(135, 419);
+            this.ddlStats_bodyColor.Name = "ddlStats_bodyColor";
+            this.ddlStats_bodyColor.Size = new System.Drawing.Size(79, 21);
             this.ddlStats_bodyColor.TabIndex = 25;
             // 
-            // amistadBase
+            // txtStats_friendship
             // 
-            this.txtStats_friendship.Location = new System.Drawing.Point(180, 613);
-            this.txtStats_friendship.Margin = new System.Windows.Forms.Padding(4);
-            this.txtStats_friendship.Name = "amistadBase";
-            this.txtStats_friendship.Size = new System.Drawing.Size(104, 22);
+            this.txtStats_friendship.Location = new System.Drawing.Point(135, 498);
+            this.txtStats_friendship.Name = "txtStats_friendship";
+            this.txtStats_friendship.Size = new System.Drawing.Size(79, 20);
             this.txtStats_friendship.TabIndex = 24;
             // 
-            // ciclosHuevo
+            // txtStats_eggCycles
             // 
-            this.txtStats_eggCycles.Location = new System.Drawing.Point(180, 581);
-            this.txtStats_eggCycles.Margin = new System.Windows.Forms.Padding(4);
-            this.txtStats_eggCycles.Name = "ciclosHuevo";
-            this.txtStats_eggCycles.Size = new System.Drawing.Size(104, 22);
+            this.txtStats_eggCycles.Location = new System.Drawing.Point(135, 472);
+            this.txtStats_eggCycles.Name = "txtStats_eggCycles";
+            this.txtStats_eggCycles.Size = new System.Drawing.Size(79, 20);
             this.txtStats_eggCycles.TabIndex = 23;
             // 
-            // genero
+            // txtStats_genderRatio
             // 
             this.txtStats_genderRatio.Enabled = false;
-            this.txtStats_genderRatio.Location = new System.Drawing.Point(180, 549);
-            this.txtStats_genderRatio.Margin = new System.Windows.Forms.Padding(4);
-            this.txtStats_genderRatio.Name = "genero";
-            this.txtStats_genderRatio.Size = new System.Drawing.Size(104, 22);
+            this.txtStats_genderRatio.Location = new System.Drawing.Point(135, 446);
+            this.txtStats_genderRatio.Name = "txtStats_genderRatio";
+            this.txtStats_genderRatio.Size = new System.Drawing.Size(79, 20);
             this.txtStats_genderRatio.TabIndex = 22;
             this.txtStats_genderRatio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumberAndDecimal);
             // 
-            // huidaSafari
+            // ddlStats_safariFleeRate
             // 
-            this.ddlStats_safariFleeRate.Location = new System.Drawing.Point(180, 416);
-            this.ddlStats_safariFleeRate.Margin = new System.Windows.Forms.Padding(4);
-            this.ddlStats_safariFleeRate.Name = "huidaSafari";
-            this.ddlStats_safariFleeRate.Size = new System.Drawing.Size(104, 22);
+            this.ddlStats_safariFleeRate.Location = new System.Drawing.Point(135, 338);
+            this.ddlStats_safariFleeRate.Name = "ddlStats_safariFleeRate";
+            this.ddlStats_safariFleeRate.Size = new System.Drawing.Size(79, 20);
             this.ddlStats_safariFleeRate.TabIndex = 18;
             // 
-            // ratioCaptura
+            // txtStats_catchRate
             // 
-            this.txtStats_catchRate.Location = new System.Drawing.Point(180, 384);
-            this.txtStats_catchRate.Margin = new System.Windows.Forms.Padding(4);
-            this.txtStats_catchRate.Name = "ratioCaptura";
-            this.txtStats_catchRate.Size = new System.Drawing.Size(104, 22);
+            this.txtStats_catchRate.Location = new System.Drawing.Point(135, 312);
+            this.txtStats_catchRate.Name = "txtStats_catchRate";
+            this.txtStats_catchRate.Size = new System.Drawing.Size(79, 20);
             this.txtStats_catchRate.TabIndex = 17;
             // 
-            // label21
+            // lblStatsExpYield
             // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(51, 454);
-            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(120, 17);
-            this.label21.TabIndex = 16;
-            this.label21.Text = "Experiencia base:";
+            this.lblStatsExpYield.Location = new System.Drawing.Point(17, 366);
+            this.lblStatsExpYield.Name = "lblStatsExpYield";
+            this.lblStatsExpYield.Size = new System.Drawing.Size(112, 20);
+            this.lblStatsExpYield.TabIndex = 16;
+            this.lblStatsExpYield.Text = "Experiencia base:";
+            this.lblStatsExpYield.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label20
+            // lblStatsFriendship
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(75, 617);
-            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(97, 17);
-            this.label20.TabIndex = 15;
-            this.label20.Text = "Amistad base:";
+            this.lblStatsFriendship.Location = new System.Drawing.Point(17, 498);
+            this.lblStatsFriendship.Name = "lblStatsFriendship";
+            this.lblStatsFriendship.Size = new System.Drawing.Size(114, 21);
+            this.lblStatsFriendship.TabIndex = 15;
+            this.lblStatsFriendship.Text = "Amistad base:";
+            this.lblStatsFriendship.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label19
+            // lblStatsEggCycle
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(77, 585);
-            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(92, 17);
-            this.label19.TabIndex = 14;
-            this.label19.Text = "Ciclos huevo:";
+            this.lblStatsEggCycle.Location = new System.Drawing.Point(17, 472);
+            this.lblStatsEggCycle.Name = "lblStatsEggCycle";
+            this.lblStatsEggCycle.Size = new System.Drawing.Size(114, 20);
+            this.lblStatsEggCycle.TabIndex = 14;
+            this.lblStatsEggCycle.Text = "Ciclos huevo:";
+            this.lblStatsEggCycle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label17
+            // lblStatsBodyColor
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(56, 519);
-            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(116, 17);
-            this.label17.TabIndex = 12;
-            this.label17.Text = "Color del cuerpo:";
+            this.lblStatsBodyColor.Location = new System.Drawing.Point(17, 419);
+            this.lblStatsBodyColor.Name = "lblStatsBodyColor";
+            this.lblStatsBodyColor.Size = new System.Drawing.Size(114, 21);
+            this.lblStatsBodyColor.TabIndex = 12;
+            this.lblStatsBodyColor.Text = "Color del cuerpo:";
+            this.lblStatsBodyColor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label16
+            // lblStatsGrowthRate
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(85, 486);
-            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(86, 17);
-            this.label16.TabIndex = 11;
-            this.label16.Text = "Crecimiento:";
+            this.lblStatsGrowthRate.Location = new System.Drawing.Point(19, 392);
+            this.lblStatsGrowthRate.Name = "lblStatsGrowthRate";
+            this.lblStatsGrowthRate.Size = new System.Drawing.Size(112, 21);
+            this.lblStatsGrowthRate.TabIndex = 11;
+            this.lblStatsGrowthRate.Text = "Crecimiento:";
+            this.lblStatsGrowthRate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label15
+            // lblStatsSafariFleeRate
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(19, 421);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(155, 17);
-            this.label15.TabIndex = 10;
-            this.label15.Text = "Ratio de huida (Safari):";
+            this.lblStatsSafariFleeRate.Location = new System.Drawing.Point(18, 341);
+            this.lblStatsSafariFleeRate.Name = "lblStatsSafariFleeRate";
+            this.lblStatsSafariFleeRate.Size = new System.Drawing.Size(113, 17);
+            this.lblStatsSafariFleeRate.TabIndex = 10;
+            this.lblStatsSafariFleeRate.Text = "Ratio de huida (Safari):";
+            this.lblStatsSafariFleeRate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // grpStatsStats
             // 
@@ -678,179 +655,159 @@
             this.grpStatsStats.Controls.Add(this.lblStatsHP);
             this.grpStatsStats.Controls.Add(this.lblStats_EffordYield);
             this.grpStatsStats.Controls.Add(this.lblStats_BaseStats);
-            this.grpStatsStats.Location = new System.Drawing.Point(23, 96);
-            this.grpStatsStats.Margin = new System.Windows.Forms.Padding(4);
+            this.grpStatsStats.Location = new System.Drawing.Point(17, 78);
             this.grpStatsStats.Name = "grpStatsStats";
-            this.grpStatsStats.Padding = new System.Windows.Forms.Padding(4);
-            this.grpStatsStats.Size = new System.Drawing.Size(263, 268);
+            this.grpStatsStats.Size = new System.Drawing.Size(197, 218);
             this.grpStatsStats.TabIndex = 7;
             this.grpStatsStats.TabStop = false;
             this.grpStatsStats.Text = "grpStatsStats";
             // 
-            // VEL_Effort
+            // txtStats_evSPEED
             // 
-            this.txtStats_evSPEED.Location = new System.Drawing.Point(169, 206);
-            this.txtStats_evSPEED.Margin = new System.Windows.Forms.Padding(4);
-            this.txtStats_evSPEED.Name = "VEL_Effort";
-            this.txtStats_evSPEED.Size = new System.Drawing.Size(71, 22);
+            this.txtStats_evSPEED.Location = new System.Drawing.Point(127, 167);
+            this.txtStats_evSPEED.Name = "txtStats_evSPEED";
+            this.txtStats_evSPEED.Size = new System.Drawing.Size(54, 20);
             this.txtStats_evSPEED.TabIndex = 27;
             this.txtStats_evSPEED.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumber);
             // 
-            // DFESP_Effort
+            // txtStats_evSPDEF
             // 
-            this.txtStats_evSPDEF.Location = new System.Drawing.Point(169, 176);
-            this.txtStats_evSPDEF.Margin = new System.Windows.Forms.Padding(4);
-            this.txtStats_evSPDEF.Name = "DFESP_Effort";
-            this.txtStats_evSPDEF.Size = new System.Drawing.Size(71, 22);
+            this.txtStats_evSPDEF.Location = new System.Drawing.Point(127, 143);
+            this.txtStats_evSPDEF.Name = "txtStats_evSPDEF";
+            this.txtStats_evSPDEF.Size = new System.Drawing.Size(54, 20);
             this.txtStats_evSPDEF.TabIndex = 26;
             this.txtStats_evSPDEF.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumber);
             // 
-            // ATESP_Effort
+            // txtStats_evSPATK
             // 
-            this.txtStats_evSPATK.Location = new System.Drawing.Point(169, 146);
-            this.txtStats_evSPATK.Margin = new System.Windows.Forms.Padding(4);
-            this.txtStats_evSPATK.Name = "ATESP_Effort";
-            this.txtStats_evSPATK.Size = new System.Drawing.Size(71, 22);
+            this.txtStats_evSPATK.Location = new System.Drawing.Point(127, 119);
+            this.txtStats_evSPATK.Name = "txtStats_evSPATK";
+            this.txtStats_evSPATK.Size = new System.Drawing.Size(54, 20);
             this.txtStats_evSPATK.TabIndex = 25;
             this.txtStats_evSPATK.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumber);
             // 
-            // DEF_Effort
+            // txtStats_evDEF
             // 
-            this.txtStats_evDEF.Location = new System.Drawing.Point(169, 117);
-            this.txtStats_evDEF.Margin = new System.Windows.Forms.Padding(4);
-            this.txtStats_evDEF.Name = "DEF_Effort";
-            this.txtStats_evDEF.Size = new System.Drawing.Size(71, 22);
+            this.txtStats_evDEF.Location = new System.Drawing.Point(127, 95);
+            this.txtStats_evDEF.Name = "txtStats_evDEF";
+            this.txtStats_evDEF.Size = new System.Drawing.Size(54, 20);
             this.txtStats_evDEF.TabIndex = 24;
             this.txtStats_evDEF.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumber);
             // 
-            // ATQ_Effort
+            // txtStats_evATK
             // 
-            this.txtStats_evATK.Location = new System.Drawing.Point(169, 87);
-            this.txtStats_evATK.Margin = new System.Windows.Forms.Padding(4);
-            this.txtStats_evATK.Name = "ATQ_Effort";
-            this.txtStats_evATK.Size = new System.Drawing.Size(71, 22);
+            this.txtStats_evATK.Location = new System.Drawing.Point(127, 71);
+            this.txtStats_evATK.Name = "txtStats_evATK";
+            this.txtStats_evATK.Size = new System.Drawing.Size(54, 20);
             this.txtStats_evATK.TabIndex = 23;
             this.txtStats_evATK.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumber);
             // 
-            // PS_Effort
+            // txtStats_evHP
             // 
-            this.txtStats_evHP.Location = new System.Drawing.Point(169, 58);
-            this.txtStats_evHP.Margin = new System.Windows.Forms.Padding(4);
-            this.txtStats_evHP.Name = "PS_Effort";
-            this.txtStats_evHP.Size = new System.Drawing.Size(71, 22);
+            this.txtStats_evHP.Location = new System.Drawing.Point(127, 47);
+            this.txtStats_evHP.Name = "txtStats_evHP";
+            this.txtStats_evHP.Size = new System.Drawing.Size(54, 20);
             this.txtStats_evHP.TabIndex = 22;
             this.txtStats_evHP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumber);
             // 
-            // VEL_Base
+            // txtStats_baseSPEED
             // 
-            this.txtStats_baseSPEED.Location = new System.Drawing.Point(80, 206);
-            this.txtStats_baseSPEED.Margin = new System.Windows.Forms.Padding(4);
-            this.txtStats_baseSPEED.Name = "VEL_Base";
-            this.txtStats_baseSPEED.Size = new System.Drawing.Size(71, 22);
+            this.txtStats_baseSPEED.Location = new System.Drawing.Point(60, 167);
+            this.txtStats_baseSPEED.Name = "txtStats_baseSPEED";
+            this.txtStats_baseSPEED.Size = new System.Drawing.Size(54, 20);
             this.txtStats_baseSPEED.TabIndex = 21;
             this.txtStats_baseSPEED.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumber);
             // 
-            // DFESP_Base
+            // txtStats_baseSPDEF
             // 
-            this.txtStats_baseSPDEF.Location = new System.Drawing.Point(80, 176);
-            this.txtStats_baseSPDEF.Margin = new System.Windows.Forms.Padding(4);
-            this.txtStats_baseSPDEF.Name = "DFESP_Base";
-            this.txtStats_baseSPDEF.Size = new System.Drawing.Size(71, 22);
+            this.txtStats_baseSPDEF.Location = new System.Drawing.Point(60, 143);
+            this.txtStats_baseSPDEF.Name = "txtStats_baseSPDEF";
+            this.txtStats_baseSPDEF.Size = new System.Drawing.Size(54, 20);
             this.txtStats_baseSPDEF.TabIndex = 20;
             this.txtStats_baseSPDEF.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumber);
             // 
-            // ATESP_Base
+            // txtStats_baseSPATK
             // 
-            this.txtStats_baseSPATK.Location = new System.Drawing.Point(80, 146);
-            this.txtStats_baseSPATK.Margin = new System.Windows.Forms.Padding(4);
-            this.txtStats_baseSPATK.Name = "ATESP_Base";
-            this.txtStats_baseSPATK.Size = new System.Drawing.Size(71, 22);
+            this.txtStats_baseSPATK.Location = new System.Drawing.Point(60, 119);
+            this.txtStats_baseSPATK.Name = "txtStats_baseSPATK";
+            this.txtStats_baseSPATK.Size = new System.Drawing.Size(54, 20);
             this.txtStats_baseSPATK.TabIndex = 19;
             this.txtStats_baseSPATK.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumber);
             // 
-            // DEF_Base
+            // txtStats_baseDEF
             // 
-            this.txtStats_baseDEF.Location = new System.Drawing.Point(80, 117);
-            this.txtStats_baseDEF.Margin = new System.Windows.Forms.Padding(4);
-            this.txtStats_baseDEF.Name = "DEF_Base";
-            this.txtStats_baseDEF.Size = new System.Drawing.Size(71, 22);
+            this.txtStats_baseDEF.Location = new System.Drawing.Point(60, 95);
+            this.txtStats_baseDEF.Name = "txtStats_baseDEF";
+            this.txtStats_baseDEF.Size = new System.Drawing.Size(54, 20);
             this.txtStats_baseDEF.TabIndex = 18;
             this.txtStats_baseDEF.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumber);
             // 
-            // ATQ_Base
+            // txtStats_baseATK
             // 
-            this.txtStats_baseATK.Location = new System.Drawing.Point(80, 87);
-            this.txtStats_baseATK.Margin = new System.Windows.Forms.Padding(4);
-            this.txtStats_baseATK.Name = "ATQ_Base";
-            this.txtStats_baseATK.Size = new System.Drawing.Size(71, 22);
+            this.txtStats_baseATK.Location = new System.Drawing.Point(60, 71);
+            this.txtStats_baseATK.Name = "txtStats_baseATK";
+            this.txtStats_baseATK.Size = new System.Drawing.Size(54, 20);
             this.txtStats_baseATK.TabIndex = 17;
             this.txtStats_baseATK.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumber);
             // 
-            // PS_Base
+            // txtStats_baseHP
             // 
-            this.txtStats_baseHP.Location = new System.Drawing.Point(80, 58);
-            this.txtStats_baseHP.Margin = new System.Windows.Forms.Padding(4);
-            this.txtStats_baseHP.Name = "PS_Base";
-            this.txtStats_baseHP.Size = new System.Drawing.Size(71, 22);
+            this.txtStats_baseHP.Location = new System.Drawing.Point(60, 47);
+            this.txtStats_baseHP.Name = "txtStats_baseHP";
+            this.txtStats_baseHP.Size = new System.Drawing.Size(54, 20);
             this.txtStats_baseHP.TabIndex = 16;
             this.txtStats_baseHP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.detectIfNumber);
             // 
             // lblStatsSpd
             // 
-            this.lblStatsSpd.Location = new System.Drawing.Point(9, 208);
-            this.lblStatsSpd.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStatsSpd.Location = new System.Drawing.Point(7, 169);
             this.lblStatsSpd.Name = "lblStatsSpd";
-            this.lblStatsSpd.Size = new System.Drawing.Size(66, 19);
+            this.lblStatsSpd.Size = new System.Drawing.Size(50, 15);
             this.lblStatsSpd.TabIndex = 15;
             this.lblStatsSpd.Text = "VEL:";
             this.lblStatsSpd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblStatsSpDef
             // 
-            this.lblStatsSpDef.Location = new System.Drawing.Point(9, 178);
-            this.lblStatsSpDef.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStatsSpDef.Location = new System.Drawing.Point(7, 145);
             this.lblStatsSpDef.Name = "lblStatsSpDef";
-            this.lblStatsSpDef.Size = new System.Drawing.Size(66, 19);
+            this.lblStatsSpDef.Size = new System.Drawing.Size(50, 15);
             this.lblStatsSpDef.TabIndex = 14;
             this.lblStatsSpDef.Text = "DF.ESP:";
             this.lblStatsSpDef.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblStatsSpAtk
             // 
-            this.lblStatsSpAtk.Location = new System.Drawing.Point(9, 149);
-            this.lblStatsSpAtk.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStatsSpAtk.Location = new System.Drawing.Point(7, 121);
             this.lblStatsSpAtk.Name = "lblStatsSpAtk";
-            this.lblStatsSpAtk.Size = new System.Drawing.Size(66, 19);
+            this.lblStatsSpAtk.Size = new System.Drawing.Size(50, 15);
             this.lblStatsSpAtk.TabIndex = 13;
             this.lblStatsSpAtk.Text = "AT.ESP:";
             this.lblStatsSpAtk.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblStatsDef
             // 
-            this.lblStatsDef.Location = new System.Drawing.Point(9, 119);
-            this.lblStatsDef.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStatsDef.Location = new System.Drawing.Point(7, 97);
             this.lblStatsDef.Name = "lblStatsDef";
-            this.lblStatsDef.Size = new System.Drawing.Size(66, 19);
+            this.lblStatsDef.Size = new System.Drawing.Size(50, 15);
             this.lblStatsDef.TabIndex = 12;
             this.lblStatsDef.Text = "DEF:";
             this.lblStatsDef.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblStatsAtk
             // 
-            this.lblStatsAtk.Location = new System.Drawing.Point(9, 90);
-            this.lblStatsAtk.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStatsAtk.Location = new System.Drawing.Point(7, 73);
             this.lblStatsAtk.Name = "lblStatsAtk";
-            this.lblStatsAtk.Size = new System.Drawing.Size(66, 19);
+            this.lblStatsAtk.Size = new System.Drawing.Size(50, 15);
             this.lblStatsAtk.TabIndex = 11;
             this.lblStatsAtk.Text = "ATQ:";
             this.lblStatsAtk.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblStatsHP
             // 
-            this.lblStatsHP.Location = new System.Drawing.Point(9, 58);
-            this.lblStatsHP.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStatsHP.Location = new System.Drawing.Point(7, 47);
             this.lblStatsHP.Name = "lblStatsHP";
-            this.lblStatsHP.Size = new System.Drawing.Size(66, 19);
+            this.lblStatsHP.Size = new System.Drawing.Size(50, 15);
             this.lblStatsHP.TabIndex = 10;
             this.lblStatsHP.Text = "PS:";
             this.lblStatsHP.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -858,20 +815,18 @@
             // lblStats_EffordYield
             // 
             this.lblStats_EffordYield.AutoSize = true;
-            this.lblStats_EffordYield.Location = new System.Drawing.Point(160, 34);
-            this.lblStats_EffordYield.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStats_EffordYield.Location = new System.Drawing.Point(120, 28);
             this.lblStats_EffordYield.Name = "lblStats_EffordYield";
-            this.lblStats_EffordYield.Size = new System.Drawing.Size(100, 17);
+            this.lblStats_EffordYield.Size = new System.Drawing.Size(75, 13);
             this.lblStats_EffordYield.TabIndex = 9;
             this.lblStats_EffordYield.Text = "Ptos. Esfuerzo";
             // 
             // lblStats_BaseStats
             // 
             this.lblStats_BaseStats.AutoSize = true;
-            this.lblStats_BaseStats.Location = new System.Drawing.Point(76, 34);
-            this.lblStats_BaseStats.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStats_BaseStats.Location = new System.Drawing.Point(57, 28);
             this.lblStats_BaseStats.Name = "lblStats_BaseStats";
-            this.lblStats_BaseStats.Size = new System.Drawing.Size(75, 17);
+            this.lblStats_BaseStats.Size = new System.Drawing.Size(57, 13);
             this.lblStats_BaseStats.TabIndex = 8;
             this.lblStats_BaseStats.Text = "Stats base";
             // 
@@ -889,153 +844,137 @@
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Location = new System.Drawing.Point(293, 96);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Location = new System.Drawing.Point(220, 78);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(464, 155);
+            this.groupBox2.Size = new System.Drawing.Size(348, 126);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Otros";
             // 
-            // OBJETO2
+            // ddlStats_item2
             // 
             this.ddlStats_item2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.ddlStats_item2.FormattingEnabled = true;
-            this.ddlStats_item2.Location = new System.Drawing.Point(285, 114);
-            this.ddlStats_item2.Margin = new System.Windows.Forms.Padding(4);
-            this.ddlStats_item2.Name = "OBJETO2";
-            this.ddlStats_item2.Size = new System.Drawing.Size(159, 24);
+            this.ddlStats_item2.Location = new System.Drawing.Point(214, 94);
+            this.ddlStats_item2.Name = "ddlStats_item2";
+            this.ddlStats_item2.Size = new System.Drawing.Size(120, 21);
             this.ddlStats_item2.TabIndex = 11;
             // 
-            // OBJETO1
+            // ddlStats_item1
             // 
             this.ddlStats_item1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.ddlStats_item1.FormattingEnabled = true;
-            this.ddlStats_item1.Location = new System.Drawing.Point(117, 116);
-            this.ddlStats_item1.Margin = new System.Windows.Forms.Padding(4);
-            this.ddlStats_item1.Name = "OBJETO1";
-            this.ddlStats_item1.Size = new System.Drawing.Size(159, 24);
+            this.ddlStats_item1.Location = new System.Drawing.Point(88, 94);
+            this.ddlStats_item1.Name = "ddlStats_item1";
+            this.ddlStats_item1.Size = new System.Drawing.Size(120, 21);
             this.ddlStats_item1.TabIndex = 10;
             // 
-            // HABILIDAD2
+            // ddlStats_ability2
             // 
             this.ddlStats_ability2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.ddlStats_ability2.FormattingEnabled = true;
-            this.ddlStats_ability2.Location = new System.Drawing.Point(285, 82);
-            this.ddlStats_ability2.Margin = new System.Windows.Forms.Padding(4);
-            this.ddlStats_ability2.Name = "HABILIDAD2";
-            this.ddlStats_ability2.Size = new System.Drawing.Size(159, 24);
+            this.ddlStats_ability2.Location = new System.Drawing.Point(214, 69);
+            this.ddlStats_ability2.Name = "ddlStats_ability2";
+            this.ddlStats_ability2.Size = new System.Drawing.Size(120, 21);
             this.ddlStats_ability2.TabIndex = 9;
             // 
-            // HABILIDAD1
+            // ddlStats_ability1
             // 
             this.ddlStats_ability1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.ddlStats_ability1.FormattingEnabled = true;
-            this.ddlStats_ability1.Location = new System.Drawing.Point(117, 85);
-            this.ddlStats_ability1.Margin = new System.Windows.Forms.Padding(4);
-            this.ddlStats_ability1.Name = "HABILIDAD1";
-            this.ddlStats_ability1.Size = new System.Drawing.Size(160, 24);
+            this.ddlStats_ability1.Location = new System.Drawing.Point(88, 69);
+            this.ddlStats_ability1.Name = "ddlStats_ability1";
+            this.ddlStats_ability1.Size = new System.Drawing.Size(121, 21);
             this.ddlStats_ability1.TabIndex = 8;
             // 
-            // HUEVO2
+            // ddlStats_eggGroup2
             // 
             this.ddlStats_eggGroup2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.ddlStats_eggGroup2.FormattingEnabled = true;
-            this.ddlStats_eggGroup2.Location = new System.Drawing.Point(285, 53);
-            this.ddlStats_eggGroup2.Margin = new System.Windows.Forms.Padding(4);
-            this.ddlStats_eggGroup2.Name = "HUEVO2";
-            this.ddlStats_eggGroup2.Size = new System.Drawing.Size(159, 24);
+            this.ddlStats_eggGroup2.Location = new System.Drawing.Point(214, 44);
+            this.ddlStats_eggGroup2.Name = "ddlStats_eggGroup2";
+            this.ddlStats_eggGroup2.Size = new System.Drawing.Size(120, 21);
             this.ddlStats_eggGroup2.TabIndex = 7;
             // 
-            // HUEVO1
+            // ddlStats_eggGroup1
             // 
             this.ddlStats_eggGroup1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.ddlStats_eggGroup1.FormattingEnabled = true;
-            this.ddlStats_eggGroup1.Location = new System.Drawing.Point(117, 55);
-            this.ddlStats_eggGroup1.Margin = new System.Windows.Forms.Padding(4);
-            this.ddlStats_eggGroup1.Name = "HUEVO1";
-            this.ddlStats_eggGroup1.Size = new System.Drawing.Size(159, 24);
+            this.ddlStats_eggGroup1.Location = new System.Drawing.Point(88, 44);
+            this.ddlStats_eggGroup1.Name = "ddlStats_eggGroup1";
+            this.ddlStats_eggGroup1.Size = new System.Drawing.Size(120, 21);
             this.ddlStats_eggGroup1.TabIndex = 6;
             // 
-            // TIPO2
+            // ddlStats_type2
             // 
             this.ddlStats_type2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.ddlStats_type2.FormattingEnabled = true;
-            this.ddlStats_type2.Location = new System.Drawing.Point(285, 22);
-            this.ddlStats_type2.Margin = new System.Windows.Forms.Padding(4);
-            this.ddlStats_type2.Name = "TIPO2";
-            this.ddlStats_type2.Size = new System.Drawing.Size(159, 24);
+            this.ddlStats_type2.Location = new System.Drawing.Point(214, 19);
+            this.ddlStats_type2.Name = "ddlStats_type2";
+            this.ddlStats_type2.Size = new System.Drawing.Size(120, 21);
             this.ddlStats_type2.TabIndex = 5;
             // 
-            // TIPO1
+            // ddlStats_type1
             // 
             this.ddlStats_type1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.ddlStats_type1.FormattingEnabled = true;
-            this.ddlStats_type1.Location = new System.Drawing.Point(117, 22);
-            this.ddlStats_type1.Margin = new System.Windows.Forms.Padding(4);
-            this.ddlStats_type1.Name = "TIPO1";
-            this.ddlStats_type1.Size = new System.Drawing.Size(159, 24);
+            this.ddlStats_type1.Location = new System.Drawing.Point(88, 19);
+            this.ddlStats_type1.Name = "ddlStats_type1";
+            this.ddlStats_type1.Size = new System.Drawing.Size(120, 21);
             this.ddlStats_type1.TabIndex = 4;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(47, 118);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Location = new System.Drawing.Point(35, 97);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(61, 17);
+            this.label13.Size = new System.Drawing.Size(46, 13);
             this.label13.TabIndex = 3;
             this.label13.Text = "Objetos:";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(21, 87);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Location = new System.Drawing.Point(16, 72);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(86, 17);
+            this.label12.Size = new System.Drawing.Size(65, 13);
             this.label12.TabIndex = 2;
             this.label12.Text = "Habilidades:";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(12, 57);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Location = new System.Drawing.Point(9, 48);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(95, 17);
+            this.label11.Size = new System.Drawing.Size(72, 13);
             this.label11.TabIndex = 1;
             this.label11.Text = "Grupo huevo:";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(67, 26);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Location = new System.Drawing.Point(50, 23);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(40, 17);
+            this.label10.Size = new System.Drawing.Size(31, 13);
             this.label10.TabIndex = 0;
             this.label10.Text = "Tipo:";
             // 
-            // button1
+            // btnStats_New
             // 
-            this.button1.Location = new System.Drawing.Point(293, 52);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(97, 28);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Nuevo";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnStats_New.Location = new System.Drawing.Point(220, 42);
+            this.btnStats_New.Name = "btnStats_New";
+            this.btnStats_New.Size = new System.Drawing.Size(73, 23);
+            this.btnStats_New.TabIndex = 2;
+            this.btnStats_New.Text = "Nuevo";
+            this.btnStats_New.UseVisualStyleBackColor = true;
+            this.btnStats_New.Click += new System.EventHandler(this.button1_Click);
             // 
             // lblStatsName
             // 
             this.lblStatsName.AutoSize = true;
-            this.lblStatsName.Location = new System.Drawing.Point(19, 31);
-            this.lblStatsName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStatsName.Location = new System.Drawing.Point(14, 25);
             this.lblStatsName.Name = "lblStatsName";
-            this.lblStatsName.Size = new System.Drawing.Size(91, 17);
+            this.lblStatsName.Size = new System.Drawing.Size(69, 13);
             this.lblStatsName.TabIndex = 3;
             this.lblStatsName.Text = "lblStatsName";
             // 
@@ -1043,33 +982,30 @@
             // 
             this.cmbInforma_Species.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cmbInforma_Species.FormattingEnabled = true;
-            this.cmbInforma_Species.Location = new System.Drawing.Point(23, 53);
-            this.cmbInforma_Species.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbInforma_Species.Location = new System.Drawing.Point(17, 43);
             this.cmbInforma_Species.Name = "cmbInforma_Species";
-            this.cmbInforma_Species.Size = new System.Drawing.Size(135, 24);
+            this.cmbInforma_Species.Size = new System.Drawing.Size(102, 21);
             this.cmbInforma_Species.TabIndex = 6;
             this.cmbInforma_Species.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // POKEMON_NAME
             // 
-            this.POKEMON_NAME.Location = new System.Drawing.Point(167, 53);
-            this.POKEMON_NAME.Margin = new System.Windows.Forms.Padding(4);
+            this.POKEMON_NAME.Location = new System.Drawing.Point(125, 43);
             this.POKEMON_NAME.MaxLength = 12;
             this.POKEMON_NAME.Name = "POKEMON_NAME";
             this.POKEMON_NAME.ReadOnly = true;
-            this.POKEMON_NAME.Size = new System.Drawing.Size(117, 22);
+            this.POKEMON_NAME.Size = new System.Drawing.Size(89, 20);
             this.POKEMON_NAME.TabIndex = 4;
             // 
-            // button2
+            // btnStats_Save
             // 
-            this.button2.Location = new System.Drawing.Point(399, 52);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 28);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Guardar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnStats_Save.Location = new System.Drawing.Point(299, 42);
+            this.btnStats_Save.Name = "btnStats_Save";
+            this.btnStats_Save.Size = new System.Drawing.Size(75, 23);
+            this.btnStats_Save.TabIndex = 5;
+            this.btnStats_Save.Text = "Guardar";
+            this.btnStats_Save.UseVisualStyleBackColor = true;
+            this.btnStats_Save.Click += new System.EventHandler(this.button2_Click);
             // 
             // tabPokedex
             // 
@@ -1077,11 +1013,10 @@
             this.tabPokedex.Controls.Add(this.button7);
             this.tabPokedex.Controls.Add(this.groupBox6);
             this.tabPokedex.Controls.Add(this.groupBox5);
-            this.tabPokedex.Location = new System.Drawing.Point(4, 25);
-            this.tabPokedex.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPokedex.Location = new System.Drawing.Point(4, 22);
             this.tabPokedex.Name = "tabPokedex";
-            this.tabPokedex.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPokedex.Size = new System.Drawing.Size(1343, 696);
+            this.tabPokedex.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPokedex.Size = new System.Drawing.Size(1005, 563);
             this.tabPokedex.TabIndex = 1;
             this.tabPokedex.Text = "tabPokedex";
             this.tabPokedex.UseVisualStyleBackColor = true;
@@ -1090,19 +1025,17 @@
             // 
             this.cmbGraphic_Species.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cmbGraphic_Species.FormattingEnabled = true;
-            this.cmbGraphic_Species.Location = new System.Drawing.Point(23, 22);
-            this.cmbGraphic_Species.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbGraphic_Species.Location = new System.Drawing.Point(17, 18);
             this.cmbGraphic_Species.Name = "cmbGraphic_Species";
-            this.cmbGraphic_Species.Size = new System.Drawing.Size(160, 24);
+            this.cmbGraphic_Species.Size = new System.Drawing.Size(121, 21);
             this.cmbGraphic_Species.TabIndex = 3;
             this.cmbGraphic_Species.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(192, 21);
-            this.button7.Margin = new System.Windows.Forms.Padding(4);
+            this.button7.Location = new System.Drawing.Point(144, 17);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(100, 28);
+            this.button7.Size = new System.Drawing.Size(75, 23);
             this.button7.TabIndex = 2;
             this.button7.Text = "Guardar";
             this.button7.UseVisualStyleBackColor = true;
@@ -1114,11 +1047,9 @@
             this.groupBox6.Controls.Add(this.descripcionDos);
             this.groupBox6.Controls.Add(this.descripcionUno);
             this.groupBox6.Controls.Add(this.label18);
-            this.groupBox6.Location = new System.Drawing.Point(23, 58);
-            this.groupBox6.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox6.Location = new System.Drawing.Point(17, 47);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox6.Size = new System.Drawing.Size(465, 224);
+            this.groupBox6.Size = new System.Drawing.Size(349, 182);
             this.groupBox6.TabIndex = 1;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Descripciones";
@@ -1126,40 +1057,36 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(9, 124);
-            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label22.Location = new System.Drawing.Point(7, 101);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(68, 17);
+            this.label22.Size = new System.Drawing.Size(52, 13);
             this.label22.TabIndex = 3;
             this.label22.Text = "Página 2:";
             // 
             // descripcionDos
             // 
             this.descripcionDos.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descripcionDos.Location = new System.Drawing.Point(13, 144);
-            this.descripcionDos.Margin = new System.Windows.Forms.Padding(4);
+            this.descripcionDos.Location = new System.Drawing.Point(10, 117);
             this.descripcionDos.Name = "descripcionDos";
-            this.descripcionDos.Size = new System.Drawing.Size(429, 63);
+            this.descripcionDos.Size = new System.Drawing.Size(323, 52);
             this.descripcionDos.TabIndex = 2;
             this.descripcionDos.Text = "";
             // 
             // descripcionUno
             // 
             this.descripcionUno.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descripcionUno.Location = new System.Drawing.Point(13, 44);
-            this.descripcionUno.Margin = new System.Windows.Forms.Padding(4);
+            this.descripcionUno.Location = new System.Drawing.Point(10, 36);
             this.descripcionUno.Name = "descripcionUno";
-            this.descripcionUno.Size = new System.Drawing.Size(429, 63);
+            this.descripcionUno.Size = new System.Drawing.Size(323, 52);
             this.descripcionUno.TabIndex = 1;
             this.descripcionUno.Text = "";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(9, 25);
-            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label18.Location = new System.Drawing.Point(7, 20);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(68, 17);
+            this.label18.Size = new System.Drawing.Size(52, 13);
             this.label18.TabIndex = 0;
             this.label18.Text = "Página 1:";
             // 
@@ -1179,11 +1106,9 @@
             this.groupBox5.Controls.Add(this.altura);
             this.groupBox5.Controls.Add(this.categoriaPokemon);
             this.groupBox5.Controls.Add(this.label23);
-            this.groupBox5.Location = new System.Drawing.Point(23, 289);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox5.Location = new System.Drawing.Point(17, 235);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox5.Size = new System.Drawing.Size(465, 224);
+            this.groupBox5.Size = new System.Drawing.Size(349, 182);
             this.groupBox5.TabIndex = 0;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "General";
@@ -1191,126 +1116,112 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(161, 149);
-            this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label29.Location = new System.Drawing.Point(121, 121);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(124, 17);
+            this.label29.Size = new System.Drawing.Size(92, 13);
             this.label29.TabIndex = 13;
             this.label29.Text = "Offset entrenador:";
             // 
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(12, 149);
-            this.label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label28.Location = new System.Drawing.Point(9, 121);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(128, 17);
+            this.label28.Size = new System.Drawing.Size(96, 13);
             this.label28.TabIndex = 12;
             this.label28.Text = "Escala entrenador:";
             // 
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(161, 84);
-            this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label27.Location = new System.Drawing.Point(121, 68);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(113, 17);
+            this.label27.Size = new System.Drawing.Size(86, 13);
             this.label27.TabIndex = 11;
             this.label27.Text = "Offset Pokémon:";
             // 
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(8, 84);
-            this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label26.Location = new System.Drawing.Point(6, 68);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(117, 17);
+            this.label26.Size = new System.Drawing.Size(90, 13);
             this.label26.TabIndex = 10;
             this.label26.Text = "Escala Pokémon:";
             // 
             // offsetEntrenador
             // 
-            this.offsetEntrenador.Location = new System.Drawing.Point(165, 169);
-            this.offsetEntrenador.Margin = new System.Windows.Forms.Padding(4);
+            this.offsetEntrenador.Location = new System.Drawing.Point(124, 137);
             this.offsetEntrenador.Name = "offsetEntrenador";
-            this.offsetEntrenador.Size = new System.Drawing.Size(132, 22);
+            this.offsetEntrenador.Size = new System.Drawing.Size(100, 20);
             this.offsetEntrenador.TabIndex = 9;
             // 
             // escalaEntrenador
             // 
-            this.escalaEntrenador.Location = new System.Drawing.Point(12, 169);
-            this.escalaEntrenador.Margin = new System.Windows.Forms.Padding(4);
+            this.escalaEntrenador.Location = new System.Drawing.Point(9, 137);
             this.escalaEntrenador.Name = "escalaEntrenador";
-            this.escalaEntrenador.Size = new System.Drawing.Size(132, 22);
+            this.escalaEntrenador.Size = new System.Drawing.Size(100, 20);
             this.escalaEntrenador.TabIndex = 8;
             // 
             // offsetPokemon
             // 
-            this.offsetPokemon.Location = new System.Drawing.Point(165, 108);
-            this.offsetPokemon.Margin = new System.Windows.Forms.Padding(4);
+            this.offsetPokemon.Location = new System.Drawing.Point(124, 88);
             this.offsetPokemon.Name = "offsetPokemon";
-            this.offsetPokemon.Size = new System.Drawing.Size(132, 22);
+            this.offsetPokemon.Size = new System.Drawing.Size(100, 20);
             this.offsetPokemon.TabIndex = 7;
             // 
             // escalaPokemon
             // 
-            this.escalaPokemon.Location = new System.Drawing.Point(12, 108);
-            this.escalaPokemon.Margin = new System.Windows.Forms.Padding(4);
+            this.escalaPokemon.Location = new System.Drawing.Point(9, 88);
             this.escalaPokemon.Name = "escalaPokemon";
-            this.escalaPokemon.Size = new System.Drawing.Size(132, 22);
+            this.escalaPokemon.Size = new System.Drawing.Size(100, 20);
             this.escalaPokemon.TabIndex = 6;
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(315, 25);
-            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label25.Location = new System.Drawing.Point(236, 20);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(44, 17);
+            this.label25.Size = new System.Drawing.Size(34, 13);
             this.label25.TabIndex = 5;
             this.label25.Text = "Peso:";
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(161, 25);
-            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label24.Location = new System.Drawing.Point(121, 20);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(49, 17);
+            this.label24.Size = new System.Drawing.Size(37, 13);
             this.label24.TabIndex = 4;
             this.label24.Text = "Altura:";
             // 
             // peso
             // 
-            this.peso.Location = new System.Drawing.Point(319, 46);
-            this.peso.Margin = new System.Windows.Forms.Padding(4);
+            this.peso.Location = new System.Drawing.Point(239, 37);
             this.peso.Name = "peso";
-            this.peso.Size = new System.Drawing.Size(132, 22);
+            this.peso.Size = new System.Drawing.Size(100, 20);
             this.peso.TabIndex = 3;
             // 
             // altura
             // 
-            this.altura.Location = new System.Drawing.Point(165, 46);
-            this.altura.Margin = new System.Windows.Forms.Padding(4);
+            this.altura.Location = new System.Drawing.Point(124, 37);
             this.altura.Name = "altura";
-            this.altura.Size = new System.Drawing.Size(132, 22);
+            this.altura.Size = new System.Drawing.Size(100, 20);
             this.altura.TabIndex = 2;
             // 
             // categoriaPokemon
             // 
-            this.categoriaPokemon.Location = new System.Drawing.Point(12, 46);
-            this.categoriaPokemon.Margin = new System.Windows.Forms.Padding(4);
+            this.categoriaPokemon.Location = new System.Drawing.Point(9, 37);
             this.categoriaPokemon.Name = "categoriaPokemon";
-            this.categoriaPokemon.Size = new System.Drawing.Size(132, 22);
+            this.categoriaPokemon.Size = new System.Drawing.Size(100, 20);
             this.categoriaPokemon.TabIndex = 1;
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(8, 25);
-            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label23.Location = new System.Drawing.Point(6, 20);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(73, 17);
+            this.label23.Size = new System.Drawing.Size(57, 13);
             this.label23.TabIndex = 0;
             this.label23.Text = "Categoría:";
             // 
@@ -1323,48 +1234,43 @@
             this.tabGraphics.Controls.Add(this.label35);
             this.tabGraphics.Controls.Add(this.cmbPokedex_Species);
             this.tabGraphics.Controls.Add(this.groupBox7);
-            this.tabGraphics.Location = new System.Drawing.Point(4, 25);
-            this.tabGraphics.Margin = new System.Windows.Forms.Padding(4);
+            this.tabGraphics.Location = new System.Drawing.Point(4, 22);
             this.tabGraphics.Name = "tabGraphics";
-            this.tabGraphics.Size = new System.Drawing.Size(1343, 696);
+            this.tabGraphics.Size = new System.Drawing.Size(1005, 563);
             this.tabGraphics.TabIndex = 2;
             this.tabGraphics.Text = "tabGraphics";
             this.tabGraphics.UseVisualStyleBackColor = true;
             // 
             // footprint
             // 
-            this.footprint.Location = new System.Drawing.Point(599, 138);
-            this.footprint.Margin = new System.Windows.Forms.Padding(4);
+            this.footprint.Location = new System.Drawing.Point(449, 112);
             this.footprint.Name = "footprint";
-            this.footprint.Size = new System.Drawing.Size(21, 20);
+            this.footprint.Size = new System.Drawing.Size(16, 16);
             this.footprint.TabIndex = 16;
             this.footprint.TabStop = false;
             // 
             // icon
             // 
-            this.icon.Location = new System.Drawing.Point(588, 190);
-            this.icon.Margin = new System.Windows.Forms.Padding(4);
+            this.icon.Location = new System.Drawing.Point(441, 154);
             this.icon.Name = "icon";
-            this.icon.Size = new System.Drawing.Size(43, 79);
+            this.icon.Size = new System.Drawing.Size(32, 64);
             this.icon.TabIndex = 17;
             this.icon.TabStop = false;
             // 
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(584, 113);
-            this.label34.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label34.Location = new System.Drawing.Point(438, 92);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(52, 17);
+            this.label34.Size = new System.Drawing.Size(40, 13);
             this.label34.TabIndex = 14;
             this.label34.Text = "Huella:";
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(192, 21);
-            this.button6.Margin = new System.Windows.Forms.Padding(4);
+            this.button6.Location = new System.Drawing.Point(144, 17);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(100, 28);
+            this.button6.Size = new System.Drawing.Size(75, 23);
             this.button6.TabIndex = 3;
             this.button6.Text = "Guardar";
             this.button6.UseVisualStyleBackColor = true;
@@ -1373,10 +1279,9 @@
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(584, 170);
-            this.label35.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label35.Location = new System.Drawing.Point(438, 138);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(46, 17);
+            this.label35.Size = new System.Drawing.Size(37, 13);
             this.label35.TabIndex = 15;
             this.label35.Text = "Icono:";
             // 
@@ -1384,10 +1289,9 @@
             // 
             this.cmbPokedex_Species.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cmbPokedex_Species.FormattingEnabled = true;
-            this.cmbPokedex_Species.Location = new System.Drawing.Point(23, 22);
-            this.cmbPokedex_Species.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbPokedex_Species.Location = new System.Drawing.Point(17, 18);
             this.cmbPokedex_Species.Name = "cmbPokedex_Species";
-            this.cmbPokedex_Species.Size = new System.Drawing.Size(160, 24);
+            this.cmbPokedex_Species.Size = new System.Drawing.Size(121, 21);
             this.cmbPokedex_Species.TabIndex = 2;
             this.cmbPokedex_Species.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
@@ -1404,11 +1308,9 @@
             this.groupBox7.Controls.Add(this.label31);
             this.groupBox7.Controls.Add(this.label30);
             this.groupBox7.Controls.Add(this.fondo);
-            this.groupBox7.Location = new System.Drawing.Point(23, 58);
-            this.groupBox7.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox7.Location = new System.Drawing.Point(17, 47);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox7.Size = new System.Drawing.Size(543, 252);
+            this.groupBox7.Size = new System.Drawing.Size(407, 205);
             this.groupBox7.TabIndex = 1;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Posiciones";
@@ -1417,132 +1319,110 @@
             // 
             this.iconPalette.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.iconPalette.FormattingEnabled = true;
-            this.iconPalette.Location = new System.Drawing.Point(365, 207);
-            this.iconPalette.Margin = new System.Windows.Forms.Padding(4);
+            this.iconPalette.Location = new System.Drawing.Point(274, 168);
             this.iconPalette.Name = "iconPalette";
-            this.iconPalette.Size = new System.Drawing.Size(159, 24);
+            this.iconPalette.Size = new System.Drawing.Size(120, 21);
             this.iconPalette.TabIndex = 13;
             // 
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(361, 187);
-            this.label33.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label33.Location = new System.Drawing.Point(271, 152);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(106, 17);
+            this.label33.Size = new System.Drawing.Size(80, 13);
             this.label33.TabIndex = 12;
             this.label33.Text = "Color del icono:";
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(192, 20);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox3.Location = new System.Drawing.Point(144, 16);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(85, 79);
+            this.pictureBox3.Size = new System.Drawing.Size(64, 64);
             this.pictureBox3.TabIndex = 11;
             this.pictureBox3.TabStop = false;
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(53, 69);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox2.Location = new System.Drawing.Point(40, 56);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(85, 79);
+            this.pictureBox2.Size = new System.Drawing.Size(64, 64);
             this.pictureBox2.TabIndex = 10;
             this.pictureBox2.TabStop = false;
             // 
             // Levitation
             // 
-            this.Levitation.Location = new System.Drawing.Point(365, 153);
-            this.Levitation.Margin = new System.Windows.Forms.Padding(4);
+            this.Levitation.Location = new System.Drawing.Point(274, 124);
             this.Levitation.Name = "Levitation";
             this.Levitation.ReadOnly = true;
-            this.Levitation.Size = new System.Drawing.Size(160, 22);
+            this.Levitation.Size = new System.Drawing.Size(120, 20);
             this.Levitation.TabIndex = 9;
             this.Levitation.ValueChanged += new System.EventHandler(this.Levitation_ValueChanged);
             // 
             // backY
             // 
-            this.backY.Location = new System.Drawing.Point(365, 97);
-            this.backY.Margin = new System.Windows.Forms.Padding(4);
+            this.backY.Location = new System.Drawing.Point(274, 79);
             this.backY.Name = "backY";
             this.backY.ReadOnly = true;
-            this.backY.Size = new System.Drawing.Size(160, 22);
+            this.backY.Size = new System.Drawing.Size(120, 20);
             this.backY.TabIndex = 8;
             this.backY.ValueChanged += new System.EventHandler(this.backY_ValueChanged);
             // 
             // frontY
             // 
-            this.frontY.Location = new System.Drawing.Point(365, 41);
-            this.frontY.Margin = new System.Windows.Forms.Padding(4);
+            this.frontY.Location = new System.Drawing.Point(274, 33);
             this.frontY.Name = "frontY";
             this.frontY.ReadOnly = true;
-            this.frontY.Size = new System.Drawing.Size(160, 22);
+            this.frontY.Size = new System.Drawing.Size(120, 20);
             this.frontY.TabIndex = 7;
             this.frontY.ValueChanged += new System.EventHandler(this.frontY_ValueChanged);
             // 
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(361, 132);
-            this.label32.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label32.Location = new System.Drawing.Point(271, 107);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(76, 17);
+            this.label32.Size = new System.Drawing.Size(59, 13);
             this.label32.TabIndex = 6;
             this.label32.Text = "Levitación:";
             // 
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(361, 76);
-            this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label31.Location = new System.Drawing.Point(271, 62);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(137, 17);
+            this.label31.Size = new System.Drawing.Size(101, 13);
             this.label31.TabIndex = 5;
             this.label31.Text = "Posición Y (trasera):";
             // 
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(361, 21);
-            this.label30.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label30.Location = new System.Drawing.Point(271, 17);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(132, 17);
+            this.label30.Size = new System.Drawing.Size(98, 13);
             this.label30.TabIndex = 4;
             this.label30.Text = "Posición Y (frontal):";
             // 
             // fondo
             // 
             this.fondo.Image = global::IKPokeEditor.Properties.Resources.bg1;
-            this.fondo.Location = new System.Drawing.Point(8, 33);
-            this.fondo.Margin = new System.Windows.Forms.Padding(4);
+            this.fondo.Location = new System.Drawing.Point(6, 27);
             this.fondo.Name = "fondo";
             this.fondo.Size = new System.Drawing.Size(240, 160);
             this.fondo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.fondo.TabIndex = 0;
             this.fondo.TabStop = false;
             // 
-            // lblStatsCatchRat
-            // 
-            this.lblStatsCatchRat.Location = new System.Drawing.Point(20, 387);
-            this.lblStatsCatchRat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblStatsCatchRat.Name = "lblStatsCatchRat";
-            this.lblStatsCatchRat.Size = new System.Drawing.Size(155, 17);
-            this.lblStatsCatchRat.TabIndex = 30;
-            this.lblStatsCatchRat.Text = "lblStatsCatchRat";
-            this.lblStatsCatchRat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1348, 714);
+            this.ClientSize = new System.Drawing.Size(1011, 580);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1666,12 +1546,12 @@
         private System.Windows.Forms.TextBox txtStats_genderRatio;
         private System.Windows.Forms.TextBox ddlStats_safariFleeRate;
         private System.Windows.Forms.TextBox txtStats_catchRate;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lblStatsExpYield;
+        private System.Windows.Forms.Label lblStatsFriendship;
+        private System.Windows.Forms.Label lblStatsEggCycle;
+        private System.Windows.Forms.Label lblStatsBodyColor;
+        private System.Windows.Forms.Label lblStatsGrowthRate;
+        private System.Windows.Forms.Label lblStatsSafariFleeRate;
         private System.Windows.Forms.GroupBox grpStatsStats;
         private System.Windows.Forms.TextBox txtStats_evSPEED;
         private System.Windows.Forms.TextBox txtStats_evSPDEF;
@@ -1706,11 +1586,11 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnStats_New;
         private System.Windows.Forms.Label lblStatsName;
         private System.Windows.Forms.ComboBox cmbInforma_Species;
         private System.Windows.Forms.TextBox POKEMON_NAME;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnStats_Save;
         private System.Windows.Forms.DataGridViewComboBoxColumn Metodo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Argumento;
         private System.Windows.Forms.DataGridViewComboBoxColumn Evolucion;

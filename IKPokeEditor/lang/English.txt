@@ -10,13 +10,23 @@ tabGraphics=Graphics
 
 grpStatsStats=Stats
 lblStats_BaseStats=Base Stats
-lblStats_EffordYield=Eff. Yield
+lblStats_EffordYield=EV Yield
 lblStatsName=Name
 lblStatsHP=HP
 lblStatsAtk=ATK
 lblStatsDef=DEF
-lblStatsSpAtk=SP.ATK;
-lblStatsSpDef=SP.DEF;
-lblStatsSpd=SPEED;
+lblStatsSpAtk=SP.ATK
+lblStatsSpDef=SP.DEF
+lblStatsSpd=SPEED
 
 lblStatsCatchRate=Catch Rate:
+lblStatsSafariFleeRate=Safari Zone Flee Rate:
+lblStatsExpYield=Exp. Yield:
+lblStatsGrowthRate=Growth Rate:
+lblStatsBodyColor=Body Color:
+lblStatsGenderRatio=Female Ratio:
+lblStatsEggCycle=Egg Cycles:
+lblStatsFriendship=Base Friendship:
+
+btnStats_New=New
+btnStats_Save=Save

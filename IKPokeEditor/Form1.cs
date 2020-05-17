@@ -3513,6 +3513,16 @@ namespace IKPokeEditor
             lblStatsSpd.Text = LoadLanguageText(lang, "lblStatsSpd") + ":";
 
             lblStatsCatchRat.Text = LoadLanguageText(lang, "lblStatsCatchRate");
+            lblStatsSafariFleeRate.Text = LoadLanguageText(lang, "lblStatsSafariFleeRate");
+            lblStatsExpYield.Text = LoadLanguageText(lang, "lblStatsExpYield");
+            lblStatsGrowthRate.Text = LoadLanguageText(lang, "lblStatsGrowthRate");
+            lblStatsBodyColor.Text = LoadLanguageText(lang, "lblStatsBodyColor");
+            chkStats_gender.Text = LoadLanguageText(lang, "lblStatsGenderRatio");
+            lblStatsEggCycle.Text = LoadLanguageText(lang, "lblStatsEggCycle");
+            lblStatsFriendship.Text = LoadLanguageText(lang, "lblStatsFriendship");
+
+            btnStats_New.Text = LoadLanguageText(lang, "btnStats_New");
+            btnStats_Save.Text = LoadLanguageText(lang, "btnStats_Save");
         }
         private string LoadLanguageText(string lang, string textId)
         {

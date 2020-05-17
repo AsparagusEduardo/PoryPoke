@@ -15,8 +15,18 @@ lblStatsName=Nombre
 lblStatsHP=PS
 lblStatsAtk=ATQ
 lblStatsDef=DEF
-lblStatsSpAtk=AT.ESP;
-lblStatsSpDef=DF.ESP;
-lblStatsSpd=VEL;
+lblStatsSpAtk=AT.ESP
+lblStatsSpDef=DF.ESP
+lblStatsSpd=VEL
 
 lblStatsCatchRate=Ratio de captura:
+lblStatsSafariFleeRate=Ratio de huida (Safari):
+lblStatsExpYield=Experiencia Base:
+lblStatsGrowthRate=Crecimiento:
+lblStatsBodyColor=Color del cuerpo:
+lblStatsGenderRatio=Género femenino:
+lblStatsEggCycle=Ciclos huevo:
+lblStatsFriendship=Amistad base:
+
+btnStats_New=Nuevo
+btnStats_Save=Guardar
