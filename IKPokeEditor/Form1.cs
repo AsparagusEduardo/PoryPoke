@@ -192,60 +192,13 @@ namespace IKPokeEditor
 
             DataLoad.pokeemerald.LoadMonBaseStats(str, speciesNames, ref PokemonDictionary);
 
-            string ciclosHuevo = null;
-            string amistadBase = null;
-            string crecimiento = null;
-            string grupoHuevoUno = null;
-            string grupoHuevoDos = null;
-            string habilidadUno = null;
-            string habilidadDos = null;
-            string probabilidadHuidaSafari = null;
-            string colorCuerpo = null;
             string pokemonName = null;
-
 
             Class.Pokemon poke;
 
             for (int i = 0; i < 13; i++)
             {
                 /*
-
-
-                index = (str.IndexOf(",", index)) + 2;
-                ciclosHuevo = str.Substring((str.IndexOf("eggCycles", index) + 12), str.IndexOf(",", index) - (str.IndexOf("eggCycles", index) + 12));
-                pokemonData["ciclosHuevo"][(i + 1).ToString()] = ciclosHuevo;
-
-                index = (str.IndexOf(",", index)) + 2;
-                amistadBase = str.Substring((str.IndexOf("friendship", index) + 13), str.IndexOf(",", index) - (str.IndexOf("friendship", index) + 13));
-                pokemonData["amistadBase"][(i + 1).ToString()] = amistadBase;
-
-                index = (str.IndexOf(",", index)) + 2;
-                crecimiento = str.Substring((str.IndexOf("growthRate", index) + 13), str.IndexOf(",", index) - (str.IndexOf("growthRate", index) + 13));
-                pokemonData["crecimiento"][(i + 1).ToString()] = crecimiento;
-
-                index = (str.IndexOf(",", index)) + 2;
-                grupoHuevoUno = str.Substring((str.IndexOf("eggGroup1", index) + 12), str.IndexOf(",", index) - (str.IndexOf("eggGroup1", index) + 12));
-                pokemonData["grupoHuevoUno"][(i + 1).ToString()] = grupoHuevoUno;
-
-                index = (str.IndexOf(",", index)) + 2;
-                grupoHuevoDos = str.Substring((str.IndexOf("eggGroup2", index) + 12), str.IndexOf(",", index) - (str.IndexOf("eggGroup2", index) + 12));
-                pokemonData["grupoHuevoDos"][(i + 1).ToString()] = grupoHuevoDos;
-
-                index = (str.IndexOf(",", index)) + 2;
-                habilidadUno = str.Substring((str.IndexOf("ability1", index) + 11), str.IndexOf(",", index) - (str.IndexOf("ability1", index) + 11));
-                pokemonData["habilidadUno"][(i + 1).ToString()] = habilidadUno;
-
-                index = (str.IndexOf(",", index)) + 2;
-                habilidadDos = str.Substring((str.IndexOf("ability2", index) + 11), str.IndexOf(",", index) - (str.IndexOf("ability2", index) + 11));
-                pokemonData["habilidadDos"][(i + 1).ToString()] = habilidadDos;
-
-                index = (str.IndexOf(",", index)) + 2;
-                probabilidadHuidaSafari = str.Substring((str.IndexOf("safariZoneFleeRate", index) + 21), str.IndexOf(",", index) - (str.IndexOf("safariZoneFleeRate", index) + 21));
-                pokemonData["probabilidadHuidaSafari"][(i + 1).ToString()] = probabilidadHuidaSafari;
-
-                index = (str.IndexOf(",", index)) + 2;
-                colorCuerpo = str.Substring((str.IndexOf("bodyColor", index) + 12), str.IndexOf(",", index) - (str.IndexOf("bodyColor", index) + 12));
-                pokemonData["colorCuerpo"][(i + 1).ToString()] = colorCuerpo;
 
                 indexName = (speciesNames.IndexOf("SPECIES_", pastValueName + 2));
                 pastValueName = indexName;
@@ -960,36 +913,25 @@ namespace IKPokeEditor
             txtStats_evSPEED.Text = poke.EvSpeed.ToString();
             txtStats_evSPATK.Text = poke.EvSpAttack.ToString();
             txtStats_evSPDEF.Text = poke.EvSpDefense.ToString();
-
             txtStats_catchRate.Text = poke.CatchRate.ToString();
             txtStats_expYield.Text = poke.ExpYield.ToString();
-
             ddlStats_type1.SelectedIndex = int.Parse(infoData["tipos"].FirstOrDefault(x => x.Value.Contains(poke.Type1.Substring(5))).Key);
             ddlStats_type2.SelectedIndex = int.Parse(infoData["tipos"].FirstOrDefault(x => x.Value.Contains(poke.Type2.Substring(5))).Key);
-
             ddlStats_item1.SelectedIndex = int.Parse(infoData["objetos"].FirstOrDefault(x => x.Value.Contains(poke.Item1.Substring(5).Replace("_", " "))).Key);
             ddlStats_item2.SelectedIndex = int.Parse(infoData["objetos"].FirstOrDefault(x => x.Value.Contains(poke.Item2.Substring(5).Replace("_", " "))).Key);
-
             txtStats_genderRatio.Enabled = chkStats_gender.Checked = poke.HasGender;
             txtStats_genderRatio.Text = poke.GenderRatio.ToString(new CultureInfo("en-US"));
-
             txtStats_eggCycles.Text = poke.EggCycles.ToString();
             txtStats_friendship.Text = poke.Friendship.ToString();
             ddlStats_growthRate.SelectedIndex = int.Parse(infoData["crecimiento"].FirstOrDefault(x => x.Value.Contains(poke.GrowthRate.Substring(7).Replace("_", " "))).Key);
-
             ddlStats_eggGroup1.SelectedIndex = int.Parse(infoData["grupos_huevo"].FirstOrDefault(x => x.Value.Contains(poke.EggGroup1.Substring(10).Replace("_", " "))).Key);
             ddlStats_eggGroup2.SelectedIndex = int.Parse(infoData["grupos_huevo"].FirstOrDefault(x => x.Value.Contains(poke.EggGroup2.Substring(10).Replace("_", " "))).Key);
-
             ddlStats_ability1.SelectedIndex = int.Parse(infoData["habilidades"].FirstOrDefault(x => x.Value.Contains(poke.Ability1.Substring(8).Replace("_", " "))).Key);
             ddlStats_ability2.SelectedIndex = int.Parse(infoData["habilidades"].FirstOrDefault(x => x.Value.Contains(poke.Ability2.Substring(8).Replace("_", " "))).Key);
+            ddlStats_safariFleeRate.Text = poke.SafariFleeRate.ToString();
+            ddlStats_bodyColor.SelectedIndex = int.Parse(infoData["color_cuerpo"].FirstOrDefault(x => x.Value.Contains(poke.BodyColor.Substring(11))).Key);
 
             /*  
-            huidaSafari.Text = pokemonData["probabilidadHuidaSafari"][cmbInforma_Species.SelectedIndex.ToString()];
-
-            //Recibir color del cuerpo
-            var formatoColorCuerpo = pokemonData["colorCuerpo"][cmbInforma_Species.SelectedIndex.ToString()].Substring(11);
-            formatoColorCuerpo = formatoColorCuerpo.Replace(@"_", " ");
-            COLOR_CUERPO.SelectedIndex = Int32.Parse(infoData["color_cuerpo"].FirstOrDefault(x => x.Value.Contains(formatoColorCuerpo)).Key);
 
             POKEMON_NAME.Text = pokemonData["pokemonName"][cmbInforma_Species.SelectedIndex.ToString()];
 
@@ -1534,13 +1476,13 @@ namespace IKPokeEditor
         {
             int bodyColorAmount = infoData["color_cuerpo"].Count;
 
-            COLOR_CUERPO.Items.Clear();
+            ddlStats_bodyColor.Items.Clear();
 
             for (int i = 0; i < bodyColorAmount; i++)
             {
                 string insertBodyColorName = infoData["color_cuerpo"][i.ToString()];
                 //MessageBox.Show(insertBodyColorName);
-                COLOR_CUERPO.Items.Insert(i, insertBodyColorName);
+                ddlStats_bodyColor.Items.Insert(i, insertBodyColorName);
             }
         }
 
@@ -1694,8 +1636,8 @@ namespace IKPokeEditor
             var eggGroup2 = (ddlStats_eggGroup2.Text).Replace(" ", "_");
             var ability1 = (ddlStats_ability1.Text).Replace(" ", "_");
             var ability2 = (ddlStats_ability2.Text).Replace(" ", "_");
-            var safariZoneFleeRate = huidaSafari.Text;
-            var bodyColor = (COLOR_CUERPO.Text).Replace(" ", "_");
+            var safariZoneFleeRate = ddlStats_safariFleeRate.Text;
+            var bodyColor = (ddlStats_bodyColor.Text).Replace(" ", "_");
 
             string finalString = "    [SPECIES_" + pokemonSpecie.Replace(" ", "_") + "] =\n    {\n        .baseHP        = " + baseHP +
                 ",\n        .baseAttack    = " + baseAttack +
@@ -2400,8 +2342,8 @@ namespace IKPokeEditor
             pokemonData["grupoHuevoDos"][cmbInforma_Species.SelectedIndex.ToString()] = "EGG_GROUP_" + (ddlStats_eggGroup2.Text).Replace(" ", "_");
             pokemonData["habilidadUno"][cmbInforma_Species.SelectedIndex.ToString()] = "ABILITY_" + (ddlStats_ability1.Text).Replace(" ", "_");
             pokemonData["habilidadDos"][cmbInforma_Species.SelectedIndex.ToString()] = "ABILITY_" + (ddlStats_ability2.Text).Replace(" ", "_");
-            pokemonData["probabilidadHuidaSafari"][cmbInforma_Species.SelectedIndex.ToString()] = huidaSafari.Text;
-            pokemonData["colorCuerpo"][cmbInforma_Species.SelectedIndex.ToString()] = "BODY_COLOR_" + (COLOR_CUERPO.Text).Replace(" ", "_");
+            pokemonData["probabilidadHuidaSafari"][cmbInforma_Species.SelectedIndex.ToString()] = ddlStats_safariFleeRate.Text;
+            pokemonData["colorCuerpo"][cmbInforma_Species.SelectedIndex.ToString()] = "BODY_COLOR_" + (ddlStats_bodyColor.Text).Replace(" ", "_");
             pokemonData["pokemonName"][cmbInforma_Species.SelectedIndex.ToString()] = POKEMON_NAME.Text.Replace(" ", "_");
             //EVOLUTION
             var evosAmount = this.dataGridView2.Rows.Count - 1;

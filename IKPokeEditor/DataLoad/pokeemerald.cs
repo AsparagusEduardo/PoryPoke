@@ -202,6 +202,9 @@ namespace IKPokeEditor.DataLoad
                     string abilities = LoadStat(ref str, ref poke, ref index, "abilities", 12);
                     poke.Ability1 = abilities.Substring(1, abilities.IndexOf(",") - 1);
                     poke.Ability2 = abilities.Substring(abilities.IndexOf(",") + 2, abilities.IndexOf("}") - abilities.IndexOf(",") - 2);
+                    poke.SafariFleeRate = int.Parse(LoadStat(ref str, ref poke, ref index, "safariZoneFleeRate", 21));
+                    poke.BodyColor = LoadStat(ref str, ref poke, ref index, "bodyColor", 12);
+                    poke.NoFlip = bool.Parse(LoadStat(ref str, ref poke, ref index, "noFlip", 9));
                 }
                 else
                 {
@@ -274,6 +277,7 @@ namespace IKPokeEditor.DataLoad
             poke.EggGroup2 = str.Substring(index, str.IndexOf(",", index) - index);
 
             poke.Ability1 = poke.Ability2 = "ABILITY_NONE";
+            poke.BodyColor = "BODY_COLOR_BLACK";
         }
     }
 }

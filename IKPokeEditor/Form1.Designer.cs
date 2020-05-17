@@ -60,11 +60,11 @@
             this.Metodo = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Argumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Evolucion = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.COLOR_CUERPO = new System.Windows.Forms.ComboBox();
+            this.ddlStats_bodyColor = new System.Windows.Forms.ComboBox();
             this.txtStats_friendship = new System.Windows.Forms.TextBox();
             this.txtStats_eggCycles = new System.Windows.Forms.TextBox();
             this.txtStats_genderRatio = new System.Windows.Forms.TextBox();
-            this.huidaSafari = new System.Windows.Forms.TextBox();
+            this.ddlStats_safariFleeRate = new System.Windows.Forms.TextBox();
             this.txtStats_catchRate = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -258,11 +258,11 @@
             this.tabStats.Controls.Add(this.groupBox4);
             this.tabStats.Controls.Add(this.txtStats_expYield);
             this.tabStats.Controls.Add(this.groupBox3);
-            this.tabStats.Controls.Add(this.COLOR_CUERPO);
+            this.tabStats.Controls.Add(this.ddlStats_bodyColor);
             this.tabStats.Controls.Add(this.txtStats_friendship);
             this.tabStats.Controls.Add(this.txtStats_eggCycles);
             this.tabStats.Controls.Add(this.txtStats_genderRatio);
-            this.tabStats.Controls.Add(this.huidaSafari);
+            this.tabStats.Controls.Add(this.ddlStats_safariFleeRate);
             this.tabStats.Controls.Add(this.txtStats_catchRate);
             this.tabStats.Controls.Add(this.label21);
             this.tabStats.Controls.Add(this.label20);
@@ -546,13 +546,13 @@
             // 
             // COLOR_CUERPO
             // 
-            this.COLOR_CUERPO.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.COLOR_CUERPO.FormattingEnabled = true;
-            this.COLOR_CUERPO.Location = new System.Drawing.Point(180, 516);
-            this.COLOR_CUERPO.Margin = new System.Windows.Forms.Padding(4);
-            this.COLOR_CUERPO.Name = "COLOR_CUERPO";
-            this.COLOR_CUERPO.Size = new System.Drawing.Size(104, 24);
-            this.COLOR_CUERPO.TabIndex = 25;
+            this.ddlStats_bodyColor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.ddlStats_bodyColor.FormattingEnabled = true;
+            this.ddlStats_bodyColor.Location = new System.Drawing.Point(180, 516);
+            this.ddlStats_bodyColor.Margin = new System.Windows.Forms.Padding(4);
+            this.ddlStats_bodyColor.Name = "COLOR_CUERPO";
+            this.ddlStats_bodyColor.Size = new System.Drawing.Size(104, 24);
+            this.ddlStats_bodyColor.TabIndex = 25;
             // 
             // amistadBase
             // 
@@ -582,11 +582,11 @@
             // 
             // huidaSafari
             // 
-            this.huidaSafari.Location = new System.Drawing.Point(180, 416);
-            this.huidaSafari.Margin = new System.Windows.Forms.Padding(4);
-            this.huidaSafari.Name = "huidaSafari";
-            this.huidaSafari.Size = new System.Drawing.Size(104, 22);
-            this.huidaSafari.TabIndex = 18;
+            this.ddlStats_safariFleeRate.Location = new System.Drawing.Point(180, 416);
+            this.ddlStats_safariFleeRate.Margin = new System.Windows.Forms.Padding(4);
+            this.ddlStats_safariFleeRate.Name = "huidaSafari";
+            this.ddlStats_safariFleeRate.Size = new System.Drawing.Size(104, 22);
+            this.ddlStats_safariFleeRate.TabIndex = 18;
             // 
             // ratioCaptura
             // 
@@ -1660,11 +1660,11 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.NumericUpDown EvolucionAEliminar;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.ComboBox COLOR_CUERPO;
+        private System.Windows.Forms.ComboBox ddlStats_bodyColor;
         private System.Windows.Forms.TextBox txtStats_friendship;
         private System.Windows.Forms.TextBox txtStats_eggCycles;
         private System.Windows.Forms.TextBox txtStats_genderRatio;
-        private System.Windows.Forms.TextBox huidaSafari;
+        private System.Windows.Forms.TextBox ddlStats_safariFleeRate;
         private System.Windows.Forms.TextBox txtStats_catchRate;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
