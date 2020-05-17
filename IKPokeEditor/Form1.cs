@@ -1581,6 +1581,7 @@ namespace IKPokeEditor
         private void saveData()
         {
             setBaseStats();
+            /*
             setEvolutions();
             setMovements();
             setMTMO();
@@ -1588,6 +1589,7 @@ namespace IKPokeEditor
             setDexData();
             setSpriteData();
             reloadAllSavedData();
+            */
         }
 
         private void setBaseStats()
@@ -1663,8 +1665,7 @@ namespace IKPokeEditor
                 ",\n        .growthRate = GROWTH_" + growthRate +
                 ",\n        .eggGroup1 = EGG_GROUP_" + eggGroup1 +
                 ",\n        .eggGroup2 = EGG_GROUP_" + eggGroup2 +
-                ",\n        .ability1 = ABILITY_" + ability1 +
-                ",\n        .ability2 = ABILITY_" + ability2 +
+                ",\n        .abilities = {ABILITY_" + ability1 + ", ABILITY_" + ability2 + "}" +
                 ",\n        .safariZoneFleeRate = " + safariZoneFleeRate +
                 ",\n        .bodyColor = BODY_COLOR_" + bodyColor +
                 ",\n        .noFlip = FALSE,\n    },";
@@ -1676,12 +1677,12 @@ namespace IKPokeEditor
             sr.Close();
 
             var index = str.IndexOf("[SPECIES_" + pokemonSpecie.Replace(" ", "_")) - 4;
-            var index2 = str.IndexOf("}", index) + 1;
+            var index2 = str.IndexOf("    }", index) + 5;
             var preStr = str.Substring(0, index);
             var postStr = str.Substring(index2 + 1);
-            str = preStr + finalString + postStr;
+            str = preStr + finalString + postStr.Substring(0, postStr.Length - 1);
             index = str.LastIndexOf("[SPECIES");
-            index = str.IndexOf("},", index);
+            index = str.IndexOf("    },", index);
             if (index > 0)
             {
                 preStr = str.Substring(0, index);
