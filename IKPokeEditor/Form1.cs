@@ -1596,83 +1596,88 @@ namespace IKPokeEditor
             */
         }
 
+        private void saveMonToDictionary()
+        {
+            Class.Pokemon poke = PokemonDictionary[cmbInforma_Species.Text];
+
+            poke.BaseHP = int.Parse(txtStats_baseHP.Text);
+            poke.BaseAttack = int.Parse(txtStats_baseATK.Text);
+            poke.BaseDefense = int.Parse(txtStats_baseDEF.Text);
+            poke.BaseSpeed = int.Parse(txtStats_baseSPEED.Text);
+            poke.BaseSpAttack = int.Parse(txtStats_baseSPATK.Text);
+            poke.BaseSpDefense = int.Parse(txtStats_baseSPDEF.Text);
+            poke.Type1 = "TYPE_" + ddlStats_type1.Text.Replace(" ", "_");
+            poke.Type2 = "TYPE_" + ddlStats_type2.Text.Replace(" ", "_");
+            poke.CatchRate = int.Parse(txtStats_catchRate.Text);
+            poke.ExpYield = int.Parse(txtStats_expYield.Text);
+            poke.EvHP = int.Parse(txtStats_evHP.Text);
+            poke.EvAttack = int.Parse(txtStats_evATK.Text);
+            poke.EvDefense = int.Parse(txtStats_evDEF.Text);
+            poke.EvSpeed = int.Parse(txtStats_evSPEED.Text);
+            poke.EvSpAttack = int.Parse(txtStats_evSPATK.Text);
+            poke.EvSpDefense = int.Parse(txtStats_evSPDEF.Text);
+            poke.Item1 = "TYPE_" + ddlStats_item1.Text.Replace(" ", "_");
+            poke.Item2 = "TYPE_" + ddlStats_item2.Text.Replace(" ", "_");
+
+            string genderRatio;
+            if (chkStats_gender.Checked)
+            {
+                poke.HasGender = true;
+                poke.GenderRatio = decimal.Parse(txtStats_genderRatio.Text, new CultureInfo("en-US"));
+            }
+            else
+            {
+                poke.HasGender = false;
+                poke.GenderRatio = 0;
+            }
+        }
+
         private void setBaseStats()
         {
-            var pokemonSpecie = cmbInforma_Species.Text;
-            var baseHP = txtStats_baseHP.Text;
-            var baseAttack = txtStats_baseATK.Text;
-            var baseDefense = txtStats_baseDEF.Text;
-            var baseSpeed = txtStats_baseSPEED.Text;
-            var baseSpAttack = txtStats_baseSPATK.Text;
-            var baseSpDefense = txtStats_baseSPDEF.Text;
-            var type1 = (ddlStats_type1.Text).Replace(" ", "_");
-            var type2 = (ddlStats_type2.Text).Replace(" ", "_");
-            var catchRate = txtStats_catchRate.Text;
-            var expYield = txtStats_expYield.Text;
-            var evYield_HP = txtStats_evHP.Text;
-            var evYield_Attack = txtStats_evATK.Text;
-            var evYield_Defense = txtStats_evDEF.Text;
-            var evYield_Speed = txtStats_evSPEED.Text;
-            var evYield_SpAttack = txtStats_evSPATK.Text;
-            var evYield_SpDefense = txtStats_evSPDEF.Text;
-            var item1 = (ddlStats_item1.Text).Replace(" ", "_");
-            var item2 = (ddlStats_item2.Text).Replace(" ", "_");
-            var genderRatio = "";
-            if (chkStats_gender.Checked == true)
-            {
-                if (txtStats_genderRatio.Text == "0")
-                {
-                    genderRatio = "MON_MALE";
-                } else if (txtStats_genderRatio.Text == "100")
-                {
-                    genderRatio = "MON_FEMALE";
-                } else
-                {
-                    genderRatio = "PERCENT_FEMALE(" + txtStats_genderRatio.Text + ")";
-                }
+            saveMonToDictionary();
 
-            } else
-            {
+            Class.Pokemon poke = PokemonDictionary[cmbInforma_Species.Text];
+
+
+            string genderRatio;
+            if (!poke.HasGender)
                 genderRatio = "MON_GENDERLESS";
-            }
-            var eggCycles = txtStats_eggCycles.Text;
-            var friendship = txtStats_friendship.Text;
-            var growthRate = (ddlStats_growthRate.Text).Replace(" ", "_");
-            var eggGroup1 = (ddlStats_eggGroup1.Text).Replace(" ", "_");
-            var eggGroup2 = (ddlStats_eggGroup2.Text).Replace(" ", "_");
-            var ability1 = (ddlStats_ability1.Text).Replace(" ", "_");
-            var ability2 = (ddlStats_ability2.Text).Replace(" ", "_");
-            var safariZoneFleeRate = ddlStats_safariFleeRate.Text;
-            var bodyColor = (ddlStats_bodyColor.Text).Replace(" ", "_");
+            else if (poke.GenderRatio == 0)
+                genderRatio = "MON_MALE";
+            else if (poke.GenderRatio == 100)
+                genderRatio = "MON_FEMALE";
+            else
+                genderRatio = "PERCENT_FEMALE(" + poke.GenderRatio.ToString(new CultureInfo("en-US")) + ")";
 
-            string finalString = "    [SPECIES_" + pokemonSpecie.Replace(" ", "_") + "] =\n    {\n        .baseHP        = " + baseHP +
-                ",\n        .baseAttack    = " + baseAttack +
-                ",\n        .baseDefense   = " + baseDefense +
-                ",\n        .baseSpeed     = " + baseSpeed +
-                ",\n        .baseSpAttack  = " + baseSpAttack +
-                ",\n        .baseSpDefense = " + baseSpDefense +
-                ",\n        .type1 = TYPE_" + type1 +
-                ",\n        .type2 = TYPE_" + type2 +
-                ",\n        .catchRate = " + catchRate +
-                ",\n        .expYield = " + expYield +
-                ",\n        .evYield_HP        = " + evYield_HP +
-                ",\n        .evYield_Attack    = " + evYield_Attack +
-                ",\n        .evYield_Defense   = " + evYield_Defense +
-                ",\n        .evYield_Speed     = " + evYield_Speed +
-                ",\n        .evYield_SpAttack  = " + evYield_SpAttack +
-                ",\n        .evYield_SpDefense = " + evYield_SpDefense +
-                ",\n        .item1 = ITEM_" + item1 +
-                ",\n        .item2 = ITEM_" + item2 +
+            string finalString = "    [SPECIES_" + poke.ID + "] =\n    " +
+                "{\n        .baseHP        = " + poke.BaseHP +
+                ",\n        .baseAttack    = " + poke.BaseAttack +
+                ",\n        .baseDefense   = " + poke.BaseDefense +
+                ",\n        .baseSpeed     = " + poke.BaseSpeed +
+                ",\n        .baseSpAttack  = " + poke.BaseSpAttack +
+                ",\n        .baseSpDefense = " + poke.BaseSpDefense +
+                ",\n        .type1 = " + poke.Type1 +
+                ",\n        .type2 = " + poke.Type2 +
+                ",\n        .catchRate = " + poke.CatchRate +
+                ",\n        .expYield = " + poke.ExpYield +
+                ",\n        .evYield_HP        = " + poke.EvHP +
+                ",\n        .evYield_Attack    = " + poke.EvAttack +
+                ",\n        .evYield_Defense   = " + poke.EvDefense +
+                ",\n        .evYield_Speed     = " + poke.EvSpeed +
+                ",\n        .evYield_SpAttack  = " + poke.EvSpAttack +
+                ",\n        .evYield_SpDefense = " + poke.EvSpDefense +
+                ",\n        .item1 = ITEM_" + poke.Item1 +
+                ",\n        .item2 = ITEM_" + poke.Item2 +
                 ",\n        .genderRatio = " + genderRatio +
-                ",\n        .eggCycles = " + eggCycles +
-                ",\n        .friendship = " + friendship +
-                ",\n        .growthRate = GROWTH_" + growthRate +
-                ",\n        .eggGroup1 = EGG_GROUP_" + eggGroup1 +
-                ",\n        .eggGroup2 = EGG_GROUP_" + eggGroup2 +
-                ",\n        .abilities = {ABILITY_" + ability1 + ", ABILITY_" + ability2 + "}" +
-                ",\n        .safariZoneFleeRate = " + safariZoneFleeRate +
-                ",\n        .bodyColor = BODY_COLOR_" + bodyColor +
-                ",\n        .noFlip = FALSE,\n    },";
+                ",\n        .eggCycles = " + poke.EggCycles +
+                ",\n        .friendship = " + poke.Friendship +
+                ",\n        .growthRate = " + poke.GrowthRate +
+                ",\n        .eggGroup1 = " + poke.EggGroup1 +
+                ",\n        .eggGroup2 = " + poke.EggGroup2 +
+                ",\n        .abilities = {" + poke.Ability1 + ", " + poke.Ability2 + "}" +
+                ",\n        .safariZoneFleeRate = " + poke.SafariFleeRate +
+                ",\n        .bodyColor = " + poke.BodyColor +
+                ",\n        .noFlip = " + poke.NoFlip.ToString().ToUpper() +",\n    },";
 
             string str = null;
 
@@ -1680,7 +1685,7 @@ namespace IKPokeEditor
             str = sr.ReadToEnd();
             sr.Close();
 
-            var index = str.IndexOf("[SPECIES_" + pokemonSpecie.Replace(" ", "_")) - 4;
+            var index = str.IndexOf("[SPECIES_" + poke.ID) - 4;
             var index2 = str.IndexOf("    }", index) + 5;
             var preStr = str.Substring(0, index);
             var postStr = str.Substring(index2 + 1);
@@ -1697,13 +1702,9 @@ namespace IKPokeEditor
             */
             data["pFile_base_stats_h"] = str;
 
-            //richTextBox1.Text = str;
-
             StreamWriter sw = new StreamWriter(dictionary["pFile_base_stats_h"].ToString(), false);
             sw.WriteLine(data["pFile_base_stats_h"]);
             sw.Close();
-
-            //MessageBox.Show(pokemonName);
         }
 
         private void setEvolutions()
