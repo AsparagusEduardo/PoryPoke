@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{F2BFA39C-CF5D-4E25-BA3E-0E1BC591EBDA}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>IKPokeEditor</RootNamespace>
-    <AssemblyName>IKPokeEditor</AssemblyName>
+    <RootNamespace>PoryPoke</RootNamespace>
+    <AssemblyName>PoryPoke</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
