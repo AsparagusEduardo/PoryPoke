@@ -35,8 +35,6 @@ namespace PoryPoke.DataLoad
             int lastIndex = 0;
 
             var totalItems = Regex.Matches(str, ".name =").Cast<Match>().Count() - 1;
-            var countMT = Regex.Matches(str, "ITEM_TM").Cast<Match>().Count();
-            var countMO = Regex.Matches(str, "ITEM_HM").Cast<Match>().Count();
 
             for (int i = 0; i <= totalItems; i++)
             {
@@ -51,65 +49,7 @@ namespace PoryPoke.DataLoad
                 //MessageBox.Show("Item: " + infoData["objetos"][i.ToString()]);
             }
         }
-        public static void LoadEggGroups(string str, ref Dictionary<string, Dictionary<string, string>> infoData)
-        {
-            int index = 0;
-            int lastIndex = 0;
 
-            var EggGroup = Regex.Matches(str, "EGG_GROUP_").Cast<Match>().Count() - 1;
-
-            for (int i = 0; i <= EggGroup; i++)
-            {
-                index = str.IndexOf("EGG_GROUP_", lastIndex + 2);
-                lastIndex = index;
-
-                var eggGroup = str.Substring((index + 10), (str.IndexOf("\n", index) - (index + 10)));
-                eggGroup = eggGroup.Split(' ')[0];
-                eggGroup = eggGroup.Replace(@"_", " ");
-
-                infoData["grupos_huevo"][i.ToString()] = eggGroup;
-            }
-        }
-        public static void LoadBodyColors(string str, ref Dictionary<string, Dictionary<string, string>> infoData)
-        {
-            int index = 0;
-            int lastIndex = 0;
-
-            var BodyColor = Regex.Matches(str, "BODY_COLOR_").Cast<Match>().Count() - 1;
-
-            for (int i = 0; i <= BodyColor; i++)
-            {
-                index = str.IndexOf("BODY_COLOR_", lastIndex + 2);
-                lastIndex = index;
-
-                var bodyColor = str.Substring((index + 11), (str.IndexOf("\n", index) - (index + 11)));
-                bodyColor = bodyColor.Split(' ')[0];
-                bodyColor = bodyColor.Replace(@"_", " ");
-
-                infoData["color_cuerpo"][i.ToString()] = bodyColor;
-                //MessageBox.Show("Color cuerpo: " + infoData["color_cuerpo"][i.ToString()]);
-            }
-        }
-        public static void LoadAbilities(string str, ref Dictionary<string, Dictionary<string, string>> infoData)
-        {
-            int index = 0;
-            int lastIndex = 0;
-
-            var totalAbilities = Regex.Matches(str, "ABILITY_").Cast<Match>().Count() - 1;
-
-            for (int i = 0; i <= totalAbilities; i++)
-            {
-                index = str.IndexOf("ABILITY_", lastIndex + 2);
-                lastIndex = index;
-
-                var typeName = str.Substring((index + 8), (str.IndexOf(" ", index)) - (index + 8));
-
-                typeName = typeName.Replace(@"_", " ");
-
-                infoData["habilidades"][i.ToString()] = typeName;
-                //MessageBox.Show("Habilidades: " + infoData["habilidades"][i.ToString()]);
-            }
-        }
         public static void LoadGrowthRate(string str, ref Dictionary<string, Dictionary<string, string>> infoData)
         {
             int index = 0;

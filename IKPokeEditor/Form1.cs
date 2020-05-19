@@ -1423,8 +1423,8 @@ namespace PoryPoke
         private void setEggAndColorData()
         {
             string str = data["pFile_pokemon_h"].ToString();
-            DataLoad.pokeemerald.LoadEggGroups(str, ref infoData);
-            DataLoad.pokeemerald.LoadBodyColors(str, ref infoData);
+            DataLoad.pokeemerald.LoadBaseStat(str, "EGG_GROUP_", "grupos_huevo", ref infoData);
+            DataLoad.pokeemerald.LoadBaseStat(str, "BODY_COLOR_", "color_cuerpo", ref infoData);
             addEggGroupToComboBox();
             addBodyColorToComboBox();
         }
@@ -1432,7 +1432,7 @@ namespace PoryPoke
         private void setAbilitiesData()
         {
             string str = data["pFile_abilities_h"].ToString();
-            DataLoad.pokeemerald.LoadAbilities(str, ref infoData);
+            DataLoad.pokeemerald.LoadBaseStat(str, "ABILITY_", "habilidades", ref infoData);
             addAbilitiesToComboBox();
         }
 
