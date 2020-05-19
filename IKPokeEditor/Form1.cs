@@ -39,6 +39,7 @@ namespace PoryPoke
         public Form1()
         {
             InitializeComponent();
+            this.Size = new Size(1027, 619);
             Language.LoadLanguageFiles();
             LoadLanguage("English");
         }
