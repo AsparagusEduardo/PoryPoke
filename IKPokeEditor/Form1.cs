@@ -12,6 +12,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.WindowsAPICodePack.Dialogs;
+using PoryPoke.DataLoad;
 
 namespace PoryPoke
 {
@@ -40,10 +41,12 @@ namespace PoryPoke
         {
             InitializeComponent();
             this.Size = new Size(1027, 619);
+            Configuration.LoadConfig();
+            menuSavingEmptyBaseStatsToolStripMenuItem.Checked = bool.Parse(Configuration.Config["hideEmptyBaseStats"]);
             cmbInforma_Species.Enabled = false;
             switchFormElementState(false);
             Language.LoadLanguageFiles();
-            LoadLanguage("English");
+            LoadLanguage(Configuration.Config["language"]);
         }
 
         private void seleccionarCarpetaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -3621,6 +3624,8 @@ namespace PoryPoke
             {
                 ToolStripMenuItem langItem = new ToolStripMenuItem(entry.Key);
                 langItem.Click += new EventHandler(menuLanguageToolStripMenuItem_Click);
+                if (entry.Key == lang)
+                    langItem.Checked = true;
                 menuLanguageToolStripMenuItem.DropDownItems.Add(langItem);
             }
 
@@ -3685,6 +3690,8 @@ namespace PoryPoke
 
         private void menuLanguageToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Configuration.Config["language"] = (sender as ToolStripMenuItem).Text;
+            Configuration.SaveConfig();
             LoadLanguage((sender as ToolStripMenuItem).Text);
         }
 
@@ -3700,6 +3707,8 @@ namespace PoryPoke
 
         private void menuSavingEmptyBaseStatsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Configuration.Config["hideEmptyBaseStats"] = (!menuSavingEmptyBaseStatsToolStripMenuItem.Checked).ToString().ToLower();
+            Configuration.SaveConfig();
             menuSavingEmptyBaseStatsToolStripMenuItem.Checked = !menuSavingEmptyBaseStatsToolStripMenuItem.Checked;
         }
     }
