@@ -154,6 +154,8 @@
             this.label31 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.fondo = new System.Windows.Forms.PictureBox();
+            this.btnStats_SaveAll = new System.Windows.Forms.Button();
+            this.menuSaveAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabStats.SuspendLayout();
@@ -194,7 +196,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1010, 19);
+            this.menuStrip1.Size = new System.Drawing.Size(1263, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -202,16 +204,17 @@
             // 
             this.menuFileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuFolderToolStripMenuItem,
-            this.menuSaveToolStripMenuItem});
+            this.menuSaveToolStripMenuItem,
+            this.menuSaveAllToolStripMenuItem});
             this.menuFileToolStripMenuItem.Name = "menuFileToolStripMenuItem";
-            this.menuFileToolStripMenuItem.Size = new System.Drawing.Size(68, 15);
+            this.menuFileToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.menuFileToolStripMenuItem.Text = "menuFile";
             // 
             // menuFolderToolStripMenuItem
             // 
             this.menuFolderToolStripMenuItem.Name = "menuFolderToolStripMenuItem";
             this.menuFolderToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.menuFolderToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.menuFolderToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
             this.menuFolderToolStripMenuItem.Text = "menuFolder";
             this.menuFolderToolStripMenuItem.Click += new System.EventHandler(this.seleccionarCarpetaToolStripMenuItem_Click);
             // 
@@ -220,7 +223,7 @@
             this.menuSaveToolStripMenuItem.Enabled = false;
             this.menuSaveToolStripMenuItem.Name = "menuSaveToolStripMenuItem";
             this.menuSaveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.menuSaveToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.menuSaveToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
             this.menuSaveToolStripMenuItem.Text = "menuSave";
             this.menuSaveToolStripMenuItem.Click += new System.EventHandler(this.guardarToolStripMenuItem_Click);
             // 
@@ -229,13 +232,13 @@
             this.menuOptionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuLanguageToolStripMenuItem});
             this.menuOptionsToolStripMenuItem.Name = "menuOptionsToolStripMenuItem";
-            this.menuOptionsToolStripMenuItem.Size = new System.Drawing.Size(92, 15);
+            this.menuOptionsToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
             this.menuOptionsToolStripMenuItem.Text = "menuOptions";
             // 
             // menuLanguageToolStripMenuItem
             // 
             this.menuLanguageToolStripMenuItem.Name = "menuLanguageToolStripMenuItem";
-            this.menuLanguageToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.menuLanguageToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.menuLanguageToolStripMenuItem.Text = "menuLanguage";
             // 
             // tabControl1
@@ -252,6 +255,7 @@
             // 
             // tabStats
             // 
+            this.tabStats.Controls.Add(this.btnStats_SaveAll);
             this.tabStats.Controls.Add(this.lblStatsCatchRat);
             this.tabStats.Controls.Add(this.chkStats_gender);
             this.tabStats.Controls.Add(this.ddlStats_growthRate);
@@ -961,7 +965,7 @@
             // 
             // btnStats_New
             // 
-            this.btnStats_New.Location = new System.Drawing.Point(274, 42);
+            this.btnStats_New.Location = new System.Drawing.Point(288, 42);
             this.btnStats_New.Name = "btnStats_New";
             this.btnStats_New.Size = new System.Drawing.Size(73, 23);
             this.btnStats_New.TabIndex = 2;
@@ -994,12 +998,12 @@
             this.POKEMON_NAME.MaxLength = 12;
             this.POKEMON_NAME.Name = "POKEMON_NAME";
             this.POKEMON_NAME.ReadOnly = true;
-            this.POKEMON_NAME.Size = new System.Drawing.Size(89, 20);
+            this.POKEMON_NAME.Size = new System.Drawing.Size(103, 20);
             this.POKEMON_NAME.TabIndex = 4;
             // 
             // btnStats_Save
             // 
-            this.btnStats_Save.Location = new System.Drawing.Point(353, 42);
+            this.btnStats_Save.Location = new System.Drawing.Point(367, 42);
             this.btnStats_Save.Name = "btnStats_Save";
             this.btnStats_Save.Size = new System.Drawing.Size(75, 23);
             this.btnStats_Save.TabIndex = 5;
@@ -1415,6 +1419,25 @@
             this.fondo.TabIndex = 0;
             this.fondo.TabStop = false;
             // 
+            // btnStats_SaveAll
+            // 
+            this.btnStats_SaveAll.Location = new System.Drawing.Point(448, 42);
+            this.btnStats_SaveAll.Name = "btnStats_SaveAll";
+            this.btnStats_SaveAll.Size = new System.Drawing.Size(114, 23);
+            this.btnStats_SaveAll.TabIndex = 31;
+            this.btnStats_SaveAll.Text = "Guardar Todo";
+            this.btnStats_SaveAll.UseVisualStyleBackColor = true;
+            this.btnStats_SaveAll.Click += new System.EventHandler(this.btnStats_SaveAll_Click);
+            // 
+            // menuSaveAllToolStripMenuItem
+            // 
+            this.menuSaveAllToolStripMenuItem.Name = "menuSaveAllToolStripMenuItem";
+            this.menuSaveAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.S)));
+            this.menuSaveAllToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+            this.menuSaveAllToolStripMenuItem.Text = "menuSaveAll";
+            this.menuSaveAllToolStripMenuItem.Click += new System.EventHandler(this.menuSaveAllToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1598,6 +1621,8 @@
         private System.Windows.Forms.ToolStripMenuItem menuOptionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuLanguageToolStripMenuItem;
         private System.Windows.Forms.Label lblStatsCatchRat;
+        private System.Windows.Forms.Button btnStats_SaveAll;
+        private System.Windows.Forms.ToolStripMenuItem menuSaveAllToolStripMenuItem;
     }
 }
 

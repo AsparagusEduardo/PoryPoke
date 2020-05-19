@@ -1611,6 +1611,19 @@ namespace PoryPoke
             reloadAllSavedData();
             */
         }
+        private void saveAllData()
+        {
+            setAllBaseStats();
+            /*
+            setEvolutions();
+            setMovements();
+            setMTMO();
+            setDexDescription();
+            setDexData();
+            setSpriteData();
+            reloadAllSavedData();
+            */
+        }
 
         private void saveMonToDictionary()
         {
@@ -1713,6 +1726,73 @@ namespace PoryPoke
                 sw.WriteLine(str);
                 sw.Close();
             }
+        }
+
+        private void setAllBaseStats()
+        {
+            saveMonToDictionary();
+
+            string str = null;
+            StreamReader sr = new StreamReader(dictionary["pFile_base_stats_h"].ToString());
+            str = sr.ReadToEnd();
+            sr.Close();
+
+            StreamWriter sw = new StreamWriter(dictionary["pFile_base_stats_h"].ToString(), false);
+
+            string prestr = str.Substring(0, str.IndexOf("[SPECIES_NONE] = {0},") + 21);
+            sw.WriteLine(prestr);
+
+            foreach (KeyValuePair<string, Class.Pokemon> entry in PokemonDictionary)
+            {
+                Class.Pokemon poke = entry.Value;
+                string genderRatio;
+                if (!poke.HasGender)
+                    genderRatio = "MON_GENDERLESS";
+                else if (poke.GenderRatio == 0)
+                    genderRatio = "MON_MALE";
+                else if (poke.GenderRatio == 100)
+                    genderRatio = "MON_FEMALE";
+                else
+                    genderRatio = "PERCENT_FEMALE(" + poke.GenderRatio.ToString(new CultureInfo("en-US")) + ")";
+
+                string finalString;
+
+                if (poke.IsOldUnown)
+                    finalString = "\n    [SPECIES_" + poke.ID + "] = OLD_UNOWN_BASE_STATS,";
+                else
+                    finalString = "\n    [SPECIES_" + poke.ID + "] =\n    " +
+                        "{\n        .baseHP        = " + poke.BaseHP +
+                        ",\n        .baseAttack    = " + poke.BaseAttack +
+                        ",\n        .baseDefense   = " + poke.BaseDefense +
+                        ",\n        .baseSpeed     = " + poke.BaseSpeed +
+                        ",\n        .baseSpAttack  = " + poke.BaseSpAttack +
+                        ",\n        .baseSpDefense = " + poke.BaseSpDefense +
+                        ",\n        .type1 = " + poke.Type1 +
+                        ",\n        .type2 = " + poke.Type2 +
+                        ",\n        .catchRate = " + poke.CatchRate +
+                        ",\n        .expYield = " + poke.ExpYield +
+                        ",\n        .evYield_HP        = " + poke.EvHP +
+                        ",\n        .evYield_Attack    = " + poke.EvAttack +
+                        ",\n        .evYield_Defense   = " + poke.EvDefense +
+                        ",\n        .evYield_Speed     = " + poke.EvSpeed +
+                        ",\n        .evYield_SpAttack  = " + poke.EvSpAttack +
+                        ",\n        .evYield_SpDefense = " + poke.EvSpDefense +
+                        ",\n        .item1 = " + poke.Item1 +
+                        ",\n        .item2 = " + poke.Item2 +
+                        ",\n        .genderRatio = " + genderRatio +
+                        ",\n        .eggCycles = " + poke.EggCycles +
+                        ",\n        .friendship = " + poke.Friendship +
+                        ",\n        .growthRate = " + poke.GrowthRate +
+                        ",\n        .eggGroup1 = " + poke.EggGroup1 +
+                        ",\n        .eggGroup2 = " + poke.EggGroup2 +
+                        ",\n        .abilities = {" + poke.Ability1 + ", " + poke.Ability2 + "}" +
+                        ",\n        .safariZoneFleeRate = " + poke.SafariFleeRate +
+                        ",\n        .bodyColor = " + poke.BodyColor +
+                        ",\n        .noFlip = " + poke.NoFlip.ToString().ToUpper() + ",\n    },";
+                sw.WriteLine(finalString);
+            }
+            sw.WriteLine("};");
+            sw.Close();
         }
 
         private void setEvolutions()
@@ -3523,6 +3603,7 @@ namespace PoryPoke
             menuFileToolStripMenuItem.Text = LoadLanguageText(lang, "menuFile");
             menuFolderToolStripMenuItem.Text = LoadLanguageText(lang, "menuFolder");
             menuSaveToolStripMenuItem.Text = LoadLanguageText(lang, "menuSave");
+            menuSaveAllToolStripMenuItem.Text = LoadLanguageText(lang, "menuSaveAll");
             menuOptionsToolStripMenuItem.Text = LoadLanguageText(lang, "menuOptions");
             menuLanguageToolStripMenuItem.Text = LoadLanguageText(lang, "menuLanguage");
 
@@ -3552,6 +3633,7 @@ namespace PoryPoke
 
             btnStats_New.Text = LoadLanguageText(lang, "btnStats_New");
             btnStats_Save.Text = LoadLanguageText(lang, "btnStats_Save");
+            btnStats_SaveAll.Text = LoadLanguageText(lang, "btnStats_SaveAll");
 
             grpStats_Other.Text = LoadLanguageText(lang, "grpStats_Other");
             lblStats_Type.Text = LoadLanguageText(lang, "lblStats_Type");
@@ -3578,6 +3660,16 @@ namespace PoryPoke
         private void menuLanguageToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LoadLanguage((sender as ToolStripMenuItem).Text);
+        }
+
+        private void btnStats_SaveAll_Click(object sender, EventArgs e)
+        {
+            saveAllData();
+        }
+
+        private void menuSaveAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveAllData();
         }
     }
 }

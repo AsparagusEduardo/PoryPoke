@@ -1,6 +1,7 @@
 menuFile=Archivo
 menuFolder=Seleccionar carpeta...
 menuSave=Guardar
+menuSaveAll=Guardar todo
 menuOptions=Opciones
 menuLanguage=Idioma
 
@@ -30,6 +31,7 @@ lblStatsFriendship=Amistad base:
 
 btnStats_New=Nuevo
 btnStats_Save=Guardar
+btnStats_SaveAll=Guardar todo
 
 grpStats_Other=Otros
 lblStats_Type=Tipos
