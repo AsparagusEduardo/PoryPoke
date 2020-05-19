@@ -74,6 +74,7 @@ namespace PoryPoke.DataLoad
         public static Dictionary<string, string> Config;
         public static Dictionary<string, Dictionary<string, string>> LanguageFiles { get; set; }
 
-        private static string defaultValues = "language=English\nhideEmptyBaseStats=true\n";
+        private static string defaultValues = "language=English\n" +
+                                              "hideEmptyBaseStats=true\n";
     }
 }

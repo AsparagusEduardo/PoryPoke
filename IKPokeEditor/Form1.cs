@@ -1350,7 +1350,7 @@ namespace PoryPoke
         private void setTypesData()
         {
             string str = data["pFile_pokemon_h"].ToString();
-            DataLoad.pokeemerald.LoadTypes(str, ref infoData);
+            DataLoad.pokeemerald.LoadBaseStat(str, "TYPE_", "tipos", ref infoData);
             addTypesToComboBox();
         }
 

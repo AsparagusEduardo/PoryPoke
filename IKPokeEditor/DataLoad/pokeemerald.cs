@@ -10,24 +10,25 @@ namespace PoryPoke.DataLoad
 {
     public class pokeemerald
     {
-        public static void LoadTypes(string str, ref Dictionary<string, Dictionary<string, string>> infoData)
+        public static void LoadBaseStat(string str, string prefix, string infoID, ref Dictionary<string, Dictionary<string, string>> infoData)
         {
-            int index = 0;
+            int index;
             int lastIndex = 0;
+            prefix = "#define " + prefix;
 
-            var totalTypes = Regex.Matches(str, "TYPE_").Cast<Match>().Count() - 1;
+            var totalStats = Regex.Matches(str, prefix).Cast<Match>().Count() - 1;
 
-            for (int i = 0; i <= totalTypes; i++)
+            for (int i = 0; i <= totalStats; i++)
             {
-                index = str.IndexOf("TYPE_", lastIndex + 2);
+                index = str.IndexOf(prefix, lastIndex + 2);
                 lastIndex = index;
+                int index2 = index + prefix.Length;
 
-                var typeName = str.Substring((index + 5), ((str.IndexOf(" ", index)) - (index + 5)));
-
-                infoData["tipos"][i.ToString()] = typeName;
-                //MessageBox.Show("Tipo: " + infoData["tipos"][i.ToString()]);
+                var baseStatName = str.Substring(index2, str.IndexOf(" ", index2) - (index2)).Replace(@"_", " ");
+                infoData[infoID][i.ToString()] = baseStatName;
             }
         }
+
         public static void LoadItems(string str, ref Dictionary<string, Dictionary<string, string>> infoData)
         {
             int index = 0;
