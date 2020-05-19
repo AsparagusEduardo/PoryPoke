@@ -69,7 +69,8 @@ namespace PoryPoke
                     cmbInforma_Species.SelectedIndex = 1;
                     cmbPokedex_Species.SelectedIndex = 1;
                     cmbGraphic_Species.SelectedIndex = 1;
-                } else
+                }
+                else
                 {
                     MessageBox.Show("No se ha encontrado el archivo " + fileErr + " en el directorio " + pathErr);
                 }
@@ -235,7 +236,8 @@ namespace PoryPoke
                 if (i != evolveAmount)
                 {
                     workString = str.Substring(index, (str.IndexOf("[SPECIES_", (index + 1)) - index));
-                } else
+                }
+                else
                 {
                     //MessageBox.Show(index.ToString());
                     workString = str.Substring(index, (str.IndexOf("};", index) - index));
@@ -246,7 +248,8 @@ namespace PoryPoke
 
                 for (int j = 0; j < evoAmount; j++)
                 {
-                    if (evoIndex == 0) {
+                    if (evoIndex == 0)
+                    {
                         pokemonToEvolve = workString.Substring((workString.IndexOf("[SPECIES_", evoIndex) + 9), (workString.IndexOf("]", evoIndex) - (workString.IndexOf("[SPECIES_", evoIndex) + 9)));
                         evoIndex = (workString.IndexOf("[SPECIES_", evoIndex));
                     }
@@ -263,10 +266,12 @@ namespace PoryPoke
                     if (pokemonToEvolve == "NIDORAN_F")
                     {
                         pokemonIndex = "29";
-                    } else if (pokemonToEvolve == "NIDORAN_M")
+                    }
+                    else if (pokemonToEvolve == "NIDORAN_M")
                     {
                         pokemonIndex = "32";
-                    } else
+                    }
+                    else
                     {
                         pokemonIndex = (pokemonData["pokemonName"].FirstOrDefault(x => x.Value.Contains(pokemonToEvolve)).Key);
                     }
@@ -365,16 +370,19 @@ namespace PoryPoke
             {
                 stringIndex = 0;
 
-                if (str.IndexOf("\n\nstatic const", index + 1) > 0) {
+                if (str.IndexOf("\n\nstatic const", index + 1) > 0)
+                {
                     if (str.IndexOf("\n\nstatic const", index + 10) > str.IndexOf("#else\nstatic const", index + 10))
                     {
                         index = str.IndexOf("#else\nstatic const", index) + 5;
 
-                    } else
+                    }
+                    else
                     {
                         index = str.IndexOf("\n\nstatic const", index) + 1;
                     }
-                } else
+                }
+                else
                 {
                     index = str.IndexOf("#else\nstatic const", index) + 5;
                 }
@@ -518,7 +526,7 @@ namespace PoryPoke
                 //MessageBox.Show("POKéMON: " + pokemonName + "\nElevation: " + elevation);
                 pokemonData["elevate"][(i + 1).ToString()] = elevation.ToString();
             }
-            for (int i = 0; i < palAmount; i++) 
+            for (int i = 0; i < palAmount; i++)
             {
                 iconPalette.Items.Add(i.ToString());
             }
@@ -535,7 +543,7 @@ namespace PoryPoke
             if (imagen != null)
             {
                 Bitmap b = new Bitmap(imagen);
-            
+
                 bool found = false;
                 Point firstY = new Point(0, 0);
                 Point lastY = new Point(0, 0);
@@ -665,7 +673,8 @@ namespace PoryPoke
 
                 return binString;
                 //MessageBox.Show(colour.ToString());
-            } else
+            }
+            else
             {
                 return "0";
             }
@@ -723,18 +732,22 @@ namespace PoryPoke
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if ((dataGridView2.Rows.Count - 1) > 0) {
+            if ((dataGridView2.Rows.Count - 1) > 0)
+            {
                 dataGridView2.Rows.RemoveAt(Int32.Parse(EvolucionAEliminar.Value.ToString()));
             }
             if ((Int32.Parse(EvolucionAEliminar.Value.ToString())) == (Int32.Parse(evolutionData[cmbInforma_Species.SelectedIndex.ToString() + "_0"].Item1) - 1))
             {
-                if ((dataGridView2.Rows.Count - 1) > 0 && (EvolucionAEliminar.Value > 0)) {
+                if ((dataGridView2.Rows.Count - 1) > 0 && (EvolucionAEliminar.Value > 0))
+                {
                     EvolucionAEliminar.Value--;
                 }
             }
-            if (dataGridView2.Rows.Count > 1) {
+            if (dataGridView2.Rows.Count > 1)
+            {
                 EvolucionAEliminar.Maximum = (dataGridView2.Rows.Count - 2);
-            } else
+            }
+            else
             {
                 EvolucionAEliminar.Maximum = 0;
             }
@@ -1569,10 +1582,12 @@ namespace PoryPoke
 
             for (int i = 0; i < (mtAmount + moAmount); i++)
             {
-                if (i < mtAmount) {
+                if (i < mtAmount)
+                {
                     var movement = (infoData["mt"][i.ToString()]);
                     MTName.Items.Insert(i, movement);
-                } else
+                }
+                else
                 {
                     var movement = (infoData["mo"][(i - mtAmount).ToString()]);
                     MTName.Items.Insert(i, movement);
@@ -1677,7 +1692,7 @@ namespace PoryPoke
                 ",\n        .abilities = {" + poke.Ability1 + ", " + poke.Ability2 + "}" +
                 ",\n        .safariZoneFleeRate = " + poke.SafariFleeRate +
                 ",\n        .bodyColor = " + poke.BodyColor +
-                ",\n        .noFlip = " + poke.NoFlip.ToString().ToUpper() +",\n    },";
+                ",\n        .noFlip = " + poke.NoFlip.ToString().ToUpper() + ",\n    },";
 
             string str = null;
 
@@ -1718,7 +1733,8 @@ namespace PoryPoke
             string[] evolucion = new string[totalEvolutions];
             string finalString = null;
 
-            if (totalEvolutions > 0) {
+            if (totalEvolutions > 0)
+            {
 
                 var spaceValue = 11 - pokemonSpecie.Length;
 
@@ -1744,7 +1760,8 @@ namespace PoryPoke
                     if (i == (totalEvolutions - 1))
                     {
                         finalString += "},";
-                    } else
+                    }
+                    else
                     {
                         finalString += ",\n                            ";
                     }
@@ -1752,7 +1769,8 @@ namespace PoryPoke
 
                 //richTextBox1.Text = finalString;
 
-            } else
+            }
+            else
             {
                 finalString = "";
             }
@@ -1778,7 +1796,8 @@ namespace PoryPoke
                     preStr = str.Substring(0, index);
                     postStr = str.Substring(index2 + 1);
                     str = preStr + finalString + postStr;
-                } else if (totalEvolutions == 0)
+                }
+                else if (totalEvolutions == 0)
                 {
                     index = index - 4;
                     index2 = str.IndexOf("}},", index) + 2;
@@ -1786,7 +1805,8 @@ namespace PoryPoke
                     postStr = str.Substring(index2 + 1);
                     str = preStr + postStr;
                 }
-            } else
+            }
+            else
             {
                 if (totalEvolutions > 0)
                 {
@@ -1892,9 +1912,11 @@ namespace PoryPoke
                 for (int i = 0; i < totalMTMO; i++)
                 {
                     MTMO[i] = dataGridView3.Rows[i].Cells[0].Value.ToString().Replace(" ", "_");
-                    if (i == (totalMTMO - 1)) {
+                    if (i == (totalMTMO - 1))
+                    {
                         finalString += MTMO[i] + ")),";
-                    } else
+                    }
+                    else
                     {
                         finalString += MTMO[i] + ")\n                                        | TMHM(";
                     }
@@ -1993,7 +2015,8 @@ namespace PoryPoke
             //MessageBox.Show(dexFormatOne + "\n" + rowCounter.ToString());
 
 
-            if (rowCounter <= 2) {
+            if (rowCounter <= 2)
+            {
 
                 lastSpace = 0;
                 reducedAmount = 0;
@@ -2055,7 +2078,8 @@ namespace PoryPoke
                     MessageBox.Show("La página dos de la descripción excede la longitud máxima");
                 }
 
-            } else
+            }
+            else
             {
                 MessageBox.Show("La página uno de la descripción excede la longitud máxima");
             }
@@ -2202,7 +2226,7 @@ namespace PoryPoke
             }
             string finalString = ".byte " + firstByte + ", " + frontCord + ", 0, 0";
 
-            
+
 
             string str = null;
 
@@ -2223,7 +2247,7 @@ namespace PoryPoke
             var postStr = str.Substring(index + getString.Length);
 
             var resultString = preStr + finalString + postStr;
-            
+
             //MessageBox.Show(getString);
 
             data["pFile_front_pic_coords_inc"] = resultString;
@@ -2263,7 +2287,7 @@ namespace PoryPoke
             var resultString = preStr + "[SPECIES_" + pokemonName + "] = " + levitation + postStr;
 
             //MessageBox.Show(getString);
-            
+
             data["pFile_battle_1_c"] = resultString;
 
             //richTextBox1.Text = str;
@@ -2421,7 +2445,8 @@ namespace PoryPoke
             if (Levitation.Value > 0)
             {
                 fondo.Image = Properties.Resources.bgSombra;
-            } else
+            }
+            else
             {
                 fondo.Image = Properties.Resources.bg1;
             }
@@ -2462,7 +2487,8 @@ namespace PoryPoke
                 if (checkPokemon == "NIDORAN_M")
                 {
                     checkPokemon = "NIDORAN♂";
-                } else if (checkPokemon == "NIDORAN_F")
+                }
+                else if (checkPokemon == "NIDORAN_F")
                 {
                     checkPokemon = "NIDORAN♀";
                 }
@@ -2494,17 +2520,19 @@ namespace PoryPoke
                     direct_sound_data_set();
                     data_reset();
                     return "true";
-                } else
+                }
+                else
                 {
                     MessageBox.Show("Este pokémon ya existe, prueba con otro nombre.");
                     return "false";
                 }
-                
-            } else
+
+            }
+            else
             {
                 return "break";
             }
-            
+
         }
 
         private void insercionMasiva()
@@ -2516,7 +2544,7 @@ namespace PoryPoke
                 for (int i = 0; i < newPokes; i++)
                 {
                     var result = insercionIndividual();
-                    if (result == "false") { i--; } else if (result == "break"){ break; }
+                    if (result == "false") { i--; } else if (result == "break") { break; }
                 }
             }
         }
@@ -2794,7 +2822,7 @@ namespace PoryPoke
             var postStr = str.Substring(index);
             var finalString = preStr + newString + postStr;
             //richTextBox1.Text = finalString;
-            
+
             data["pFile_tmhm_learnsets_h"] = finalString;
 
             //richTextBox1.Text = str;
@@ -2819,7 +2847,7 @@ namespace PoryPoke
             var sortedNames = pokeNames.OrderBy(n => n);
             string[] pokeNameOrdered = sortedNames.ToArray();
             var newPokeIndex = Array.FindIndex(pokeNameOrdered, row => row.ToString() == mayusPokemonName);
-            if (pokeNameOrdered[newPokeIndex + 1].ToString() == "MR. MIME"){pokeNameOrdered[newPokeIndex + 1] = "MR MIME";}
+            if (pokeNameOrdered[newPokeIndex + 1].ToString() == "MR. MIME") { pokeNameOrdered[newPokeIndex + 1] = "MR MIME"; }
             var index = str.IndexOf("NATIONAL_DEX_" + pokeNameOrdered[newPokeIndex + 1].ToString().Replace(" ", "_"), 0);
             //MessageBox.Show(("NATIONAL_DEX_" + pokeNameOrdered[newPokeIndex + 1]).Replace(" ", "n"));
             var newString = "NATIONAL_DEX_" + mayusPokemonName;
@@ -2981,7 +3009,7 @@ namespace PoryPoke
             var postStr = str.Substring(index);
             var finalString = preStr + newString + postStr;
             //richTextBox1.Text = finalString;
-            
+
             data["pFile_pokedex_h"] = finalString;
 
             //richTextBox1.Text = str;
@@ -3315,7 +3343,7 @@ namespace PoryPoke
             var postStr = str.Substring(index);
             var finalString = preStr + newString + postStr;
             //richTextBox1.Text = finalString;
-            
+
             data["pFile_front_pic_coords_inc"] = finalString;
 
             //richTextBox1.Text = str;
@@ -3562,5 +3590,4 @@ namespace PoryPoke
 }
 
 //MUCHIO ESPANIOL
-                 
-                 
+
