@@ -3674,16 +3674,16 @@ namespace PoryPoke
         }
         private string LoadLanguageText(string lang, string textId)
         {
-            Dictionary<string, string> text = Language.LanguageFiles[lang];
             string str = textId;
             try
             {
+                Dictionary<string, string> text = Language.LanguageFiles[lang];
                 if (text != null)
                     str = text[textId];
             }
             catch
             {
-                MessageBox.Show("There was a problem loading the selected translation for the element \"" + textId + "\".");
+                //MessageBox.Show("There was a problem loading the selected translation for the element \"" + textId + "\".");
             }
             return str;
         }
