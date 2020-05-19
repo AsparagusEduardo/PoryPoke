@@ -1700,6 +1700,18 @@ namespace PoryPoke
                 poke.HasGender = false;
                 poke.GenderRatio = 0;
             }
+            poke.HasGender = chkStats_gender.Checked;
+            poke.GenderRatio = decimal.Parse(txtStats_genderRatio.Text, new CultureInfo("en-US"));
+
+            poke.EggCycles = int.Parse(txtStats_eggCycles.Text);
+            poke.Friendship = int.Parse(txtStats_friendship.Text);
+            poke.GrowthRate = "GROWTH_" + ddlStats_growthRate.Text.Replace(" ", "_");
+            poke.EggGroup1 = "EGG_GROUP_" + ddlStats_eggGroup1.Text.Replace(" ", "_");
+            poke.EggGroup2 = "EGG_GROUP_" + ddlStats_eggGroup2.Text.Replace(" ", "_");
+            poke.Ability1 = "ABILITY_" + ddlStats_ability1.Text.Replace(" ", "_");
+            poke.Ability2 = "ABILITY_" + ddlStats_ability2.Text.Replace(" ", "_");
+            poke.SafariFleeRate = int.Parse(ddlStats_safariFleeRate.Text);
+            poke.BodyColor = "BODY_COLOR_" + ddlStats_bodyColor.Text.Replace(" ", "_");
         }
 
         private void setBaseStats()
