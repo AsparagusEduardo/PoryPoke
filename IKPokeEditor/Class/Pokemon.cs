@@ -40,5 +40,6 @@ namespace PoryPoke.Class
         public int SafariFleeRate { get; set; }
         public string BodyColor { get; set; }
         public bool NoFlip { get; set; }
+        public bool IsOldUnown { get; set; }
     }
 }

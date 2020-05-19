@@ -221,6 +221,7 @@ namespace PoryPoke.DataLoad
         public static void LoadOldUnownBaseStats(ref Class.Pokemon poke, string str)
         {
             int index;
+            poke.IsOldUnown = true;
 
             // BASE HP
             index = str.IndexOf("baseHP", str.IndexOf("#define OLD_UNOWN_BASE_STATS", 0)) + 9;

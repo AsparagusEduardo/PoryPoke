@@ -1650,77 +1650,69 @@ namespace PoryPoke
 
         private void setBaseStats()
         {
-            saveMonToDictionary();
-
             Class.Pokemon poke = PokemonDictionary[cmbInforma_Species.Text];
-
-
-            string genderRatio;
-            if (!poke.HasGender)
-                genderRatio = "MON_GENDERLESS";
-            else if (poke.GenderRatio == 0)
-                genderRatio = "MON_MALE";
-            else if (poke.GenderRatio == 100)
-                genderRatio = "MON_FEMALE";
-            else
-                genderRatio = "PERCENT_FEMALE(" + poke.GenderRatio.ToString(new CultureInfo("en-US")) + ")";
-
-            string finalString = "    [SPECIES_" + poke.ID + "] =\n    " +
-                "{\n        .baseHP        = " + poke.BaseHP +
-                ",\n        .baseAttack    = " + poke.BaseAttack +
-                ",\n        .baseDefense   = " + poke.BaseDefense +
-                ",\n        .baseSpeed     = " + poke.BaseSpeed +
-                ",\n        .baseSpAttack  = " + poke.BaseSpAttack +
-                ",\n        .baseSpDefense = " + poke.BaseSpDefense +
-                ",\n        .type1 = " + poke.Type1 +
-                ",\n        .type2 = " + poke.Type2 +
-                ",\n        .catchRate = " + poke.CatchRate +
-                ",\n        .expYield = " + poke.ExpYield +
-                ",\n        .evYield_HP        = " + poke.EvHP +
-                ",\n        .evYield_Attack    = " + poke.EvAttack +
-                ",\n        .evYield_Defense   = " + poke.EvDefense +
-                ",\n        .evYield_Speed     = " + poke.EvSpeed +
-                ",\n        .evYield_SpAttack  = " + poke.EvSpAttack +
-                ",\n        .evYield_SpDefense = " + poke.EvSpDefense +
-                ",\n        .item1 = ITEM_" + poke.Item1 +
-                ",\n        .item2 = ITEM_" + poke.Item2 +
-                ",\n        .genderRatio = " + genderRatio +
-                ",\n        .eggCycles = " + poke.EggCycles +
-                ",\n        .friendship = " + poke.Friendship +
-                ",\n        .growthRate = " + poke.GrowthRate +
-                ",\n        .eggGroup1 = " + poke.EggGroup1 +
-                ",\n        .eggGroup2 = " + poke.EggGroup2 +
-                ",\n        .abilities = {" + poke.Ability1 + ", " + poke.Ability2 + "}" +
-                ",\n        .safariZoneFleeRate = " + poke.SafariFleeRate +
-                ",\n        .bodyColor = " + poke.BodyColor +
-                ",\n        .noFlip = " + poke.NoFlip.ToString().ToUpper() + ",\n    },";
-
-            string str = null;
-
-            StreamReader sr = new StreamReader(dictionary["pFile_base_stats_h"].ToString());
-            str = sr.ReadToEnd();
-            sr.Close();
-
-            var index = str.IndexOf("[SPECIES_" + poke.ID) - 4;
-            var index2 = str.IndexOf("    }", index) + 5;
-            var preStr = str.Substring(0, index);
-            var postStr = str.Substring(index2 + 1);
-            str = preStr + finalString + postStr.Substring(0, postStr.Length - 1);
-            index = str.LastIndexOf("[SPECIES");
-            index = str.IndexOf("    },", index);
-            /*
-            if (index > 0)
+            if (!poke.IsOldUnown)
             {
-                preStr = str.Substring(0, index);
-                postStr = str.Substring(index + 2);
-                str = preStr + "}\n" + postStr;
-            }
-            */
-            data["pFile_base_stats_h"] = str;
+                saveMonToDictionary();
 
-            StreamWriter sw = new StreamWriter(dictionary["pFile_base_stats_h"].ToString(), false);
-            sw.WriteLine(data["pFile_base_stats_h"]);
-            sw.Close();
+                string genderRatio;
+                if (!poke.HasGender)
+                    genderRatio = "MON_GENDERLESS";
+                else if (poke.GenderRatio == 0)
+                    genderRatio = "MON_MALE";
+                else if (poke.GenderRatio == 100)
+                    genderRatio = "MON_FEMALE";
+                else
+                    genderRatio = "PERCENT_FEMALE(" + poke.GenderRatio.ToString(new CultureInfo("en-US")) + ")";
+
+                StreamReader sr = new StreamReader(dictionary["pFile_base_stats_h"].ToString());
+                string str = sr.ReadToEnd();
+                sr.Close();
+
+                string finalString;
+
+                finalString = "    [SPECIES_" + poke.ID + "] =\n    " +
+                    "{\n        .baseHP        = " + poke.BaseHP +
+                    ",\n        .baseAttack    = " + poke.BaseAttack +
+                    ",\n        .baseDefense   = " + poke.BaseDefense +
+                    ",\n        .baseSpeed     = " + poke.BaseSpeed +
+                    ",\n        .baseSpAttack  = " + poke.BaseSpAttack +
+                    ",\n        .baseSpDefense = " + poke.BaseSpDefense +
+                    ",\n        .type1 = " + poke.Type1 +
+                    ",\n        .type2 = " + poke.Type2 +
+                    ",\n        .catchRate = " + poke.CatchRate +
+                    ",\n        .expYield = " + poke.ExpYield +
+                    ",\n        .evYield_HP        = " + poke.EvHP +
+                    ",\n        .evYield_Attack    = " + poke.EvAttack +
+                    ",\n        .evYield_Defense   = " + poke.EvDefense +
+                    ",\n        .evYield_Speed     = " + poke.EvSpeed +
+                    ",\n        .evYield_SpAttack  = " + poke.EvSpAttack +
+                    ",\n        .evYield_SpDefense = " + poke.EvSpDefense +
+                    ",\n        .item1 = " + poke.Item1 +
+                    ",\n        .item2 = " + poke.Item2 +
+                    ",\n        .genderRatio = " + genderRatio +
+                    ",\n        .eggCycles = " + poke.EggCycles +
+                    ",\n        .friendship = " + poke.Friendship +
+                    ",\n        .growthRate = " + poke.GrowthRate +
+                    ",\n        .eggGroup1 = " + poke.EggGroup1 +
+                    ",\n        .eggGroup2 = " + poke.EggGroup2 +
+                    ",\n        .abilities = {" + poke.Ability1 + ", " + poke.Ability2 + "}" +
+                    ",\n        .safariZoneFleeRate = " + poke.SafariFleeRate +
+                    ",\n        .bodyColor = " + poke.BodyColor +
+                    ",\n        .noFlip = " + poke.NoFlip.ToString().ToUpper() + ",\n    },";
+
+                var index = str.IndexOf("[SPECIES_" + poke.ID) - 4;
+                var index2 = str.IndexOf("    }", index) + 5;
+                var preStr = str.Substring(0, index);
+                var postStr = str.Substring(index2 + 1);
+                str = preStr + finalString + postStr.Substring(0, postStr.Length - 1);
+                index = str.LastIndexOf("[SPECIES");
+                index = str.IndexOf("    },", index);
+
+                StreamWriter sw = new StreamWriter(dictionary["pFile_base_stats_h"].ToString(), false);
+                sw.WriteLine(str);
+                sw.Close();
+            }
         }
 
         private void setEvolutions()
