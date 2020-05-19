@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.WindowsAPICodePack.Dialogs;
 
-namespace IKPokeEditor
+namespace PoryPoke
 {
     public partial class Form1 : Form
     {

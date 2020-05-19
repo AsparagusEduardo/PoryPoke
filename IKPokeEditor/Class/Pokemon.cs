@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IKPokeEditor.Class
+namespace PoryPoke.Class
 {
     public class Pokemon
     {

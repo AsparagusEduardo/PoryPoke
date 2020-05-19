@@ -1,4 +1,4 @@
-﻿namespace IKPokeEditor
+﻿namespace PoryPoke
 {
     partial class Datos
     {

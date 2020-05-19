@@ -1,4 +1,4 @@
-﻿namespace IKPokeEditor
+﻿namespace PoryPoke
 {
     partial class Form1
     {
@@ -1405,7 +1405,7 @@
             // 
             // fondo
             // 
-            this.fondo.Image = global::IKPokeEditor.Properties.Resources.bg1;
+            this.fondo.Image = global::PoryPoke.Properties.Resources.bg1;
             this.fondo.Location = new System.Drawing.Point(6, 27);
             this.fondo.Name = "fondo";
             this.fondo.Size = new System.Drawing.Size(240, 160);
