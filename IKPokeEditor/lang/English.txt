@@ -3,6 +3,8 @@ menuFolder=Select folder...
 menuSave=Save
 menuSaveAll=Save all
 menuOptions=Options
+menuSaving=Saving
+menuSavingEmptyBaseStats=Hide empty base stats
 menuLanguage=Language
 
 tabStats=Stats

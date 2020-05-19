@@ -156,6 +156,8 @@
             this.fondo = new System.Windows.Forms.PictureBox();
             this.btnStats_SaveAll = new System.Windows.Forms.Button();
             this.menuSaveAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuSavingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuSavingEmptyBaseStatsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabStats.SuspendLayout();
@@ -230,6 +232,7 @@
             // menuOptionsToolStripMenuItem
             // 
             this.menuOptionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuSavingToolStripMenuItem,
             this.menuLanguageToolStripMenuItem});
             this.menuOptionsToolStripMenuItem.Name = "menuOptionsToolStripMenuItem";
             this.menuOptionsToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
@@ -1438,6 +1441,21 @@
             this.menuSaveAllToolStripMenuItem.Text = "menuSaveAll";
             this.menuSaveAllToolStripMenuItem.Click += new System.EventHandler(this.menuSaveAllToolStripMenuItem_Click);
             // 
+            // menuSavingToolStripMenuItem
+            // 
+            this.menuSavingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuSavingEmptyBaseStatsToolStripMenuItem});
+            this.menuSavingToolStripMenuItem.Name = "menuSavingToolStripMenuItem";
+            this.menuSavingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.menuSavingToolStripMenuItem.Text = "menuSaving";
+            // 
+            // menuSavingEmptyBaseStatsToolStripMenuItem
+            // 
+            this.menuSavingEmptyBaseStatsToolStripMenuItem.Name = "menuSavingEmptyBaseStatsToolStripMenuItem";
+            this.menuSavingEmptyBaseStatsToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.menuSavingEmptyBaseStatsToolStripMenuItem.Text = "menuSavingEmptyBaseStats";
+            this.menuSavingEmptyBaseStatsToolStripMenuItem.Click += new System.EventHandler(this.menuSavingEmptyBaseStatsToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1623,6 +1641,8 @@
         private System.Windows.Forms.Label lblStatsCatchRat;
         private System.Windows.Forms.Button btnStats_SaveAll;
         private System.Windows.Forms.ToolStripMenuItem menuSaveAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuSavingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuSavingEmptyBaseStatsToolStripMenuItem;
     }
 }
 

@@ -3,6 +3,8 @@ menuFolder=Seleccionar carpeta...
 menuSave=Guardar
 menuSaveAll=Guardar todo
 menuOptions=Opciones
+menuSaving=Guardado
+menuSavingEmptyBaseStats=Ocultar estadísticas vacías
 menuLanguage=Idioma
 
 tabStats=Estadísticas
