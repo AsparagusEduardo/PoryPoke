@@ -1631,8 +1631,8 @@ namespace PoryPoke
             poke.EvSpeed = int.Parse(txtStats_evSPEED.Text);
             poke.EvSpAttack = int.Parse(txtStats_evSPATK.Text);
             poke.EvSpDefense = int.Parse(txtStats_evSPDEF.Text);
-            poke.Item1 = "TYPE_" + ddlStats_item1.Text.Replace(" ", "_");
-            poke.Item2 = "TYPE_" + ddlStats_item2.Text.Replace(" ", "_");
+            poke.Item1 = "ITEM_" + ddlStats_item1.Text.Replace(" ", "_");
+            poke.Item2 = "ITEM_" + ddlStats_item2.Text.Replace(" ", "_");
 
             string genderRatio;
             if (chkStats_gender.Checked)
