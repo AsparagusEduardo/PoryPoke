@@ -40,6 +40,8 @@ namespace PoryPoke
         {
             InitializeComponent();
             this.Size = new Size(1027, 619);
+            cmbInforma_Species.Enabled = false;
+            switchFormElementState(false);
             Language.LoadLanguageFiles();
             LoadLanguage("English");
         }
@@ -70,6 +72,7 @@ namespace PoryPoke
                     cmbInforma_Species.SelectedIndex = 1;
                     cmbPokedex_Species.SelectedIndex = 1;
                     cmbGraphic_Species.SelectedIndex = 1;
+                    cmbInforma_Species.Enabled = true;
                 }
                 else
                 {
@@ -914,9 +917,44 @@ namespace PoryPoke
                 e.Handled = true;
         }
 
+        private void switchFormElementState(bool enabled)
+        {
+            txtStats_baseHP.Enabled = enabled;
+            txtStats_baseATK.Enabled = enabled;
+            txtStats_baseDEF.Enabled = enabled;
+            txtStats_baseSPEED.Enabled = enabled;
+            txtStats_baseSPATK.Enabled = enabled;
+            txtStats_baseSPDEF.Enabled = enabled;
+            txtStats_evHP.Enabled = enabled;
+            txtStats_evATK.Enabled = enabled;
+            txtStats_evDEF.Enabled = enabled;
+            txtStats_evSPEED.Enabled = enabled;
+            txtStats_evSPATK.Enabled = enabled;
+            txtStats_evSPDEF.Enabled = enabled;
+            txtStats_catchRate.Enabled = enabled;
+            txtStats_expYield.Enabled = enabled;
+            ddlStats_type1.Enabled = enabled;
+            ddlStats_type2.Enabled = enabled;
+            ddlStats_item1.Enabled = enabled;
+            ddlStats_item2.Enabled = enabled;
+            chkStats_gender.Enabled = enabled;
+            txtStats_genderRatio.Enabled = enabled;
+            txtStats_eggCycles.Enabled = enabled;
+            txtStats_friendship.Enabled = enabled;
+            ddlStats_growthRate.Enabled = enabled;
+            ddlStats_eggGroup1.Enabled = enabled;
+            ddlStats_eggGroup2.Enabled = enabled;
+            ddlStats_ability1.Enabled = enabled;
+            ddlStats_ability2.Enabled = enabled;
+            ddlStats_safariFleeRate.Enabled = enabled;
+            ddlStats_bodyColor.Enabled = enabled;
+        }
+
         private void refreshInterface()
         {
             Class.Pokemon poke = PokemonDictionary[cmbInforma_Species.SelectedItem.ToString()];
+
+            switchFormElementState(!poke.IsOldUnown);
 
             txtStats_baseHP.Text = poke.BaseHP.ToString();
             txtStats_baseATK.Text = poke.BaseAttack.ToString();
