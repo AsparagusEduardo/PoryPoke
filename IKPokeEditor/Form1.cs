@@ -45,7 +45,7 @@ namespace PoryPoke
             menuSavingEmptyBaseStatsToolStripMenuItem.Checked = bool.Parse(Configuration.Config["hideEmptyBaseStats"]);
             cmbInforma_Species.Enabled = false;
             switchFormElementState(false);
-            Language.LoadLanguageFiles();
+            Configuration.LoadLanguageFiles();
             LoadLanguage(Configuration.Config["language"]);
         }
 
@@ -3620,7 +3620,7 @@ namespace PoryPoke
         private void LoadLanguage(string lang)
         {
             menuLanguageToolStripMenuItem.DropDownItems.Clear();
-            foreach (KeyValuePair<string, Dictionary<string, string>> entry in Language.LanguageFiles)
+            foreach (KeyValuePair<string, Dictionary<string, string>> entry in Configuration.LanguageFiles)
             {
                 ToolStripMenuItem langItem = new ToolStripMenuItem(entry.Key);
                 langItem.Click += new EventHandler(menuLanguageToolStripMenuItem_Click);
@@ -3677,7 +3677,7 @@ namespace PoryPoke
             string str = textId;
             try
             {
-                Dictionary<string, string> text = Language.LanguageFiles[lang];
+                Dictionary<string, string> text = Configuration.LanguageFiles[lang];
                 if (text != null)
                     str = text[textId];
             }
