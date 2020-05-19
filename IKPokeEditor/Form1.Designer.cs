@@ -194,7 +194,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1011, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1010, 19);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -204,7 +204,7 @@
             this.menuFolderToolStripMenuItem,
             this.menuSaveToolStripMenuItem});
             this.menuFileToolStripMenuItem.Name = "menuFileToolStripMenuItem";
-            this.menuFileToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.menuFileToolStripMenuItem.Size = new System.Drawing.Size(68, 15);
             this.menuFileToolStripMenuItem.Text = "menuFile";
             // 
             // menuFolderToolStripMenuItem
@@ -229,7 +229,7 @@
             this.menuOptionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuLanguageToolStripMenuItem});
             this.menuOptionsToolStripMenuItem.Name = "menuOptionsToolStripMenuItem";
-            this.menuOptionsToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
+            this.menuOptionsToolStripMenuItem.Size = new System.Drawing.Size(92, 15);
             this.menuOptionsToolStripMenuItem.Text = "menuOptions";
             // 
             // menuLanguageToolStripMenuItem
@@ -961,7 +961,7 @@
             // 
             // btnStats_New
             // 
-            this.btnStats_New.Location = new System.Drawing.Point(220, 42);
+            this.btnStats_New.Location = new System.Drawing.Point(274, 42);
             this.btnStats_New.Name = "btnStats_New";
             this.btnStats_New.Size = new System.Drawing.Size(73, 23);
             this.btnStats_New.TabIndex = 2;
@@ -984,13 +984,13 @@
             this.cmbInforma_Species.FormattingEnabled = true;
             this.cmbInforma_Species.Location = new System.Drawing.Point(17, 43);
             this.cmbInforma_Species.Name = "cmbInforma_Species";
-            this.cmbInforma_Species.Size = new System.Drawing.Size(102, 21);
+            this.cmbInforma_Species.Size = new System.Drawing.Size(156, 21);
             this.cmbInforma_Species.TabIndex = 6;
             this.cmbInforma_Species.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // POKEMON_NAME
             // 
-            this.POKEMON_NAME.Location = new System.Drawing.Point(125, 43);
+            this.POKEMON_NAME.Location = new System.Drawing.Point(179, 43);
             this.POKEMON_NAME.MaxLength = 12;
             this.POKEMON_NAME.Name = "POKEMON_NAME";
             this.POKEMON_NAME.ReadOnly = true;
@@ -999,7 +999,7 @@
             // 
             // btnStats_Save
             // 
-            this.btnStats_Save.Location = new System.Drawing.Point(299, 42);
+            this.btnStats_Save.Location = new System.Drawing.Point(353, 42);
             this.btnStats_Save.Name = "btnStats_Save";
             this.btnStats_Save.Size = new System.Drawing.Size(75, 23);
             this.btnStats_Save.TabIndex = 5;
@@ -1027,13 +1027,13 @@
             this.cmbGraphic_Species.FormattingEnabled = true;
             this.cmbGraphic_Species.Location = new System.Drawing.Point(17, 18);
             this.cmbGraphic_Species.Name = "cmbGraphic_Species";
-            this.cmbGraphic_Species.Size = new System.Drawing.Size(121, 21);
+            this.cmbGraphic_Species.Size = new System.Drawing.Size(162, 21);
             this.cmbGraphic_Species.TabIndex = 3;
             this.cmbGraphic_Species.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(144, 17);
+            this.button7.Location = new System.Drawing.Point(185, 17);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(75, 23);
             this.button7.TabIndex = 2;
@@ -1268,7 +1268,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(144, 17);
+            this.button6.Location = new System.Drawing.Point(185, 17);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(75, 23);
             this.button6.TabIndex = 3;
@@ -1287,11 +1287,13 @@
             // 
             // cmbPokedex_Species
             // 
+            this.cmbPokedex_Species.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbPokedex_Species.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbPokedex_Species.DropDownWidth = 156;
             this.cmbPokedex_Species.FormattingEnabled = true;
             this.cmbPokedex_Species.Location = new System.Drawing.Point(17, 18);
             this.cmbPokedex_Species.Name = "cmbPokedex_Species";
-            this.cmbPokedex_Species.Size = new System.Drawing.Size(121, 21);
+            this.cmbPokedex_Species.Size = new System.Drawing.Size(162, 21);
             this.cmbPokedex_Species.TabIndex = 2;
             this.cmbPokedex_Species.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
@@ -1417,7 +1419,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1011, 580);
+            this.ClientSize = new System.Drawing.Size(1263, 725);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
