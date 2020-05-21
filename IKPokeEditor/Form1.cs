@@ -873,10 +873,14 @@ namespace PoryPoke
                     this.Size = new Size(1027, 619);
                     break;
                 case 1:
-                    this.Size = new Size(411, 525);
+                    MessageBox.Show("Not ready yet...", "Sorry");
+                    tabControl1.SelectedIndex = 0;
+                    //this.Size = new Size(411, 525);
                     break;
                 case 2:
-                    this.Size = new Size(512, 356);
+                    MessageBox.Show("Not ready yet...", "Sorry");
+                    tabControl1.SelectedIndex = 0;
+                    //this.Size = new Size(512, 356);
                     break;
 
             }
