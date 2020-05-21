@@ -1731,12 +1731,12 @@ namespace PoryPoke
                 var index2 = str.IndexOf("    }", index) + 5;
                 var preStr = str.Substring(0, index);
                 var postStr = str.Substring(index2 + 1);
-                str = preStr + finalString + postStr.Substring(0, postStr.Length - 1);
+                str = preStr + finalString + postStr.Substring(0, postStr.Length);
                 index = str.LastIndexOf("[SPECIES");
                 index = str.IndexOf("    },", index);
 
                 StreamWriter sw = new StreamWriter(dictionary["pFile_base_stats_h"].ToString(), false);
-                sw.WriteLine(str);
+                sw.Write(str);
                 sw.Close();
             }
         }
@@ -1830,7 +1830,7 @@ namespace PoryPoke
                     finalString = "\n" + formatBaseStatString(poke, menuSavingEmptyBaseStatsToolStripMenuItem.Checked);
                 sw.WriteLine(finalString);
             }
-            sw.WriteLine("};");
+            sw.Write("};");
             sw.Close();
         }
 
