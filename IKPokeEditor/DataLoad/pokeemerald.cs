@@ -50,27 +50,6 @@ namespace PoryPoke.DataLoad
             }
         }
 
-        public static void LoadGrowthRate(string str, ref Dictionary<string, Dictionary<string, string>> infoData)
-        {
-            int index = 0;
-            int lastIndex = 0;
-
-            var totalGrowthModes = Regex.Matches(str, "GROWTH_").Cast<Match>().Count() - 1;
-
-            for (int i = 0; i <= totalGrowthModes; i++)
-            {
-                index = str.IndexOf("GROWTH_", lastIndex + 2);
-                lastIndex = index;
-
-                var growthName = str.Substring((index + 7), (str.IndexOf("\n", index) - (index + 7)));
-                growthName = growthName.Split(' ')[0];
-                growthName = growthName.Replace(@"_", " ");
-
-                infoData["crecimiento"][i.ToString()] = growthName;
-                //MessageBox.Show("Crecimiento: " + infoData["crecimiento"][i.ToString()]);
-            }
-        }
-
         public static void LoadMonBaseStats(string str, string speciesNames, ref Dictionary<string, Class.Pokemon> PokemonDictionary)
         {
             string[] mons = str.Split(new string[] { "[SPECIES_NONE]" }, StringSplitOptions.None)[1].Split(new string[] { "[SPECIES_" }, StringSplitOptions.None);

@@ -203,10 +203,6 @@ namespace PoryPoke
 
             DataLoad.pokeemerald.LoadMonBaseStats(str, speciesNames, ref PokemonDictionary);
 
-            string pokemonName = null;
-
-            Class.Pokemon poke;
-
             for (int i = 0; i < 13; i++)
             {
                 /*
@@ -888,14 +884,7 @@ namespace PoryPoke
 
         private void generoCheck_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkStats_gender.Checked == true)
-            {
-                txtStats_genderRatio.Enabled = true;
-            }
-            else
-            {
-                txtStats_genderRatio.Enabled = false;
-            }
+            txtStats_genderRatio.Enabled = chkStats_gender.Checked;
         }
 
         private void detectIfNumber(object sender, KeyPressEventArgs e)
@@ -1341,9 +1330,8 @@ namespace PoryPoke
             /*setMovementsData();*/
             setItemsData();
             /*setMTMOData();*/
-            setEggAndColorData();
+            setEggColorGrowthData();
             setAbilitiesData();
-            setGrowthData();
             /*setEvolutiveMethodData();*/
         }
 
@@ -1420,13 +1408,15 @@ namespace PoryPoke
             }
         }
 
-        private void setEggAndColorData()
+        private void setEggColorGrowthData()
         {
             string str = data["pFile_pokemon_h"].ToString();
             DataLoad.pokeemerald.LoadBaseStat(str, "EGG_GROUP_", "grupos_huevo", ref infoData);
             DataLoad.pokeemerald.LoadBaseStat(str, "BODY_COLOR_", "color_cuerpo", ref infoData);
+            DataLoad.pokeemerald.LoadBaseStat(str, "GROWTH_", "crecimiento", ref infoData);
             addEggGroupToComboBox();
             addBodyColorToComboBox();
+            addGrowthToComboBox();
         }
 
         private void setAbilitiesData()
@@ -1434,13 +1424,6 @@ namespace PoryPoke
             string str = data["pFile_abilities_h"].ToString();
             DataLoad.pokeemerald.LoadBaseStat(str, "ABILITY_", "habilidades", ref infoData);
             addAbilitiesToComboBox();
-        }
-
-        private void setGrowthData()
-        {
-            string str = data["pFile_pokemon_h"].ToString();
-            DataLoad.pokeemerald.LoadGrowthRate(str, ref infoData);
-            addGrowthToComboBox();
         }
 
         private void setEvolutiveMethodData()
@@ -1689,7 +1672,6 @@ namespace PoryPoke
             poke.Item1 = "ITEM_" + ddlStats_item1.Text.Replace(" ", "_");
             poke.Item2 = "ITEM_" + ddlStats_item2.Text.Replace(" ", "_");
 
-            string genderRatio;
             if (chkStats_gender.Checked)
             {
                 poke.HasGender = true;
