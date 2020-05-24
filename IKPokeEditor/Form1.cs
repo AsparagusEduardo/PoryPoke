@@ -119,13 +119,13 @@ namespace PoryPoke
                     pathErr = path.Substring(0, path.LastIndexOfAny(new char[] { '\\', '/' }));
                     fileErr = path.Substring(path.LastIndexOfAny(new char[] { '\\', '/' }) + 1);
                 }
-                pathToSearch = path;
+                //pathToSearch = path;
 
-                pathToSearch = pathToSearch.Substring(pathToSearch.LastIndexOfAny(new char[] { '\\', '/' }) + 1);
-                pathToSearch = pathToSearch.Substring(0, pathToSearch.LastIndexOfAny(new char[] { '.' })) + "_" + pathToSearch.Substring(pathToSearch.LastIndexOfAny(new char[] { '.' }) + 1);
+                //pathToSearch = pathToSearch.Substring(pathToSearch.LastIndexOfAny(new char[] { '\\', '/' }) + 1);
+                //pathToSearch = pathToSearch.Substring(0, pathToSearch.LastIndexOfAny(new char[] { '.' })) + "_" + pathToSearch.Substring(pathToSearch.LastIndexOfAny(new char[] { '.' }) + 1);
 
-                dictionary["pFile_" + pathToSearch.ToString()] = path;
-                data["pFile_" + pathToSearch.ToString()] = null;
+                dictionary[entry.Key] = path;
+                data[entry.Key] = null;
 
                 //MessageBox.Show("pFile_" + pathToSearch + " directory: " + dictionary["pFile_" + pathToSearch.ToString()].ToString());
 
@@ -1220,6 +1220,7 @@ namespace PoryPoke
 
         private void setPokemonDataDictionary()
         {
+            /*
             pokemonData.Add("pokemonName", new Dictionary<string, string>());
             pokemonData.Add("psBase", new Dictionary<string, string>());
             pokemonData.Add("ataqueBase", new Dictionary<string, string>());
@@ -1263,6 +1264,7 @@ namespace PoryPoke
             pokemonData.Add("frontCord", new Dictionary<string, string>());
             pokemonData.Add("elevate", new Dictionary<string, string>());
             pokemonData.Add("palUsed", new Dictionary<string, string>());
+            */
         }
 
         private void cleanAll()
@@ -1342,7 +1344,7 @@ namespace PoryPoke
         private void setTypesData()
         {
             string str = data["pFile_pokemon_h"].ToString();
-            DataLoad.pokeemerald.LoadBaseStat(str, "TYPE_", "tipos", ref infoData);
+            DataLoad.pokeemerald.LoadBaseStatConstant(str, "TYPE_", "tipos", ref infoData);
             addTypesToComboBox();
         }
 
@@ -1415,9 +1417,9 @@ namespace PoryPoke
         private void setEggColorGrowthData()
         {
             string str = data["pFile_pokemon_h"].ToString();
-            DataLoad.pokeemerald.LoadBaseStat(str, "EGG_GROUP_", "grupos_huevo", ref infoData);
-            DataLoad.pokeemerald.LoadBaseStat(str, "BODY_COLOR_", "color_cuerpo", ref infoData);
-            DataLoad.pokeemerald.LoadBaseStat(str, "GROWTH_", "crecimiento", ref infoData);
+            DataLoad.pokeemerald.LoadBaseStatConstant(str, "EGG_GROUP_", "grupos_huevo", ref infoData);
+            DataLoad.pokeemerald.LoadBaseStatConstant(str, "BODY_COLOR_", "color_cuerpo", ref infoData);
+            DataLoad.pokeemerald.LoadBaseStatConstant(str, "GROWTH_", "crecimiento", ref infoData);
             addEggGroupToComboBox();
             addBodyColorToComboBox();
             addGrowthToComboBox();
@@ -1426,7 +1428,7 @@ namespace PoryPoke
         private void setAbilitiesData()
         {
             string str = data["pFile_abilities_h"].ToString();
-            DataLoad.pokeemerald.LoadBaseStat(str, "ABILITY_", "habilidades", ref infoData);
+            DataLoad.pokeemerald.LoadBaseStatConstant(str, "ABILITY_", "habilidades", ref infoData);
             addAbilitiesToComboBox();
         }
 

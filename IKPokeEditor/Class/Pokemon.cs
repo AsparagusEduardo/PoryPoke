@@ -8,6 +8,7 @@ namespace PoryPoke.Class
 {
     public class Pokemon
     {
+        public bool IsOldUnown { get; set; }
         public string ID { get; set; }
         public string Name { get; set; }
         public int BaseHP { get; set; }
@@ -40,6 +41,6 @@ namespace PoryPoke.Class
         public int SafariFleeRate { get; set; }
         public string BodyColor { get; set; }
         public bool NoFlip { get; set; }
-        public bool IsOldUnown { get; set; }
+        public Dictionary<string, string[]> CustomBaseStats { get; set; } // statID, dataType
     }
 }

@@ -10,7 +10,7 @@ namespace PoryPoke.DataLoad
 {
     public class pokeemerald
     {
-        public static void LoadBaseStat(string str, string prefix, string infoID, ref Dictionary<string, Dictionary<string, string>> infoData)
+        public static void LoadBaseStatConstant(string str, string prefix, string infoID, ref Dictionary<string, Dictionary<string, string>> infoData)
         {
             int index;
             int lastIndex = 0;
