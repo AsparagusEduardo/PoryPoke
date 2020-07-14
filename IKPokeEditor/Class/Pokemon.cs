@@ -42,5 +42,23 @@ namespace PoryPoke.Class
         public string BodyColor { get; set; }
         public bool NoFlip { get; set; }
         public Dictionary<string, string[]> CustomBaseStats { get; set; } // statID, dataType
+
+        public Pokemon()
+        {
+            IsOldUnown = false;
+            BaseHP = BaseAttack = BaseDefense = BaseSpeed = BaseSpAttack = BaseSpDefense = 1;
+            Type1 = Type2 = "TYPE_NONE";
+            CatchRate = ExpYield = 0;
+            EvHP = EvAttack = EvDefense = EvSpeed = EvSpAttack = EvSpDefense = 0;
+            Item1 = Item2 = "ITEM_NONE";
+            HasGender = false;
+            GenderRatio = EggCycles = Friendship = 0;
+            GrowthRate = "GROWTH_SLOW";
+            EggGroup1 = EggGroup2 = "EGG_GROUP_UNDISCOVERED";
+            Ability1 = Ability2 = "ABILITY_NONE";
+            SafariFleeRate = 0;
+            BodyColor = "BODY_COLOR_GREEN";
+            NoFlip = false;
+        }
     }
 }

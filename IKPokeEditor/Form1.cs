@@ -948,8 +948,19 @@ namespace PoryPoke
 
         private void refreshInterface()
         {
-            Class.Pokemon poke = PokemonDictionary[cmbInforma_Species.SelectedItem.ToString()];
-
+            string speciesID = cmbInforma_Species.SelectedItem.ToString();
+            Class.Pokemon poke = new Class.Pokemon();
+            try
+            {
+                poke = PokemonDictionary[speciesID];
+            }
+            catch (KeyNotFoundException)
+            {
+                MessageBox.Show("No data found for " + speciesID + ". Default values will now be created.", "Warning");
+                poke.ID = speciesID;
+                poke.Name = speciesID;
+                PokemonDictionary.Add(speciesID, poke);
+            }
             switchFormElementState(!poke.IsOldUnown);
 
             txtStats_baseHP.Text = poke.BaseHP.ToString();
@@ -1716,12 +1727,22 @@ namespace PoryPoke
                 string finalString = formatBaseStatString(poke, menuSavingEmptyBaseStatsToolStripMenuItem.Checked);
 
                 var index = str.IndexOf("[SPECIES_" + poke.ID) - 4;
-                var index2 = str.IndexOf("    }", index) + 5;
-                var preStr = str.Substring(0, index);
-                var postStr = str.Substring(index2 + 1);
-                str = preStr + finalString + postStr.Substring(0, postStr.Length);
-                index = str.LastIndexOf("[SPECIES");
-                index = str.IndexOf("    },", index);
+
+                if (index > 0)
+                {
+                    var index2 = str.IndexOf("    }", index) + 5;
+                    var preStr = str.Substring(0, index);
+                    var postStr = str.Substring(index2 + 1);
+                    str = preStr + finalString + postStr.Substring(0, postStr.Length);
+                    index = str.LastIndexOf("[SPECIES");
+                    index = str.IndexOf("    },", index);
+                }
+                else
+                {
+                    index = str.IndexOf("};");
+                    var preStr = str.Substring(0, index);
+                    str = preStr + "\n" + finalString + "\n};\n";
+                }
 
                 StreamWriter sw = new StreamWriter(dictionary["pFile_base_stats_h"].ToString(), false);
                 sw.Write(str);
