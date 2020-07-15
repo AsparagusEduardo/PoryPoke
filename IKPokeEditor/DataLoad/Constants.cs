@@ -40,6 +40,8 @@ namespace PoryPoke
             { "pFile_pokemon_h",                    "\\include\\constants\\pokemon.h"},
             { "pFile_abilities_h",                  "\\include\\constants\\abilities.h"},
             //{ "pFile_evolution_h",                  "\\src\\data\\pokemon\\evolution.h"},
+
+            { "pFile_pokemon_structs",              "\\include\\pokemon.h"},
         };
     }
 }

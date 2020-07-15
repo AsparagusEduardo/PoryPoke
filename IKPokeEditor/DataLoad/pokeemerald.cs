@@ -29,6 +29,97 @@ namespace PoryPoke.DataLoad
             }
         }
 
+        public static void LoadPokemonStruct(string str, ref Dictionary<string, string[]> dict, ref bool isPokemonExpansion)
+        {
+            string statName;
+            string prevStatName = "";
+            isPokemonExpansion = false;
+            dict.Clear();
+
+            int index = str.IndexOf("struct BaseStats") + 19;
+            string stru = str.Substring(index, str.IndexOf("}", index) - index - 1);
+            foreach(string s in stru.Split('\n'))
+            {
+                int index2 = s.IndexOf("u");
+                string s1 = s.Substring(index2);
+                string s2 = s1.Substring(s1.IndexOf(" ") + 1);
+
+                if(s2.IndexOf(":") != -1)
+                    statName = s2.Substring(0, s2.IndexOf(":")).Trim();
+                else
+                {
+                    if (s2.IndexOf("[") != -1)
+                        statName = s2.Substring(0, s2.IndexOf("[")).Trim();
+                    else
+                        statName = s2.Substring(0, s2.IndexOf(";")).Trim();
+                }
+                string[] info;
+                switch (statName)
+                {
+                    default:
+                        info = new string[] { "CUSTOM", "ABILITY", "" };
+                        break;
+                    case "baseHP":
+                    case "baseAttack":
+                    case "baseDefense":
+                    case "baseSpeed":
+                    case "baseSpAttack":
+                    case "baseSpDefense":
+                    case "catchRate":
+                    case "expYield":
+                    case "evYield_HP":
+                    case "evYield_Attack":
+                    case "evYield_Defense":
+                    case "evYield_Speed":
+                    case "evYield_SpAttack":
+                    case "evYield_SpDefense":
+                    case "eggCycles":
+                    case "friendship":
+                    case "safariZoneFleeRate":
+                        info = new string[] { "VANILLA", "NUMBER", "" };
+                        break;
+                    case "type1":
+                    case "type2":
+                        info = new string[] { "VANILLA", "TYPE", "" };
+                        break;
+                    case "item1":
+                    case "item2":
+                        info = new string[] { "VANILLA", "ITEM", "" };
+                        break;
+                    case "genderRatio":
+                        info = new string[] { "VANILLA", "GENDER", "" };
+                        break;
+                    case "growthRate":
+                        info = new string[] { "VANILLA", "GROWTH", "" };
+                        break;
+                    case "eggGroup1":
+                    case "eggGroup2":
+                        info = new string[] { "VANILLA", "EGGGROUP", "" };
+                        break;
+                    case "abilities":
+                        info = new string[] { "VANILLA", "ABILITIES", "" };
+                        break;
+                    case "abilityHidden":
+                        isPokemonExpansion = true;
+                        info = new string[] { "CUSTOM", "ABILITY", "" };
+                        break;
+                    case "bodyColor":
+                        info = new string[] { "VANILLA", "BODYCOLOR", "" };
+                        break;
+                    case "noFlip":
+                        info = new string[] { "VANILLA", "BOOLEAN", "" };
+                        break;
+                }
+                dict.Add(statName, info);
+                if (!prevStatName.Equals(""))
+                    dict[prevStatName][2] = statName;
+                prevStatName = statName;
+
+            }
+            int a = 1;
+            //dict.ContainsKey
+        }
+
         public static void LoadItems(string str, ref Dictionary<string, Dictionary<string, string>> infoData)
         {
             int index = 0;
@@ -132,7 +223,7 @@ namespace PoryPoke.DataLoad
                     case "item2":
                         return "ITEM_NONE";
                     case "abilityHidden":
-                        return null;
+                        return "ABILITY_NONE";
                     default:
                         return "0";
                 }

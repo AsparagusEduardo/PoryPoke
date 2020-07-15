@@ -34,6 +34,7 @@ namespace PoryPoke
         Dictionary<string, string> data = new Dictionary<string, string>();
         Dictionary<string, Dictionary<string, string>> pokemonData = new Dictionary<string, Dictionary<string, string>>();
         Dictionary<string, Class.Pokemon> PokemonDictionary = new Dictionary<string, Class.Pokemon>();
+        Dictionary<string, string[]> CustomBaseStats = new Dictionary<string, string[]>();
         Dictionary<string, Dictionary<string, string>> infoData = new Dictionary<string, Dictionary<string, string>>();
         Dictionary<string, Tuple<string, string, string, string>> evolutionData = new Dictionary<string, Tuple<string, string, string, string>>();
         Dictionary<string, Tuple<string, string, string>> moveData = new Dictionary<string, Tuple<string, string, string>>();
@@ -993,7 +994,7 @@ namespace PoryPoke
             ddlStats_eggGroup2.SelectedIndex = int.Parse(infoData["grupos_huevo"].FirstOrDefault(x => x.Value.Contains(poke.EggGroup2.Substring(10).Replace("_", " "))).Key);
             ddlStats_ability1.SelectedIndex = int.Parse(infoData["habilidades"].FirstOrDefault(x => x.Value.Contains(poke.Ability1.Substring(8).Replace("_", " "))).Key);
             ddlStats_ability2.SelectedIndex = int.Parse(infoData["habilidades"].FirstOrDefault(x => x.Value.Contains(poke.Ability2.Substring(8).Replace("_", " "))).Key);
-            if (poke.AbilityHidden != null)
+            if (isPokemonExpansion)
             {
                 ddlStats_abilityHidden.SelectedIndex = int.Parse(infoData["habilidades"].FirstOrDefault(x => x.Value.Contains(poke.AbilityHidden.Substring(8).Replace("_", " "))).Key);
                 ddlStats_abilityHidden.Enabled = true;
@@ -1243,6 +1244,9 @@ namespace PoryPoke
 
         private void setPokemonDataDictionary()
         {
+            string str = data["pFile_pokemon_structs"].ToString();
+            DataLoad.pokeemerald.LoadPokemonStruct(str, ref CustomBaseStats, ref isPokemonExpansion);
+
             /*
             pokemonData.Add("pokemonName", new Dictionary<string, string>());
             pokemonData.Add("psBase", new Dictionary<string, string>());
@@ -1724,7 +1728,7 @@ namespace PoryPoke
             poke.EggGroup2 = "EGG_GROUP_" + ddlStats_eggGroup2.Text.Replace(" ", "_");
             poke.Ability1 = "ABILITY_" + ddlStats_ability1.Text.Replace(" ", "_");
             poke.Ability2 = "ABILITY_" + ddlStats_ability2.Text.Replace(" ", "_");
-            if (ddlStats_abilityHidden.Enabled)
+            if (isPokemonExpansion)
                 poke.AbilityHidden = "ABILITY_" + ddlStats_abilityHidden.Text.Replace(" ", "_");
             else
                 poke.AbilityHidden = null;
@@ -1816,7 +1820,7 @@ namespace PoryPoke
             finalString += ",\n        .eggGroup1 = " + poke.EggGroup1;
             finalString += ",\n        .eggGroup2 = " + poke.EggGroup2;
             finalString += ",\n        .abilities = {" + poke.Ability1 + ", " + poke.Ability2 + "}";
-            if (poke.AbilityHidden != null)
+            if (isPokemonExpansion && (!hideZeroes || !poke.AbilityHidden.Equals("ABILITY_NONE")))
                 finalString += ",\n        .abilityHidden = " + poke.AbilityHidden;
             if (!hideZeroes || poke.SafariFleeRate != 0)
                 finalString += ",\n        .safariZoneFleeRate = " + poke.SafariFleeRate;
