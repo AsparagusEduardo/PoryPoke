@@ -109,6 +109,7 @@ namespace PoryPoke.DataLoad
                     string abilities = LoadStat(ref mon, ref poke, index, "abilities");
                     poke.Ability1 = abilities.Substring(1, abilities.IndexOf(",") - 1);
                     poke.Ability2 = abilities.Substring(abilities.IndexOf(",") + 2, abilities.IndexOf("}") - abilities.IndexOf(",") - 2);
+                    poke.AbilityHidden = LoadStat(ref mon, ref poke, index, "abilityHidden");
                     poke.SafariFleeRate = int.Parse(LoadStat(ref mon, ref poke, index, "safariZoneFleeRate"));
                     poke.BodyColor = LoadStat(ref mon, ref poke, index, "bodyColor");
                     poke.NoFlip = bool.Parse(LoadStat(ref mon, ref poke, index, "noFlip"));
@@ -130,6 +131,8 @@ namespace PoryPoke.DataLoad
                     case "item1":
                     case "item2":
                         return "ITEM_NONE";
+                    case "abilityHidden":
+                        return null;
                     default:
                         return "0";
                 }

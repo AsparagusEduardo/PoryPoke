@@ -27,6 +27,8 @@ namespace PoryPoke
         string pathErr = null;
         string fileErr = null;
 
+        bool isPokemonExpansion = false;
+
         //Dictionaries
         Dictionary<string, string> dictionary = new Dictionary<string, string>();
         Dictionary<string, string> data = new Dictionary<string, string>();
@@ -991,6 +993,16 @@ namespace PoryPoke
             ddlStats_eggGroup2.SelectedIndex = int.Parse(infoData["grupos_huevo"].FirstOrDefault(x => x.Value.Contains(poke.EggGroup2.Substring(10).Replace("_", " "))).Key);
             ddlStats_ability1.SelectedIndex = int.Parse(infoData["habilidades"].FirstOrDefault(x => x.Value.Contains(poke.Ability1.Substring(8).Replace("_", " "))).Key);
             ddlStats_ability2.SelectedIndex = int.Parse(infoData["habilidades"].FirstOrDefault(x => x.Value.Contains(poke.Ability2.Substring(8).Replace("_", " "))).Key);
+            if (poke.AbilityHidden != null)
+            {
+                ddlStats_abilityHidden.SelectedIndex = int.Parse(infoData["habilidades"].FirstOrDefault(x => x.Value.Contains(poke.AbilityHidden.Substring(8).Replace("_", " "))).Key);
+                ddlStats_abilityHidden.Enabled = true;
+            }
+            else
+            {
+                ddlStats_abilityHidden.Enabled = false;
+                ddlStats_abilityHidden.Text = "";
+            }
             ddlStats_safariFleeRate.Text = poke.SafariFleeRate.ToString();
             ddlStats_bodyColor.SelectedIndex = int.Parse(infoData["color_cuerpo"].FirstOrDefault(x => x.Value.Contains(poke.BodyColor.Substring(11))).Key);
 
@@ -1305,6 +1317,7 @@ namespace PoryPoke
             ddlStats_eggGroup2.Items.Clear();
             ddlStats_ability1.Items.Clear();
             ddlStats_ability2.Items.Clear();
+            ddlStats_abilityHidden.Items.Clear();
             ddlStats_item1.Items.Clear();
             ddlStats_item2.Items.Clear();
             iconPalette.Items.Clear();
@@ -1551,6 +1564,7 @@ namespace PoryPoke
 
             ddlStats_ability1.Items.Clear();
             ddlStats_ability2.Items.Clear();
+            ddlStats_abilityHidden.Items.Clear();
 
             for (int i = 0; i < abilitiesAmount; i++)
             {
@@ -1558,6 +1572,7 @@ namespace PoryPoke
                 //MessageBox.Show(insertAbilityName);
                 ddlStats_ability1.Items.Insert(i, insertAbilityName);
                 ddlStats_ability2.Items.Insert(i, insertAbilityName);
+                ddlStats_abilityHidden.Items.Insert(i, insertAbilityName);
             }
         }
 
@@ -1709,6 +1724,10 @@ namespace PoryPoke
             poke.EggGroup2 = "EGG_GROUP_" + ddlStats_eggGroup2.Text.Replace(" ", "_");
             poke.Ability1 = "ABILITY_" + ddlStats_ability1.Text.Replace(" ", "_");
             poke.Ability2 = "ABILITY_" + ddlStats_ability2.Text.Replace(" ", "_");
+            if (ddlStats_abilityHidden.Enabled)
+                poke.AbilityHidden = "ABILITY_" + ddlStats_abilityHidden.Text.Replace(" ", "_");
+            else
+                poke.AbilityHidden = null;
             poke.SafariFleeRate = int.Parse(ddlStats_safariFleeRate.Text);
             poke.BodyColor = "BODY_COLOR_" + ddlStats_bodyColor.Text.Replace(" ", "_");
         }
@@ -1797,6 +1816,8 @@ namespace PoryPoke
             finalString += ",\n        .eggGroup1 = " + poke.EggGroup1;
             finalString += ",\n        .eggGroup2 = " + poke.EggGroup2;
             finalString += ",\n        .abilities = {" + poke.Ability1 + ", " + poke.Ability2 + "}";
+            if (poke.AbilityHidden != null)
+                finalString += ",\n        .abilityHidden = " + poke.AbilityHidden;
             if (!hideZeroes || poke.SafariFleeRate != 0)
                 finalString += ",\n        .safariZoneFleeRate = " + poke.SafariFleeRate;
             finalString += ",\n        .bodyColor = " + poke.BodyColor;
@@ -1839,7 +1860,7 @@ namespace PoryPoke
                     finalString = "\n" + formatBaseStatString(poke, menuSavingEmptyBaseStatsToolStripMenuItem.Checked);
                 sw.WriteLine(finalString);
             }
-            sw.Write("};");
+            sw.Write("};\n");
             sw.Close();
         }
 

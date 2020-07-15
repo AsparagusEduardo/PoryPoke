@@ -38,6 +38,7 @@ namespace PoryPoke.Class
         public string EggGroup2 { get; set; }
         public string Ability1 { get; set; }
         public string Ability2 { get; set; }
+        public string AbilityHidden { get; set; }
         public int SafariFleeRate { get; set; }
         public string BodyColor { get; set; }
         public bool NoFlip { get; set; }
@@ -56,6 +57,7 @@ namespace PoryPoke.Class
             GrowthRate = "GROWTH_SLOW";
             EggGroup1 = EggGroup2 = "EGG_GROUP_UNDISCOVERED";
             Ability1 = Ability2 = "ABILITY_NONE";
+            AbilityHidden = null;
             SafariFleeRate = 0;
             BodyColor = "BODY_COLOR_GREEN";
             NoFlip = false;
