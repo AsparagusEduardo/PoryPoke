@@ -704,7 +704,8 @@ namespace PoryPoke
 
         private void button1_Click(object sender, EventArgs e)
         {
-            generarPokemon();
+            SorryNotImplemented();
+            //generarPokemon();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -738,6 +739,8 @@ namespace PoryPoke
 
         private void button3_Click(object sender, EventArgs e)
         {
+            SorryNotImplemented();
+            /*
             if ((dataGridView2.Rows.Count - 1) > 0)
             {
                 dataGridView2.Rows.RemoveAt(Int32.Parse(EvolucionAEliminar.Value.ToString()));
@@ -757,10 +760,13 @@ namespace PoryPoke
             {
                 EvolucionAEliminar.Maximum = 0;
             }
+            */
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
+            SorryNotImplemented();
+            /*
             if ((dataGridView1.Rows.Count - 1) > 1)
             {
                 dataGridView1.Rows.RemoveAt(Int32.Parse(MovimientoAEliminar.Value.ToString()));
@@ -770,6 +776,7 @@ namespace PoryPoke
                 MovimientoAEliminar.Value--;
             }
             MovimientoAEliminar.Maximum = (dataGridView1.Rows.Count - 2);
+            */
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -876,12 +883,12 @@ namespace PoryPoke
                     this.Size = new Size(1027, 619);
                     break;
                 case 1:
-                    MessageBox.Show("Not ready yet...", "Sorry");
+                    SorryNotImplemented();
                     tabControl1.SelectedIndex = 0;
                     //this.Size = new Size(411, 525);
                     break;
                 case 2:
-                    MessageBox.Show("Not ready yet...", "Sorry");
+                    SorryNotImplemented();
                     tabControl1.SelectedIndex = 0;
                     //this.Size = new Size(512, 356);
                     break;
@@ -3756,6 +3763,11 @@ namespace PoryPoke
             Configuration.Config["hideEmptyBaseStats"] = (!menuSavingEmptyBaseStatsToolStripMenuItem.Checked).ToString().ToLower();
             Configuration.SaveConfig();
             menuSavingEmptyBaseStatsToolStripMenuItem.Checked = !menuSavingEmptyBaseStatsToolStripMenuItem.Checked;
+        }
+
+        private void SorryNotImplemented()
+        {
+            MessageBox.Show("Not ready yet...", "Sorry");
         }
     }
 }
